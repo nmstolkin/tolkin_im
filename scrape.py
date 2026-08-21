@@ -34,7 +34,7 @@ ERROR_LOG = os.path.join(DATA_DIR, "last_errors.json")
 SITES_FILE = "sites.json"
 
 # Datei, die die Homescreen-App (docs/index.html) anzeigt
-APP_DATA_FILE = os.path.join("docs", "data.json")
+APP_DATA_FILE = "data.json"
 MAX_MATCHES_KEPT = 200  # ältere Treffer werden aus der App-Ansicht ausgeblendet
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")

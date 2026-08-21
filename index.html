@@ -17,11 +17,17 @@
     --paper-raised:#ffffff;
     --petrol:#1e5c54;
     --petrol-deep:#12433d;
+    --petrol-pale:#e3ede9;
     --clay:#c96f4a;
+    --clay-pale:#fbeee6;
     --line:#e4ddcf;
     --muted:#736c5f;
+    --danger:#b1453a;
+    --danger-pale:#fbeae8;
+    --ok:#2f7a5e;
+    --ok-pale:#e6f2ec;
   }
-  *{box-sizing:border-box;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{margin:0;padding:0;}
   body{
     background:var(--paper);
@@ -30,15 +36,17 @@
     padding-bottom:calc(40px + env(safe-area-inset-bottom));
     min-height:100vh;
   }
+  button, input, select{font-family:inherit;}
+
   header{
-    padding:calc(28px + env(safe-area-inset-top)) 20px 22px;
+    padding:calc(24px + env(safe-area-inset-top)) 20px 0;
     background:var(--petrol);
     color:#fff;
     border-bottom-left-radius:22px;
     border-bottom-right-radius:22px;
     position:sticky;
     top:0;
-    z-index:5;
+    z-index:6;
   }
   header .eyebrow{
     font-size:12.5px;
@@ -55,8 +63,8 @@
     letter-spacing:-0.01em;
   }
   header .meta{
-    margin-top:10px;
-    font-size:13px;
+    margin-top:8px;
+    font-size:12.5px;
     opacity:.82;
     display:flex;
     align-items:center;
@@ -65,114 +73,187 @@
   }
   .dot{width:6px;height:6px;border-radius:50%;background:#8fd6c7;display:inline-block;}
 
-  .criteria{
-    margin:16px 20px 0;
-    padding:14px 16px;
+  .tabs{
+    display:flex;
+    gap:4px;
+    margin-top:18px;
+    padding-bottom:12px;
+  }
+  .tab{
+    flex:1;
+    text-align:center;
+    padding:9px 4px;
+    font-size:13.5px;
+    font-weight:600;
+    color:rgba(255,255,255,.68);
+    background:none;
+    border:none;
+    border-bottom:2.5px solid transparent;
+  }
+  .tab.active{color:#fff;border-bottom-color:#fff;}
+  .tab .tab-count{
+    font-size:11px;
+    font-weight:600;
+    opacity:.8;
+  }
+
+  main{padding:16px 20px 8px;}
+
+  /* Filter */
+  .filter-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     background:var(--paper-raised);
     border:1px solid var(--line);
     border-radius:14px;
-    font-size:13px;
-    color:var(--muted);
-    line-height:1.55;
+    padding:12px 14px;
+    margin-bottom:10px;
   }
-  .criteria b{color:var(--ink);}
-
-  main{padding:18px 20px 8px;}
-
-  .count-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    margin:6px 2px 14px;
-  }
-  .count-row .n{
-    font-size:14px;
-    color:var(--muted);
-  }
-  .count-row .n strong{color:var(--ink);}
-  .refresh{
+  .filter-toggle button{
     border:none;
     background:none;
-    color:var(--petrol);
-    font-size:14px;
+    color:var(--petrol-deep);
+    font-size:13.5px;
     font-weight:600;
-    padding:4px 2px;
+    padding:0;
   }
-  .refresh:active{opacity:.5;}
+  .filter-toggle .active-count{
+    background:var(--clay);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    border-radius:100px;
+    padding:1px 7px;
+    margin-left:6px;
+  }
+  .searchbox{
+    flex:1;
+    margin-right:10px;
+    border:none;
+    background:var(--paper);
+    border-radius:10px;
+    padding:8px 12px;
+    font-size:13.5px;
+    color:var(--ink);
+  }
+  .searchbox::placeholder{color:var(--muted);}
 
+  .filter-panel{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:10px;
+    display:none;
+  }
+  .filter-panel.open{display:block;}
+  .filter-row{margin-bottom:14px;}
+  .filter-row:last-child{margin-bottom:0;}
+  .filter-row label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin-bottom:8px;
+  }
+  .chip-group{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{
+    font-size:13px;
+    font-weight:600;
+    padding:6px 12px;
+    border-radius:100px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .chip.selected{
+    background:var(--petrol);
+    border-color:var(--petrol);
+    color:#fff;
+  }
+  .range-row{display:flex;align-items:center;gap:10px;}
+  .range-row input[type="range"]{flex:1;accent-color:var(--petrol);}
+  .range-val{font-size:13px;font-weight:700;min-width:64px;text-align:right;color:var(--petrol-deep);}
+  .sort-select{
+    width:100%;
+    padding:9px 10px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    font-size:13.5px;
+    color:var(--ink);
+  }
+  .filter-actions{display:flex;justify-content:flex-end;margin-top:12px;}
+  .reset-btn{border:none;background:none;color:var(--danger);font-size:13px;font-weight:600;padding:4px;}
+
+  .count-row{display:flex;justify-content:space-between;align-items:baseline;margin:10px 2px 12px;}
+  .count-row .n{font-size:13.5px;color:var(--muted);}
+  .count-row .n strong{color:var(--ink);}
+  .refresh{border:none;background:none;color:var(--petrol);font-size:13.5px;font-weight:600;padding:4px 2px;}
+
+  /* Cards */
   .card{
     background:var(--paper-raised);
     border:1px solid var(--line);
     border-radius:16px;
     padding:16px 16px 14px;
     margin-bottom:12px;
-    display:block;
-    text-decoration:none;
-    color:inherit;
     position:relative;
   }
-  .card:active{transform:scale(0.985);}
-  .card .badge{
-    position:absolute;
-    top:14px;
-    right:14px;
-    font-size:10.5px;
-    font-weight:700;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-    color:var(--petrol-deep);
-    background:#e3ede9;
-    padding:3px 8px;
-    border-radius:100px;
-  }
-  .card h2{
-    margin:0 60px 8px 0;
-    font-size:16.5px;
-    font-weight:700;
-    line-height:1.3;
-    color:var(--ink);
-  }
-  .card .tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:8px;
-  }
-  .tag{
-    font-size:12.5px;
-    font-weight:600;
-    padding:3px 9px;
-    border-radius:100px;
-    background:#f1ede2;
-    color:var(--petrol-deep);
-    border:1px solid var(--line);
-  }
-  .tag.rent{
-    background:#fbeee6;
-    color:#9a4a28;
-    border-color:#f0d9c9;
-  }
-  .card .site{
-    font-size:12px;
-    color:var(--muted);
-  }
-  .card .found{
-    font-size:11.5px;
-    color:var(--muted);
-    margin-top:6px;
-  }
+  .card-link{text-decoration:none;color:inherit;display:block;}
+  .card-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .card h2{margin:0 0 8px;font-size:16px;font-weight:700;line-height:1.32;color:var(--ink);flex:1;}
 
-  .empty{
-    text-align:center;
-    padding:64px 24px 40px;
+  .fav-btn{
+    border:none;
+    background:var(--paper);
+    width:34px;height:34px;
+    border-radius:50%;
+    font-size:17px;
+    line-height:1;
     color:var(--muted);
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
   }
-  .empty .icon{font-size:38px;margin-bottom:14px;}
+  .fav-btn.active{color:var(--clay);background:var(--clay-pale);}
+
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+  .tag{font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:100px;background:#f1ede2;color:var(--petrol-deep);border:1px solid var(--line);}
+  .tag.rent{background:var(--clay-pale);color:#9a4a28;border-color:#f0d9c9;}
+  .card .site{font-size:12px;color:var(--muted);}
+  .card .found{font-size:11.5px;color:var(--muted);margin-top:6px;}
+
+  .card-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+  }
+  .card-actions a, .card-actions button{
+    flex:1;
+    text-align:center;
+    font-size:13px;
+    font-weight:600;
+    padding:8px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--petrol-deep);
+    text-decoration:none;
+  }
+  .card-actions button.hide-btn{color:var(--danger);}
+
+  .empty{text-align:center;padding:56px 24px 40px;color:var(--muted);}
+  .empty .icon{font-size:36px;margin-bottom:14px;}
   .empty h3{color:var(--ink);margin:0 0 8px;font-size:17px;}
   .empty p{margin:0;font-size:14px;line-height:1.6;}
 
   .hint{
-    margin:24px 20px 0;
+    margin:20px 0 0;
     padding:14px 16px;
     border:1px dashed var(--line);
     border-radius:14px;
@@ -180,6 +261,40 @@
     color:var(--muted);
     line-height:1.6;
   }
+
+  /* Status Tab */
+  .status-summary{display:flex;gap:10px;margin-bottom:14px;}
+  .status-stat{
+    flex:1;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px;
+    text-align:center;
+  }
+  .status-stat .num{font-size:22px;font-weight:700;}
+  .status-stat.ok .num{color:var(--ok);}
+  .status-stat.err .num{color:var(--danger);}
+  .status-stat .lbl{font-size:11.5px;color:var(--muted);margin-top:2px;}
+
+  .status-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:11px 13px;
+    margin-bottom:8px;
+  }
+  .status-badge{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  .status-badge.ok{background:var(--ok);}
+  .status-badge.error{background:var(--danger);}
+  .status-badge.unknown{background:var(--muted);}
+  .status-row .info{flex:1;min-width:0;}
+  .status-row .name{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .status-row .detail{font-size:11.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .status-filter{display:flex;gap:7px;margin-bottom:12px;}
 </style>
 </head>
 <body>
@@ -188,32 +303,134 @@
   <p class="eyebrow">Berlin · Wohnungssuche</p>
   <h1>Immo Watcher</h1>
   <div class="meta"><span class="dot" id="statusDot"></span><span id="lastUpdate">Lade Stand …</span></div>
+  <div class="tabs">
+    <button class="tab active" data-tab="feed">Inserate <span class="tab-count" id="feedTabCount"></span></button>
+    <button class="tab" data-tab="favorites">Favoriten <span class="tab-count" id="favTabCount"></span></button>
+    <button class="tab" data-tab="status">Status <span class="tab-count" id="statusTabCount"></span></button>
+  </div>
 </header>
 
-<div class="criteria" id="criteriaBox"></div>
-
 <main>
-  <div class="count-row">
-    <span class="n" id="countLabel">Lade Inserate …</span>
-    <button class="refresh" onclick="location.reload()">Aktualisieren</button>
+
+  <div id="panel-feed">
+    <div class="filter-toggle">
+      <input class="searchbox" id="searchBox" placeholder="Suchen (Adresse, Stichwort) …">
+      <button id="filterToggleBtn">Filter<span class="active-count" id="activeFilterCount" style="display:none;"></span></button>
+    </div>
+
+    <div class="filter-panel" id="filterPanel">
+      <div class="filter-row">
+        <label>Sortierung</label>
+        <select class="sort-select" id="sortSelect">
+          <option value="newest">Neueste zuerst</option>
+          <option value="price_asc">Preis: niedrig zuerst</option>
+          <option value="price_desc">Preis: hoch zuerst</option>
+          <option value="size_desc">Größe: groß zuerst</option>
+        </select>
+      </div>
+      <div class="filter-row">
+        <label>Stadtteil</label>
+        <div class="chip-group" id="districtChips"></div>
+      </div>
+      <div class="filter-row">
+        <label>Mindest-Zimmer: <span id="roomsVal">alle</span></label>
+        <div class="range-row">
+          <input type="range" id="roomsRange" min="0" max="6" step="1" value="0">
+        </div>
+      </div>
+      <div class="filter-row">
+        <label>Mindestgröße (qm)</label>
+        <div class="range-row">
+          <input type="range" id="sizeRange" min="0" max="200" step="5" value="0">
+          <span class="range-val" id="sizeVal">alle</span>
+        </div>
+      </div>
+      <div class="filter-row">
+        <label>Maximale Miete (€)</label>
+        <div class="range-row">
+          <input type="range" id="rentRange" min="0" max="3000" step="50" value="3000">
+          <span class="range-val" id="rentVal">alle</span>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button class="reset-btn" id="resetFiltersBtn">Filter zurücksetzen</button>
+      </div>
+    </div>
+
+    <div class="count-row">
+      <span class="n" id="countLabel">Lade Inserate …</span>
+      <button class="refresh" onclick="location.reload()">Aktualisieren</button>
+    </div>
+    <div id="feedList"></div>
   </div>
-  <div id="list"></div>
+
+  <div id="panel-favorites" style="display:none;">
+    <div class="count-row" style="margin-top:4px;">
+      <span class="n" id="favCountLabel"></span>
+    </div>
+    <div id="favList"></div>
+  </div>
+
+  <div id="panel-status" style="display:none;">
+    <div class="status-summary">
+      <div class="status-stat ok"><div class="num" id="statOkNum">–</div><div class="lbl">erreichbar</div></div>
+      <div class="status-stat err"><div class="num" id="statErrNum">–</div><div class="lbl">fehlerhaft</div></div>
+      <div class="status-stat"><div class="num" id="statTotalNum">–</div><div class="lbl">Seiten gesamt</div></div>
+    </div>
+    <div class="status-filter">
+      <button class="chip selected" data-statusfilter="all">Alle</button>
+      <button class="chip" data-statusfilter="error">Nur Fehler</button>
+    </div>
+    <div id="statusList"></div>
+  </div>
+
+  <div class="hint" id="feedHint">
+    Diese Liste wird automatisch mehrmals täglich im Hintergrund aktualisiert. Öffne die App einfach, wenn du nachsehen willst – bei neuen Treffern bekommst du zusätzlich eine Push-Nachricht.
+  </div>
 </main>
 
-<div class="hint">
-  Diese Liste wird automatisch mehrmals täglich im Hintergrund aktualisiert. Öffne die App einfach, wenn du nachsehen willst – bei neuen Treffern bekommst du zusätzlich eine Push-Nachricht.
-</div>
-
 <script>
-async function load(){
+const FAV_KEY = 'immo-watcher-favorites';
+const HIDDEN_KEY = 'immo-watcher-hidden';
+
+function getSet(key){
+  try{ return new Set(JSON.parse(localStorage.getItem(key) || '[]')); }
+  catch(e){ return new Set(); }
+}
+function saveSet(key, set){ localStorage.setItem(key, JSON.stringify([...set])); }
+let favorites = getSet(FAV_KEY);
+let hidden = getSet(HIDDEN_KEY);
+
+let allMatches = [];
+let siteStatus = [];
+let currentTab = 'feed';
+let statusFilterMode = 'all';
+
+const filterState = {
+  search: '', districts: new Set(), minRooms: 0, minSize: 0, maxRent: 3000, sort: 'newest',
+};
+
+async function loadAll(){
   try{
     const res = await fetch('data.json?t=' + Date.now());
     const data = await res.json();
-    render(data);
+    allMatches = data.matches || [];
+    renderHeader(data);
+    setupDistrictChips(data.criteria);
+    renderFeed();
+    renderFavorites();
   }catch(e){
     document.getElementById('lastUpdate').textContent = 'Konnte Daten nicht laden';
-    document.getElementById('countLabel').textContent = '';
   }
+
+  try{
+    const res2 = await fetch('site-status.json?t=' + Date.now());
+    const statusObj = await res2.json();
+    siteStatus = Object.keys(statusObj).map(url => ({url, ...statusObj[url]}));
+  }catch(e){
+    siteStatus = [];
+  }
+  renderStatus();
 }
 
 function fmtDate(iso){
@@ -221,33 +438,119 @@ function fmtDate(iso){
   const d = new Date(iso);
   return d.toLocaleString('de-DE', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
 }
+function relTime(iso){
+  if(!iso) return '';
+  const diffMs = Date.now() - new Date(iso).getTime();
+  const h = Math.floor(diffMs / 3600000);
+  if(h < 1) return 'vor wenigen Minuten';
+  if(h < 24) return `vor ${h} Std.`;
+  const d = Math.floor(h/24);
+  return `vor ${d} Tag${d>1?'en':''}`;
+}
 
-function render(data){
-  const c = data.criteria || {};
-  const parts = [];
-  if(c.min_rooms) parts.push(`ab <b>${c.min_rooms} Zimmer</b>`);
-  if(c.min_size_qm) parts.push(`ab <b>${c.min_size_qm} qm</b>`);
-  if(c.min_rent && c.max_rent) parts.push(`<b>${c.min_rent}–${c.max_rent} €</b> Kaltmiete`);
-  if(c.districts && c.districts.length) parts.push(`in <b>${c.districts.join(', ')}</b>`);
-  document.getElementById('criteriaBox').innerHTML = 'Kriterien: ' + parts.join(' · ');
-
+function renderHeader(data){
   const updated = fmtDate(data.generated_at);
   document.getElementById('lastUpdate').textContent = updated
     ? 'Letzter Check: ' + updated + ' Uhr'
     : 'Noch kein automatischer Lauf erfolgt';
+}
 
-  const matches = (data.matches || []).slice().sort((a,b) => {
-    return new Date(b.found_at || 0) - new Date(a.found_at || 0);
+function setupDistrictChips(criteria){
+  const wrap = document.getElementById('districtChips');
+  const districts = (criteria && criteria.districts) || [];
+  wrap.innerHTML = '';
+  districts.forEach(d => {
+    const chip = document.createElement('button');
+    chip.className = 'chip';
+    chip.textContent = d;
+    chip.onclick = () => {
+      if(filterState.districts.has(d)) filterState.districts.delete(d);
+      else filterState.districts.add(d);
+      chip.classList.toggle('selected');
+      renderFeed();
+    };
+    wrap.appendChild(chip);
   });
+}
 
-  document.getElementById('countLabel').innerHTML = matches.length
-    ? `<strong>${matches.length}</strong> passende Inserate`
-    : 'Noch keine passenden Inserate gefunden';
+function passesFilter(m){
+  if(hidden.has(m.key)) return false;
+  if(filterState.search){
+    const hay = `${m.title||''} ${m.district||''} ${m.plz||''} ${m.source_name||''}`.toLowerCase();
+    if(!hay.includes(filterState.search.toLowerCase())) return false;
+  }
+  if(filterState.districts.size > 0){
+    const dist = (m.district || '').toLowerCase();
+    let ok = false;
+    for(const d of filterState.districts){ if(dist.includes(d.toLowerCase())) ok = true; }
+    if(!ok) return false;
+  }
+  if(filterState.minRooms > 0 && (!m.rooms || m.rooms < filterState.minRooms)) return false;
+  if(filterState.minSize > 0 && (!m.size_qm || m.size_qm < filterState.minSize)) return false;
+  if(filterState.maxRent < 3000 && m.rent && m.rent > filterState.maxRent) return false;
+  return true;
+}
 
-  const list = document.getElementById('list');
-  list.innerHTML = '';
+function sortMatches(list){
+  const arr = list.slice();
+  switch(filterState.sort){
+    case 'price_asc': arr.sort((a,b) => (a.rent||1e9) - (b.rent||1e9)); break;
+    case 'price_desc': arr.sort((a,b) => (b.rent||0) - (a.rent||0)); break;
+    case 'size_desc': arr.sort((a,b) => (b.size_qm||0) - (a.size_qm||0)); break;
+    default: arr.sort((a,b) => new Date(b.found_at||0) - new Date(a.found_at||0));
+  }
+  return arr;
+}
 
-  if(matches.length === 0){
+function cardHTML(m, opts){
+  opts = opts || {};
+  const tags = [];
+  if(m.rooms) tags.push(`<span class="tag">${m.rooms} Zi.</span>`);
+  if(m.size_qm) tags.push(`<span class="tag">${m.size_qm} qm</span>`);
+  if(m.rent) tags.push(`<span class="tag rent">${m.rent} €</span>`);
+  if(m.district) tags.push(`<span class="tag">${m.district}${m.plz ? ' · ' + m.plz : ''}</span>`);
+  else if(m.plz) tags.push(`<span class="tag">${m.plz}</span>`);
+
+  const isFav = favorites.has(m.key);
+  const link = m.url || m.site_url || '#';
+
+  return `
+    <div class="card" data-key="${m.key}">
+      <div class="card-top-row">
+        <a class="card-link" href="${link}" target="_blank" rel="noopener" style="flex:1;">
+          <h2>${(m.title || 'Wohnungsinserat')}</h2>
+        </a>
+        <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav('${m.key}')">${isFav ? '★' : '☆'}</button>
+      </div>
+      <a class="card-link" href="${link}" target="_blank" rel="noopener">
+        <div class="tags">${tags.join('')}</div>
+        <div class="site">${m.source_name || ''}</div>
+        <div class="found">${m.found_at ? 'Gefunden ' + relTime(m.found_at) : ''}</div>
+      </a>
+      ${opts.showHide ? `
+      <div class="card-actions">
+        <a href="${link}" target="_blank" rel="noopener">Zum Inserat</a>
+        <button class="hide-btn" onclick="hideListing('${m.key}')">Ausblenden</button>
+      </div>` : ''}
+    </div>`;
+}
+
+function renderFeed(){
+  const filtered = allMatches.filter(passesFilter);
+  const sorted = sortMatches(filtered);
+
+  document.getElementById('countLabel').innerHTML = sorted.length
+    ? `<strong>${sorted.length}</strong> passende Inserate`
+    : 'Keine Inserate für diese Filter';
+  document.getElementById('feedTabCount').textContent = allMatches.filter(m => !hidden.has(m.key)).length || '';
+
+  const activeFilters = filterState.districts.size + (filterState.minRooms>0?1:0) + (filterState.minSize>0?1:0) + (filterState.maxRent<3000?1:0);
+  const badge = document.getElementById('activeFilterCount');
+  if(activeFilters > 0){ badge.style.display='inline'; badge.textContent = activeFilters; }
+  else { badge.style.display='none'; }
+
+  const list = document.getElementById('feedList');
+  if(sorted.length === 0){
     list.innerHTML = `
       <div class="empty">
         <div class="icon">🏠</div>
@@ -256,32 +559,145 @@ function render(data){
       </div>`;
     return;
   }
-
-  for(const m of matches){
-    const a = document.createElement('a');
-    a.className = 'card';
-    a.href = m.url || m.site_url || '#';
-    a.target = '_blank';
-    a.rel = 'noopener';
-
-    const tags = [];
-    if(m.rooms) tags.push(`<span class="tag">${m.rooms} Zi.</span>`);
-    if(m.size_qm) tags.push(`<span class="tag">${m.size_qm} qm</span>`);
-    if(m.rent) tags.push(`<span class="tag rent">${m.rent} €</span>`);
-    if(m.district) tags.push(`<span class="tag">${m.district}</span>`);
-
-    a.innerHTML = `
-      <span class="badge">Neu</span>
-      <h2>${(m.title || 'Wohnungsinserat')}</h2>
-      <div class="tags">${tags.join('')}</div>
-      <div class="site">${m.source_name || ''}</div>
-      <div class="found">${m.found_at ? 'Gefunden am ' + fmtDate(m.found_at) + ' Uhr' : ''}</div>
-    `;
-    list.appendChild(a);
-  }
+  list.innerHTML = sorted.map(m => cardHTML(m, {showHide:true})).join('');
 }
 
-load();
+function renderFavorites(){
+  const favList = allMatches.filter(m => favorites.has(m.key));
+  const sorted = sortMatches(favList);
+  document.getElementById('favTabCount').textContent = favorites.size || '';
+  document.getElementById('favCountLabel').innerHTML = sorted.length
+    ? `<strong>${sorted.length}</strong> gemerkte Wohnung${sorted.length===1?'':'en'}`
+    : '';
+
+  const list = document.getElementById('favList');
+  if(sorted.length === 0){
+    list.innerHTML = `
+      <div class="empty">
+        <div class="icon">☆</div>
+        <h3>Noch keine Favoriten</h3>
+        <p>Tippe auf den Stern bei einem Inserat,<br>um es hier zu merken.</p>
+      </div>`;
+    return;
+  }
+  list.innerHTML = sorted.map(m => cardHTML(m, {showHide:false})).join('');
+}
+
+function renderStatus(){
+  const ok = siteStatus.filter(s => s.status === 'ok').length;
+  const err = siteStatus.filter(s => s.status === 'error').length;
+  document.getElementById('statOkNum').textContent = ok;
+  document.getElementById('statErrNum').textContent = err;
+  document.getElementById('statTotalNum').textContent = siteStatus.length;
+  document.getElementById('statusTabCount').textContent = err > 0 ? err : '';
+
+  let rows = siteStatus.slice();
+  if(statusFilterMode === 'error') rows = rows.filter(s => s.status === 'error');
+  rows.sort((a,b) => {
+    if(a.status === b.status) return (a.source_name||'').localeCompare(b.source_name||'');
+    return a.status === 'error' ? -1 : 1;
+  });
+
+  const list = document.getElementById('statusList');
+  if(rows.length === 0){
+    list.innerHTML = `<div class="empty"><p>Noch keine Status-Daten vorhanden. Nach dem ersten automatischen Lauf erscheinen hier alle geprüften Seiten.</p></div>`;
+    return;
+  }
+  list.innerHTML = rows.map(s => `
+    <div class="status-row">
+      <span class="status-badge ${s.status || 'unknown'}"></span>
+      <div class="info">
+        <div class="name">${s.source_name || s.url}</div>
+        <div class="detail">${s.status === 'error' ? (s.error || 'Fehler beim Abrufen') : 'Zuletzt geprüft ' + relTime(s.last_checked)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleFav(key){
+  if(favorites.has(key)) favorites.delete(key);
+  else favorites.add(key);
+  saveSet(FAV_KEY, favorites);
+  renderFeed();
+  renderFavorites();
+}
+function hideListing(key){
+  hidden.add(key);
+  saveSet(HIDDEN_KEY, hidden);
+  renderFeed();
+}
+
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentTab = btn.dataset.tab;
+    document.getElementById('panel-feed').style.display = currentTab === 'feed' ? 'block' : 'none';
+    document.getElementById('panel-favorites').style.display = currentTab === 'favorites' ? 'block' : 'none';
+    document.getElementById('panel-status').style.display = currentTab === 'status' ? 'block' : 'none';
+    document.getElementById('feedHint').style.display = currentTab === 'feed' ? 'block' : 'none';
+  });
+});
+
+document.getElementById('filterToggleBtn').addEventListener('click', () => {
+  document.getElementById('filterPanel').classList.toggle('open');
+});
+document.getElementById('searchBox').addEventListener('input', e => {
+  filterState.search = e.target.value;
+  renderFeed();
+});
+document.getElementById('sortSelect').addEventListener('change', e => {
+  filterState.sort = e.target.value;
+  renderFeed();
+  renderFavorites();
+});
+document.getElementById('roomsRange').addEventListener('input', e => {
+  const v = parseInt(e.target.value, 10);
+  filterState.minRooms = v;
+  document.getElementById('roomsVal').textContent = v === 0 ? 'alle' : (v + '+');
+  renderFeed();
+});
+document.getElementById('sizeRange').addEventListener('input', e => {
+  const v = parseInt(e.target.value, 10);
+  filterState.minSize = v;
+  document.getElementById('sizeVal').textContent = v === 0 ? 'alle' : (v + '+ qm');
+  renderFeed();
+});
+document.getElementById('rentRange').addEventListener('input', e => {
+  const v = parseInt(e.target.value, 10);
+  filterState.maxRent = v;
+  document.getElementById('rentVal').textContent = v >= 3000 ? 'alle' : ('bis ' + v + ' €');
+  renderFeed();
+});
+document.getElementById('resetFiltersBtn').addEventListener('click', () => {
+  filterState.search = '';
+  filterState.districts = new Set();
+  filterState.minRooms = 0;
+  filterState.minSize = 0;
+  filterState.maxRent = 3000;
+  filterState.sort = 'newest';
+  document.getElementById('searchBox').value = '';
+  document.getElementById('sortSelect').value = 'newest';
+  document.getElementById('roomsRange').value = 0;
+  document.getElementById('sizeRange').value = 0;
+  document.getElementById('rentRange').value = 3000;
+  document.getElementById('roomsVal').textContent = 'alle';
+  document.getElementById('sizeVal').textContent = 'alle';
+  document.getElementById('rentVal').textContent = 'alle';
+  document.querySelectorAll('#districtChips .chip').forEach(c => c.classList.remove('selected'));
+  renderFeed();
+});
+
+document.querySelectorAll('[data-statusfilter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-statusfilter]').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    statusFilterMode = btn.dataset.statusfilter;
+    renderStatus();
+  });
+});
+
+loadAll();
 </script>
 
 </body>

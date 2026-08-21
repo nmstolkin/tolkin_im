@@ -33,9 +33,11 @@ HASH_FILE = os.path.join(DATA_DIR, "page_hashes.json")
 ERROR_LOG = os.path.join(DATA_DIR, "last_errors.json")
 SITES_FILE = "sites.json"
 
-# Datei, die die Homescreen-App (docs/index.html) anzeigt
+# Dateien, die die Homescreen-App direkt anzeigt (liegen im Repo-Root,
+# neben index.html, damit GitHub Pages sie ausliefern kann)
 APP_DATA_FILE = "data.json"
-MAX_MATCHES_KEPT = 200  # ältere Treffer werden aus der App-Ansicht ausgeblendet
+STATUS_FILE = "site-status.json"
+MAX_MATCHES_KEPT = 300  # ältere Treffer werden aus der App-Ansicht ausgeblendet
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
@@ -75,6 +77,7 @@ Seite steht: null):
 - "size_qm": Wohnfläche in Quadratmetern als Zahl
 - "rent": Kaltmiete in Euro als Zahl (nur die Zahl, ohne Symbol)
 - "district": Stadtteil/Bezirk, falls erkennbar
+- "plz": 5-stellige Postleitzahl, falls im Text erkennbar (sonst null)
 - "url": Direktlink zum Inserat, falls vorhanden (sonst null)
 
 Antworte AUSSCHLIESSLICH mit dem JSON-Array. Kein einleitender Text, keine
@@ -236,6 +239,22 @@ def update_app_data(new_matches):
     save_json(APP_DATA_FILE, payload)
 
 
+def update_site_status(status, url, ok, error=None):
+    now_iso = datetime.now(timezone.utc).isoformat()
+    entry = status.get(url, {})
+    entry["source_name"] = source_name(url)
+    entry["last_checked"] = now_iso
+    if ok:
+        entry["status"] = "ok"
+        entry["error"] = None
+        entry["last_success"] = now_iso
+    else:
+        entry["status"] = "error"
+        entry["error"] = error
+        entry.setdefault("last_success", None)
+    status[url] = entry
+
+
 def notify(listing, site_url):
     if not NTFY_TOPIC:
         print("NTFY_TOPIC nicht gesetzt, überspringe Benachrichtigung.")
@@ -283,6 +302,8 @@ def main():
     sites = load_json(SITES_FILE, [])
     seen = load_json(SEEN_FILE, {})       # {site_url: [listing_key, ...]}
     hashes = load_json(HASH_FILE, {})     # {site_url: content_hash}
+    status = load_json(STATUS_FILE, {})   # {site_url: {status, error, last_checked, last_success}}
+    status = {u: status[u] for u in sites if u in status}  # entfernte URLs aufräumen
     errors = {}
 
     total_new_matches = 0
@@ -295,7 +316,10 @@ def main():
         if err:
             print(f"  -> Fehler beim Abrufen: {err}")
             errors[url] = err
+            update_site_status(status, url, ok=False, error=err)
             continue
+
+        update_site_status(status, url, ok=True)
 
         content_hash = hashlib.sha256(html.encode("utf-8", "ignore")).hexdigest()
         if hashes.get(url) == content_hash:
@@ -334,6 +358,7 @@ def main():
                     "size_qm": listing.get("size_qm"),
                     "rent": listing.get("rent"),
                     "district": listing.get("district"),
+                    "plz": listing.get("plz"),
                     "url": listing.get("url") or url,
                     "site_url": url,
                     "source_name": source_name(url),
@@ -351,6 +376,7 @@ def main():
     save_json(SEEN_FILE, seen)
     save_json(HASH_FILE, hashes)
     save_json(ERROR_LOG, errors)
+    save_json(STATUS_FILE, status)
     update_app_data(app_matches)
 
     print()

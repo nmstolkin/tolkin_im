@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T13:55:17.354661+00:00",
+  "generated_at": "2026-08-22T19:12:53.313544+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 85,
@@ -12,6 +12,71 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Luxury Penthouse Maisonette with Private Rooftop Terrace & Spectacular 360° Berlin Skyline Views",
+      "title": "Luxury Penthouse Maisonette with Private Rooftop Terrace & Spectacular 360° Berlin Skyline Views",
+      "rooms": 4,
+      "size_qm": 135,
+      "rent": null,
+      "district": null,
+      "plz": "10115",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T19:09:49.674638+00:00"
+    },
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::Neubau-Dachgeschosswohnung in Berlin – exklusiv",
+      "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-22T19:06:26.021621+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::Dachgeschosswohnung mit Klimaanlage und 3 Zimmern | komplett saniert | Einbauküche | hohe Decken",
+      "title": "Dachgeschosswohnung mit Klimaanlage und 3 Zimmern | komplett saniert | Einbauküche | hohe Decken",
+      "rooms": 3,
+      "size_qm": 87,
+      "rent": 1700.0,
+      "district": null,
+      "plz": "12459",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T19:04:20.475766+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::Frisch renoviert: Großzügige 140 m² Etagenwohnung mit Süd-Balkon, Parkett, Duschbad & TG-Stellplatz",
+      "title": "Frisch renoviert: Großzügige 140 m² Etagenwohnung mit Süd-Balkon, Parkett, Duschbad & TG-Stellplatz",
+      "rooms": 3,
+      "size_qm": 140,
+      "rent": 1649.0,
+      "district": null,
+      "plz": "10315",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T19:04:19.916691+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::137 m² Maisonette im Zweifamilienhaus – 4 Zimmer, große Wohnküche, 2 Bäder & eigener Eingang",
+      "title": "137 m² Maisonette im Zweifamilienhaus – 4 Zimmer, große Wohnküche, 2 Bäder & eigener Eingang",
+      "rooms": 4,
+      "size_qm": 137,
+      "rent": 1629.0,
+      "district": null,
+      "plz": "12107",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T19:04:19.354784+00:00"
+    },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Prinzenallee 21, Berlin",
       "title": "Prinzenallee 21, Berlin",

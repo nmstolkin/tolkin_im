@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T20:05:09.879552+00:00",
+  "generated_at": "2026-08-22T07:56:51.510536+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 85,
@@ -12,6 +12,84 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Prinzenallee 21, Berlin (Neubau-Dachgeschosswohnung)",
+      "title": "Prinzenallee 21, Berlin (Neubau-Dachgeschosswohnung)",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-22T07:55:42.819304+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::137 m² Maisonette im Zweifamilienhaus – 4 Zimmer, große Wohnküche, 2 Bäder & eigener Eingang",
+      "title": "137 m² Maisonette im Zweifamilienhaus – 4 Zimmer, große Wohnküche, 2 Bäder & eigener Eingang",
+      "rooms": 4,
+      "size_qm": 137,
+      "rent": 1629,
+      "district": null,
+      "plz": "12107",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T07:53:18.575919+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Erdgeschoßwohnung im EFH/ZFH mit Terasse/Garten",
+      "title": "Erdgeschoßwohnung im EFH/ZFH mit Terasse/Garten",
+      "rooms": 3,
+      "size_qm": 116,
+      "rent": 2080,
+      "district": null,
+      "plz": "12489",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T07:53:17.883893+00:00"
+    },
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::Neubau-Dachgeschosswohnung in Berlin – exklusiv... - Prinzenallee 21, Berlin",
+      "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv... - Prinzenallee 21, Berlin",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-22T07:49:21.631593+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::Erstbezug: Maisonette-Wohnung mit Loft-Charakter und großem Garten",
+      "title": "Erstbezug: Maisonette-Wohnung mit Loft-Charakter und großem Garten",
+      "rooms": 3,
+      "size_qm": 111,
+      "rent": 2220.0,
+      "district": null,
+      "plz": "13509",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T07:46:46.239742+00:00"
+    },
+    {
+      "key": "https://apartberlin.de/wohnungen/::RESERVIERT 3 Wohnungen Schmargendorfer Str ab Oktober 2026",
+      "title": "RESERVIERT 3 Wohnungen Schmargendorfer Str ab Oktober 2026",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": null,
+      "url": "https://apartberlin.de/wohnungen/",
+      "site_url": "https://apartberlin.de/wohnungen/",
+      "source_name": "apartberlin.de",
+      "found_at": "2026-08-22T07:46:16.724326+00:00"
+    },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Neubau-Dachgeschosswohnung in Berlin – exklusiv... - Prinzenallee 21, Berlin",
       "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv... - Prinzenallee 21, Berlin",

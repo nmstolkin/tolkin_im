@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T07:56:51.510536+00:00",
+  "generated_at": "2026-08-22T13:55:17.354661+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 85,
@@ -12,6 +12,110 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Prinzenallee 21, Berlin",
+      "title": "Prinzenallee 21, Berlin",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-22T13:54:17.369708+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Wohlfühlwohnung im Zweifamilienhaus",
+      "title": "Wohlfühlwohnung im Zweifamilienhaus",
+      "rooms": 5,
+      "size_qm": 123,
+      "rent": 1850.0,
+      "district": null,
+      "plz": "12683",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T13:51:59.319634+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Frisch renoviert: Großzügige 140 m² Etagenwohnung mit Süd-Balkon, Parkett, Duschbad & TG-Stellplatz",
+      "title": "Frisch renoviert: Großzügige 140 m² Etagenwohnung mit Süd-Balkon, Parkett, Duschbad & TG-Stellplatz",
+      "rooms": 3,
+      "size_qm": 140,
+      "rent": 1649.0,
+      "district": null,
+      "plz": "10315",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T13:51:58.758881+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Traumhafte 3 Zimmer Wohnung mit separater Küche, Dachterrasse, Klimaanlage, Jalousie, B16",
+      "title": "Traumhafte 3 Zimmer Wohnung mit separater Küche, Dachterrasse, Klimaanlage, Jalousie, B16",
+      "rooms": 3,
+      "size_qm": 89,
+      "rent": 1750.0,
+      "district": null,
+      "plz": "12683",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T13:51:58.194309+00:00"
+    },
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::Neubau-Dachgeschosswohnung in Berlin – exklusiv - Prinzenallee 21, Berlin",
+      "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv - Prinzenallee 21, Berlin",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-22T13:48:04.078361+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::WG oder Familie, 3 Zimmer, je Zi. ab 490 €, Balkon, 2 Bäder, ruhig, grün",
+      "title": "WG oder Familie, 3 Zimmer, je Zi. ab 490 €, Balkon, 2 Bäder, ruhig, grün",
+      "rooms": 3,
+      "size_qm": 96,
+      "rent": 1500.0,
+      "district": null,
+      "plz": "12623",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T13:45:47.537700+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::Traumhafte 3 Zimmer Wohnung mit separater Küche, Dachterrasse, Klimaanlage, Jalousie, B16",
+      "title": "Traumhafte 3 Zimmer Wohnung mit separater Küche, Dachterrasse, Klimaanlage, Jalousie, B16",
+      "rooms": 3,
+      "size_qm": 89,
+      "rent": 1750.0,
+      "district": null,
+      "plz": "12683",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T13:45:46.970050+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::GROßZÜGIGE ALTBAUWOHNUNG MIT PRIVATER TERRASSE UND GARTENZUGANG",
+      "title": "GROßZÜGIGE ALTBAUWOHNUNG MIT PRIVATER TERRASSE UND GARTENZUGANG",
+      "rooms": 6,
+      "size_qm": 220,
+      "rent": null,
+      "district": null,
+      "plz": "10777",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-22T13:45:46.407622+00:00"
+    },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Prinzenallee 21, Berlin (Neubau-Dachgeschosswohnung)",
       "title": "Prinzenallee 21, Berlin (Neubau-Dachgeschosswohnung)",

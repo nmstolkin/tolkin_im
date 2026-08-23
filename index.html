@@ -330,6 +330,7 @@
   <div class="tabs">
     <button class="tab active" data-tab="feed">Inserate <span class="tab-count" id="feedTabCount"></span></button>
     <button class="tab" data-tab="favorites">Favoriten <span class="tab-count" id="favTabCount"></span></button>
+    <button class="tab" data-tab="hidden">Ausgeblendet <span class="tab-count" id="hiddenTabCount"></span></button>
     <button class="tab" data-tab="map">Karte</button>
     <button class="tab" data-tab="status">Status <span class="tab-count" id="statusTabCount"></span></button>
   </div>
@@ -396,6 +397,13 @@
     <div id="favList"></div>
   </div>
 
+  <div id="panel-hidden" style="display:none;">
+    <div class="count-row" style="margin-top:4px;">
+      <span class="n" id="hiddenCountLabel"></span>
+    </div>
+    <div id="hiddenList"></div>
+  </div>
+
   <div id="panel-status" style="display:none;">
     <div class="status-summary">
       <div class="status-stat ok"><div class="num" id="statOkNum">–</div><div class="lbl">erreichbar</div></div>
@@ -452,6 +460,7 @@ async function loadAll(){
     setupDistrictChips(data.criteria);
     renderFeed();
     renderFavorites();
+    renderHidden();
   }catch(e){
     document.getElementById('lastUpdate').textContent = 'Konnte Daten nicht laden';
   }
@@ -565,6 +574,11 @@ function cardHTML(m, opts){
         <a href="${link}" target="_blank" rel="noopener">Zum Inserat</a>
         <button class="hide-btn" onclick="hideListing('${m.key}')">Ausblenden</button>
       </div>` : ''}
+      ${opts.showRestore ? `
+      <div class="card-actions">
+        <a href="${link}" target="_blank" rel="noopener">Zum Inserat</a>
+        <button onclick="unhideListing('${m.key}')">Wieder einblenden</button>
+      </div>` : ''}
     </div>`;
 }
 
@@ -669,6 +683,27 @@ function renderStatus(){
   }).join('');
 }
 
+function renderHidden(){
+  const hiddenList = allMatches.filter(m => hidden.has(m.key));
+  const sorted = sortMatches(hiddenList);
+  document.getElementById('hiddenTabCount').textContent = hidden.size || '';
+  document.getElementById('hiddenCountLabel').innerHTML = sorted.length
+    ? `<strong>${sorted.length}</strong> ausgeblendete Wohnung${sorted.length===1?'':'en'}`
+    : '';
+
+  const list = document.getElementById('hiddenList');
+  if(sorted.length === 0){
+    list.innerHTML = `
+      <div class="empty">
+        <div class="icon">🙈</div>
+        <h3>Nichts ausgeblendet</h3>
+        <p>Ausgeblendete Inserate landen hier und lassen<br>sich bei Bedarf wieder einblenden.</p>
+      </div>`;
+    return;
+  }
+  list.innerHTML = sorted.map(m => cardHTML(m, {showRestore:true})).join('');
+}
+
 function toggleFav(key){
   if(favorites.has(key)) favorites.delete(key);
   else favorites.add(key);
@@ -680,6 +715,14 @@ function hideListing(key){
   hidden.add(key);
   saveSet(HIDDEN_KEY, hidden);
   renderFeed();
+  renderHidden();
+}
+
+function unhideListing(key){
+  hidden.delete(key);
+  saveSet(HIDDEN_KEY, hidden);
+  renderFeed();
+  renderHidden();
 }
 
 document.querySelectorAll('.tab').forEach(btn => {
@@ -689,6 +732,7 @@ document.querySelectorAll('.tab').forEach(btn => {
     currentTab = btn.dataset.tab;
     document.getElementById('panel-feed').style.display = currentTab === 'feed' ? 'block' : 'none';
     document.getElementById('panel-favorites').style.display = currentTab === 'favorites' ? 'block' : 'none';
+    document.getElementById('panel-hidden').style.display = currentTab === 'hidden' ? 'block' : 'none';
     document.getElementById('panel-status').style.display = currentTab === 'status' ? 'block' : 'none';
     document.getElementById('panel-map').style.display = currentTab === 'map' ? 'block' : 'none';
     document.getElementById('feedHint').style.display = currentTab === 'feed' ? 'block' : 'none';

@@ -1,863 +1,863 @@
 {
   "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php": {
     "source_name": "hausverwaltung-bauriedel.de",
-    "last_checked": "2026-08-22T19:02:33.589190+00:00",
+    "last_checked": "2026-08-23T07:47:37.907146+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:02:33.589190+00:00"
+    "last_success": "2026-08-23T07:47:37.907146+00:00"
   },
   "https://www.core-berlin.de/de/vermietung": {
     "source_name": "core-berlin.de",
-    "last_checked": "2026-08-22T19:02:34.523433+00:00",
-    "status": "ok",
-    "error": null,
+    "last_checked": "2026-08-23T07:47:38.685323+00:00",
+    "status": "error",
+    "error": "500 Server Error: Internal Server Error for url: https://www.core-berlin.de/de/vermietung",
     "last_success": "2026-08-22T19:02:34.523433+00:00"
   },
   "https://imms-immobilien.de/mietobjekte/": {
     "source_name": "imms-immobilien.de",
-    "last_checked": "2026-08-22T19:02:45.215270+00:00",
+    "last_checked": "2026-08-23T07:47:40.427654+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:02:45.215270+00:00"
+    "last_success": "2026-08-23T07:47:40.427654+00:00"
   },
   "https://reanovo.everreal.co/candidates/public/listings": {
     "source_name": "reanovo.everreal.co",
-    "last_checked": "2026-08-22T19:02:46.062498+00:00",
+    "last_checked": "2026-08-23T07:47:41.750414+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:02:46.062498+00:00"
+    "last_success": "2026-08-23T07:47:41.750414+00:00"
   },
   "https://www.berlinhaus.com/suchergebnisse/?adv_search_nonce_field=e81105e27f&filter_search_action%5B%5D=wohnen&advanced_city=berlin&advanced_area=&kaltmiete-bis=&flaeche-ab=&zimmeranzahl-ab=&submit=SUCHE": {
     "source_name": "berlinhaus.com",
-    "last_checked": "2026-08-22T19:02:51.231042+00:00",
+    "last_checked": "2026-08-23T07:47:47.289631+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.berlinhaus.com/suchergebnisse/?adv_search_nonce_field=e81105e27f&filter_search_action%5B%5D=wohnen&advanced_city=berlin&advanced_area=&kaltmiete-bis=&flaeche-ab=&zimmeranzahl-ab=&submit=SUCHE",
     "last_success": null
   },
   "https://inberlinwohnen.de/wohnungsfinder/": {
     "source_name": "inberlinwohnen.de",
-    "last_checked": "2026-08-22T19:02:52.887346+00:00",
+    "last_checked": "2026-08-23T07:47:49.601640+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:02:52.887346+00:00"
+    "last_success": "2026-08-23T07:47:49.601640+00:00"
   },
   "https://www.trialog-gmbh.com/wohnungen.xhtml?pagetype=object&f%5B2084-134%5D=ind_Schl_2544&f%5B2084-2%5D=0&f%5B2084-4%5D=0&f%5B2084-6%5D=miete&f%5B2084-8%5D=wohnung&f%5B2084-126%5D=miete&f%5B2084-138%5D=ind_Schl_2544": {
     "source_name": "trialog-gmbh.com",
-    "last_checked": "2026-08-22T19:03:08.492022+00:00",
+    "last_checked": "2026-08-23T07:48:04.629229+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:08.492022+00:00"
+    "last_success": "2026-08-23T07:48:04.629229+00:00"
   },
   "https://www.biddex.de/immobilien/mieten": {
     "source_name": "biddex.de",
-    "last_checked": "2026-08-22T19:03:12.108200+00:00",
+    "last_checked": "2026-08-23T07:48:08.271630+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.biddex.de/immobilien/mieten",
     "last_success": null
   },
   "https://www.kfh-hv.de/mieten/wohnen/": {
     "source_name": "kfh-hv.de",
-    "last_checked": "2026-08-22T19:03:13.277632+00:00",
+    "last_checked": "2026-08-23T07:48:10.093160+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:13.277632+00:00"
+    "last_success": "2026-08-23T07:48:10.093160+00:00"
   },
   "https://www.adler-group.com/suche/wohnung?cHash=d4a2db8bf29e420d3eb04b8be4b5464f&geocodes=&livingspace=&numberofrooms=zimmer&page=2&price=&sortby=price": {
     "source_name": "adler-group.com",
-    "last_checked": "2026-08-22T19:03:16.665381+00:00",
+    "last_checked": "2026-08-23T07:48:13.506221+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.adler-group.com/suche/wohnung?cHash=d4a2db8bf29e420d3eb04b8be4b5464f&geocodes=&livingspace=&numberofrooms=zimmer&page=2&price=&sortby=price",
     "last_success": null
   },
   "https://www.goodlifeimmobilien.de/wohnungsangebote": {
     "source_name": "goodlifeimmobilien.de",
-    "last_checked": "2026-08-22T19:03:17.263351+00:00",
+    "last_checked": "2026-08-23T07:48:14.363498+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:17.263351+00:00"
+    "last_success": "2026-08-23T07:48:14.363498+00:00"
   },
   "https://www.ivd24immobilien.de/search-photon/?osm_id=62422&osm_key=place&osm_value=city&osm_postcode=&osm_lat=52.5170365&osm_long=13.3888599&nutzungsart_id=&vermarktungsart_id=10000000010&64c7e73484b8c=Berlin&search_term=Berlin&objektart_id=2&anzahl_zimmer=&preis_bis=&groesse_ab=&radius=0": {
     "source_name": "ivd24immobilien.de",
-    "last_checked": "2026-08-22T19:03:18.201438+00:00",
+    "last_checked": "2026-08-23T07:48:15.636965+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:18.201438+00:00"
+    "last_success": "2026-08-23T07:48:15.636965+00:00"
   },
   "https://www.classic-immobilien-berlin.de/vermietung/": {
     "source_name": "classic-immobilien-berlin.de",
-    "last_checked": "2026-08-22T19:03:21.767377+00:00",
+    "last_checked": "2026-08-23T07:48:19.134398+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:21.767377+00:00"
+    "last_success": "2026-08-23T07:48:19.134398+00:00"
   },
   "https://www.woelki-pm.de/#nean": {
     "source_name": "woelki-pm.de",
-    "last_checked": "2026-08-22T19:03:25.623080+00:00",
+    "last_checked": "2026-08-23T07:48:25.424195+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:25.623080+00:00"
+    "last_success": "2026-08-23T07:48:25.424195+00:00"
   },
   "http://www.schoenundsever.de/verwaltung/angebote/wohnungen-zur-miete/": {
     "source_name": "schoenundsever.de",
-    "last_checked": "2026-08-22T19:03:27.232768+00:00",
+    "last_checked": "2026-08-23T07:48:27.261828+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: http://schoenundsever.de/verwaltung/angebote/wohnungen-zur-miete/",
     "last_success": null
   },
   "https://www.rw-living.immo/service/vermietung#/list1": {
     "source_name": "rw-living.immo",
-    "last_checked": "2026-08-22T19:03:27.955843+00:00",
+    "last_checked": "2026-08-23T07:48:28.281213+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:27.955843+00:00"
+    "last_success": "2026-08-23T07:48:28.281213+00:00"
   },
   "https://www.rbb-immo.com/Mietangebote-in-und-um-berlin.html": {
     "source_name": "rbb-immo.com",
-    "last_checked": "2026-08-22T19:03:32.720654+00:00",
+    "last_checked": "2026-08-23T07:48:33.617827+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:32.720654+00:00"
+    "last_success": "2026-08-23T07:48:33.617827+00:00"
   },
   "https://portal1s.easysquare.com/hws-berlin/index.html?deeplink=%2FESQ_IA_REOBJ%2FESQ_VM_REOBJ_ALL#/form/%252Fsheet%252Fsection/DD0EA8DE-1E78-755D-0299-C4987FE944DD/%252Fsection%252F0%252Fbox%252F0%252Fhead%252F6": {
     "source_name": "portal1s.easysquare.com",
-    "last_checked": "2026-08-22T19:03:33.321031+00:00",
+    "last_checked": "2026-08-23T07:48:34.237504+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:33.321031+00:00"
+    "last_success": "2026-08-23T07:48:34.237504+00:00"
   },
   "https://www.harry-gerlach.de/wohnung-mieten-berlin/": {
     "source_name": "harry-gerlach.de",
-    "last_checked": "2026-08-22T19:03:39.696730+00:00",
+    "last_checked": "2026-08-23T07:48:41.558034+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:39.696730+00:00"
+    "last_success": "2026-08-23T07:48:41.558034+00:00"
   },
   "https://herbert-kohlmeyer.de/immobilienangebote-berlin/": {
     "source_name": "herbert-kohlmeyer.de",
-    "last_checked": "2026-08-22T19:03:40.992286+00:00",
+    "last_checked": "2026-08-23T07:48:43.148798+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:40.992286+00:00"
+    "last_success": "2026-08-23T07:48:43.148798+00:00"
   },
   "https://apartberlin.de/wohnungen/": {
     "source_name": "apartberlin.de",
-    "last_checked": "2026-08-22T19:03:46.205431+00:00",
+    "last_checked": "2026-08-23T07:48:48.289899+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:46.205431+00:00"
+    "last_success": "2026-08-23T07:48:48.289899+00:00"
   },
   "https://www.kip.net/berlin/mieten/wohnungen/1": {
     "source_name": "kip.net",
-    "last_checked": "2026-08-22T19:03:54.061016+00:00",
+    "last_checked": "2026-08-23T07:48:57.226165+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:03:54.061016+00:00"
+    "last_success": "2026-08-23T07:48:57.226165+00:00"
   },
   "https://www.vonovia.de/de-de/wohnungen-in-berlin?immoType=wohnung&rentType=miete": {
     "source_name": "vonovia.de",
-    "last_checked": "2026-08-22T19:04:23.448668+00:00",
+    "last_checked": "2026-08-23T07:49:26.544180+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:04:23.448668+00:00"
+    "last_success": "2026-08-23T07:49:26.544180+00:00"
   },
   "https://www.vonkathen-hausverwaltung.de/vermietung/": {
     "source_name": "vonkathen-hausverwaltung.de",
-    "last_checked": "2026-08-22T19:04:23.823372+00:00",
+    "last_checked": "2026-08-23T07:49:26.841246+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:04:23.823372+00:00"
+    "last_success": "2026-08-23T07:49:26.841246+00:00"
   },
   "https://cg-immobilien.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart=wohnen&typ&ort&center&objekt-id&collapse&von-qm=0.00&bis-qm=11460.00&von-zimmer=0.00&bis-zimmer=5.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00": {
     "source_name": "cg-immobilien.de",
-    "last_checked": "2026-08-22T19:04:29.188922+00:00",
+    "last_checked": "2026-08-23T07:49:32.339411+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:04:29.188922+00:00"
+    "last_success": "2026-08-23T07:49:32.339411+00:00"
   },
   "http://www.muzi-berlin.de/vermietung/wohnungen-miete/": {
     "source_name": "muzi-berlin.de",
-    "last_checked": "2026-08-22T19:04:39.807517+00:00",
+    "last_checked": "2026-08-23T07:49:44.102893+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.muzi-berlin.de/de/vermietung/wohnungen-miete/",
     "last_success": null
   },
   "https://www.shk-immobilien.de/immonet.php": {
     "source_name": "shk-immobilien.de",
-    "last_checked": "2026-08-22T19:04:40.299030+00:00",
+    "last_checked": "2026-08-23T07:49:44.706060+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:04:40.299030+00:00"
+    "last_success": "2026-08-23T07:49:44.706060+00:00"
   },
   "https://www.hausverwaltung-kolbe.de/": {
     "source_name": "hausverwaltung-kolbe.de",
-    "last_checked": "2026-08-22T19:04:40.882587+00:00",
+    "last_checked": "2026-08-23T07:49:45.169594+00:00",
     "status": "error",
     "error": "403 Client Error: Forbidden for url: https://www.hausverwaltung-kolbe.de/",
     "last_success": null
   },
   "https://maior-domus.de/de/immobilien/": {
     "source_name": "maior-domus.de",
-    "last_checked": "2026-08-22T19:04:41.435392+00:00",
+    "last_checked": "2026-08-23T07:49:46.037993+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://maior-domus.de/de/immobilien/",
     "last_success": null
   },
   "https://progenea-berlin.de/immobilien-mieten/": {
     "source_name": "progenea-berlin.de",
-    "last_checked": "2026-08-22T19:04:43.268540+00:00",
+    "last_checked": "2026-08-23T07:49:48.454388+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:04:43.268540+00:00"
+    "last_success": "2026-08-23T07:49:48.454388+00:00"
   },
   "https://www.livinginberlin.de/angebote/mieten": {
     "source_name": "livinginberlin.de",
-    "last_checked": "2026-08-22T19:04:43.703318+00:00",
+    "last_checked": "2026-08-23T07:49:49.283052+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:04:43.703318+00:00"
+    "last_success": "2026-08-23T07:49:49.283052+00:00"
   },
   "https://immobiliensuche.degewo.de/de/search": {
     "source_name": "immobiliensuche.degewo.de",
-    "last_checked": "2026-08-22T19:05:42.712679+00:00",
+    "last_checked": "2026-08-23T07:50:49.124182+00:00",
     "status": "error",
-    "error": "HTTPSConnectionPool(host='immobiliensuche.degewo.de', port=443): Max retries exceeded with url: /de/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='immobiliensuche.degewo.de', port=443) at 0x7ff1495b6ad0>, 'Connection to immobiliensuche.degewo.de timed out. (connect timeout=25)'))",
+    "error": "HTTPSConnectionPool(host='immobiliensuche.degewo.de', port=443): Max retries exceeded with url: /de/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='immobiliensuche.degewo.de', port=443) at 0x7f7521b4e810>, 'Connection to immobiliensuche.degewo.de timed out. (connect timeout=25)'))",
     "last_success": null
   },
   "https://www.buwog-immobilientreuhand.de/immobilien?&property_search%5Bresult_count_only%5D=true&property_search%5Bmarketing_type%5D=rent&property_search%5Bproperty_type%5D=flat&property_search%5Bminimum_total_size%5D=0&property_search%5Bmaximum_total_size%5D=241&property_search%5Bminimum_rent_price%5D=0&property_search%5Bmaximum_rent_price%5D=4165&property_search%5Bzip_code%5D=12527,12555": {
     "source_name": "buwog-immobilientreuhand.de",
-    "last_checked": "2026-08-22T19:05:43.591858+00:00",
+    "last_checked": "2026-08-23T07:50:50.312734+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:05:43.591858+00:00"
+    "last_success": "2026-08-23T07:50:50.312734+00:00"
   },
   "https://www.stadtundland.de/immobiliensuche.php": {
     "source_name": "stadtundland.de",
-    "last_checked": "2026-08-22T19:05:47.335821+00:00",
+    "last_checked": "2026-08-23T07:51:03.729570+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:05:47.335821+00:00"
+    "last_success": "2026-08-23T07:51:03.729570+00:00"
   },
   "https://blp-management.com/immobilien-vermarktungsart/miete/": {
     "source_name": "blp-management.com",
-    "last_checked": "2026-08-22T19:05:48.221904+00:00",
+    "last_checked": "2026-08-23T07:51:05.223880+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:05:48.221904+00:00"
+    "last_success": "2026-08-23T07:51:05.223880+00:00"
   },
   "https://carat24-immobilien.de/immobilientyp/wohnung/": {
     "source_name": "carat24-immobilien.de",
-    "last_checked": "2026-08-22T19:05:49.158944+00:00",
+    "last_checked": "2026-08-23T07:51:09.302531+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:05:49.158944+00:00"
+    "last_success": "2026-08-23T07:51:09.302531+00:00"
   },
   "https://www.city-concept.de/wohnungen/mieten": {
     "source_name": "city-concept.de",
-    "last_checked": "2026-08-22T19:05:53.843755+00:00",
+    "last_checked": "2026-08-23T07:51:12.970765+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:05:53.843755+00:00"
+    "last_success": "2026-08-23T07:51:12.970765+00:00"
   },
   "https://tag-wohnen.de/immosuche?filters%5Bproperty_city%5D%5B%5D=Berlin&rooms%5Bmin%5D=2&size=10&view=LIST": {
     "source_name": "tag-wohnen.de",
-    "last_checked": "2026-08-22T19:05:59.619812+00:00",
+    "last_checked": "2026-08-23T07:51:17.415765+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:05:59.619812+00:00"
+    "last_success": "2026-08-23T07:51:17.415765+00:00"
   },
   "https://www.poeppel-immobilien.de/ff/immobilien/?schema=flat_rent&price=&ffpage=1&sort=date": {
     "source_name": "poeppel-immobilien.de",
-    "last_checked": "2026-08-22T19:06:00.074301+00:00",
+    "last_checked": "2026-08-23T07:51:18.283819+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.poeppel-immobilien.de/ff/immobilien/?schema=flat_rent&price=&ffpage=1&sort=date",
     "last_success": null
   },
   "https://deinhart-immobilien.de/immobilien-fenster/": {
     "source_name": "deinhart-immobilien.de",
-    "last_checked": "2026-08-22T19:06:05.267362+00:00",
+    "last_checked": "2026-08-23T07:51:22.325420+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:05.267362+00:00"
+    "last_success": "2026-08-23T07:51:22.325420+00:00"
   },
   "https://www.kwco.de/de": {
     "source_name": "kwco.de",
-    "last_checked": "2026-08-22T19:06:06.166342+00:00",
+    "last_checked": "2026-08-23T07:51:23.395664+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:06.166342+00:00"
+    "last_success": "2026-08-23T07:51:23.395664+00:00"
   },
   "https://www.dydo.de/": {
     "source_name": "dydo.de",
-    "last_checked": "2026-08-22T19:06:09.095714+00:00",
+    "last_checked": "2026-08-23T07:51:26.326530+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:09.095714+00:00"
+    "last_success": "2026-08-23T07:51:26.326530+00:00"
   },
   "https://www.hetzer-immobilien.de/angebote-wohnen.html": {
     "source_name": "hetzer-immobilien.de",
-    "last_checked": "2026-08-22T19:06:11.996262+00:00",
+    "last_checked": "2026-08-23T07:51:29.680456+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://hetzer-immobilien.de/angebote-wohnen.html",
     "last_success": null
   },
   "https://www.oehmcke-immobilien.de/angebote/": {
     "source_name": "oehmcke-immobilien.de",
-    "last_checked": "2026-08-22T19:06:12.938696+00:00",
+    "last_checked": "2026-08-23T07:51:31.323470+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.oehmcke-immobilien.de/angebote/",
     "last_success": null
   },
   "https://ulmann-immobilien.de/finder/private/01/miete": {
     "source_name": "ulmann-immobilien.de",
-    "last_checked": "2026-08-22T19:06:13.506965+00:00",
+    "last_checked": "2026-08-23T07:51:32.145391+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://ulmann-immobilien.de/finder/private/01/miete",
     "last_success": null
   },
   "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs": {
     "source_name": "grandcityproperty.de",
-    "last_checked": "2026-08-22T19:06:17.313275+00:00",
+    "last_checked": "2026-08-23T07:51:34.642627+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:17.313275+00:00"
+    "last_success": "2026-08-23T07:51:34.642627+00:00"
   },
   "https://www.zachger.de/immobilienangebote/": {
     "source_name": "zachger.de",
-    "last_checked": "2026-08-22T19:06:30.577744+00:00",
+    "last_checked": "2026-08-23T07:51:48.686451+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:30.577744+00:00"
+    "last_success": "2026-08-23T07:51:48.686451+00:00"
   },
   "https://www.harke-vonbismarck.de/immobilien/mietobjekte": {
     "source_name": "harke-vonbismarck.de",
-    "last_checked": "2026-08-22T19:06:34.809628+00:00",
+    "last_checked": "2026-08-23T07:51:53.012709+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:34.809628+00:00"
+    "last_success": "2026-08-23T07:51:53.012709+00:00"
   },
   "https://www.ruedrich-immobilien.de/aktuelle-angebote/objekt-mieten/": {
     "source_name": "ruedrich-immobilien.de",
-    "last_checked": "2026-08-22T19:06:36.096046+00:00",
+    "last_checked": "2026-08-23T07:51:54.121674+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:36.096046+00:00"
+    "last_success": "2026-08-23T07:51:54.121674+00:00"
   },
   "https://www.kuenne-immobilien.de/vermietung/?filter%5B1%5D%5Bmeta_query%5D%5B0%5D=Berlin": {
     "source_name": "kuenne-immobilien.de",
-    "last_checked": "2026-08-22T19:06:36.960513+00:00",
+    "last_checked": "2026-08-23T07:51:55.405905+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:36.960513+00:00"
+    "last_success": "2026-08-23T07:51:55.405905+00:00"
   },
   "https://krossa-co.de/": {
     "source_name": "krossa-co.de",
-    "last_checked": "2026-08-22T19:06:42.339960+00:00",
+    "last_checked": "2026-08-23T07:52:00.594195+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:42.339960+00:00"
+    "last_success": "2026-08-23T07:52:00.594195+00:00"
   },
   "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote": {
     "source_name": "charlotte1907.de",
-    "last_checked": "2026-08-22T19:06:48.096944+00:00",
+    "last_checked": "2026-08-23T07:52:05.462217+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:48.096944+00:00"
+    "last_success": "2026-08-23T07:52:05.462217+00:00"
   },
   "https://www.daily-immo.de/immomap.xhtml?f%5B50479-55%5D=0&f%5B50479-57%5D=0&f%5B50479-59%5D=&f%5B50479-61%5D=&f%5B50479-63%5D=0&f%5B50479-65%5D=10000&f%5B50479-67%5D=0&f%5B50479-69%5D=15000000&f%5B50479-71%5D=0&f%5B50479-73%5D=50&f%5B50479-79%5D=0&f%5B50479-81%5D=100": {
     "source_name": "daily-immo.de",
-    "last_checked": "2026-08-22T19:06:52.367957+00:00",
+    "last_checked": "2026-08-23T07:52:07.274494+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.daily-immo.de/immomap.xhtml?f%5B50479-55%5D=0&f%5B50479-57%5D=0&f%5B50479-59%5D=&f%5B50479-61%5D=&f%5B50479-63%5D=0&f%5B50479-65%5D=10000&f%5B50479-67%5D=0&f%5B50479-69%5D=15000000&f%5B50479-71%5D=0&f%5B50479-73%5D=50&f%5B50479-79%5D=0&f%5B50479-81%5D=100",
     "last_success": null
   },
   "https://aden-immo.com/immobilien-berlin/wohnung-mieten/": {
     "source_name": "aden-immo.com",
-    "last_checked": "2026-08-22T19:06:53.734030+00:00",
+    "last_checked": "2026-08-23T07:52:09.119696+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:53.734030+00:00"
+    "last_success": "2026-08-23T07:52:09.119696+00:00"
   },
   "https://www.schacher-immobilien.de/angebote/wohnungen/?pageIdc99d0251=2#list_c99d0251": {
     "source_name": "schacher-immobilien.de",
-    "last_checked": "2026-08-22T19:06:57.871939+00:00",
+    "last_checked": "2026-08-23T07:52:12.732148+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:06:57.871939+00:00"
+    "last_success": "2026-08-23T07:52:12.732148+00:00"
   },
   "https://www.agas-immobilien.de/immobilien/": {
     "source_name": "agas-immobilien.de",
-    "last_checked": "2026-08-22T19:07:01.337126+00:00",
+    "last_checked": "2026-08-23T07:52:16.220854+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:01.337126+00:00"
+    "last_success": "2026-08-23T07:52:16.220854+00:00"
   },
   "https://immodo-berlin.de/immobilien/": {
     "source_name": "immodo-berlin.de",
-    "last_checked": "2026-08-22T19:07:04.604555+00:00",
+    "last_checked": "2026-08-23T07:52:20.268367+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:04.604555+00:00"
+    "last_success": "2026-08-23T07:52:20.268367+00:00"
   },
   "https://www.fds-hausverwaltung.de/wohnungen/unsereangebote/": {
     "source_name": "fds-hausverwaltung.de",
-    "last_checked": "2026-08-22T19:07:08.272200+00:00",
+    "last_checked": "2026-08-23T07:52:24.246588+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:08.272200+00:00"
+    "last_success": "2026-08-23T07:52:24.246588+00:00"
   },
   "https://www.beckerundkries.de/unsere-angebote/angebote-wohnen/": {
     "source_name": "beckerundkries.de",
-    "last_checked": "2026-08-22T19:07:09.170168+00:00",
+    "last_checked": "2026-08-23T07:52:25.398324+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:09.170168+00:00"
+    "last_success": "2026-08-23T07:52:25.398324+00:00"
   },
   "https://www.berlinovo.de/de/wohnungen/suche": {
     "source_name": "berlinovo.de",
-    "last_checked": "2026-08-22T19:07:09.902075+00:00",
+    "last_checked": "2026-08-23T07:52:29.279424+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:09.902075+00:00"
+    "last_success": "2026-08-23T07:52:29.279424+00:00"
   },
   "https://imw-wus.de/": {
     "source_name": "imw-wus.de",
-    "last_checked": "2026-08-22T19:07:22.737089+00:00",
+    "last_checked": "2026-08-23T07:52:41.439339+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:22.737089+00:00"
+    "last_success": "2026-08-23T07:52:41.439339+00:00"
   },
   "https://www.gewobag.de/fuer-mieter-und-mietinteressenten/mietangebote/?bezirke_all=1&bezirke%5B%5D=charlottenburg-wilmersdorf&bezirke%5B%5D=charlottenburg-wilmersdorf-charlottenburg&bezirke%5B%5D=charlottenburg-wilmersdorf-wilmersdorf&bezirke%5B%5D=friedrichshain-kreuzberg&bezirke%5B%5D=friedrichshain-kreuzberg-friedrichshain&bezirke%5B%5D=friedrichshain-kreuzberg-kreuzberg&bezirke%5B%5D=lichtenberg&bezirke%5B%5D=lichtenberg-alt-hohenschoenhausen&bezirke%5B%5D=lichtenberg-falkenberg&bezirke%5B%5D=lichtenberg-fennpfuhl&bezirke%5B%5D=lichtenberg-friedrichsfelde&bezirke%5B%5D=marzahn-hellersdorf&bezirke%5B%5D=marzahn-hellersdorf-marzahn&bezirke%5B%5D=neukoelln&bezirke%5B%5D=neukoelln-buckow&bezirke%5B%5D=neukoelln-rudow&bezirke%5B%5D=pankow&bezirke%5B%5D=pankow-prenzlauer-berg&bezirke%5B%5D=pankow-weissensee&bezirke%5B%5D=reinickendorf&bezirke%5B%5D=reinickendorf-hermsdorf&bezirke%5B%5D=reinickendorf-tegel&bezirke%5B%5D=reinickendorf-waidmannslust&bezirke%5B%5D=spandau&bezirke%5B%5D=spandau-falkenhagener-feld&bezirke%5B%5D=spandau-hakenfelde&bezirke%5B%5D=spandau-haselhorst&bezirke%5B%5D=spandau-staaken&bezirke%5B%5D=spandau-wilhelmstadt&bezirke%5B%5D=steglitz-zehlendorf&bezirke%5B%5D=steglitz-zehlendorf-lichterfelde&bezirke%5B%5D=steglitz-zehlendorf-zehlendorf&bezirke%5B%5D=tempelhof-schoeneberg&bezirke%5B%5D=tempelhof-schoeneberg-lichtenrade&bezirke%5B%5D=tempelhof-schoeneberg-mariendorf&bezirke%5B%5D=tempelhof-schoeneberg-marienfelde&bezirke%5B%5D=tempelhof-schoeneberg-schoeneberg&bezirke%5B%5D=treptow-koepenick&bezirke%5B%5D=treptow-koepenick-niederschoeneweide&bezirke%5B%5D=treptow-koepenick-oberschoeneweide&objekttyp%5B%5D=wohnung&gesamtmiete_von=&gesamtmiete_bis=&gesamtflaeche_von=&gesamtflaeche_bis=&zimmer_von=&zimmer_bis=&sort-by=recent": {
     "source_name": "gewobag.de",
-    "last_checked": "2026-08-22T19:07:26.250661+00:00",
+    "last_checked": "2026-08-23T07:52:45.954551+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:26.250661+00:00"
+    "last_success": "2026-08-23T07:52:45.954551+00:00"
   },
   "https://www.kshausverwaltung.de/vermietung.php": {
     "source_name": "kshausverwaltung.de",
-    "last_checked": "2026-08-22T19:07:26.360217+00:00",
+    "last_checked": "2026-08-23T07:52:49.450268+00:00",
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.kshausverwaltung.de', port=443): Max retries exceeded with url: /vermietung.php (Caused by NameResolutionError(\"HTTPSConnection(host='www.kshausverwaltung.de', port=443): Failed to resolve 'www.kshausverwaltung.de' ([Errno -2] Name or service not known)\"))",
     "last_success": null
   },
   "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": {
     "source_name": "klingerimmobilien.de",
-    "last_checked": "2026-08-22T19:07:27.287501+00:00",
+    "last_checked": "2026-08-23T07:52:50.641866+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:27.287501+00:00"
+    "last_success": "2026-08-23T07:52:50.641866+00:00"
   },
   "https://portal.immobilienscout24.de/ergebnisliste/56227343": {
     "source_name": "immobilienscout24.de",
-    "last_checked": "2026-08-22T19:07:32.212766+00:00",
+    "last_checked": "2026-08-23T07:52:55.065871+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:32.212766+00:00"
+    "last_success": "2026-08-23T07:52:55.065871+00:00"
   },
   "https://www.wegner-immoconsult.de/vermietung": {
     "source_name": "wegner-immoconsult.de",
-    "last_checked": "2026-08-22T19:07:51.093530+00:00",
+    "last_checked": "2026-08-23T07:53:18.799773+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:51.093530+00:00"
+    "last_success": "2026-08-23T07:53:18.799773+00:00"
   },
   "https://ar-immobilien.de/immobilienangebote.html": {
     "source_name": "ar-immobilien.de",
-    "last_checked": "2026-08-22T19:07:51.903289+00:00",
+    "last_checked": "2026-08-23T07:53:23.421987+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:51.903289+00:00"
+    "last_success": "2026-08-23T07:53:23.421987+00:00"
   },
   "https://www.immonexxt.com/de/mietangebote-wohnen": {
     "source_name": "immonexxt.com",
-    "last_checked": "2026-08-22T19:07:56.867478+00:00",
+    "last_checked": "2026-08-23T07:53:29.540280+00:00",
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.immonexxt.com', port=443): Max retries exceeded with url: /de/mietangebote-wohnen (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.immonexxt.com'. (_ssl.c:1016)\")))",
     "last_success": null
   },
   "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html": {
     "source_name": "plaza-immobilien.de",
-    "last_checked": "2026-08-22T19:07:57.784622+00:00",
+    "last_checked": "2026-08-23T07:53:31.013868+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:57.784622+00:00"
+    "last_success": "2026-08-23T07:53:31.013868+00:00"
   },
   "https://www.mj-immobilien.de/mietangebote-in-berlin.html": {
     "source_name": "mj-immobilien.de",
-    "last_checked": "2026-08-22T19:07:58.577413+00:00",
+    "last_checked": "2026-08-23T07:53:31.986017+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:07:58.577413+00:00"
+    "last_success": "2026-08-23T07:53:31.986017+00:00"
   },
   "https://www.gottschau-immobilien.de/miete.xhtml": {
     "source_name": "gottschau-immobilien.de",
-    "last_checked": "2026-08-22T19:08:02.935659+00:00",
+    "last_checked": "2026-08-23T07:53:36.653154+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:02.935659+00:00"
+    "last_success": "2026-08-23T07:53:36.653154+00:00"
   },
   "https://www.eb-immo.de/immobilienscout": {
     "source_name": "eb-immo.de",
-    "last_checked": "2026-08-22T19:08:07.710757+00:00",
+    "last_checked": "2026-08-23T07:53:40.311842+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.eb-immo.de/immobilienscout",
     "last_success": null
   },
   "https://www.berlin-city-immobilien.de/wohnungen-zur-miete.html": {
     "source_name": "berlin-city-immobilien.de",
-    "last_checked": "2026-08-22T19:08:10.051597+00:00",
+    "last_checked": "2026-08-23T07:53:42.852437+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.berlin-city-immobilien.de/wohnungen-zur-miete.html",
     "last_success": null
   },
   "https://guthmann.estate/de/immobilien/": {
     "source_name": "guthmann.estate",
-    "last_checked": "2026-08-22T19:08:12.585408+00:00",
+    "last_checked": "2026-08-23T07:53:45.601983+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:12.585408+00:00"
+    "last_success": "2026-08-23T07:53:45.601983+00:00"
   },
   "https://www.wbm.de/wohnungen-berlin/angebote/": {
     "source_name": "wbm.de",
-    "last_checked": "2026-08-22T19:08:13.638452+00:00",
+    "last_checked": "2026-08-23T07:53:46.999680+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:13.638452+00:00"
+    "last_success": "2026-08-23T07:53:46.999680+00:00"
   },
   "https://www.hw-grundbesitz.de/wohnen/mieten/angebote/": {
     "source_name": "hw-grundbesitz.de",
-    "last_checked": "2026-08-22T19:08:14.507504+00:00",
+    "last_checked": "2026-08-23T07:53:48.172381+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.hw-grundbesitz.de/wohnen/mieten/angebote/",
     "last_success": null
   },
   "https://www.hancock-ag.de/wohnungsangebote/": {
     "source_name": "hancock-ag.de",
-    "last_checked": "2026-08-22T19:08:14.994900+00:00",
+    "last_checked": "2026-08-23T07:53:48.932363+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:14.994900+00:00"
+    "last_success": "2026-08-23T07:53:48.932363+00:00"
   },
   "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0": {
     "source_name": "petruswerk.de",
-    "last_checked": "2026-08-22T19:08:15.372429+00:00",
+    "last_checked": "2026-08-23T07:53:49.581241+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:15.372429+00:00"
+    "last_success": "2026-08-23T07:53:49.581241+00:00"
   },
   "https://www.zbvv.de/dienstleistungen/vermietung/?keyword=&offer=&location=berlin&listing-type=&bedrooms=&bathrooms=": {
     "source_name": "zbvv.de",
-    "last_checked": "2026-08-22T19:08:16.716131+00:00",
+    "last_checked": "2026-08-23T07:53:51.373036+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:16.716131+00:00"
+    "last_success": "2026-08-23T07:53:51.373036+00:00"
   },
   "https://www.gesobau.de/mieten/wohnungssuche/": {
     "source_name": "gesobau.de",
-    "last_checked": "2026-08-22T19:08:25.648206+00:00",
+    "last_checked": "2026-08-23T07:54:00.303808+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:25.648206+00:00"
+    "last_success": "2026-08-23T07:54:00.303808+00:00"
   },
   "https://immonexxt.com/de/mietangebote-wohnen": {
     "source_name": "immonexxt.com",
-    "last_checked": "2026-08-22T19:08:37.547367+00:00",
+    "last_checked": "2026-08-23T07:54:11.848028+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:37.547367+00:00"
+    "last_success": "2026-08-23T07:54:11.848028+00:00"
   },
   "https://www.allod.de/Immobilien": {
     "source_name": "allod.de",
-    "last_checked": "2026-08-22T19:08:38.142808+00:00",
+    "last_checked": "2026-08-23T07:54:12.737171+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.allod.de/Immobilien",
     "last_success": null
   },
   "https://portal.immobilienscout24.de/ergebnisliste/92830022": {
     "source_name": "immobilienscout24.de",
-    "last_checked": "2026-08-22T19:08:39.449363+00:00",
+    "last_checked": "2026-08-23T07:54:14.207850+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:39.449363+00:00"
+    "last_success": "2026-08-23T07:54:14.207850+00:00"
   },
   "http://www.hvp-berlin.de/Wohnen.html": {
     "source_name": "hvp-berlin.de",
-    "last_checked": "2026-08-22T19:08:50.004335+00:00",
+    "last_checked": "2026-08-23T07:54:39.552810+00:00",
     "status": "error",
     "error": "500 Server Error: Internal Server Error for url: http://www.hvp-berlin.de/Wohnen.html",
     "last_success": null
   },
   "https://www.hausverwalter-berlin.de/aktuelle-wohnungsangebote": {
     "source_name": "hausverwalter-berlin.de",
-    "last_checked": "2026-08-22T19:08:50.505490+00:00",
+    "last_checked": "2026-08-23T07:54:40.178108+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:50.505490+00:00"
+    "last_success": "2026-08-23T07:54:40.178108+00:00"
   },
   "https://www.achat-hv.de/mn_18/wohnungen/vermietung.pl": {
     "source_name": "achat-hv.de",
-    "last_checked": "2026-08-22T19:08:50.900325+00:00",
+    "last_checked": "2026-08-23T07:54:40.812106+00:00",
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.achat-hv.de', port=443): Max retries exceeded with url: /mn_18/wohnungen/vermietung.pl (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.achat-hv.de'. (_ssl.c:1016)\")))",
     "last_success": null
   },
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": {
     "source_name": "esta-haus.de",
-    "last_checked": "2026-08-22T19:08:51.498663+00:00",
+    "last_checked": "2026-08-23T07:54:41.773390+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:51.498663+00:00"
+    "last_success": "2026-08-23T07:54:41.773390+00:00"
   },
   "https://kochundkollegen.com/immobilienangebote/": {
     "source_name": "kochundkollegen.com",
-    "last_checked": "2026-08-22T19:08:59.821038+00:00",
+    "last_checked": "2026-08-23T07:54:48.937426+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:08:59.821038+00:00"
+    "last_success": "2026-08-23T07:54:48.937426+00:00"
   },
   "https://www.kurtzke-immobilien.de/immobilienangebote/": {
     "source_name": "kurtzke-immobilien.de",
-    "last_checked": "2026-08-22T19:09:00.425837+00:00",
+    "last_checked": "2026-08-23T07:54:53.984049+00:00",
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.kurtzke-immobilien.de', port=443): Max retries exceeded with url: /immobilienangebote/ (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.kurtzke-immobilien.de'. (_ssl.c:1016)\")))",
     "last_success": null
   },
   "https://www.pik-hausverwaltung.de/vermietung/": {
     "source_name": "pik-hausverwaltung.de",
-    "last_checked": "2026-08-22T19:09:00.536677+00:00",
+    "last_checked": "2026-08-23T07:54:54.188246+00:00",
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.pik-hausverwaltung.de', port=443): Max retries exceeded with url: /vermietung/ (Caused by NameResolutionError(\"HTTPSConnection(host='www.pik-hausverwaltung.de', port=443): Failed to resolve 'www.pik-hausverwaltung.de' ([Errno -2] Name or service not known)\"))",
     "last_success": null
   },
   "https://artvivendi-immobilien.de/aktuele-angebote.html": {
     "source_name": "artvivendi-immobilien.de",
-    "last_checked": "2026-08-22T19:09:01.710791+00:00",
-    "status": "ok",
-    "error": null,
+    "last_checked": "2026-08-23T07:54:55.011289+00:00",
+    "status": "error",
+    "error": "403 Client Error: Forbidden for url: https://artvivendi-immobilien.de/aktuele-angebote.html",
     "last_success": "2026-08-22T19:09:01.710791+00:00"
   },
   "https://www.zander-immobilien.de/wohnungen.html": {
     "source_name": "zander-immobilien.de",
-    "last_checked": "2026-08-22T19:09:03.877998+00:00",
+    "last_checked": "2026-08-23T07:54:58.139615+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.zander-immobilien.de/wohnungen.html",
     "last_success": null
   },
   "https://www.werz-werz.de/werzimmobilien/": {
     "source_name": "werz-werz.de",
-    "last_checked": "2026-08-22T19:09:06.656643+00:00",
+    "last_checked": "2026-08-23T07:55:00.912729+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:06.656643+00:00"
+    "last_success": "2026-08-23T07:55:00.912729+00:00"
   },
   "https://www.immoagenten.de/startseite.xhtml": {
     "source_name": "immoagenten.de",
-    "last_checked": "2026-08-22T19:09:13.238867+00:00",
+    "last_checked": "2026-08-23T07:55:04.760403+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:13.238867+00:00"
+    "last_success": "2026-08-23T07:55:04.760403+00:00"
   },
   "http://www.mika-immobilien.de/vermietung-wohnung/": {
     "source_name": "mika-immobilien.de",
-    "last_checked": "2026-08-22T19:09:16.369756+00:00",
+    "last_checked": "2026-08-23T07:55:08.073233+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:16.369756+00:00"
+    "last_success": "2026-08-23T07:55:08.073233+00:00"
   },
   "https://www.tela-immobilien.de/angebote-mietimmobilien": {
     "source_name": "tela-immobilien.de",
-    "last_checked": "2026-08-22T19:09:19.685559+00:00",
+    "last_checked": "2026-08-23T07:55:11.920275+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:19.685559+00:00"
+    "last_success": "2026-08-23T07:55:11.920275+00:00"
   },
   "https://www.foelske.de/hausverwaltung-berlin/angebote.html": {
     "source_name": "foelske.de",
-    "last_checked": "2026-08-22T19:09:22.777725+00:00",
+    "last_checked": "2026-08-23T07:55:15.278490+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:22.777725+00:00"
+    "last_success": "2026-08-23T07:55:15.278490+00:00"
   },
   "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie": {
     "source_name": "immobilienscout24.de",
-    "last_checked": "2026-08-22T19:09:22.917945+00:00",
+    "last_checked": "2026-08-23T07:55:15.320751+00:00",
     "status": "error",
     "error": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
     "last_success": null
   },
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": {
     "source_name": "kip.net",
-    "last_checked": "2026-08-22T19:09:23.902792+00:00",
+    "last_checked": "2026-08-23T07:55:16.524172+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:23.902792+00:00"
+    "last_success": "2026-08-23T07:55:16.524172+00:00"
   },
   "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/": {
     "source_name": "caseaberlino.com",
-    "last_checked": "2026-08-22T19:09:52.202285+00:00",
+    "last_checked": "2026-08-23T07:55:46.333369+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:09:52.202285+00:00"
+    "last_success": "2026-08-23T07:55:46.333369+00:00"
   },
   "https://www.habitare-immobilien.de/angebote": {
     "source_name": "habitare-immobilien.de",
-    "last_checked": "2026-08-22T19:10:11.299692+00:00",
+    "last_checked": "2026-08-23T07:56:05.568798+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:10:11.299692+00:00"
+    "last_success": "2026-08-23T07:56:05.568798+00:00"
   },
   "https://www.jli-berlin.de/aktuelle-vermietung": {
     "source_name": "jli-berlin.de",
-    "last_checked": "2026-08-22T19:10:50.668128+00:00",
+    "last_checked": "2026-08-23T07:56:44.449362+00:00",
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.jli-berlin.de', port=443): Max retries exceeded with url: /aktuelle-vermietung (Caused by NameResolutionError(\"HTTPSConnection(host='www.jli-berlin.de', port=443): Failed to resolve 'www.jli-berlin.de' ([Errno -2] Name or service not known)\"))",
     "last_success": null
   },
   "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": {
     "source_name": "lanzundmelzer.de",
-    "last_checked": "2026-08-22T19:10:51.236587+00:00",
+    "last_checked": "2026-08-23T07:56:45.510691+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:10:51.236587+00:00"
+    "last_success": "2026-08-23T07:56:45.510691+00:00"
   },
   "https://schick-24.everreal.co/candidates/public/listings": {
     "source_name": "schick-24.everreal.co",
-    "last_checked": "2026-08-22T19:10:52.108635+00:00",
+    "last_checked": "2026-08-23T07:56:46.849691+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:10:52.108635+00:00"
+    "last_success": "2026-08-23T07:56:46.849691+00:00"
   },
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": {
     "source_name": "pandion-service.de",
-    "last_checked": "2026-08-22T19:11:00.039467+00:00",
+    "last_checked": "2026-08-23T07:56:51.787005+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:11:00.039467+00:00"
+    "last_success": "2026-08-23T07:56:51.787005+00:00"
   },
   "https://famoza.de/ff/immobilien/?schema=flat_rent&price=&ffpage=1&sort=date": {
     "source_name": "famoza.de",
-    "last_checked": "2026-08-22T19:11:16.932960+00:00",
+    "last_checked": "2026-08-23T07:57:09.559856+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:11:16.932960+00:00"
+    "last_success": "2026-08-23T07:57:09.559856+00:00"
   },
   "https://reco-berlin.net/miete/": {
     "source_name": "reco-berlin.net",
-    "last_checked": "2026-08-22T19:11:17.789533+00:00",
+    "last_checked": "2026-08-23T07:57:10.623013+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:11:17.789533+00:00"
+    "last_success": "2026-08-23T07:57:10.623013+00:00"
   },
   "https://hihc.de/angebote/#/list1": {
     "source_name": "hihc.de",
-    "last_checked": "2026-08-22T19:11:19.612325+00:00",
+    "last_checked": "2026-08-23T07:57:13.052989+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:11:19.612325+00:00"
+    "last_success": "2026-08-23T07:57:13.052989+00:00"
   },
   "https://tki.berlin/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id#038;vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id": {
     "source_name": "tki.berlin",
-    "last_checked": "2026-08-22T19:11:51.127464+00:00",
+    "last_checked": "2026-08-23T07:57:39.556538+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:11:51.127464+00:00"
+    "last_success": "2026-08-23T07:57:39.556538+00:00"
   },
   "https://www.poeppel-immobilien.de/aktuelle-immobilien/": {
     "source_name": "poeppel-immobilien.de",
-    "last_checked": "2026-08-22T19:12:02.702916+00:00",
+    "last_checked": "2026-08-23T07:57:51.484208+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.poeppel-immobilien.de/aktuelle-immobilien/",
     "last_success": null
   },
   "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ": {
     "source_name": "grandcityproperty.de",
-    "last_checked": "2026-08-22T19:12:03.011890+00:00",
+    "last_checked": "2026-08-23T07:57:54.981741+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:03.011890+00:00"
+    "last_success": "2026-08-23T07:57:54.981741+00:00"
   },
   "https://www.berlinhaus.com/mietangebote/?frymo_query=%7B%22test%22:%7B%22marketing_type%22:%22655%22,%22type%22:%22wohnung%22,%22location%22:%22702%22%7D%7D": {
     "source_name": "berlinhaus.com",
-    "last_checked": "2026-08-22T19:12:05.546927+00:00",
+    "last_checked": "2026-08-23T07:58:09.152896+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:05.546927+00:00"
+    "last_success": "2026-08-23T07:58:09.152896+00:00"
   },
   "https://akzent-info.de/angebote_2/": {
     "source_name": "akzent-info.de",
-    "last_checked": "2026-08-22T19:12:19.998643+00:00",
+    "last_checked": "2026-08-23T07:58:22.321992+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:19.998643+00:00"
+    "last_success": "2026-08-23T07:58:22.321992+00:00"
   },
   "https://komm-in-kiez.com/wohnungen/": {
     "source_name": "komm-in-kiez.com",
-    "last_checked": "2026-08-22T19:12:21.173823+00:00",
+    "last_checked": "2026-08-23T07:58:28.547883+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:21.173823+00:00"
+    "last_success": "2026-08-23T07:58:28.547883+00:00"
   },
   "https://howe-immo.de/immobilien/": {
     "source_name": "howe-immo.de",
-    "last_checked": "2026-08-22T19:12:22.303686+00:00",
+    "last_checked": "2026-08-23T07:58:30.066644+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:22.303686+00:00"
+    "last_success": "2026-08-23T07:58:30.066644+00:00"
   },
   "https://portal.immobilienscout24.de/ergebnisliste/58427637": {
     "source_name": "immobilienscout24.de",
-    "last_checked": "2026-08-22T19:12:24.551532+00:00",
+    "last_checked": "2026-08-23T07:58:32.448164+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:24.551532+00:00"
+    "last_success": "2026-08-23T07:58:32.448164+00:00"
   },
   "https://www.acb-immobilien.de/angebote/": {
     "source_name": "acb-immobilien.de",
-    "last_checked": "2026-08-22T19:12:31.179410+00:00",
+    "last_checked": "2026-08-23T07:58:42.124594+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:31.179410+00:00"
+    "last_success": "2026-08-23T07:58:42.124594+00:00"
   },
   "https://immodo-berlin.de/angebote/": {
     "source_name": "immodo-berlin.de",
-    "last_checked": "2026-08-22T19:12:35.770045+00:00",
+    "last_checked": "2026-08-23T07:58:47.890007+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:35.770045+00:00"
+    "last_success": "2026-08-23T07:58:47.890007+00:00"
   },
   "https://www.firstcitiz.com/de": {
     "source_name": "firstcitiz.com",
-    "last_checked": "2026-08-22T19:12:42.261358+00:00",
+    "last_checked": "2026-08-23T07:58:51.623278+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:42.261358+00:00"
+    "last_success": "2026-08-23T07:58:51.623278+00:00"
   },
   "https://www.ivf-immobilien.com/immobilien/mieten/": {
     "source_name": "ivf-immobilien.com",
-    "last_checked": "2026-08-22T19:12:42.754480+00:00",
+    "last_checked": "2026-08-23T07:58:52.369995+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:42.754480+00:00"
+    "last_success": "2026-08-23T07:58:52.369995+00:00"
   },
   "https://www.evernest.com/de/": {
     "source_name": "evernest.com",
-    "last_checked": "2026-08-22T19:12:45.919265+00:00",
+    "last_checked": "2026-08-23T07:58:55.274762+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:45.919265+00:00"
+    "last_success": "2026-08-23T07:58:55.274762+00:00"
   },
   "https://www.borcherthv.de/vermietung-/-verkauf": {
     "source_name": "borcherthv.de",
-    "last_checked": "2026-08-22T19:12:48.888575+00:00",
+    "last_checked": "2026-08-23T07:58:58.469903+00:00",
     "status": "error",
     "error": "404 Client Error: Not Found for url: https://www.borcherthv.de/vermietung-/-verkauf",
     "last_success": null
   },
   "https://portal.immobilienscout24.de/ergebnisliste/25476741": {
     "source_name": "immobilienscout24.de",
-    "last_checked": "2026-08-22T19:12:50.219544+00:00",
+    "last_checked": "2026-08-23T07:59:00.113802+00:00",
     "status": "ok",
     "error": null,
-    "last_success": "2026-08-22T19:12:50.219544+00:00"
+    "last_success": "2026-08-23T07:59:00.113802+00:00"
   }
 }

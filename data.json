@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T19:12:53.313544+00:00",
+  "generated_at": "2026-08-23T07:59:02.845097+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 85,
@@ -12,6 +12,45 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::WG oder Familie, 3 Zimmer, je Zi. ab 490 €, Balkon, 2 Bäder, ruhig, grün",
+      "title": "WG oder Familie, 3 Zimmer, je Zi. ab 490 €, Balkon, 2 Bäder, ruhig, grün",
+      "rooms": 3,
+      "size_qm": 96,
+      "rent": 1500.0,
+      "district": null,
+      "plz": "12623",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-23T07:55:43.488409+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::GROßZÜGIGE ALTBAUWOHNUNG MIT PRIVATER TERRASSE UND GARTENZUGANG",
+      "title": "GROßZÜGIGE ALTBAUWOHNUNG MIT PRIVATER TERRASSE UND GARTENZUGANG",
+      "rooms": 6,
+      "size_qm": 220,
+      "rent": null,
+      "district": null,
+      "plz": "10777",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-23T07:55:42.749467+00:00"
+    },
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::Neubau-Dachgeschosswohnung in Berlin – exklusiv...",
+      "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv...",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-23T07:51:43.814576+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Luxury Penthouse Maisonette with Private Rooftop Terrace & Spectacular 360° Berlin Skyline Views",
       "title": "Luxury Penthouse Maisonette with Private Rooftop Terrace & Spectacular 360° Berlin Skyline Views",

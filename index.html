@@ -292,6 +292,7 @@
   .status-badge{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
   .status-badge.ok{background:var(--ok);}
   .status-badge.error{background:var(--danger);}
+  .status-badge.hopeless{background:var(--ink);opacity:.55;}
   .status-badge.unknown{background:var(--muted);}
   .status-row .info{flex:1;min-width:0;}
   .status-row .name{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
@@ -400,11 +401,13 @@
       <div class="status-stat ok"><div class="num" id="statOkNum">–</div><div class="lbl">erreichbar</div></div>
       <div class="status-stat err"><div class="num" id="statErrNum">–</div><div class="lbl">fehlerhaft</div></div>
       <div class="status-stat"><div class="num" id="statWarnNum">–</div><div class="lbl">verdächtig</div></div>
+      <div class="status-stat"><div class="num" id="statHopelessNum">–</div><div class="lbl">aussichtslos</div></div>
     </div>
     <div class="status-filter">
       <button class="chip selected" data-statusfilter="all">Alle</button>
-      <button class="chip" data-statusfilter="error">Nur Fehler</button>
+      <button class="chip" data-statusfilter="error">Fehler</button>
       <button class="chip" data-statusfilter="warn">Verdächtig</button>
+      <button class="chip" data-statusfilter="hopeless">Aussichtslos</button>
     </div>
     <div id="statusList"></div>
   </div>
@@ -614,19 +617,22 @@ function renderFavorites(){
 }
 
 function renderStatus(){
-  const ok = siteStatus.filter(s => s.status === 'ok').length;
-  const err = siteStatus.filter(s => s.status === 'error').length;
-  const warn = siteStatus.filter(s => s.status === 'ok' && s.last_listing_count === 0).length;
+  const ok = siteStatus.filter(s => s.status === 'ok' && !s.hopeless).length;
+  const err = siteStatus.filter(s => s.status === 'error' && !s.hopeless).length;
+  const warn = siteStatus.filter(s => s.status === 'ok' && s.last_listing_count === 0 && !s.hopeless).length;
+  const hopeless = siteStatus.filter(s => s.hopeless).length;
   document.getElementById('statOkNum').textContent = ok;
   document.getElementById('statErrNum').textContent = err;
   document.getElementById('statWarnNum').textContent = warn;
-  document.getElementById('statusTabCount').textContent = (err + warn) > 0 ? (err + warn) : '';
+  document.getElementById('statHopelessNum').textContent = hopeless;
+  document.getElementById('statusTabCount').textContent = (err + hopeless) > 0 ? (err + hopeless) : '';
 
   let rows = siteStatus.slice();
-  if(statusFilterMode === 'error') rows = rows.filter(s => s.status === 'error');
-  if(statusFilterMode === 'warn') rows = rows.filter(s => s.status === 'ok' && s.last_listing_count === 0);
+  if(statusFilterMode === 'error') rows = rows.filter(s => s.status === 'error' && !s.hopeless);
+  if(statusFilterMode === 'warn') rows = rows.filter(s => s.status === 'ok' && s.last_listing_count === 0 && !s.hopeless);
+  if(statusFilterMode === 'hopeless') rows = rows.filter(s => s.hopeless);
   rows.sort((a,b) => {
-    const rank = s => s.status === 'error' ? 0 : (s.status === 'ok' && s.last_listing_count === 0 ? 1 : 2);
+    const rank = s => s.hopeless ? 0 : (s.status === 'error' ? 1 : (s.status === 'ok' && s.last_listing_count === 0 ? 2 : 3));
     if(rank(a) !== rank(b)) return rank(a) - rank(b);
     return (a.source_name||'').localeCompare(b.source_name||'');
   });
@@ -638,7 +644,9 @@ function renderStatus(){
   }
   list.innerHTML = rows.map(s => {
     let detail;
-    if(s.status === 'error'){
+    if(s.hopeless){
+      detail = `✕ Seit ${s.consecutive_bad_runs || '5+'} Versuchen erfolglos – vermutlich dauerhaft tot. Empfehlung: aus sites.json entfernen.`;
+    } else if(s.status === 'error'){
       detail = s.error || 'Fehler beim Abrufen';
     } else if(s.last_listing_count === 0){
       detail = s.suggested_url
@@ -648,10 +656,11 @@ function renderStatus(){
       const pages = s.pages_checked && s.pages_checked > 1 ? ` · ${s.pages_checked} Seiten` : '';
       detail = 'Zuletzt geprüft ' + relTime(s.last_checked) + (s.last_listing_count != null ? ` · ${s.last_listing_count} Inserat(e)${pages}` : '');
     }
-    const warn = s.status === 'ok' && s.last_listing_count === 0;
+    const warn = s.status === 'ok' && s.last_listing_count === 0 && !s.hopeless;
+    const badgeClass = s.hopeless ? 'hopeless' : (warn ? 'error' : (s.status || 'unknown'));
     return `
     <div class="status-row">
-      <span class="status-badge ${warn ? 'error' : (s.status || 'unknown')}"></span>
+      <span class="status-badge ${badgeClass}"></span>
       <div class="info">
         <div class="name">${s.source_name || s.url}</div>
         <div class="detail">${detail}</div>

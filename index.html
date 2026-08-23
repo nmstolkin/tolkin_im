@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Immo Watcher</title>
+<title>Wohnungssuche Berlin</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Immo Watcher">
+<meta name="apple-mobile-web-app-title" content="Wohnungssuche Berlin">
 <meta name="theme-color" content="#1e5c54">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
   :root{
     --ink:#1c2321;
@@ -295,17 +297,39 @@
   .status-row .name{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .status-row .detail{font-size:11.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .status-filter{display:flex;gap:7px;margin-bottom:12px;}
+
+  /* Map Tab */
+  #mapContainer{
+    width:100%;
+    height:calc(100vh - 230px);
+    min-height:400px;
+    border-radius:16px;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .map-note{
+    font-size:11.5px;
+    color:var(--muted);
+    margin:10px 2px 0;
+    line-height:1.5;
+  }
+  .leaflet-popup-content{font-family:inherit;min-width:180px;}
+  .map-popup h3{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--ink);}
+  .map-popup .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
+  .map-popup .tag{font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:100px;background:#f1ede2;color:var(--petrol-deep);}
+  .map-popup a{font-size:12.5px;font-weight:600;color:var(--petrol);text-decoration:none;}
 </style>
 </head>
 <body>
 
 <header>
-  <p class="eyebrow">Berlin · Wohnungssuche</p>
-  <h1>Immo Watcher</h1>
+  <p class="eyebrow">Berlin · automatische Suche</p>
+  <h1>Wohnungssuche Berlin</h1>
   <div class="meta"><span class="dot" id="statusDot"></span><span id="lastUpdate">Lade Stand …</span></div>
   <div class="tabs">
     <button class="tab active" data-tab="feed">Inserate <span class="tab-count" id="feedTabCount"></span></button>
     <button class="tab" data-tab="favorites">Favoriten <span class="tab-count" id="favTabCount"></span></button>
+    <button class="tab" data-tab="map">Karte</button>
     <button class="tab" data-tab="status">Status <span class="tab-count" id="statusTabCount"></span></button>
   </div>
 </header>
@@ -375,13 +399,19 @@
     <div class="status-summary">
       <div class="status-stat ok"><div class="num" id="statOkNum">–</div><div class="lbl">erreichbar</div></div>
       <div class="status-stat err"><div class="num" id="statErrNum">–</div><div class="lbl">fehlerhaft</div></div>
-      <div class="status-stat"><div class="num" id="statTotalNum">–</div><div class="lbl">Seiten gesamt</div></div>
+      <div class="status-stat"><div class="num" id="statWarnNum">–</div><div class="lbl">verdächtig</div></div>
     </div>
     <div class="status-filter">
       <button class="chip selected" data-statusfilter="all">Alle</button>
       <button class="chip" data-statusfilter="error">Nur Fehler</button>
+      <button class="chip" data-statusfilter="warn">Verdächtig</button>
     </div>
     <div id="statusList"></div>
+  </div>
+
+  <div id="panel-map" style="display:none;">
+    <div id="mapContainer"></div>
+    <p class="map-note" id="mapNote">Positionen basieren auf der Postleitzahl bzw. dem Stadtteil des Inserats und sind daher ungefähr, nicht die exakte Adresse.</p>
   </div>
 
   <div class="hint" id="feedHint">
@@ -586,16 +616,19 @@ function renderFavorites(){
 function renderStatus(){
   const ok = siteStatus.filter(s => s.status === 'ok').length;
   const err = siteStatus.filter(s => s.status === 'error').length;
+  const warn = siteStatus.filter(s => s.status === 'ok' && s.last_listing_count === 0).length;
   document.getElementById('statOkNum').textContent = ok;
   document.getElementById('statErrNum').textContent = err;
-  document.getElementById('statTotalNum').textContent = siteStatus.length;
-  document.getElementById('statusTabCount').textContent = err > 0 ? err : '';
+  document.getElementById('statWarnNum').textContent = warn;
+  document.getElementById('statusTabCount').textContent = (err + warn) > 0 ? (err + warn) : '';
 
   let rows = siteStatus.slice();
   if(statusFilterMode === 'error') rows = rows.filter(s => s.status === 'error');
+  if(statusFilterMode === 'warn') rows = rows.filter(s => s.status === 'ok' && s.last_listing_count === 0);
   rows.sort((a,b) => {
-    if(a.status === b.status) return (a.source_name||'').localeCompare(b.source_name||'');
-    return a.status === 'error' ? -1 : 1;
+    const rank = s => s.status === 'error' ? 0 : (s.status === 'ok' && s.last_listing_count === 0 ? 1 : 2);
+    if(rank(a) !== rank(b)) return rank(a) - rank(b);
+    return (a.source_name||'').localeCompare(b.source_name||'');
   });
 
   const list = document.getElementById('statusList');
@@ -603,15 +636,28 @@ function renderStatus(){
     list.innerHTML = `<div class="empty"><p>Noch keine Status-Daten vorhanden. Nach dem ersten automatischen Lauf erscheinen hier alle geprüften Seiten.</p></div>`;
     return;
   }
-  list.innerHTML = rows.map(s => `
+  list.innerHTML = rows.map(s => {
+    let detail;
+    if(s.status === 'error'){
+      detail = s.error || 'Fehler beim Abrufen';
+    } else if(s.last_listing_count === 0){
+      detail = s.suggested_url
+        ? `⚠ Keine Inserate auf hinterlegter URL. Vorschlag: ${s.suggested_url}`
+        : '⚠ Erreichbar, aber keine Inserate erkannt – URL prüfen';
+    } else {
+      const pages = s.pages_checked && s.pages_checked > 1 ? ` · ${s.pages_checked} Seiten` : '';
+      detail = 'Zuletzt geprüft ' + relTime(s.last_checked) + (s.last_listing_count != null ? ` · ${s.last_listing_count} Inserat(e)${pages}` : '');
+    }
+    const warn = s.status === 'ok' && s.last_listing_count === 0;
+    return `
     <div class="status-row">
-      <span class="status-badge ${s.status || 'unknown'}"></span>
+      <span class="status-badge ${warn ? 'error' : (s.status || 'unknown')}"></span>
       <div class="info">
         <div class="name">${s.source_name || s.url}</div>
-        <div class="detail">${s.status === 'error' ? (s.error || 'Fehler beim Abrufen') : 'Zuletzt geprüft ' + relTime(s.last_checked)}</div>
+        <div class="detail">${detail}</div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 function toggleFav(key){
@@ -635,9 +681,127 @@ document.querySelectorAll('.tab').forEach(btn => {
     document.getElementById('panel-feed').style.display = currentTab === 'feed' ? 'block' : 'none';
     document.getElementById('panel-favorites').style.display = currentTab === 'favorites' ? 'block' : 'none';
     document.getElementById('panel-status').style.display = currentTab === 'status' ? 'block' : 'none';
+    document.getElementById('panel-map').style.display = currentTab === 'map' ? 'block' : 'none';
     document.getElementById('feedHint').style.display = currentTab === 'feed' ? 'block' : 'none';
+    if(currentTab === 'map'){
+      setTimeout(() => { initMap(); renderMap(); }, 0);
+    }
   });
 });
+
+// Ungefähre Mittelpunkt-Koordinaten Berliner Postleitzahlen (für Kartenanzeige).
+// Da keine Adress-Geocodierung stattfindet, ist dies nur eine Näherung auf PLZ-Ebene.
+const PLZ_COORDS = {
+  // Mitte
+  '10115':[52.5310,13.3830], '10117':[52.5170,13.3888], '10119':[52.5290,13.4050],
+  '10178':[52.5210,13.4090], '10179':[52.5130,13.4160],
+  '10559':[52.5320,13.3520], '10553':[52.5280,13.3430], '10555':[52.5230,13.3480],
+  '10557':[52.5210,13.3660], '10785':[52.5090,13.3720], '10787':[52.5060,13.3450],
+  // Prenzlauer Berg / Pankow
+  '10405':[52.5330,13.4180], '10407':[52.5340,13.4360], '10409':[52.5420,13.4290],
+  '10435':[52.5390,13.4130], '10437':[52.5450,13.4110], '10439':[52.5480,13.4230],
+  '10247':[52.5170,13.4460], '10249':[52.5230,13.4380],
+  // Charlottenburg / Wilmersdorf
+  '10585':[52.5170,13.3140], '10587':[52.5190,13.3080], '10589':[52.5230,13.2920],
+  '10623':[52.5060,13.3230], '10625':[52.5100,13.3170], '10627':[52.5080,13.3010],
+  '10629':[52.4990,13.3080], '10707':[52.4980,13.3170], '10709':[52.4870,13.3070],
+  '10711':[52.4930,13.2900], '10713':[52.4720,13.3220], '10715':[52.4780,13.3260],
+  '10717':[52.4870,13.3230], '10719':[52.4990,13.3260],
+  // Schöneberg / Tempelhof / Friedrichshain-Kreuzberg
+  '10777':[52.4980,13.3450], '10779':[52.4870,13.3480], '10781':[52.4900,13.3560],
+  '10783':[52.4980,13.3550], '10823':[52.4830,13.3540], '10825':[52.4870,13.3400],
+  '10827':[52.4790,13.3400], '10829':[52.4700,13.3480],
+  '10961':[52.4930,13.3970], '10963':[52.5000,13.3830], '10965':[52.4880,13.3960],
+  '10967':[52.4900,13.4130], '10969':[52.5050,13.3990], '10997':[52.4990,13.4340],
+  '10999':[52.5010,13.4230], '10245':[52.5090,13.4520], '10243':[52.5140,13.4460],
+  // Wedding / Gesundbrunnen / Moabit
+  '13347':[52.5470,13.3600], '13349':[52.5540,13.3670], '13351':[52.5580,13.3480],
+  '13353':[52.5460,13.3650], '13355':[52.5490,13.3870], '13357':[52.5490,13.3960],
+  '13359':[52.5610,13.3910], '10551':[52.5340,13.3450],
+  // Weißensee / Lichtenberg
+  '13086':[52.5490,13.4520], '13088':[52.5570,13.4620], '13089':[52.5640,13.4550],
+  // Neukölln
+  '12043':[52.4780,13.4400], '12045':[52.4700,13.4310], '12047':[52.4890,13.4270],
+  '12049':[52.4900,13.4390],
+};
+
+const DISTRICT_COORDS = {
+  'mitte': [52.5210, 13.3960],
+  'prenzlauer berg': [52.5390, 13.4245],
+  'prenzlauer': [52.5390, 13.4245],
+  'charlottenburg': [52.5150, 13.3050],
+};
+const BERLIN_FALLBACK = [52.5170, 13.3890];
+
+function coordsForListing(m){
+  if(m.plz && PLZ_COORDS[m.plz]) return PLZ_COORDS[m.plz];
+  const dist = (m.district || '').toLowerCase();
+  for(const key in DISTRICT_COORDS){
+    if(dist.includes(key)) return DISTRICT_COORDS[key];
+  }
+  return null; // unbekannte Lage -> auf der Karte ausgelassen
+}
+
+// kleine, stabile Verschiebung, damit Marker an derselben PLZ nicht exakt übereinander liegen
+function jitter(key, coords){
+  let h = 0;
+  for(let i=0;i<key.length;i++) h = (h*31 + key.charCodeAt(i)) >>> 0;
+  const dx = ((h % 1000) / 1000 - 0.5) * 0.012;
+  const dy = (((h >> 10) % 1000) / 1000 - 0.5) * 0.012;
+  return [coords[0]+dy, coords[1]+dx];
+}
+
+let leafletMap = null;
+let mapMarkersLayer = null;
+
+function initMap(){
+  if(leafletMap) { leafletMap.invalidateSize(); return; }
+  leafletMap = L.map('mapContainer').setView(BERLIN_FALLBACK, 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap-Mitwirkende',
+    maxZoom: 19,
+  }).addTo(leafletMap);
+  mapMarkersLayer = L.layerGroup().addTo(leafletMap);
+}
+
+function renderMap(){
+  if(!leafletMap || !mapMarkersLayer) return;
+  mapMarkersLayer.clearLayers();
+
+  const visible = allMatches.filter(m => !hidden.has(m.key));
+  const bounds = [];
+
+  visible.forEach(m => {
+    const base = coordsForListing(m);
+    if(!base) return;
+    const pos = jitter(m.key, base);
+    bounds.push(pos);
+
+    const tags = [];
+    if(m.rooms) tags.push(`${m.rooms} Zi.`);
+    if(m.size_qm) tags.push(`${m.size_qm} qm`);
+    if(m.rent) tags.push(`${m.rent} €`);
+
+    const popupHtml = `
+      <div class="map-popup">
+        <h3>${m.title || 'Wohnungsinserat'}</h3>
+        <div class="tags">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <a href="${m.url || m.site_url || '#'}" target="_blank" rel="noopener">Zum Inserat →</a>
+      </div>`;
+
+    const marker = L.marker(pos).bindPopup(popupHtml);
+    mapMarkersLayer.addLayer(marker);
+  });
+
+  const withoutLocation = visible.length - bounds.length;
+  document.getElementById('mapNote').textContent = withoutLocation > 0
+    ? `Positionen basieren auf Postleitzahl/Stadtteil und sind ungefähr. ${withoutLocation} Inserat(e) ohne erkennbare Lage werden nicht angezeigt.`
+    : 'Positionen basieren auf der Postleitzahl bzw. dem Stadtteil des Inserats und sind daher ungefähr, nicht die exakte Adresse.';
+
+  if(bounds.length > 0){
+    leafletMap.fitBounds(bounds, {padding: [30,30], maxZoom: 15});
+  }
+}
 
 document.getElementById('filterToggleBtn').addEventListener('click', () => {
   document.getElementById('filterPanel').classList.toggle('open');

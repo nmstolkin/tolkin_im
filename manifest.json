@@ -1,6 +1,6 @@
 {
-  "name": "Immo Watcher",
-  "short_name": "Immo Watcher",
+  "name": "Wohnungssuche Berlin",
+  "short_name": "Wohnungssuche",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f4f2",

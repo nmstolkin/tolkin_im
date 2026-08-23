@@ -18,7 +18,7 @@ import time
 import hashlib
 import sys
 from datetime import datetime, timezone
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -43,16 +43,37 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
 NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh")
 
-MODEL = "claude-sonnet-4-6"
-MAX_TEXT_CHARS = 15000  # wie viel Seitentext wir maximal an die API schicken
+MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
+MAX_TEXT_CHARS = 8000    # kürzerer Seitentext -> weniger Input-Tokens pro Aufruf
 REQUEST_TIMEOUT = 25
 SLEEP_BETWEEN_SITES = 1.5  # kleine Pause, um nicht wie ein aggressiver Bot zu wirken
+SLEEP_BETWEEN_PAGES = 1.0  # Pause zwischen Folgeseiten derselben Website
+
+MAX_EXTRA_PAGES = 3       # zusätzlich zur ersten Seite max. 3 Folgeseiten laden
+MAX_DISCOVERY_TRIES = 1   # wie viele vermutete Unterseiten bei 0 Treffern probiert werden
+
+# "Aussichtslos"-Erkennung: nach wie vielen aufeinanderfolgenden erfolglosen
+# Läufen (Fehler oder 0 Inserate) eine Seite als vermutlich dauerhaft tot
+# markiert wird, und wie selten sie danach noch (kostenpflichtig) neu geprüft wird.
+HOPELESS_THRESHOLD = 5
+HOPELESS_RECHECK_HOURS = 24 * 21  # ca. alle 3 Wochen erneut versuchen
+
+# Textfragmente, an denen "nächste Seite"-Links erkannt werden
+NEXT_PAGE_TEXTS = {"weiter", "nächste", "nächste seite", "next", "vor", "›", "»", ">"}
+
+# Schlüsselwörter, mit denen eine vermutete Angebots-Unterseite gesucht wird
+# (höherer Wert = wahrscheinlicher die richtige Seite)
+LISTING_LINK_KEYWORDS = [
+    ("mieten", 3), ("miete", 3), ("vermietung", 3), ("mietangebote", 3),
+    ("wohnungsangebote", 3), ("wohnungen", 2), ("angebote", 2),
+    ("objekte", 2), ("immobilien", 1),
+]
 
 CRITERIA = {
     "min_rooms": 3,
-    "min_size_qm": 85,
-    "min_rent": 1500,
-    "max_rent": 2300,
+    "min_size_qm": 80,
+    "min_rent": 1200,
+    "max_rent": 2100,
     # Freitext-Fragmente, die im erkannten Bezirk/Adresse vorkommen dürfen
     "districts": ["mitte", "prenzlauer berg", "prenzlauer", "charlottenburg"],
 }
@@ -163,6 +184,73 @@ def call_claude_extract(url, text):
         return []
 
 
+def find_next_page_url(html, current_url):
+    """Sucht einen 'nächste Seite'-Link auf der aktuellen Seite."""
+    soup = BeautifulSoup(html, "html.parser")
+    base_host = urlparse(current_url).netloc
+
+    # 1) rel="next" ist der eindeutigste Fall
+    rel_next = soup.find("a", rel=lambda v: v and "next" in v)
+    if rel_next and rel_next.get("href"):
+        candidate = urljoin(current_url, rel_next["href"])
+        if urlparse(candidate).netloc == base_host and candidate != current_url:
+            return candidate
+
+    # 2) Linktext, der auf "weiter/nächste Seite" hindeutet
+    for a in soup.find_all("a", href=True):
+        text = a.get_text(strip=True).lower()
+        classes = " ".join(a.get("class", [])).lower()
+        aria = (a.get("aria-label") or "").lower()
+        if text in NEXT_PAGE_TEXTS or "next" in classes or "next" in aria:
+            candidate = urljoin(current_url, a["href"])
+            if urlparse(candidate).netloc == base_host and candidate != current_url:
+                return candidate
+
+    return None
+
+
+def find_listing_subpage(html, current_url):
+    """Sucht bei 0 erkannten Inseraten eine vermutete Angebots-Unterseite."""
+    soup = BeautifulSoup(html, "html.parser")
+    base_host = urlparse(current_url).netloc
+
+    best_url, best_score = None, 0
+    seen_candidates = set()
+
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if href.startswith("#") or href.lower().startswith("mailto:") or href.lower().startswith("tel:"):
+            continue
+        candidate = urljoin(current_url, href)
+        parsed = urlparse(candidate)
+        if parsed.netloc != base_host or candidate == current_url:
+            continue
+        if candidate in seen_candidates:
+            continue
+        seen_candidates.add(candidate)
+
+        text = a.get_text(strip=True).lower()
+        haystack = f"{text} {candidate.lower()}"
+        score = sum(weight for kw, weight in LISTING_LINK_KEYWORDS if kw in haystack)
+        # kürzere Pfade (weniger tief verschachtelt) leicht bevorzugen
+        score -= parsed.path.count("/") * 0.1
+
+        if score > best_score:
+            best_score, best_url = score, candidate
+
+    return best_url if best_score > 0 else None
+
+
+def hours_since(iso_timestamp):
+    if not iso_timestamp:
+        return 999999
+    try:
+        then = datetime.fromisoformat(iso_timestamp)
+        return (datetime.now(timezone.utc) - then).total_seconds() / 3600
+    except Exception:
+        return 999999
+
+
 def matches_criteria(listing):
     rooms = listing.get("rooms")
     size = listing.get("size_qm")
@@ -239,9 +327,18 @@ def update_app_data(new_matches):
     save_json(APP_DATA_FILE, payload)
 
 
-def update_site_status(status, url, ok, error=None):
+def update_site_status(status, url, ok, error=None, listing_count=None, suggested_url=None, pages_checked=None, skipped=False):
     now_iso = datetime.now(timezone.utc).isoformat()
     entry = status.get(url, {})
+
+    if skipped:
+        # Aussichtslose Seite im Cooldown: nur Zeitstempel touchen, keine
+        # Zähler verändern, keine API-Kosten verursacht.
+        entry["source_name"] = source_name(url)
+        entry["last_checked"] = now_iso
+        status[url] = entry
+        return
+
     entry["source_name"] = source_name(url)
     entry["last_checked"] = now_iso
     if ok:
@@ -252,6 +349,23 @@ def update_site_status(status, url, ok, error=None):
         entry["status"] = "error"
         entry["error"] = error
         entry.setdefault("last_success", None)
+    if listing_count is not None:
+        entry["last_listing_count"] = listing_count
+        entry["last_listing_count_at"] = now_iso
+    entry.setdefault("last_listing_count", None)
+    if suggested_url is not None:
+        entry["suggested_url"] = suggested_url
+    if pages_checked is not None:
+        entry["pages_checked"] = pages_checked
+
+    had_success = ok and (listing_count or 0) > 0
+    if had_success:
+        entry["consecutive_bad_runs"] = 0
+        entry["hopeless"] = False
+    else:
+        entry["consecutive_bad_runs"] = entry.get("consecutive_bad_runs", 0) + 1
+        entry["hopeless"] = entry["consecutive_bad_runs"] >= HOPELESS_THRESHOLD
+
     status[url] = entry
 
 
@@ -316,19 +430,31 @@ def main():
         if err:
             print(f"  -> Fehler beim Abrufen: {err}")
             errors[url] = err
-            update_site_status(status, url, ok=False, error=err)
+            prev_entry = status.get(url, {})
+            if prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
+                print("  -> als aussichtslos markiert, überspringe (Cooldown aktiv).")
+                update_site_status(status, url, ok=False, skipped=True)
+            else:
+                update_site_status(status, url, ok=False, error=err)
             continue
 
-        update_site_status(status, url, ok=True)
+        prev_entry = status.get(url, {})
+        if prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
+            print("  -> als aussichtslos markiert, überspringe (Cooldown aktiv, keine API-Kosten).")
+            update_site_status(status, url, ok=True, skipped=True)
+            continue
 
         content_hash = hashlib.sha256(html.encode("utf-8", "ignore")).hexdigest()
-        if hashes.get(url) == content_hash:
+        prev_count = prev_entry.get("last_listing_count")
+        if hashes.get(url) == content_hash and prev_count:
+            # Seite liefert zuverlässig Treffer und hat sich nicht geändert -> überspringen
             print("  -> keine Änderung seit letztem Lauf, überspringe.")
+            update_site_status(status, url, ok=True, skipped=True)
             continue
+
         hashes[url] = content_hash
 
         text = extract_text(html)
-
         try:
             listings = call_claude_extract(url, text)
         except Exception as e:
@@ -336,7 +462,58 @@ def main():
             errors[url] = f"Extraktion fehlgeschlagen: {e}"
             continue
 
-        print(f"  -> {len(listings)} Inserat(e) erkannt")
+        pages_checked = 1
+        suggested_url = status.get(url, {}).get("suggested_url")
+        current_html, current_page_url = html, url
+
+        # Unterseiten-Suche: nichts gefunden -> vermutete richtige Seite ausprobieren
+        if not listings:
+            candidate = find_listing_subpage(html, url)
+            if candidate:
+                sub_html, sub_err = fetch(candidate)
+                pages_checked += 1
+                if sub_html:
+                    sub_listings = []
+                    try:
+                        sub_listings = call_claude_extract(candidate, extract_text(sub_html))
+                    except Exception as e:
+                        print(f"  -> Extraktion der Unterseite fehlgeschlagen: {e}")
+                    if sub_listings:
+                        print(f"  -> Unterseite gefunden mit Inseraten: {candidate}")
+                        listings = sub_listings
+                        suggested_url = candidate
+                        current_html, current_page_url = sub_html, candidate
+                time.sleep(SLEEP_BETWEEN_PAGES)
+
+        # Folgeseiten: solange ein "weiter"-Link existiert und noch Inserate kommen
+        extra_pages = 0
+        seen_page_urls = {url, current_page_url}
+        next_url = find_next_page_url(current_html, current_page_url) if listings else None
+        while next_url and extra_pages < MAX_EXTRA_PAGES and next_url not in seen_page_urls:
+            seen_page_urls.add(next_url)
+            time.sleep(SLEEP_BETWEEN_PAGES)
+            page_html, page_err = fetch(next_url)
+            if not page_html:
+                break
+            pages_checked += 1
+            extra_pages += 1
+            try:
+                page_listings = call_claude_extract(next_url, extract_text(page_html))
+            except Exception as e:
+                print(f"  -> Extraktion der Folgeseite fehlgeschlagen: {e}")
+                break
+            if not page_listings:
+                break  # vermutlich Ende der Liste erreicht
+            print(f"  -> Folgeseite {extra_pages} geladen: {len(page_listings)} weitere Inserat(e)")
+            listings = listings + page_listings
+            current_html = page_html
+            next_url = find_next_page_url(page_html, next_url)
+
+        print(f"  -> {len(listings)} Inserat(e) erkannt (über {pages_checked} Seite(n))")
+        update_site_status(
+            status, url, ok=True, listing_count=len(listings),
+            suggested_url=suggested_url, pages_checked=pages_checked,
+        )
 
         known = set(seen.get(url, []))
         new_on_this_site = 0

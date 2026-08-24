@@ -91,6 +91,20 @@ Extrahiere ALLE einzelnen Mietwohnungsinserate, die auf dieser Seite sichtbar si
 als JSON-Array. Ignoriere Navigation, Footer, allgemeine Werbetexte und Angebote
 zum KAUF (nur Miete/Vermietung zählt).
 
+WICHTIG - nimm NUR aktuell verfügbare Angebote auf. Viele Hausverwaltungs-Seiten
+zeigen zusätzlich "Referenzobjekte" oder "Referenzen" - das sind Wohnungen, die
+bereits vermietet wurden und nur als Beispiel/Erfolgsgeschichte/Portfolio gezeigt
+werden. Diese NICHT aufnehmen. Erkennungsmerkmale für solche Nicht-Angebote:
+- Überschriften/Bereiche wie "Referenzen", "Referenzobjekte", "Erfolgreich
+  vermietet", "Unsere Projekte", "Portfolio", "Beispielobjekte"
+- Explizite Kennzeichnung als "vermietet", "reserviert", "nicht mehr verfügbar",
+  "bereits vergeben", "ausverkauft"
+- Fehlender Bezug zu einer aktuellen Bewerbung/Kontaktaufnahme (z.B. kein
+  "Jetzt bewerben"/"Kontakt aufnehmen"-Bezug, sondern reine Rückschau)
+
+Im Zweifel (nicht eindeutig erkennbar, ob aktuell verfügbar oder nur Referenz):
+trotzdem aufnehmen, aber "status" auf "unklar" setzen.
+
 Jedes Objekt im Array soll folgende Felder haben (wenn ein Wert nicht auf der
 Seite steht: null):
 - "title": kurze Bezeichnung / Adresse des Inserats
@@ -100,6 +114,8 @@ Seite steht: null):
 - "district": Stadtteil/Bezirk, falls erkennbar
 - "plz": 5-stellige Postleitzahl, falls im Text erkennbar (sonst null)
 - "url": Direktlink zum Inserat, falls vorhanden (sonst null)
+- "status": "verfuegbar" (aktuell zu vermieten), "vermietet" (bereits vergeben/
+  Referenz) oder "unklar"
 
 Antworte AUSSCHLIESSLICH mit dem JSON-Array. Kein einleitender Text, keine
 Markdown-Codeblöcke, keine Erklärung. Falls keine Inserate erkennbar sind,
@@ -108,6 +124,25 @@ antworte mit einem leeren Array: []
 Seiteninhalt:
 {text}
 """
+
+
+REFERENCE_KEYWORDS = [
+    "referenzobjekt", "referenzobjekte", "referenz ", "referenzen",
+    "erfolgreich vermietet", "bereits vermietet", "bereits vergeben",
+    "vermietet zum", "unsere projekte", "portfolio", "beispielobjekt",
+    "erfolgsgeschichte", "abgeschlossenes projekt", "nicht mehr verfügbar",
+    "ausverkauft",
+]
+
+
+def looks_like_reference(listing):
+    """Sicherheitsnetz zusätzlich zum Prompt: erkennt Referenz-/Vermietet-Objekte
+    anhand von Status-Feld und Schlüsselwörtern in Titel/Bezirk."""
+    status = (listing.get("status") or "").lower()
+    if "vermietet" in status:
+        return True
+    haystack = f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
+    return any(kw in haystack for kw in REFERENCE_KEYWORDS)
 
 
 # ---------------------------------------------------------------------------
@@ -252,6 +287,9 @@ def hours_since(iso_timestamp):
 
 
 def matches_criteria(listing):
+    if looks_like_reference(listing):
+        return False
+
     rooms = listing.get("rooms")
     size = listing.get("size_qm")
     rent = listing.get("rent")
@@ -369,6 +407,136 @@ def update_site_status(status, url, ok, error=None, listing_count=None, suggeste
     status[url] = entry
 
 
+BATCH_POLL_INTERVAL = 15        # Sekunden zwischen Status-Abfragen
+BATCH_MAX_WAIT_SECONDS = 20 * 60  # maximal 20 Minuten auf den Batch warten
+
+
+def _parse_extraction_text(raw):
+    raw = (raw or "").strip()
+    raw = re.sub(r"^```(json)?", "", raw).strip()
+    raw = re.sub(r"```$", "", raw).strip()
+    try:
+        listings = json.loads(raw)
+        return listings if isinstance(listings, list) else []
+    except Exception:
+        return []
+
+
+def submit_batch(items):
+    """items: Liste von (custom_id, url, text). Reicht einen Message-Batch ein
+    und gibt die Batch-ID zurück (50% günstiger als einzelne Aufrufe)."""
+    requests_payload = [
+        {
+            "custom_id": cid,
+            "params": {
+                "model": MODEL,
+                "max_tokens": 2500,
+                "messages": [{"role": "user", "content": EXTRACTION_PROMPT.format(url=url, text=text)}],
+            },
+        }
+        for cid, url, text in items
+    ]
+    resp = requests.post(
+        "https://api.anthropic.com/v1/messages/batches",
+        headers={
+            "x-api-key": ANTHROPIC_API_KEY,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        json={"requests": requests_payload},
+        timeout=60,
+    )
+    resp.raise_for_status()
+    return resp.json()["id"]
+
+
+def wait_for_batch(batch_id):
+    """Pollt den Batch-Status bis 'ended' oder Timeout. Gibt results_url oder None zurück."""
+    waited = 0
+    while waited < BATCH_MAX_WAIT_SECONDS:
+        resp = requests.get(
+            f"https://api.anthropic.com/v1/messages/batches/{batch_id}",
+            headers={"x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01"},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        status_str = data.get("processing_status")
+        print(f"  Batch-Status: {status_str} (nach {waited}s)")
+        if status_str == "ended":
+            return data.get("results_url")
+        time.sleep(BATCH_POLL_INTERVAL)
+        waited += BATCH_POLL_INTERVAL
+    return None
+
+
+def fetch_batch_results(results_url):
+    """Lädt die JSONL-Ergebnisse eines fertigen Batches.
+    Gibt {custom_id: listings-Liste oder None (=Fehler)} zurück."""
+    resp = requests.get(
+        results_url,
+        headers={"x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01"},
+        timeout=120,
+    )
+    resp.raise_for_status()
+    out = {}
+    for line in resp.text.strip().split("\n"):
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        cid = row.get("custom_id")
+        result = row.get("result", {})
+        if result.get("type") == "succeeded":
+            message = result.get("message", {})
+            raw = "".join(
+                b.get("text", "") for b in message.get("content", []) if b.get("type") == "text"
+            )
+            out[cid] = _parse_extraction_text(raw)
+        else:
+            out[cid] = None
+    return out
+
+
+def run_batch_extraction(items):
+    """items: Liste von (custom_id, url, text). Führt die Extraktion per Batch API
+    durch (50% günstiger). Fällt bei Problemen automatisch auf einzelne,
+    synchrone Aufrufe zurück, damit ein Lauf nie komplett scheitert."""
+    if not items:
+        return {}
+
+    try:
+        print(f"Reiche Batch mit {len(items)} Anfrage(n) ein …")
+        batch_id = submit_batch(items)
+        results_url = wait_for_batch(batch_id)
+        if results_url:
+            results = fetch_batch_results(results_url)
+            # Für alle, die im Batch fehlgeschlagen sind, synchron nachholen
+            missing = [(cid, u, t) for cid, u, t in items if results.get(cid) is None]
+            if missing:
+                print(f"  {len(missing)} Batch-Eintrag/Einträge fehlgeschlagen, hole einzeln nach …")
+                for cid, u, t in missing:
+                    try:
+                        results[cid] = call_claude_extract(u, t)
+                    except Exception as e:
+                        print(f"    -> weiterhin fehlgeschlagen ({u}): {e}")
+                        results[cid] = []
+            return results
+        else:
+            print("  Batch-Timeout erreicht, hole alle Einträge stattdessen einzeln ab …")
+    except Exception as e:
+        print(f"  Batch-Verarbeitung fehlgeschlagen ({e}), hole alle Einträge stattdessen einzeln ab …")
+
+    # Fallback: klassische synchrone Einzelaufrufe (voller Preis, aber zuverlässig)
+    results = {}
+    for cid, u, t in items:
+        try:
+            results[cid] = call_claude_extract(u, t)
+        except Exception as e:
+            print(f"    -> Extraktion fehlgeschlagen ({u}): {e}")
+            results[cid] = []
+    return results
+
+
 def notify(listing, site_url):
     if not NTFY_TOPIC:
         print("NTFY_TOPIC nicht gesetzt, überspringe Benachrichtigung.")
@@ -423,6 +591,14 @@ def main():
     total_new_matches = 0
     app_matches = []  # Treffer für die Homescreen-App (docs/data.json)
 
+    # ---- Phase 1: alle Seiten abrufen (kostenlos) und entscheiden, wer eine
+    # Extraktion braucht. Wird gesammelt statt sofort einzeln an die API zu
+    # schicken, damit alle Erst-Extraktionen zusammen als EIN Batch (50%
+    # günstiger) verschickt werden können. ----
+    pending = {}  # url -> {"html": ..., "prev_entry": ...}
+    batch_items = []  # (custom_id, url, text)
+
+    print("Phase 1/2: Seiten abrufen …")
     for i, url in enumerate(sites, 1):
         print(f"[{i}/{len(sites)}] {url}")
         html, err = fetch(url)
@@ -432,7 +608,6 @@ def main():
             errors[url] = err
             prev_entry = status.get(url, {})
             if prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
-                print("  -> als aussichtslos markiert, überspringe (Cooldown aktiv).")
                 update_site_status(status, url, ok=False, skipped=True)
             else:
                 update_site_status(status, url, ok=False, error=err)
@@ -447,26 +622,30 @@ def main():
         content_hash = hashlib.sha256(html.encode("utf-8", "ignore")).hexdigest()
         prev_count = prev_entry.get("last_listing_count")
         if hashes.get(url) == content_hash and prev_count:
-            # Seite liefert zuverlässig Treffer und hat sich nicht geändert -> überspringen
             print("  -> keine Änderung seit letztem Lauf, überspringe.")
             update_site_status(status, url, ok=True, skipped=True)
             continue
 
         hashes[url] = content_hash
+        pending[url] = {"html": html, "prev_entry": prev_entry}
+        batch_items.append((url, url, extract_text(html)))
 
-        text = extract_text(html)
-        try:
-            listings = call_claude_extract(url, text)
-        except Exception as e:
-            print(f"  -> Extraktion fehlgeschlagen: {e}")
-            errors[url] = f"Extraktion fehlgeschlagen: {e}"
-            continue
+    # ---- Phase 2: gesammelte Erst-Extraktionen als EIN Batch verschicken ----
+    print(f"\nPhase 2/2: {len(batch_items)} Seite(n) per Batch API extrahieren …")
+    batch_results = run_batch_extraction(batch_items)
+
+    for i, (url, info) in enumerate(pending.items(), 1):
+        print(f"[{i}/{len(pending)}] Verarbeite Ergebnis: {url}")
+        html = info["html"]
+        listings = batch_results.get(url) or []
 
         pages_checked = 1
-        suggested_url = status.get(url, {}).get("suggested_url")
+        suggested_url = info["prev_entry"].get("suggested_url")
         current_html, current_page_url = html, url
 
         # Unterseiten-Suche: nichts gefunden -> vermutete richtige Seite ausprobieren
+        # (einzelner Aufruf, da abhängig vom Batch-Ergebnis - betrifft nur einen
+        # kleinen Teil der Seiten und lohnt daher keinen eigenen Batch-Umweg)
         if not listings:
             candidate = find_listing_subpage(html, url)
             if candidate:
@@ -548,7 +727,6 @@ def main():
             print(f"  -> {new_on_this_site} davon neu seit letztem Lauf")
 
         seen[url] = list(known)
-        time.sleep(SLEEP_BETWEEN_SITES)
 
     save_json(SEEN_FILE, seen)
     save_json(HASH_FILE, hashes)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T19:05:35.265817+00:00",
+  "generated_at": "2026-08-24T08:38:43.555613+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,84 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://hihc.de/angebote/#/list1::GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG",
+      "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG",
+      "rooms": 3,
+      "size_qm": 127.95,
+      "rent": 2047.2,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "url": "https://hihc.de/angebote/#/list1",
+      "site_url": "https://hihc.de/angebote/#/list1",
+      "source_name": "hihc.de",
+      "found_at": "2026-08-24T08:37:50.441528+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::Beerbaumstr. 29, 1.OG, rechts - Nur mit WBS 100-140",
+      "title": "Beerbaumstr. 29, 1.OG, rechts - Nur mit WBS 100-140",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13125",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T08:35:44.123489+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::Achillesstr. 23",
+      "title": "Achillesstr. 23",
+      "rooms": 3.0,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13125",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T08:35:43.566030+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::Achillesstr. 25",
+      "title": "Achillesstr. 25",
+      "rooms": 4.0,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13125",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T08:35:43.014855+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::Pfannschmidtstr. 10, WBS 100-140",
+      "title": "Pfannschmidtstr. 10, WBS 100-140",
+      "rooms": 3.0,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13125",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T08:35:42.465620+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::Alfons-Loewe-Straße 1a",
+      "title": "Alfons-Loewe-Straße 1a",
+      "rooms": 3.0,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13591",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T08:35:41.915846+00:00"
+    },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Neubau-Dachgeschosswohnung in Berlin – exklusiv - Prinzenallee 21, Berlin",
       "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv - Prinzenallee 21, Berlin",

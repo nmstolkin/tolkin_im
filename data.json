@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T08:38:43.555613+00:00",
+  "generated_at": "2026-08-24T14:38:34.913628+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,110 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Neubau-Dachgeschosswohnung in Berlin – exklusiv",
+      "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-24T14:37:56.176122+00:00"
+    },
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::Kronenpark - Königs Wusterhausen",
+      "title": "Kronenpark - Königs Wusterhausen",
+      "rooms": 3,
+      "size_qm": 85,
+      "rent": 1295,
+      "district": null,
+      "plz": "15711",
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-08-24T14:37:37.902776+00:00"
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::Blow Up Berlin Mitte",
+      "title": "Blow Up Berlin Mitte",
+      "rooms": 3,
+      "size_qm": 125,
+      "rent": 2050,
+      "district": "Mitte",
+      "plz": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-08-24T14:37:37.264472+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::Dachgeschosswohnung mit Klimaanlage und 3 Zimmern | komplett saniert | Einbauküche | hohe Decken",
+      "title": "Dachgeschosswohnung mit Klimaanlage und 3 Zimmern | komplett saniert | Einbauküche | hohe Decken",
+      "rooms": 3,
+      "size_qm": 87,
+      "rent": 1700,
+      "district": null,
+      "plz": "12459",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-24T14:36:54.345221+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::3-Zimmerwohnung WBS erforderlich, Beerbaumstr. 29",
+      "title": "3-Zimmerwohnung WBS erforderlich, Beerbaumstr. 29",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13125",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T14:36:06.946222+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::3 Zimmerwohnung mit Balkon nach Modernisierung, Ehm-Welk-Str. 25",
+      "title": "3 Zimmerwohnung mit Balkon nach Modernisierung, Ehm-Welk-Str. 25",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "12619",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T14:36:06.377073+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::3-Zimmerwohnung, Cunistr. 26",
+      "title": "3-Zimmerwohnung, Cunistr. 26",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13127",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T14:36:05.805867+00:00"
+    },
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::Neubau-Dachgeschosswohnung - Prinzenallee 21, Berlin",
+      "title": "Neubau-Dachgeschosswohnung - Prinzenallee 21, Berlin",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-24T14:35:08.033628+00:00"
+    },
     {
       "key": "https://hihc.de/angebote/#/list1::GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG",
       "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG",

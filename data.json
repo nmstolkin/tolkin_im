@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T14:38:34.913628+00:00",
+  "generated_at": "2026-08-24T19:31:17.931530+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,58 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::3 Zimmerwohnung Beerbaumstr. 29 (WBS erforderlich)",
+      "title": "3 Zimmerwohnung Beerbaumstr. 29 (WBS erforderlich)",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13125",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T19:28:52.582485+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::3 Zimmerwohnung mit Balkon Ehm-Welk-Str. 25",
+      "title": "3 Zimmerwohnung mit Balkon Ehm-Welk-Str. 25",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "12619",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T19:28:51.987469+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::3 Zimmerwohnung Cunistr. 26",
+      "title": "3 Zimmerwohnung Cunistr. 26",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "13127",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T19:28:51.390057+00:00"
+    },
+    {
+      "key": "https://www.berlinovo.de/de/wohnungen/suche::Moderne 3 Zimmerwohnung Helene-Weber-Str. 27",
+      "title": "Moderne 3 Zimmerwohnung Helene-Weber-Str. 27",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": "12355",
+      "url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "site_url": "https://www.berlinovo.de/de/wohnungen/suche",
+      "source_name": "berlinovo.de",
+      "found_at": "2026-08-24T19:28:50.790501+00:00"
+    },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::Neubau-Dachgeschosswohnung in Berlin – exklusiv",
       "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv",

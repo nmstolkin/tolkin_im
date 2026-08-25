@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T08:21:26.952252+00:00",
+  "generated_at": "2026-08-25T14:37:59.388336+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,84 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::Neubau-Dachgeschosswohnung in Berlin Prinzenallee 21, Berlin",
+      "title": "Neubau-Dachgeschosswohnung in Berlin Prinzenallee 21, Berlin",
+      "rooms": 4,
+      "size_qm": 122,
+      "rent": 2001,
+      "district": null,
+      "plz": null,
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-08-25T14:35:43.597375+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::Penthouse-Wohnung mit Dachterasse, Klimaanlage, hochwertiger Einbauküche und Ankleide",
+      "title": "Penthouse-Wohnung mit Dachterasse, Klimaanlage, hochwertiger Einbauküche und Ankleide",
+      "rooms": 3,
+      "size_qm": 113,
+      "rent": 2100,
+      "district": null,
+      "plz": "12527",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-25T14:35:38.374438+00:00"
+    },
+    {
+      "key": "https://apartberlin.de/wohnungen/::Krumme Str. 65, Berlin Charlottenburg-Wilmersdorf",
+      "title": "Krumme Str. 65, Berlin Charlottenburg-Wilmersdorf",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": "Charlottenburg-Wilmersdorf",
+      "plz": "10627",
+      "url": "https://apartberlin.de/wohnungen/",
+      "site_url": "https://apartberlin.de/wohnungen/",
+      "source_name": "apartberlin.de",
+      "found_at": "2026-08-25T14:35:37.577203+00:00"
+    },
+    {
+      "key": "https://apartberlin.de/wohnungen/::Kantstr. 107, Berlin Charlottenburg-Wilmersdorf",
+      "title": "Kantstr. 107, Berlin Charlottenburg-Wilmersdorf",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": "Charlottenburg-Wilmersdorf",
+      "plz": "10627",
+      "url": "https://apartberlin.de/wohnungen/",
+      "site_url": "https://apartberlin.de/wohnungen/",
+      "source_name": "apartberlin.de",
+      "found_at": "2026-08-25T14:35:36.824855+00:00"
+    },
+    {
+      "key": "https://apartberlin.de/wohnungen/::Kaiserin-Augusta-Allee 92 / Wernigeroder Str. 25, Berlin Charlottenburg-Wilmersdorf",
+      "title": "Kaiserin-Augusta-Allee 92 / Wernigeroder Str. 25, Berlin Charlottenburg-Wilmersdorf",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": "Charlottenburg-Wilmersdorf",
+      "plz": "10555",
+      "url": "https://apartberlin.de/wohnungen/",
+      "site_url": "https://apartberlin.de/wohnungen/",
+      "source_name": "apartberlin.de",
+      "found_at": "2026-08-25T14:35:36.091879+00:00"
+    },
+    {
+      "key": "https://apartberlin.de/wohnungen/::Birkenstraße 13, Berlin Mitte",
+      "title": "Birkenstraße 13, Berlin Mitte",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": "Mitte",
+      "plz": "10559",
+      "url": "https://apartberlin.de/wohnungen/",
+      "site_url": "https://apartberlin.de/wohnungen/",
+      "source_name": "apartberlin.de",
+      "found_at": "2026-08-25T14:35:35.340672+00:00"
+    },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3 Zimmer Wohnung Berlin 10249",
       "title": "3 Zimmer Wohnung Berlin 10249",

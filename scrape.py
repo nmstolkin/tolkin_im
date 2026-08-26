@@ -312,23 +312,40 @@ def resolve_gemini_model():
     return pick
 
 
-def call_gemini_extract(url, text, _retry=0, _model=None):
+GEMINI_TIMEOUT = 90
+GEMINI_MAX_TIMEOUT_RETRIES = 2
+
+
+def call_gemini_extract(url, text, _retry=0, _model=None, _timeout_retry=0):
     """Extraktion über die kostenlose Gemini API (statt Anthropic)."""
     if not text or len(text) < 50:
         return []
 
     model = _model or GEMINI_MODEL
     prompt = EXTRACTION_PROMPT.format(url=url, text=text)
-    resp = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-        headers={"content-type": "application/json"},
-        params={"key": GEMINI_API_KEY},
-        json={
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0, "maxOutputTokens": 2500},
-        },
-        timeout=60,
-    )
+
+    try:
+        resp = requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+            headers={"content-type": "application/json"},
+            params={"key": GEMINI_API_KEY},
+            json={
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"temperature": 0, "maxOutputTokens": 2500},
+            },
+            timeout=GEMINI_TIMEOUT,
+        )
+    except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+        # Netzwerkproblem/Timeout: nicht den ganzen Lauf abbrechen lassen,
+        # sondern begrenzt erneut versuchen und danach diese eine Seite
+        # als fehlgeschlagen überspringen.
+        if _timeout_retry < GEMINI_MAX_TIMEOUT_RETRIES:
+            wait = 10 * (_timeout_retry + 1)
+            print(f"    Gemini-Anfrage fehlgeschlagen ({e.__class__.__name__}), warte {wait}s und versuche erneut …")
+            time.sleep(wait)
+            return call_gemini_extract(url, text, _retry=_retry, _model=model, _timeout_retry=_timeout_retry + 1)
+        print(f"    Gemini-Anfrage endgültig fehlgeschlagen für {url}: {e}")
+        return []
 
     # Modell existiert nicht (mehr) -> aktuell verfügbares Modell ermitteln und erneut versuchen
     if resp.status_code == 404 and _retry < 1:
@@ -342,7 +359,14 @@ def call_gemini_extract(url, text, _retry=0, _model=None):
         time.sleep(wait)
         return call_gemini_extract(url, text, _retry=_retry + 1, _model=model)
 
-    resp.raise_for_status()
+    try:
+        resp.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        # Sonstiger Serverfehler (5xx etc.): diese eine Seite überspringen
+        # statt den kompletten Lauf abzubrechen.
+        print(f"    Gemini-Anfrage fehlgeschlagen für {url}: {e}")
+        return []
+
     data = resp.json()
     try:
         candidates = data.get("candidates", [])
@@ -936,7 +960,11 @@ def main():
         batch_results = {}
         for i, (cid, u, t) in enumerate(batch_items, 1):
             print(f"  [{i}/{len(batch_items)}] {u}")
-            batch_results[cid] = call_gemini_extract(u, t)
+            try:
+                batch_results[cid] = call_gemini_extract(u, t)
+            except Exception as e:
+                print(f"    Unerwarteter Fehler bei {u}, überspringe diese Seite: {e}")
+                batch_results[cid] = []
             time.sleep(GEMINI_RATE_LIMIT_DELAY)
     else:
         batch_results = run_batch_extraction(batch_items)

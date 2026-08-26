@@ -1,11 +1,133 @@
 {
-  "generated_at": null,
+  "generated_at": "2026-08-26T09:43:07.050488+00:00",
   "criteria": {
     "min_rooms": 3,
-    "min_size_qm": 85,
-    "min_rent": 1500,
-    "max_rent": 2300,
-    "districts": ["Mitte", "Prenzlauer Berg", "Charlottenburg"]
+    "min_size_qm": 80,
+    "min_rent": 1200,
+    "max_rent": 2100,
+    "districts": [
+      "Mitte",
+      "Prenzlauer Berg",
+      "Charlottenburg"
+    ]
   },
-  "matches": []
+  "matches": [
+    {
+      "key": "https://www.ivf-immobilien.com/immobilien/mieten/::am markt/poststr. in velten",
+      "title": "Am Markt/Poststr. in Velten",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": null,
+      "plz": null,
+      "url": "https://www.ivf-immobilien.com/immobilien/mieten/",
+      "site_url": "https://www.ivf-immobilien.com/immobilien/mieten/",
+      "source_name": "ivf-immobilien.com",
+      "found_at": "2026-08-26T09:42:23.310642+00:00"
+    },
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3.0|83.45|2100.0|10249",
+      "title": "Nachmieter gesucht",
+      "rooms": 3.0,
+      "size_qm": 83.45,
+      "rent": 2100.0,
+      "district": null,
+      "plz": "10249",
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-08-26T09:40:53.769235+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|140.0|1649.0|10315",
+      "title": "Frisch renoviert: Großzügige 140 m² Etagenwohnung mit Süd-Balkon, Parkett, Duschbad & TG-Stellplatz",
+      "rooms": 3,
+      "size_qm": 140.0,
+      "rent": 1649.0,
+      "district": null,
+      "plz": "10315",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-26T09:40:45.496239+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|96.0|1500.0|12623",
+      "title": "WG oder Familie, 3 Zimmer, je Zi. ab 490 €, Balkon, 2 Bäder, ruhig, grün",
+      "rooms": 3,
+      "size_qm": 96.0,
+      "rent": 1500.0,
+      "district": null,
+      "plz": "12623",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-26T09:40:44.756954+00:00"
+    },
+    {
+      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::4|109.8|1461.92|10439",
+      "title": "Klassische Altbauwohnung mit 2 Balkonen in der Rodenbergstraße/Renovierungsbedarf",
+      "rooms": 4,
+      "size_qm": 109.8,
+      "rent": 1461.92,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "source_name": "immobilienscout24.de",
+      "found_at": "2026-08-26T09:39:33.586871+00:00"
+    },
+    {
+      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|85.0|1749.0|10407",
+      "title": "Zauberhafter Erstbezug: lichtdurchflutete und frisch modernisierte Altbauwohnung mit Balkon!",
+      "rooms": 3,
+      "size_qm": 85.0,
+      "rent": 1749.0,
+      "district": "Prenzlauer Berg",
+      "plz": "10407",
+      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "source_name": "immobilienscout24.de",
+      "found_at": "2026-08-26T09:39:32.845846+00:00"
+    },
+    {
+      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|101.1|1849.0|10439",
+      "title": "WG-geeignet! Zweitbezug nach Totalmodernisierung in der Rodenbergstraße/Prenzlauer Berg!",
+      "rooms": 3,
+      "size_qm": 101.1,
+      "rent": 1849.0,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "source_name": "immobilienscout24.de",
+      "found_at": "2026-08-26T09:39:32.105646+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|89|1750.0|12683",
+      "title": "Traumhafte 3 Zimmer Wohnung mit separater Küche, Dachterrasse, Klimaanlage, Jalousie, B16",
+      "rooms": 3,
+      "size_qm": 89,
+      "rent": 1750.0,
+      "district": null,
+      "plz": "12683",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-08-26T09:35:13.587794+00:00"
+    },
+    {
+      "key": "https://www.core-berlin.de/de/vermietung::3|84.0|1475.0|10435",
+      "title": "Rheinsberger Straße 45, 10435 Berlin",
+      "rooms": 3,
+      "size_qm": 84.0,
+      "rent": 1475.0,
+      "district": "Mitte",
+      "plz": "10435",
+      "url": "https://www.core-berlin.de/de/vermietung",
+      "site_url": "https://www.core-berlin.de/de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-08-26T09:33:22.363623+00:00"
+    }
+  ]
 }

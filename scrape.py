@@ -50,7 +50,7 @@ NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh")
 AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic").strip().lower()
 
 MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
-GEMINI_MODEL = "gemini-2.5-flash"    # kostenloser Tarif, für diese Aufgabe ausreichend
+GEMINI_MODEL = "gemini-2.5-flash-lite"  # kostenloser Tarif, für diese Aufgabe ausreichend
 GEMINI_RATE_LIMIT_DELAY = 4.5        # Sekunden zwischen Gemini-Aufrufen, um im Free-Tier-RPM-Limit zu bleiben
 MAX_TEXT_CHARS = 8000    # kürzerer Seitentext -> weniger Input-Tokens pro Aufruf
 REQUEST_TIMEOUT = 25
@@ -227,14 +227,54 @@ def call_claude_extract(url, text):
         return []
 
 
-def call_gemini_extract(url, text, _retry=0):
+_resolved_gemini_model = None  # wird bei Bedarf einmal pro Lauf ermittelt und gecacht
+
+
+def resolve_gemini_model():
+    """Fragt bei Google die aktuell verfügbaren Modelle ab und wählt ein
+    passendes 'flash'-Modell, das generateContent unterstützt. Wird nur
+    aufgerufen, wenn das fest hinterlegte Modell (404) nicht mehr existiert -
+    macht das Skript robust gegen Google-seitige Modell-Umbenennungen."""
+    global _resolved_gemini_model
+    if _resolved_gemini_model:
+        return _resolved_gemini_model
+
+    print("  Gemini-Modell nicht gefunden, frage aktuell verfügbare Modelle ab …")
+    resp = requests.get(
+        "https://generativelanguage.googleapis.com/v1beta/models",
+        params={"key": GEMINI_API_KEY},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    models = resp.json().get("models", [])
+
+    candidates = [
+        m["name"].split("/")[-1] for m in models
+        if "generateContent" in m.get("supportedGenerationMethods", [])
+    ]
+    # "flash-lite" bevorzugen (schnell, für unsere einfache Extraktion
+    # ausreichend, meist großzügigster Free-Tier), sonst irgendein "flash"
+    pick = next((c for c in candidates if "flash-lite" in c), None) \
+        or next((c for c in candidates if "flash" in c), None) \
+        or (candidates[0] if candidates else None)
+
+    if not pick:
+        raise RuntimeError("Kein nutzbares Gemini-Modell mit generateContent gefunden.")
+
+    print(f"  -> verwende stattdessen: {pick}")
+    _resolved_gemini_model = pick
+    return pick
+
+
+def call_gemini_extract(url, text, _retry=0, _model=None):
     """Extraktion über die kostenlose Gemini API (statt Anthropic)."""
     if not text or len(text) < 50:
         return []
 
+    model = _model or GEMINI_MODEL
     prompt = EXTRACTION_PROMPT.format(url=url, text=text)
     resp = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
         headers={"content-type": "application/json"},
         params={"key": GEMINI_API_KEY},
         json={
@@ -244,12 +284,17 @@ def call_gemini_extract(url, text, _retry=0):
         timeout=60,
     )
 
+    # Modell existiert nicht (mehr) -> aktuell verfügbares Modell ermitteln und erneut versuchen
+    if resp.status_code == 404 and _retry < 1:
+        new_model = resolve_gemini_model()
+        return call_gemini_extract(url, text, _retry=_retry + 1, _model=new_model)
+
     # Free-Tier-Rate-Limit getroffen (429) -> kurz warten, einmal erneut versuchen
-    if resp.status_code == 429 and _retry < 2:
+    if resp.status_code == 429 and _retry < 3:
         wait = 20 * (_retry + 1)
         print(f"    Gemini Rate-Limit erreicht, warte {wait}s …")
         time.sleep(wait)
-        return call_gemini_extract(url, text, _retry=_retry + 1)
+        return call_gemini_extract(url, text, _retry=_retry + 1, _model=model)
 
     resp.raise_for_status()
     data = resp.json()

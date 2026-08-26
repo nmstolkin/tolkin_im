@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T09:43:07.050488+00:00",
+  "generated_at": "2026-08-26T12:33:44.448854+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,20 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://apartberlin.de/wohnungen/::|||10559",
+      "title": "Birkenstraße 13, 10559 Berlin",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "district": "Mitte",
+      "plz": "10559",
+      "street": "Birkenstraße 13",
+      "url": "https://apartberlin.de/wohnungen/",
+      "site_url": "https://apartberlin.de/wohnungen/",
+      "source_name": "apartberlin.de",
+      "found_at": "2026-08-26T12:24:11.002956+00:00"
+    },
     {
       "key": "https://www.ivf-immobilien.com/immobilien/mieten/::am markt/poststr. in velten",
       "title": "Am Markt/Poststr. in Velten",

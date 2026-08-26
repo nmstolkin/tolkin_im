@@ -17,6 +17,7 @@ import json
 import time
 import hashlib
 import sys
+import math
 from datetime import datetime, timezone
 from urllib.parse import urlparse, urljoin
 
@@ -82,9 +83,53 @@ CRITERIA = {
     "min_size_qm": 80,
     "min_rent": 1200,
     "max_rent": 2100,
-    # Freitext-Fragmente, die im erkannten Bezirk/Adresse vorkommen dürfen
+    # Freitext-Fragmente als Rückfalloption, falls keine PLZ erkannt wurde
+    # (Wortgrenzen-Suche, siehe matches_criteria)
     "districts": ["mitte", "prenzlauer berg", "prenzlauer", "charlottenburg"],
 }
+
+# Präzise Standortfilterung über Postleitzahlen (zuverlässiger als Bezirks-
+# namen, die uneinheitlich benannt werden). Ortsteil-Zuordnung nach den
+# offiziellen Berliner PLZ-Grenzen:
+PLZ_MITTE = {"10115", "10117", "10119", "10178", "10179"}
+PLZ_PRENZLAUER_BERG = {"10405", "10407", "10409", "10435", "10437", "10439"}
+ALLOWED_PLZ = PLZ_MITTE | PLZ_PRENZLAUER_BERG
+
+# Charlottenburg wird NICHT über PLZ, sondern über einen echten Umkreis von
+# 1 km um den Savignyplatz gefiltert (PLZ-Gebiete sind dafür viel zu groß).
+# Nur PLZ, die überhaupt in Frage kommen, lösen den (kostenlosen, aber
+# ratenlimitierten) Geocoding-Aufruf aus - spart unnötige Anfragen.
+CHARLOTTENBURG_CANDIDATE_PLZ = {
+    "10585", "10587", "10589", "10623", "10625", "10627", "10629",
+    "10707", "10709",  # angrenzendes Wilmersdorf, falls Grenzfall
+}
+SAVIGNYPLATZ_COORDS = (52.5049, 13.3225)
+CHARLOTTENBURG_RADIUS_KM = 1.0
+
+# Tiergarten/Moabit: nur Wohnungen unmittelbar an der Spree. Auch hier zu
+# grob für PLZ-Whitelisting - stattdessen Abstand zum Flusslauf berechnen.
+# Die Referenzpunkte sind eine grobe, von Hand geschätzte Näherung des
+# Spreeverlaufs durch diesen Abschnitt (keine vermessenen GIS-Daten) -
+# bei Bedarf gerne nachjustieren, falls Ergebnisse unplausibel wirken.
+TIERGARTEN_MOABIT_CANDIDATE_PLZ = {"10551", "10553", "10555", "10557", "10559", "10785"}
+SPREE_REFERENCE_POINTS = [
+    (52.5210, 13.3230),  # Grenze zu Charlottenburg (Schlossbrücke-Bereich)
+    (52.5250, 13.3350),  # Westhafen / Beusselstraße
+    (52.5290, 13.3450),  # Moabit, nördlicher Bogen
+    (52.5300, 13.3580),  # Sandkrugbrücke / Invalidenstraße
+    (52.5260, 13.3680),  # Höhe Hauptbahnhof
+    (52.5195, 13.3745),  # Spreebogen / Regierungsviertel
+    (52.5175, 13.3800),  # Richtung Reichstag / Übergang zu Mitte
+]
+SPREE_PROXIMITY_KM = 0.25  # "unmittelbar an der Spree"
+
+GEOCODE_RATE_LIMIT_SECONDS = 1.1  # Nominatim-Nutzungsregeln: max. 1 Anfrage/Sekunde
+_geocode_cache = {}
+
+# True = Inserate ganz ohne erkennbare PLZ/Bezirk werden ausgefiltert
+# (präziser, kann aber vereinzelt echte Treffer ohne erkannte Lage kosten).
+# False = solche Inserate werden durchgelassen (bisheriges, großzügigeres Verhalten).
+STRICT_LOCATION_FILTER = True
 
 HEADERS = {
     "User-Agent": (
@@ -121,6 +166,7 @@ Seite steht: null):
 - "rent": Kaltmiete in Euro als Zahl (nur die Zahl, ohne Symbol)
 - "district": Stadtteil/Bezirk, falls erkennbar
 - "plz": 5-stellige Postleitzahl, falls im Text erkennbar (sonst null)
+- "street": Straße und Hausnummer, falls im Text erkennbar (sonst null)
 - "url": Direktlink zum Inserat, falls vorhanden (sonst null)
 - "status": "verfuegbar" (aktuell zu vermieten), "vermietet" (bereits vergeben/
   Referenz) oder "unklar"
@@ -386,6 +432,104 @@ def hours_since(iso_timestamp):
         return 999999
 
 
+def haversine_km(lat1, lon1, lat2, lon2):
+    r = 6371.0
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlmb = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlmb / 2) ** 2
+    return 2 * r * math.asin(math.sqrt(a))
+
+
+def geocode_address(query):
+    """Kostenloses Geocoding über OpenStreetMap/Nominatim. Gibt (lat, lon)
+    oder None zurück. Ergebnisse werden pro Lauf gecacht, Anfragen werden
+    gemäß Nominatim-Nutzungsregeln auf max. 1/Sekunde gedrosselt."""
+    if not query:
+        return None
+    if query in _geocode_cache:
+        return _geocode_cache[query]
+
+    time.sleep(GEOCODE_RATE_LIMIT_SECONDS)
+    try:
+        resp = requests.get(
+            "https://nominatim.openstreetmap.org/search",
+            params={"q": query, "format": "json", "limit": 1, "countrycodes": "de"},
+            headers={"User-Agent": "ImmoWatcher/1.0 (privates Wohnungssuche-Tool)"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        results = resp.json()
+        if not results:
+            _geocode_cache[query] = None
+            return None
+        coords = (float(results[0]["lat"]), float(results[0]["lon"]))
+        _geocode_cache[query] = coords
+        return coords
+    except Exception as e:
+        print(f"    Geocoding fehlgeschlagen für '{query}': {e}")
+        _geocode_cache[query] = None
+        return None
+
+
+def _geocode_query_for_listing(listing):
+    street = (listing.get("street") or "").strip()
+    title = (listing.get("title") or "").strip()
+    plz = str(listing.get("plz") or "").strip()
+    parts = [street or title, plz, "Berlin", "Germany"]
+    return ", ".join(p for p in parts if p)
+
+
+def is_within_charlottenburg_radius(listing):
+    """Prüft per Geocoding, ob ein Inserat innerhalb von
+    CHARLOTTENBURG_RADIUS_KM um den Savignyplatz liegt."""
+    coords = geocode_address(_geocode_query_for_listing(listing))
+    if not coords:
+        return False  # nicht auffindbar -> im Zweifel nicht aufnehmen (präzise statt großzügig)
+
+    distance = haversine_km(*coords, *SAVIGNYPLATZ_COORDS)
+    return distance <= CHARLOTTENBURG_RADIUS_KM
+
+
+def distance_to_spree_km(lat, lon):
+    """Kürzester Abstand eines Punkts zum (grob angenäherten) Spreeverlauf,
+    berechnet über Punkt-zu-Strecke-Distanz auf einer lokalen, ebenen
+    Projektion (für Stadt-Maßstab genau genug)."""
+    ref_lat = 52.52
+
+    def to_xy(la, lo):
+        x = math.radians(lo) * 6371000.0 * math.cos(math.radians(ref_lat))
+        y = math.radians(la) * 6371000.0
+        return x, y
+
+    def point_segment_distance_m(px, py, ax, ay, bx, by):
+        abx, aby = bx - ax, by - ay
+        ab_len2 = abx * abx + aby * aby
+        if ab_len2 == 0:
+            return math.hypot(px - ax, py - ay)
+        t = max(0, min(1, ((px - ax) * abx + (py - ay) * aby) / ab_len2))
+        cx, cy = ax + t * abx, ay + t * aby
+        return math.hypot(px - cx, py - cy)
+
+    px, py = to_xy(lat, lon)
+    pts_xy = [to_xy(la, lo) for la, lo in SPREE_REFERENCE_POINTS]
+    best_m = min(
+        point_segment_distance_m(px, py, pts_xy[i][0], pts_xy[i][1], pts_xy[i + 1][0], pts_xy[i + 1][1])
+        for i in range(len(pts_xy) - 1)
+    )
+    return best_m / 1000.0
+
+
+def is_within_spree_proximity(listing):
+    """Prüft per Geocoding, ob ein Inserat in Tiergarten/Moabit unmittelbar
+    (< SPREE_PROXIMITY_KM) an der Spree liegt."""
+    coords = geocode_address(_geocode_query_for_listing(listing))
+    if not coords:
+        return False
+
+    return distance_to_spree_km(*coords) <= SPREE_PROXIMITY_KM
+
+
 def matches_criteria(listing):
     if looks_like_reference(listing):
         return False
@@ -393,8 +537,6 @@ def matches_criteria(listing):
     rooms = listing.get("rooms")
     size = listing.get("size_qm")
     rent = listing.get("rent")
-    district = (listing.get("district") or "").lower()
-    title = (listing.get("title") or "").lower()
 
     if isinstance(rooms, (int, float)) and rooms < CRITERIA["min_rooms"]:
         return False
@@ -404,14 +546,41 @@ def matches_criteria(listing):
         if not (CRITERIA["min_rent"] <= rent <= CRITERIA["max_rent"]):
             return False
 
-    # Bezirk: wenn erkennbar, muss er zu den gewünschten passen.
-    # Wenn kein Bezirk erkannt wurde, lassen wir das Inserat lieber durch,
-    # als ein potenziell passendes Angebot zu verpassen (lieber ein
-    # False Positive als ein verpasstes Inserat).
-    haystack = f"{district} {title}"
-    if district:
-        if not any(d in haystack for d in CRITERIA["districts"]):
+    # Standort: PLZ ist das präzise Signal, wenn vorhanden. Nur als Fallback
+    # (keine PLZ erkannt) wird auf den Bezirksnamen ausgewichen - mit
+    # Wortgrenzen statt reiner Teilstring-Suche, um Fehltreffer wie "Mitte"
+    # in unpassendem Kontext zu vermeiden.
+    plz = str(listing.get("plz") or "").strip()
+    district = (listing.get("district") or "").lower()
+    title_lower = (listing.get("title") or "").lower()
+    haystack = f"{district} {title_lower}"
+    looks_like_charlottenburg = (
+        plz in CHARLOTTENBURG_CANDIDATE_PLZ or re.search(r"\bcharlottenburg\b", haystack)
+    )
+    looks_like_tiergarten_moabit = (
+        plz in TIERGARTEN_MOABIT_CANDIDATE_PLZ or re.search(r"\b(tiergarten|moabit)\b", haystack)
+    )
+
+    if looks_like_charlottenburg:
+        # Charlottenburg: nicht per PLZ, sondern per echtem 1km-Umkreis um
+        # den Savignyplatz prüfen (PLZ-Gebiete sind dafür zu groß)
+        if not is_within_charlottenburg_radius(listing):
             return False
+    elif looks_like_tiergarten_moabit:
+        # Tiergarten/Moabit: nur zulassen, wenn unmittelbar an der Spree
+        if not is_within_spree_proximity(listing):
+            return False
+    elif plz:
+        if plz not in ALLOWED_PLZ:
+            return False
+    else:
+        district_match = any(
+            re.search(rf"\b{re.escape(d)}\b", haystack) for d in CRITERIA["districts"]
+        )
+        if not district_match:
+            if STRICT_LOCATION_FILTER:
+                return False
+            # sonst: ohne erkennbare Lage trotzdem durchlassen (unschärfer)
 
     return True
 
@@ -853,6 +1022,7 @@ def main():
                     "rent": listing.get("rent"),
                     "district": listing.get("district"),
                     "plz": listing.get("plz"),
+                    "street": listing.get("street"),
                     "url": listing.get("url") or url,
                     "site_url": url,
                     "source_name": source_name(url),

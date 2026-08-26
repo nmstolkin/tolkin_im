@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T12:33:44.448854+00:00",
+  "generated_at": "2026-08-26T17:27:41.524984+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,20 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82.0|1990.0|10707",
+      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
+      "rooms": 3,
+      "size_qm": 82.0,
+      "rent": 1990.0,
+      "district": null,
+      "plz": "10707",
+      "street": "Olivaer Platz",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-08-26T17:05:31.254048+00:00"
+    },
     {
       "key": "https://apartberlin.de/wohnungen/::|||10559",
       "title": "Birkenstraße 13, 10559 Berlin",

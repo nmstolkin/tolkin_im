@@ -40,10 +40,18 @@ STATUS_FILE = "site-status.json"
 MAX_MATCHES_KEPT = 300  # ältere Treffer werden aus der App-Ansicht ausgeblendet
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
 NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh")
 
+# "anthropic" (paid, sehr günstig, Batch API) oder "gemini" (kostenloser Tarif,
+# dafür mit Rate-Limits statt Kosten). Umschaltbar über die Umgebungsvariable
+# AI_PROVIDER, z.B. im GitHub-Actions-Workflow gesetzt.
+AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic").strip().lower()
+
 MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
+GEMINI_MODEL = "gemini-2.5-flash"    # kostenloser Tarif, für diese Aufgabe ausreichend
+GEMINI_RATE_LIMIT_DELAY = 4.5        # Sekunden zwischen Gemini-Aufrufen, um im Free-Tier-RPM-Limit zu bleiben
 MAX_TEXT_CHARS = 8000    # kürzerer Seitentext -> weniger Input-Tokens pro Aufruf
 REQUEST_TIMEOUT = 25
 SLEEP_BETWEEN_SITES = 1.5  # kleine Pause, um nicht wie ein aggressiver Bot zu wirken
@@ -219,6 +227,53 @@ def call_claude_extract(url, text):
         return []
 
 
+def call_gemini_extract(url, text, _retry=0):
+    """Extraktion über die kostenlose Gemini API (statt Anthropic)."""
+    if not text or len(text) < 50:
+        return []
+
+    prompt = EXTRACTION_PROMPT.format(url=url, text=text)
+    resp = requests.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent",
+        headers={"content-type": "application/json"},
+        params={"key": GEMINI_API_KEY},
+        json={
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0, "maxOutputTokens": 2500},
+        },
+        timeout=60,
+    )
+
+    # Free-Tier-Rate-Limit getroffen (429) -> kurz warten, einmal erneut versuchen
+    if resp.status_code == 429 and _retry < 2:
+        wait = 20 * (_retry + 1)
+        print(f"    Gemini Rate-Limit erreicht, warte {wait}s …")
+        time.sleep(wait)
+        return call_gemini_extract(url, text, _retry=_retry + 1)
+
+    resp.raise_for_status()
+    data = resp.json()
+    try:
+        candidates = data.get("candidates", [])
+        raw = "".join(
+            p.get("text", "") for p in candidates[0]["content"]["parts"]
+        ) if candidates else ""
+    except (KeyError, IndexError):
+        raw = ""
+
+    return _parse_extraction_text(raw)
+
+
+def extract_listings(url, text):
+    """Einheitlicher Einstiegspunkt für die Extraktion, unabhängig vom
+    gewählten Anbieter (AI_PROVIDER: 'anthropic' oder 'gemini')."""
+    if AI_PROVIDER == "gemini":
+        listings = call_gemini_extract(url, text)
+        time.sleep(GEMINI_RATE_LIMIT_DELAY)  # Free-Tier-RPM-Limit einhalten
+        return listings
+    return call_claude_extract(url, text)
+
+
 def find_next_page_url(html, current_url):
     """Sucht einen 'nächste Seite'-Link auf der aktuellen Seite."""
     soup = BeautifulSoup(html, "html.parser")
@@ -316,13 +371,37 @@ def matches_criteria(listing):
     return True
 
 
+def _normalize_key_part(v):
+    if v is None:
+        return ""
+    return re.sub(r"\s+", " ", str(v).strip().lower())
+
+
 def listing_key(listing, site_url):
-    """Eindeutiger Schlüssel, um ein Inserat wiederzuerkennen."""
-    key = listing.get("url") or listing.get("title")
-    if not key:
-        # Fallback: Hash aus allen Feldern
-        key = json.dumps(listing, sort_keys=True)
-    return f"{site_url}::{key}"
+    """Eindeutiger, möglichst stabiler Schlüssel, um ein Inserat über mehrere
+    Läufe hinweg wiederzuerkennen (wichtig für 'gesehen'-Tracking und für
+    dauerhaftes Ausblenden in der App)."""
+    url = listing.get("url")
+    if url:
+        return f"{site_url}::{_normalize_key_part(url)}"
+
+    # Kein Direktlink vorhanden: aus strukturierten, stabilen Feldern einen
+    # Schlüssel bauen statt aus dem freien Titel-Text - der wird von der KI
+    # bei jedem Lauf leicht unterschiedlich formuliert und würde sonst bei
+    # jedem Lauf einen neuen Schlüssel erzeugen (Inserat gilt fälschlich als
+    # "neu", Ausblenden greift nicht mehr).
+    structured_parts = [
+        _normalize_key_part(listing.get("rooms")),
+        _normalize_key_part(listing.get("size_qm")),
+        _normalize_key_part(listing.get("rent")),
+        _normalize_key_part(listing.get("plz") or listing.get("district")),
+    ]
+    if any(structured_parts):
+        return f"{site_url}::{'|'.join(structured_parts)}"
+
+    # Letzter Fallback: normalisierter Titel (zumindest Groß/Kleinschreibung
+    # und doppelte Leerzeichen werden ausgeglichen)
+    return f"{site_url}::{_normalize_key_part(listing.get('title'))}"
 
 
 def source_name(site_url):
@@ -577,9 +656,14 @@ def notify(listing, site_url):
 # ---------------------------------------------------------------------------
 
 def main():
-    if not ANTHROPIC_API_KEY:
-        print("FEHLER: ANTHROPIC_API_KEY ist nicht gesetzt.", file=sys.stderr)
-        sys.exit(1)
+    if AI_PROVIDER == "gemini":
+        if not GEMINI_API_KEY:
+            print("FEHLER: AI_PROVIDER=gemini, aber GEMINI_API_KEY ist nicht gesetzt.", file=sys.stderr)
+            sys.exit(1)
+    else:
+        if not ANTHROPIC_API_KEY:
+            print("FEHLER: ANTHROPIC_API_KEY ist nicht gesetzt.", file=sys.stderr)
+            sys.exit(1)
 
     sites = load_json(SITES_FILE, [])
     seen = load_json(SEEN_FILE, {})       # {site_url: [listing_key, ...]}
@@ -631,8 +715,17 @@ def main():
         batch_items.append((url, url, extract_text(html)))
 
     # ---- Phase 2: gesammelte Erst-Extraktionen als EIN Batch verschicken ----
-    print(f"\nPhase 2/2: {len(batch_items)} Seite(n) per Batch API extrahieren …")
-    batch_results = run_batch_extraction(batch_items)
+    print(f"\nPhase 2/2: {len(batch_items)} Seite(n) extrahieren (Anbieter: {AI_PROVIDER}) …")
+    if AI_PROVIDER == "gemini":
+        # Kein Vorteil durch Batch-Verarbeitung im kostenlosen Tarif -> einfach
+        # nacheinander abfragen, mit Pause zur Einhaltung des Rate-Limits.
+        batch_results = {}
+        for i, (cid, u, t) in enumerate(batch_items, 1):
+            print(f"  [{i}/{len(batch_items)}] {u}")
+            batch_results[cid] = call_gemini_extract(u, t)
+            time.sleep(GEMINI_RATE_LIMIT_DELAY)
+    else:
+        batch_results = run_batch_extraction(batch_items)
 
     for i, (url, info) in enumerate(pending.items(), 1):
         print(f"[{i}/{len(pending)}] Verarbeite Ergebnis: {url}")
@@ -654,7 +747,7 @@ def main():
                 if sub_html:
                     sub_listings = []
                     try:
-                        sub_listings = call_claude_extract(candidate, extract_text(sub_html))
+                        sub_listings = extract_listings(candidate, extract_text(sub_html))
                     except Exception as e:
                         print(f"  -> Extraktion der Unterseite fehlgeschlagen: {e}")
                     if sub_listings:
@@ -677,7 +770,7 @@ def main():
             pages_checked += 1
             extra_pages += 1
             try:
-                page_listings = call_claude_extract(next_url, extract_text(page_html))
+                page_listings = extract_listings(next_url, extract_text(page_html))
             except Exception as e:
                 print(f"  -> Extraktion der Folgeseite fehlgeschlagen: {e}")
                 break

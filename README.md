@@ -1,4 +1,4 @@
-# Immo Watcher
+# Wohnungssuche Berlin
 
 Überwacht automatisch 123 Hausverwaltungs-/Makler-Webseiten in Berlin auf neue
 Mietwohnungsinserate und schickt bei Treffern eine Push-Benachrichtigung ans
@@ -55,7 +55,7 @@ dir eine Push-Nachricht, sobald etwas Passendes gefunden wurde.
    `https://DEIN-NAME.github.io/immo-watcher/`. Diese im Safari auf dem
    iPhone öffnen.
 3. Unten in Safari auf das **Teilen-Symbol** tippen → **"Zum Home-Bildschirm"**.
-4. Fertig – ab jetzt hast du ein eigenes "Immo Watcher"-App-Icon auf deinem
+4. Fertig – ab jetzt hast du ein eigenes "Wohnungssuche Berlin"-App-Icon auf deinem
    Homescreen. Es öffnet sich im Vollbild wie eine normale App und zeigt dir
    alle bisher gefundenen, passenden Inserate.
 
@@ -70,9 +70,9 @@ dir eine Push-Nachricht, sobald etwas Passendes gefunden wurde.
 ### Schritt 5: Workflow aktivieren
 1. Im Repository auf den Tab **"Actions"** klicken.
 2. Falls gefragt: Workflows aktivieren.
-3. Der Workflow "Immo Watcher" läuft ab jetzt automatisch 3x täglich (siehe
+3. Der Workflow "Wohnungssuche Berlin" läuft ab jetzt automatisch 3x täglich (siehe
    Zeiten in `.github/workflows/check.yml`). Du kannst ihn zusätzlich
-   jederzeit manuell anstoßen: Actions → "Immo Watcher" → "Run workflow".
+   jederzeit manuell anstoßen: Actions → "Wohnungssuche Berlin" → "Run workflow".
 
 Das war's – ab jetzt bekommst du automatisch eine Push-Nachricht, sobald ein
 neues, passendes Inserat gefunden wird.

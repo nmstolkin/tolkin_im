@@ -3,8 +3,10 @@ name: Wohnungssuche Berlin
 on:
   schedule:
     # 13:00 UTC = 15:00 Uhr Berlin während der Sommerzeit (MESZ, UTC+2).
-    # Während der Winterzeit (MEZ, UTC+1) entspricht das 14:00 Uhr statt 15:00 Uhr,
-    # da GitHub Actions cron ausschließlich UTC kennt. Für exakt 15 Uhr im Winter
+    # Während der Winterzeit (MEZ, UTC+1, ca. letzter Sonntag im Oktober bis
+    # letzter Sonntag im März) entspricht das 14:00 Uhr Berlin statt 15:00 Uhr,
+    # da GitHub Actions cron ausschließlich UTC kennt und keine automatische
+    # Zeitzonen-/Sommerzeitumstellung unterstützt. Für exakt 15 Uhr im Winter
     # müsste diese Zeile manuell auf "0 14 * * 1-5" geändert werden.
     - cron: "0 13 * * 1-5"
   workflow_dispatch: {}   # erlaubt manuelles Auslösen über den "Run workflow"-Button
@@ -30,7 +32,12 @@ jobs:
       - name: Seiten prüfen
         run: python scrape.py
         env:
+          # Standard: Anthropic (günstig, Batch API). Für den kostenlosen
+          # Gemini-Tarif stattdessen "gemini" setzen und GEMINI_API_KEY als
+          # Secret hinterlegen (ANTHROPIC_API_KEY wird dann nicht gebraucht).
+          AI_PROVIDER: "gemini"
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
 
       - name: Status speichern (data/ zurück ins Repo committen)

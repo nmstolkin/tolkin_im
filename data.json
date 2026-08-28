@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T17:27:41.524984+00:00",
+  "generated_at": "2026-08-28T22:12:17.825687+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,34 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::3||2018.94|10117",
+      "title": "Lichtdurchflutete 3-Zimmer-Wohnung mit großzügiger Dachterrasse!",
+      "rooms": 3,
+      "size_qm": null,
+      "rent": 2018.94,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete",
+      "site_url": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete",
+      "source_name": "lanzundmelzer.de",
+      "found_at": "2026-08-28T22:09:59.485761+00:00"
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125|2050|mitte",
+      "title": "Blow Up",
+      "rooms": 3,
+      "size_qm": 125,
+      "rent": 2050,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-08-28T22:09:51.661311+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82.0|1990.0|10707",
       "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",

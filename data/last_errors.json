@@ -1,8 +1,10 @@
 {
   "https://www.hausverwaltung-kolbe.de/": "403 Client Error: Forbidden for url: https://www.hausverwaltung-kolbe.de/",
-  "https://immobiliensuche.degewo.de/de/search": "HTTPSConnectionPool(host='immobiliensuche.degewo.de', port=443): Max retries exceeded with url: /de/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='immobiliensuche.degewo.de', port=443) at 0x7fdcf4fa06d0>, 'Connection to immobiliensuche.degewo.de timed out. (connect timeout=25)'))",
+  "https://immobiliensuche.degewo.de/de/search": "HTTPSConnectionPool(host='immobiliensuche.degewo.de', port=443): Max retries exceeded with url: /de/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='immobiliensuche.degewo.de', port=443) at 0x7f34feb1f210>, 'Connection to immobiliensuche.degewo.de timed out. (connect timeout=25)'))",
+  "https://www.stadtundland.de/immobiliensuche.php": "HTTPSConnectionPool(host='stadtundland.de', port=443): Read timed out. (read timeout=25)",
   "http://www.hvp-berlin.de/Wohnen.html": "500 Server Error: Internal Server Error for url: http://www.hvp-berlin.de/Wohnen.html",
   "https://www.achat-hausverwaltung.de/": "HTTPSConnectionPool(host='www.achat-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016)')))",
   "https://artvivendi-immobilien.de/aktuele-angebote.html": "403 Client Error: Forbidden for url: https://artvivendi-immobilien.de/aktuele-angebote.html",
-  "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie"
+  "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
+  "https://www.borcherthv.de/": "HTTPSConnectionPool(host='www.borcherthv.de', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.borcherthv.de', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))"
 }

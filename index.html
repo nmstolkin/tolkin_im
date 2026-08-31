@@ -35,39 +35,40 @@
     background:var(--paper);
     color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-    padding-bottom:calc(40px + env(safe-area-inset-bottom));
+    padding-bottom:calc(78px + env(safe-area-inset-bottom));
     min-height:100vh;
   }
   button, input, select{font-family:inherit;}
 
   header{
-    padding:calc(24px + env(safe-area-inset-top)) 20px 0;
+    padding:calc(20px + env(safe-area-inset-top)) 20px 16px;
     background:var(--petrol);
     color:#fff;
-    border-bottom-left-radius:22px;
-    border-bottom-right-radius:22px;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
     position:sticky;
     top:0;
     z-index:6;
+    box-shadow:0 6px 20px rgba(18,67,61,.18);
   }
   header .eyebrow{
-    font-size:12.5px;
-    letter-spacing:.09em;
+    font-size:12px;
+    letter-spacing:.08em;
     text-transform:uppercase;
-    opacity:.72;
-    margin:0 0 6px;
+    opacity:.68;
+    margin:0 0 4px;
     font-weight:600;
   }
   header h1{
     margin:0;
-    font-size:26px;
+    font-size:23px;
     font-weight:700;
     letter-spacing:-0.01em;
   }
   header .meta{
-    margin-top:8px;
+    margin-top:7px;
     font-size:12.5px;
-    opacity:.82;
+    opacity:.8;
     display:flex;
     align-items:center;
     gap:6px;
@@ -75,29 +76,67 @@
   }
   .dot{width:6px;height:6px;border-radius:50%;background:#8fd6c7;display:inline-block;}
 
-  .tabs{
+  .run-now-btn{
+    flex-shrink:0;
+    background:rgba(255,255,255,.14);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:100px;
+    padding:8px 14px;
+    font-size:12.5px;
+    font-weight:700;
     display:flex;
-    gap:4px;
-    margin-top:18px;
-    padding-bottom:12px;
+    align-items:center;
+    gap:5px;
   }
-  .tab{
+  .run-now-btn:active{background:rgba(255,255,255,.24);}
+  .run-now-btn:disabled{opacity:.5;}
+
+  /* Bottom Navigation */
+  .bottom-nav{
+    position:fixed;
+    left:0;right:0;bottom:0;
+    z-index:20;
+    display:flex;
+    background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+    border-top:1px solid var(--line);
+    padding:8px 4px calc(8px + env(safe-area-inset-bottom));
+  }
+  .nav-item{
     flex:1;
-    text-align:center;
-    padding:9px 4px;
-    font-size:13.5px;
-    font-weight:600;
-    color:rgba(255,255,255,.68);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
     background:none;
     border:none;
-    border-bottom:2.5px solid transparent;
+    padding:4px 2px;
+    color:var(--muted);
+    position:relative;
   }
-  .tab.active{color:#fff;border-bottom-color:#fff;}
-  .tab .tab-count{
-    font-size:11px;
-    font-weight:600;
-    opacity:.8;
+  .nav-item .nav-icon{font-size:19px;line-height:1;}
+  .nav-item .nav-label{font-size:10px;font-weight:600;letter-spacing:.01em;}
+  .nav-item.active{color:var(--petrol);}
+  .nav-item .nav-badge{
+    position:absolute;
+    top:-1px;
+    right:calc(50% - 20px);
+    min-width:15px;
+    height:15px;
+    padding:0 4px;
+    border-radius:100px;
+    background:var(--clay);
+    color:#fff;
+    font-size:9.5px;
+    font-weight:700;
+    line-height:15px;
+    text-align:center;
   }
+
+  .tabs{display:none;}
+  .tab{display:none;}
 
   main{padding:16px 20px 8px;}
 
@@ -200,10 +239,11 @@
   .card{
     background:var(--paper-raised);
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:18px;
     padding:16px 16px 14px;
     margin-bottom:12px;
     position:relative;
+    box-shadow:0 1px 3px rgba(28,35,33,.05), 0 1px 2px rgba(28,35,33,.04);
   }
   .card-link{text-decoration:none;color:inherit;display:block;}
   .card-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
@@ -284,7 +324,7 @@
     align-items:center;
     gap:10px;
     background:var(--paper-raised);
-    border:1px solid var(--line);
+    border:1px solid var(--line);box-shadow:0 1px 3px rgba(28,35,33,.05);
     border-radius:12px;
     padding:11px 13px;
     margin-bottom:8px;
@@ -302,8 +342,8 @@
   /* Map Tab */
   #mapContainer{
     width:100%;
-    height:calc(100vh - 230px);
-    min-height:400px;
+    height:calc(100vh - 300px);
+    min-height:360px;
     border-radius:16px;
     border:1px solid var(--line);
     overflow:hidden;
@@ -320,10 +360,41 @@
   .map-popup .tag{font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:100px;background:#f1ede2;color:var(--petrol-deep);}
   .map-popup a{font-size:12.5px;font-weight:600;color:var(--petrol);text-decoration:none;}
 
+  .draw-toolbar{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+  .draw-toolbar-controls{display:none;gap:8px;}
+  .draw-btn{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:9px 14px;
+    font-size:13px;
+    font-weight:600;
+    background:var(--paper-raised);
+    color:var(--ink);
+  }
+  .draw-btn.primary{background:var(--petrol);border-color:var(--petrol);color:#fff;}
+  .draw-btn.danger{color:var(--danger);}
+  .draw-btn:active{opacity:.75;}
+  .draw-banner{
+    background:var(--petrol-pale);
+    color:var(--petrol-deep);
+    border-radius:12px;
+    padding:10px 12px;
+    font-size:12.5px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .draw-point-marker{
+    background:var(--clay);
+    border:2px solid #fff;
+    border-radius:50%;
+    width:12px;height:12px;
+    box-shadow:0 1px 4px rgba(0,0,0,.3);
+  }
+
   /* Settings Tab */
   .settings-card{
     background:var(--paper-raised);
-    border:1px solid var(--line);
+    border:1px solid var(--line);box-shadow:0 1px 3px rgba(28,35,33,.05);
     border-radius:14px;
     padding:16px;
     margin-bottom:14px;
@@ -369,21 +440,36 @@
   <p class="eyebrow">Berlin · automatische Suche</p>
   <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">
     <h1>Wohnungssuche Berlin</h1>
-    <button id="runNowBtn" style="flex-shrink:0;margin-top:2px;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;">
-      ▶︎ Suchlauf starten
-    </button>
+    <button class="run-now-btn" id="runNowBtn">▶︎ Suchlauf</button>
   </div>
   <div class="meta"><span class="dot" id="statusDot"></span><span id="lastUpdate">Lade Stand …</span></div>
   <div id="runNowMsg" style="font-size:11.5px;margin-top:6px;color:#cfe9e1;display:none;"></div>
-  <div class="tabs">
-    <button class="tab active" data-tab="feed">Inserate <span class="tab-count" id="feedTabCount"></span></button>
-    <button class="tab" data-tab="favorites">Favoriten <span class="tab-count" id="favTabCount"></span></button>
-    <button class="tab" data-tab="hidden">Ausgeblendet <span class="tab-count" id="hiddenTabCount"></span></button>
-    <button class="tab" data-tab="map">Karte</button>
-    <button class="tab" data-tab="status">Status <span class="tab-count" id="statusTabCount"></span></button>
-    <button class="tab" data-tab="settings">⚙️</button>
-  </div>
 </header>
+
+<nav class="bottom-nav">
+  <button class="nav-item active" data-tab="feed">
+    <span class="nav-icon">🏠</span><span class="nav-label">Inserate</span>
+    <span class="nav-badge" id="feedTabCount" style="display:none;"></span>
+  </button>
+  <button class="nav-item" data-tab="favorites">
+    <span class="nav-icon">★</span><span class="nav-label">Favoriten</span>
+    <span class="nav-badge" id="favTabCount" style="display:none;"></span>
+  </button>
+  <button class="nav-item" data-tab="hidden">
+    <span class="nav-icon">🙈</span><span class="nav-label">Ausgeblendet</span>
+    <span class="nav-badge" id="hiddenTabCount" style="display:none;"></span>
+  </button>
+  <button class="nav-item" data-tab="map">
+    <span class="nav-icon">🗺️</span><span class="nav-label">Karte</span>
+  </button>
+  <button class="nav-item" data-tab="status">
+    <span class="nav-icon">📶</span><span class="nav-label">Status</span>
+    <span class="nav-badge" id="statusTabCount" style="display:none;"></span>
+  </button>
+  <button class="nav-item" data-tab="settings">
+    <span class="nav-icon">⚙️</span><span class="nav-label">Mehr</span>
+  </button>
+</nav>
 
 <main>
 
@@ -401,6 +487,7 @@
           <option value="price_asc">Preis: niedrig zuerst</option>
           <option value="price_desc">Preis: hoch zuerst</option>
           <option value="size_desc">Größe: groß zuerst</option>
+          <option value="ppsqm_asc">€/qm: günstig zuerst</option>
         </select>
       </div>
       <div class="filter-row">
@@ -471,18 +558,22 @@
   </div>
 
   <div id="panel-map" style="display:none;">
-    <div style="display:flex;gap:8px;margin-bottom:10px;">
-      <button class="refresh" id="drawAreaBtn" style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;">Gebiet zeichnen</button>
-      <div id="drawAreaControls" style="display:none;gap:8px;align-items:center;">
-        <button class="refresh" id="clearDrawAreaBtn" style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--danger);">Löschen</button>
-        <button class="refresh" id="saveDrawAreaBtn" style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;">Speichern</button>
-        <span style="font-size:12px;color:var(--muted);"><span class="draw-point-count">0</span> Punkte</span>
+    <div class="draw-toolbar">
+      <button class="draw-btn primary" id="drawAreaBtn">✏️ Gebiet zeichnen</button>
+      <div id="drawAreaControls" class="draw-toolbar-controls">
+        <button class="draw-btn" id="undoDrawPointBtn" title="Letzten Punkt entfernen">↩︎</button>
+        <button class="draw-btn danger" id="clearDrawAreaBtn">Löschen</button>
+        <button class="draw-btn primary" id="saveDrawAreaBtn">Speichern</button>
       </div>
+    </div>
+    <div id="drawBanner" class="draw-banner" style="display:none;">
+      Tippe auf die Karte, um Eckpunkte zu setzen · <span class="draw-point-count">0</span> Punkte gesetzt
+      <span style="opacity:.8;"> (mind. 3 nötig)</span>
     </div>
     <div id="mapContainer"></div>
     <p class="map-note" id="mapNote">Positionen basieren auf der Postleitzahl bzw. dem Stadtteil des Inserats und sind daher ungefähr, nicht die exakte Adresse.</p>
     <p class="map-note" id="drawAreaMsg"></p>
-    <p class="map-note">Zum Zeichnen: "Gebiet zeichnen" antippen, dann nacheinander Punkte auf der Karte antippen, die die Fläche umranden. Mit "Speichern" wird das Gebiet zusätzlich zu den benannten Stadtteilen als eigener Suchbereich aktiv.</p>
+    <p class="map-note">Mit "Speichern" wird das eingezeichnete Gebiet zusätzlich zu den benannten Stadtteilen als eigener Suchbereich aktiv.</p>
   </div>
 
   <div id="panel-settings" style="display:none;">
@@ -557,6 +648,12 @@
 <script>
 const FAV_KEY = 'immo-watcher-favorites';
 const HIDDEN_KEY = 'immo-watcher-hidden';
+
+function setNavBadge(id, value){
+  const el = document.getElementById(id);
+  if(value){ el.textContent = value; el.style.display = 'inline-block'; }
+  else{ el.textContent = ''; el.style.display = 'none'; }
+}
 
 function getSet(key){
   try{ return new Set(JSON.parse(localStorage.getItem(key) || '[]')); }
@@ -663,6 +760,7 @@ function sortMatches(list){
     case 'price_asc': arr.sort((a,b) => (a.rent||1e9) - (b.rent||1e9)); break;
     case 'price_desc': arr.sort((a,b) => (b.rent||0) - (a.rent||0)); break;
     case 'size_desc': arr.sort((a,b) => (b.size_qm||0) - (a.size_qm||0)); break;
+    case 'ppsqm_asc': arr.sort((a,b) => (a.price_per_sqm||1e9) - (b.price_per_sqm||1e9)); break;
     default: arr.sort((a,b) => new Date(b.found_at||0) - new Date(a.found_at||0));
   }
   return arr;
@@ -674,6 +772,7 @@ function cardHTML(m, opts){
   if(m.rooms) tags.push(`<span class="tag">${m.rooms} Zi.</span>`);
   if(m.size_qm) tags.push(`<span class="tag">${m.size_qm} qm</span>`);
   if(m.rent) tags.push(`<span class="tag rent">${m.rent} €</span>`);
+  if(m.price_per_sqm) tags.push(`<span class="tag">${m.price_per_sqm} €/qm</span>`);
   if(m.district) tags.push(`<span class="tag">${m.district}${m.plz ? ' · ' + m.plz : ''}</span>`);
   else if(m.plz) tags.push(`<span class="tag">${m.plz}</span>`);
 
@@ -713,7 +812,7 @@ function renderFeed(){
   document.getElementById('countLabel').innerHTML = sorted.length
     ? `<strong>${sorted.length}</strong> passende Inserate`
     : 'Keine Inserate für diese Filter';
-  document.getElementById('feedTabCount').textContent = allMatches.filter(m => !hidden.has(m.key)).length || '';
+  setNavBadge('feedTabCount', allMatches.filter(m => !hidden.has(m.key)).length);
 
   const activeFilters = filterState.districts.size + (filterState.minRooms>0?1:0) + (filterState.minSize>0?1:0) + (filterState.maxRent<3000?1:0);
   const badge = document.getElementById('activeFilterCount');
@@ -736,7 +835,7 @@ function renderFeed(){
 function renderFavorites(){
   const favList = allMatches.filter(m => favorites.has(m.key));
   const sorted = sortMatches(favList);
-  document.getElementById('favTabCount').textContent = favorites.size || '';
+  setNavBadge('favTabCount', favorites.size);
   document.getElementById('favCountLabel').innerHTML = sorted.length
     ? `<strong>${sorted.length}</strong> gemerkte Wohnung${sorted.length===1?'':'en'}`
     : '';
@@ -763,7 +862,7 @@ function renderStatus(){
   document.getElementById('statErrNum').textContent = err;
   document.getElementById('statWarnNum').textContent = warn;
   document.getElementById('statHopelessNum').textContent = hopeless;
-  document.getElementById('statusTabCount').textContent = (err + hopeless) > 0 ? (err + hopeless) : '';
+  setNavBadge('statusTabCount', (err + hopeless) > 0 ? (err + hopeless) : 0);
 
   let rows = siteStatus.slice();
   if(statusFilterMode === 'error') rows = rows.filter(s => s.status === 'error' && !s.hopeless);
@@ -810,7 +909,7 @@ function renderStatus(){
 function renderHidden(){
   const hiddenList = allMatches.filter(m => hidden.has(m.key));
   const sorted = sortMatches(hiddenList);
-  document.getElementById('hiddenTabCount').textContent = hidden.size || '';
+  setNavBadge('hiddenTabCount', hidden.size);
   document.getElementById('hiddenCountLabel').innerHTML = sorted.length
     ? `<strong>${sorted.length}</strong> ausgeblendete Wohnung${sorted.length===1?'':'en'}`
     : '';
@@ -859,9 +958,9 @@ document.getElementById('resetHiddenBtn').addEventListener('click', () => {
   renderMap();
 });
 
-document.querySelectorAll('.tab').forEach(btn => {
+document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentTab = btn.dataset.tab;
     document.getElementById('panel-feed').style.display = currentTab === 'feed' ? 'block' : 'none';
@@ -983,6 +1082,7 @@ function renderMap(){
     if(m.rooms) tags.push(`${m.rooms} Zi.`);
     if(m.size_qm) tags.push(`${m.size_qm} qm`);
     if(m.rent) tags.push(`${m.rent} €`);
+    if(m.price_per_sqm) tags.push(`${m.price_per_sqm} €/qm`);
 
     const popupHtml = `
       <div class="map-popup">
@@ -1228,15 +1328,35 @@ document.getElementById('runNowBtn').addEventListener('click', async () => {
 // ---- Eigenes Suchgebiet auf der Karte einzeichnen ----
 let drawMode = false;
 let drawPoints = [];   // [[lat,lng], ...]
-let drawLayer = null;
+let drawShapeLayer = null;   // Vorschau-Linie/-Fläche
+let drawMarkersLayer = null; // sichtbare Punkte
 let customAreaLayer = null;
 
 function redrawDrawLayer(){
   if(!leafletMap) return;
-  if(drawLayer){ leafletMap.removeLayer(drawLayer); drawLayer = null; }
-  if(drawPoints.length === 0) return;
-  drawLayer = L.polygon(drawPoints, { color: '#c96f4a', weight: 2, fillOpacity: 0.15, dashArray: '5,5' }).addTo(leafletMap);
+
+  if(drawShapeLayer){ leafletMap.removeLayer(drawShapeLayer); drawShapeLayer = null; }
+  if(drawMarkersLayer){ leafletMap.removeLayer(drawMarkersLayer); drawMarkersLayer = null; }
+
   document.querySelectorAll('.draw-point-count').forEach(el => el.textContent = drawPoints.length);
+  document.getElementById('undoDrawPointBtn').disabled = drawPoints.length === 0;
+
+  if(drawPoints.length === 0) return;
+
+  // sichtbare Punkte, nummeriert, damit jeder Tipp sofort erkennbar ist
+  drawMarkersLayer = L.layerGroup(
+    drawPoints.map((p, i) => L.circleMarker(p, {
+      radius: 7, className: 'draw-point-marker',
+      color: '#fff', weight: 2, fillColor: '#c96f4a', fillOpacity: 1,
+    }))
+  ).addTo(leafletMap);
+
+  // ab 3 Punkten geschlossene Fläche zeigen, davor nur eine Verbindungslinie
+  if(drawPoints.length >= 3){
+    drawShapeLayer = L.polygon(drawPoints, { color: '#c96f4a', weight: 2, fillOpacity: 0.15, dashArray: '5,5' }).addTo(leafletMap);
+  }else if(drawPoints.length === 2){
+    drawShapeLayer = L.polyline(drawPoints, { color: '#c96f4a', weight: 2, dashArray: '5,5' }).addTo(leafletMap);
+  }
 }
 
 function renderCustomAreaLayer(points){
@@ -1253,18 +1373,37 @@ function onMapClickForDrawing(e){
   redrawDrawLayer();
 }
 
-document.getElementById('drawAreaBtn').addEventListener('click', () => {
-  drawMode = !drawMode;
+function setDrawMode(active){
+  drawMode = active;
   const btn = document.getElementById('drawAreaBtn');
-  btn.textContent = drawMode ? 'Fertig' : 'Gebiet zeichnen';
-  btn.classList.toggle('active-draw', drawMode);
-  document.getElementById('drawAreaControls').style.display = drawMode || drawPoints.length ? 'flex' : 'none';
+  btn.textContent = drawMode ? '✕ Zeichnen beenden' : '✏️ Gebiet zeichnen';
+  document.getElementById('drawAreaControls').style.display = drawMode ? 'flex' : 'none';
+  document.getElementById('drawBanner').style.display = drawMode ? 'block' : 'none';
+
+  if(!leafletMap) return;
+  if(drawMode){
+    // Wohnungs-Pins während des Zeichnens ausblenden, damit Tipps in ihrer
+    // Nähe nicht versehentlich ein Popup statt eines neuen Punkts öffnen
+    if(mapMarkersLayer) leafletMap.removeLayer(mapMarkersLayer);
+    leafletMap.doubleClickZoom.disable();
+  }else{
+    if(mapMarkersLayer) mapMarkersLayer.addTo(leafletMap);
+    leafletMap.doubleClickZoom.enable();
+  }
+}
+
+document.getElementById('drawAreaBtn').addEventListener('click', () => {
+  setDrawMode(!drawMode);
+});
+
+document.getElementById('undoDrawPointBtn').addEventListener('click', () => {
+  drawPoints.pop();
+  redrawDrawLayer();
 });
 
 document.getElementById('clearDrawAreaBtn').addEventListener('click', () => {
   drawPoints = [];
   redrawDrawLayer();
-  document.getElementById('drawAreaControls').style.display = drawMode ? 'flex' : 'none';
 });
 
 document.getElementById('saveDrawAreaBtn').addEventListener('click', async () => {
@@ -1288,6 +1427,7 @@ document.getElementById('saveDrawAreaBtn').addEventListener('click', async () =>
     await writeConfig(repo, token, current, sha, 'Eigenes Suchgebiet gespeichert (über die App)');
     msgEl.textContent = 'Gespeichert – gilt zusätzlich zu den benannten Gebieten ab dem nächsten Lauf.';
     renderCustomAreaLayer(drawPoints);
+    setDrawMode(false);
   }catch(e){
     msgEl.textContent = 'Fehler: ' + (e.message || 'Speichern fehlgeschlagen.');
   }

@@ -239,6 +239,67 @@ def fetch(url):
         return None, str(e)
 
 
+# ---------------------------------------------------------------------------
+# Playwright-Fallback: für Seiten, die ihre Inserate per JavaScript nachladen
+# und daher mit einem einfachen HTTP-Abruf leer erscheinen. Wird EIN Browser
+# für den ganzen Lauf offengehalten (Startkosten nur einmal), nicht pro Seite.
+# ---------------------------------------------------------------------------
+_playwright_ctx = None  # (playwright_instance, browser)
+PLAYWRIGHT_WAIT_MS = 2500  # kurze Wartezeit nach dem Laden, falls Inhalte nachgeladen werden
+
+
+def _get_playwright_browser():
+    global _playwright_ctx
+    if _playwright_ctx is not None:
+        return _playwright_ctx[1]
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("  Playwright nicht installiert, JS-Fallback nicht verfügbar.")
+        return None
+    try:
+        p = sync_playwright().start()
+        browser = p.chromium.launch(headless=True)
+        _playwright_ctx = (p, browser)
+        return browser
+    except Exception as e:
+        print(f"  Playwright-Browser konnte nicht gestartet werden: {e}")
+        return None
+
+
+def close_playwright():
+    global _playwright_ctx
+    if _playwright_ctx is not None:
+        p, browser = _playwright_ctx
+        try:
+            browser.close()
+        except Exception:
+            pass
+        try:
+            p.stop()
+        except Exception:
+            pass
+        _playwright_ctx = None
+
+
+def fetch_rendered_html(url):
+    """Lädt eine Seite mit echtem (headless) Browser und gibt den nach
+    JavaScript-Ausführung entstandenen HTML-Code zurück, oder None."""
+    browser = _get_playwright_browser()
+    if not browser:
+        return None
+    try:
+        page = browser.new_page(user_agent=HEADERS["User-Agent"])
+        page.goto(url, timeout=30000, wait_until="networkidle")
+        page.wait_for_timeout(PLAYWRIGHT_WAIT_MS)
+        html = page.content()
+        page.close()
+        return html
+    except Exception as e:
+        print(f"    Playwright-Rendering fehlgeschlagen für {url}: {e}")
+        return None
+
+
 def extract_text(html):
     soup = BeautifulSoup(html, "html.parser")
     for tag in soup(["script", "style", "nav", "footer", "svg", "noscript"]):
@@ -917,35 +978,56 @@ def run_batch_extraction(items):
     return results
 
 
-def notify(listing, site_url):
+APP_URL = os.environ.get("APP_URL")  # optional: URL der Homescreen-App, für den "Öffnen"-Link in der Push
+
+
+def send_digest_notification(new_matches):
+    """Schickt EINE zusammenfassende Push-Nachricht für alle in diesem Lauf
+    neu gefundenen Treffer, statt einer Einzel-Nachricht pro Inserat."""
     if not NTFY_TOPIC:
         print("NTFY_TOPIC nicht gesetzt, überspringe Benachrichtigung.")
         return
+    if not new_matches:
+        return
 
-    title = listing.get("title") or "Neues Inserat gefunden"
-    parts = []
-    if listing.get("rooms"):
-        parts.append(f"{listing['rooms']} Zimmer")
-    if listing.get("size_qm"):
-        parts.append(f"{listing['size_qm']} qm")
-    if listing.get("rent"):
-        parts.append(f"{listing['rent']} € Kaltmiete")
-    if listing.get("district"):
-        parts.append(str(listing["district"]))
-    body = " | ".join(str(p) for p in parts) if parts else "Details auf der Seite prüfen"
+    count = len(new_matches)
+    title = f"{count} neue Wohnung{'en' if count != 1 else ''} gefunden"
 
-    link = listing.get("url") or site_url
+    lines = []
+    for m in new_matches[:6]:
+        parts = []
+        if m.get("rooms"):
+            parts.append(f"{m['rooms']} Zi.")
+        if m.get("size_qm"):
+            parts.append(f"{m['size_qm']} qm")
+        if m.get("rent"):
+            parts.append(f"{m['rent']} €")
+        if m.get("price_per_sqm"):
+            parts.append(f"{m['price_per_sqm']} €/qm")
+        detail = ", ".join(str(p) for p in parts)
+        line = m.get("title") or "Wohnungsinserat"
+        if detail:
+            line += f" – {detail}"
+        lines.append(line)
+
+    if count > 6:
+        lines.append(f"… und {count - 6} weitere")
+
+    body = "\n".join(lines)
+
+    headers = {
+        "Title": title.encode("utf-8"),
+        "Priority": "high",
+        "Tags": "house",
+    }
+    if APP_URL:
+        headers["Click"] = APP_URL
 
     try:
         requests.post(
             f"{NTFY_SERVER}/{NTFY_TOPIC}",
             data=body.encode("utf-8"),
-            headers={
-                "Title": title.encode("utf-8"),
-                "Click": link,
-                "Priority": "high",
-                "Tags": "house",
-            },
+            headers=headers,
             timeout=15,
         )
     except Exception as e:
@@ -957,6 +1039,13 @@ def notify(listing, site_url):
 # ---------------------------------------------------------------------------
 
 def main():
+    try:
+        _run()
+    finally:
+        close_playwright()
+
+
+def _run():
     if AI_PROVIDER == "gemini":
         if not GEMINI_API_KEY:
             print("FEHLER: AI_PROVIDER=gemini, aber GEMINI_API_KEY ist nicht gesetzt.", file=sys.stderr)
@@ -1083,6 +1172,25 @@ def main():
                         current_html, current_page_url = sub_html, candidate
                 time.sleep(SLEEP_BETWEEN_PAGES)
 
+        # Playwright-Fallback: liefert die normale (Unter-)Seite immer noch
+        # 0 Inserate, könnte die Seite ihre Angebote per JavaScript nachladen.
+        # Letzter, teurerer Versuch mit echtem Browser statt reinem HTTP-Abruf.
+        used_playwright = False
+        if not listings:
+            rendered_html = fetch_rendered_html(current_page_url)
+            if rendered_html:
+                pages_checked += 1
+                try:
+                    rendered_listings = extract_listings(current_page_url, extract_text(rendered_html))
+                except Exception as e:
+                    rendered_listings = []
+                    print(f"  -> Extraktion nach Playwright-Rendering fehlgeschlagen: {e}")
+                if rendered_listings:
+                    print(f"  -> JavaScript-gerendert (Playwright) gefunden: {len(rendered_listings)} Inserat(e)")
+                    listings = rendered_listings
+                    current_html = rendered_html
+                    used_playwright = True
+
         # Folgeseiten: solange ein "weiter"-Link existiert und noch Inserate kommen
         extra_pages = 0
         seen_page_urls = {url, current_page_url}
@@ -1107,7 +1215,8 @@ def main():
             current_html = page_html
             next_url = find_next_page_url(page_html, next_url)
 
-        print(f"  -> {len(listings)} Inserat(e) erkannt (über {pages_checked} Seite(n))")
+        print(f"  -> {len(listings)} Inserat(e) erkannt (über {pages_checked} Seite(n)"
+              f"{', per Browser gerendert' if used_playwright else ''})")
         update_site_status(
             status, url, ok=True, listing_count=len(listings),
             suggested_url=suggested_url, pages_checked=pages_checked,
@@ -1125,13 +1234,21 @@ def main():
 
             if matches_criteria(listing):
                 print(f"     TREFFER: {listing.get('title')}")
-                notify(listing, url)
+                rooms_v = listing.get("rooms")
+                size_v = listing.get("size_qm")
+                rent_v = listing.get("rent")
+                price_per_sqm = (
+                    round(rent_v / size_v, 1)
+                    if isinstance(rent_v, (int, float)) and isinstance(size_v, (int, float)) and size_v > 0
+                    else None
+                )
                 app_matches.append({
                     "key": key,
                     "title": listing.get("title"),
-                    "rooms": listing.get("rooms"),
-                    "size_qm": listing.get("size_qm"),
-                    "rent": listing.get("rent"),
+                    "rooms": rooms_v,
+                    "size_qm": size_v,
+                    "rent": rent_v,
+                    "price_per_sqm": price_per_sqm,
                     "district": listing.get("district"),
                     "plz": listing.get("plz"),
                     "street": listing.get("street"),
@@ -1141,7 +1258,6 @@ def main():
                     "found_at": datetime.now(timezone.utc).isoformat(),
                 })
                 total_new_matches += 1
-                time.sleep(0.5)
 
         if new_on_this_site:
             print(f"  -> {new_on_this_site} davon neu seit letztem Lauf")
@@ -1153,6 +1269,7 @@ def main():
     save_json(ERROR_LOG, errors)
     save_json(STATUS_FILE, status)
     update_app_data(app_matches)
+    send_digest_notification(app_matches)
 
     print()
     print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")

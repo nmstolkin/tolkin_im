@@ -29,6 +29,16 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install -r requirements.txt
 
+      - name: Playwright-Browser cachen
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}
+
+      - name: Playwright-Browser (Chromium) installieren
+        run: playwright install --with-deps chromium
+
       - name: Seiten prüfen
         run: python scrape.py
         env:
@@ -39,6 +49,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          # Optional: URL der Homescreen-App, wird als "Öffnen"-Link in der
+          # Sammel-Push-Nachricht verwendet, z.B. https://nutzername.github.io/repo/
+          APP_URL: ${{ vars.APP_URL }}
 
       - name: Status speichern (data/ zurück ins Repo committen)
         run: |

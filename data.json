@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T22:12:17.825687+00:00",
+  "generated_at": "2026-08-31T06:44:45.174418+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,34 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://hihc.de/angebote/#/list1::3|127.95|2047.2|prenzlauer berg",
+      "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG!",
+      "rooms": 3,
+      "size_qm": 127.95,
+      "rent": 2047.2,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "street": null,
+      "url": "https://hihc.de/angebote/#/list1",
+      "site_url": "https://hihc.de/angebote/#/list1",
+      "source_name": "hihc.de",
+      "found_at": "2026-08-31T06:43:48.916891+00:00"
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125|2050.0|mitte",
+      "title": "Blow Up Berlin Mitte",
+      "rooms": 3,
+      "size_qm": 125,
+      "rent": 2050.0,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-08-31T06:43:30.086215+00:00"
+    },
     {
       "key": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::3||2018.94|10117",
       "title": "Lichtdurchflutete 3-Zimmer-Wohnung mit großzügiger Dachterrasse!",

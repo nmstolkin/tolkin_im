@@ -88,6 +88,15 @@ CRITERIA = {
     # Freitext-Fragmente als Rückfalloption, falls keine PLZ erkannt wurde
     # (Wortgrenzen-Suche, siehe matches_criteria)
     "districts": ["mitte", "prenzlauer berg", "prenzlauer", "charlottenburg"],
+    # welche Gebiete aktuell aktiv sind - per config.json/App umschaltbar
+    "areas": {
+        "mitte": True,
+        "prenzlauer_berg": True,
+        "charlottenburg": True,
+        "tiergarten_moabit_spree": True,
+    },
+    # in der App auf der Karte gezeichnetes, zusätzliches Suchgebiet
+    "custom_area": {"enabled": False, "points": []},
 }
 
 # Präzise Standortfilterung über Postleitzahlen (zuverlässiger als Bezirks-
@@ -556,6 +565,39 @@ def is_within_spree_proximity(listing):
     return distance_to_spree_km(*coords) <= SPREE_PROXIMITY_KM
 
 
+def point_in_polygon(lat, lon, polygon_points):
+    """Ray-Casting-Algorithmus: prüft, ob (lat, lon) innerhalb des in der App
+    gezeichneten Polygons liegt. polygon_points: Liste von [lat, lon]-Paaren."""
+    if len(polygon_points) < 3:
+        return False
+    inside = False
+    n = len(polygon_points)
+    j = n - 1
+    for i in range(n):
+        lat_i, lon_i = polygon_points[i]
+        lat_j, lon_j = polygon_points[j]
+        if ((lon_i > lon) != (lon_j > lon)) and \
+                (lat < (lat_j - lat_i) * (lon - lon_i) / (lon_j - lon_i + 1e-15) + lat_i):
+            inside = not inside
+        j = i
+    return inside
+
+
+def is_within_custom_area(listing):
+    """Prüft per Geocoding, ob ein Inserat innerhalb des in der App
+    gezeichneten, benutzerdefinierten Gebiets liegt."""
+    custom_area = CRITERIA.get("custom_area") or {}
+    points = custom_area.get("points") or []
+    if not custom_area.get("enabled") or len(points) < 3:
+        return False
+
+    coords = geocode_address(_geocode_query_for_listing(listing))
+    if not coords:
+        return False
+
+    return point_in_polygon(coords[0], coords[1], points)
+
+
 def matches_criteria(listing):
     if looks_like_reference(listing):
         return False
@@ -580,33 +622,52 @@ def matches_criteria(listing):
     district = (listing.get("district") or "").lower()
     title_lower = (listing.get("title") or "").lower()
     haystack = f"{district} {title_lower}"
-    looks_like_charlottenburg = (
+    areas = CRITERIA.get("areas", {})
+
+    looks_like_charlottenburg = areas.get("charlottenburg", True) and (
         plz in CHARLOTTENBURG_CANDIDATE_PLZ or re.search(r"\bcharlottenburg\b", haystack)
     )
-    looks_like_tiergarten_moabit = (
+    looks_like_tiergarten_moabit = areas.get("tiergarten_moabit_spree", True) and (
         plz in TIERGARTEN_MOABIT_CANDIDATE_PLZ or re.search(r"\b(tiergarten|moabit)\b", haystack)
     )
+    allowed_plz_now = set()
+    if areas.get("mitte", True):
+        allowed_plz_now |= PLZ_MITTE
+    if areas.get("prenzlauer_berg", True):
+        allowed_plz_now |= PLZ_PRENZLAUER_BERG
+    active_district_names = [
+        d for d in CRITERIA["districts"]
+        if not (d in ("mitte",) and not areas.get("mitte", True))
+        and not (d in ("prenzlauer berg", "prenzlauer") and not areas.get("prenzlauer_berg", True))
+        and not (d == "charlottenburg" and not areas.get("charlottenburg", True))
+    ]
+
+    location_ok = False
 
     if looks_like_charlottenburg:
         # Charlottenburg: nicht per PLZ, sondern per echtem 1km-Umkreis um
         # den Savignyplatz prüfen (PLZ-Gebiete sind dafür zu groß)
-        if not is_within_charlottenburg_radius(listing):
-            return False
+        location_ok = is_within_charlottenburg_radius(listing)
     elif looks_like_tiergarten_moabit:
         # Tiergarten/Moabit: nur zulassen, wenn unmittelbar an der Spree
-        if not is_within_spree_proximity(listing):
-            return False
+        location_ok = is_within_spree_proximity(listing)
     elif plz:
-        if plz not in ALLOWED_PLZ:
-            return False
+        location_ok = plz in allowed_plz_now
     else:
         district_match = any(
-            re.search(rf"\b{re.escape(d)}\b", haystack) for d in CRITERIA["districts"]
+            re.search(rf"\b{re.escape(d)}\b", haystack) for d in active_district_names
         )
-        if not district_match:
-            if STRICT_LOCATION_FILTER:
-                return False
-            # sonst: ohne erkennbare Lage trotzdem durchlassen (unschärfer)
+        location_ok = district_match or not STRICT_LOCATION_FILTER
+
+    # Letzter Fallback: liegt die Adresse im in der App gezeichneten,
+    # benutzerdefinierten Gebiet? Nur geprüft, wenn sonst kein Treffer und
+    # überhaupt ein Gebiet gespeichert/aktiviert wurde (kein Zusatzaufwand,
+    # wenn diese Funktion nicht genutzt wird).
+    if not location_ok and (CRITERIA.get("custom_area") or {}).get("enabled"):
+        location_ok = is_within_custom_area(listing)
+
+    if not location_ok:
+        return False
 
     return True
 
@@ -914,6 +975,21 @@ def main():
 
     config = load_json(CONFIG_FILE, {"cooldown_enabled": DEFAULT_COOLDOWN_ENABLED})
     cooldown_enabled = bool(config.get("cooldown_enabled", DEFAULT_COOLDOWN_ENABLED))
+
+    cfg_criteria = config.get("criteria", {})
+    for key in ("min_rooms", "min_size_qm", "min_rent", "max_rent"):
+        if key in cfg_criteria:
+            CRITERIA[key] = cfg_criteria[key]
+    for area_key in CRITERIA["areas"]:
+        if area_key in cfg_criteria.get("areas", {}):
+            CRITERIA["areas"][area_key] = bool(cfg_criteria["areas"][area_key])
+    if "custom_area" in cfg_criteria:
+        CRITERIA["custom_area"] = cfg_criteria["custom_area"]
+        n_points = len(CRITERIA["custom_area"].get("points") or [])
+        if CRITERIA["custom_area"].get("enabled") and n_points >= 3:
+            print(f"Benutzerdefiniertes Gebiet aktiv ({n_points} Punkte)")
+    print(f"Aktive Kriterien: {CRITERIA['min_rooms']}+ Zimmer, {CRITERIA['min_size_qm']}+ qm, "
+          f"{CRITERIA['min_rent']}-{CRITERIA['max_rent']} €, Gebiete: {CRITERIA['areas']}")
     print(f"Cooldown (Aussichtslos-Pause + Unverändert-Überspringen): {'AN' if cooldown_enabled else 'AUS'}")
     if not cooldown_enabled:
         print("  -> Alle Seiten werden bei diesem Lauf vollständig extrahiert, unabhängig von Vorlauf-Ergebnissen.")

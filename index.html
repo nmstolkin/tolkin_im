@@ -367,8 +367,14 @@
 
 <header>
   <p class="eyebrow">Berlin · automatische Suche</p>
-  <h1>Wohnungssuche Berlin</h1>
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">
+    <h1>Wohnungssuche Berlin</h1>
+    <button id="runNowBtn" style="flex-shrink:0;margin-top:2px;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;">
+      ▶︎ Suchlauf starten
+    </button>
+  </div>
   <div class="meta"><span class="dot" id="statusDot"></span><span id="lastUpdate">Lade Stand …</span></div>
+  <div id="runNowMsg" style="font-size:11.5px;margin-top:6px;color:#cfe9e1;display:none;"></div>
   <div class="tabs">
     <button class="tab active" data-tab="feed">Inserate <span class="tab-count" id="feedTabCount"></span></button>
     <button class="tab" data-tab="favorites">Favoriten <span class="tab-count" id="favTabCount"></span></button>
@@ -443,6 +449,7 @@
   <div id="panel-hidden" style="display:none;">
     <div class="count-row" style="margin-top:4px;">
       <span class="n" id="hiddenCountLabel"></span>
+      <button class="refresh" id="resetHiddenBtn">Liste zurücksetzen</button>
     </div>
     <div id="hiddenList"></div>
   </div>
@@ -464,11 +471,51 @@
   </div>
 
   <div id="panel-map" style="display:none;">
+    <div style="display:flex;gap:8px;margin-bottom:10px;">
+      <button class="refresh" id="drawAreaBtn" style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;">Gebiet zeichnen</button>
+      <div id="drawAreaControls" style="display:none;gap:8px;align-items:center;">
+        <button class="refresh" id="clearDrawAreaBtn" style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--danger);">Löschen</button>
+        <button class="refresh" id="saveDrawAreaBtn" style="border:1px solid var(--line);border-radius:10px;padding:8px 12px;">Speichern</button>
+        <span style="font-size:12px;color:var(--muted);"><span class="draw-point-count">0</span> Punkte</span>
+      </div>
+    </div>
     <div id="mapContainer"></div>
     <p class="map-note" id="mapNote">Positionen basieren auf der Postleitzahl bzw. dem Stadtteil des Inserats und sind daher ungefähr, nicht die exakte Adresse.</p>
+    <p class="map-note" id="drawAreaMsg"></p>
+    <p class="map-note">Zum Zeichnen: "Gebiet zeichnen" antippen, dann nacheinander Punkte auf der Karte antippen, die die Fläche umranden. Mit "Speichern" wird das Gebiet zusätzlich zu den benannten Stadtteilen als eigener Suchbereich aktiv.</p>
   </div>
 
   <div id="panel-settings" style="display:none;">
+    <div class="settings-card">
+      <h3>Suchkriterien</h3>
+      <p class="help">
+        Diese Werte bestimmen direkt, welche Inserate als Treffer zählen und eine
+        Push-Nachricht auslösen – nicht nur die Anzeige im Feed.
+      </p>
+      <div class="field-label">Mindest-Zimmerzahl</div>
+      <input class="text-input" id="critRooms" type="number" min="1" step="1">
+      <div class="field-label">Mindestgröße (qm)</div>
+      <input class="text-input" id="critSize" type="number" min="0" step="1">
+      <div class="field-label">Kaltmiete von (€)</div>
+      <input class="text-input" id="critRentMin" type="number" min="0" step="50">
+      <div class="field-label">Kaltmiete bis (€)</div>
+      <input class="text-input" id="critRentMax" type="number" min="0" step="50">
+
+      <div class="field-label">Gebiete</div>
+      <div class="toggle-row"><span class="label">Mitte</span>
+        <label class="switch"><input type="checkbox" id="areaMitte"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row"><span class="label">Prenzlauer Berg</span>
+        <label class="switch"><input type="checkbox" id="areaPrenzlauerBerg"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row"><span class="label">Charlottenburg (1km um Savignyplatz)</span>
+        <label class="switch"><input type="checkbox" id="areaCharlottenburg"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row"><span class="label">Tiergarten/Moabit (Spreeufer)</span>
+        <label class="switch"><input type="checkbox" id="areaTiergartenMoabit"><span class="slider"></span></label>
+      </div>
+    </div>
+
     <div class="settings-card">
       <h3>Cooldown</h3>
       <p class="help">
@@ -488,7 +535,7 @@
     <div class="settings-card">
       <h3>Verbindung zu GitHub</h3>
       <p class="help">
-        Um die Einstellung von hier aus zu speichern, braucht die App einmalig einen GitHub-Zugriffstoken.
+        Um Einstellungen von hier aus zu speichern, braucht die App einmalig einen GitHub-Zugriffstoken.
         Er wird ausschließlich auf diesem Gerät gespeichert (nie an Dritte übertragen) und nur direkt an
         GitHub geschickt. Empfehlung: einen <b>Fine-grained Personal Access Token</b> erstellen, beschränkt
         auf genau dieses eine Repository, mit der Berechtigung "Contents: Read and write".
@@ -802,6 +849,16 @@ function unhideListing(key){
   renderHidden();
 }
 
+document.getElementById('resetHiddenBtn').addEventListener('click', () => {
+  if(hidden.size === 0) return;
+  if(!confirm(`${hidden.size} ausgeblendete Wohnung(en) wieder einblenden?`)) return;
+  hidden = new Set();
+  saveSet(HIDDEN_KEY, hidden);
+  renderFeed();
+  renderHidden();
+  renderMap();
+});
+
 document.querySelectorAll('.tab').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
@@ -896,6 +953,17 @@ function initMap(){
     maxZoom: 19,
   }).addTo(leafletMap);
   mapMarkersLayer = L.layerGroup().addTo(leafletMap);
+  leafletMap.on('click', onMapClickForDrawing);
+
+  fetch('config.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(cfg => {
+      const area = (cfg.criteria || {}).custom_area;
+      if(area && area.points && area.points.length >= 3){
+        renderCustomAreaLayer(area.points);
+      }
+    })
+    .catch(() => {});
 }
 
 function renderMap(){
@@ -1027,8 +1095,49 @@ async function loadSettingsPanel(){
     currentCooldownEnabled = !!cfg.cooldown_enabled;
     document.getElementById('cooldownToggle').checked = currentCooldownEnabled;
     label.textContent = currentCooldownEnabled ? 'Cooldown ist aktiv' : 'Cooldown ist deaktiviert';
+
+    const crit = cfg.criteria || {};
+    document.getElementById('critRooms').value = crit.min_rooms ?? 3;
+    document.getElementById('critSize').value = crit.min_size_qm ?? 80;
+    document.getElementById('critRentMin').value = crit.min_rent ?? 1200;
+    document.getElementById('critRentMax').value = crit.max_rent ?? 2100;
+    const areas = crit.areas || {};
+    document.getElementById('areaMitte').checked = areas.mitte !== false;
+    document.getElementById('areaPrenzlauerBerg').checked = areas.prenzlauer_berg !== false;
+    document.getElementById('areaCharlottenburg').checked = areas.charlottenburg !== false;
+    document.getElementById('areaTiergartenMoabit').checked = areas.tiergarten_moabit_spree !== false;
   }catch(e){
     label.textContent = 'Konnte aktuellen Status nicht laden';
+  }
+}
+
+function getRepoAndToken(){
+  const repo = (document.getElementById('ghRepoInput')?.value || localStorage.getItem(GH_REPO_KEY) || '').trim();
+  const token = (document.getElementById('ghTokenInput')?.value || localStorage.getItem(GH_TOKEN_KEY) || '').trim();
+  return { repo, token };
+}
+
+async function fetchCurrentConfig(repo, token){
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, { headers: ghHeaders(token) });
+  if(!res.ok){
+    throw new Error(res.status === 401
+      ? 'Token ungültig oder ohne Berechtigung.'
+      : `Konnte config.json nicht lesen (HTTP ${res.status}).`);
+  }
+  const data = await res.json();
+  return { content: JSON.parse(b64DecodeUtf8(data.content)), sha: data.sha };
+}
+
+async function writeConfig(repo, token, newContentObj, sha, message){
+  const body = JSON.stringify(newContentObj, null, 2) + '\n';
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
+    method: 'PUT',
+    headers: ghHeaders(token),
+    body: JSON.stringify({ message, content: b64EncodeUtf8(body), sha }),
+  });
+  if(!res.ok){
+    const errBody = await res.json().catch(() => ({}));
+    throw new Error(errBody.message || `Speichern fehlgeschlagen (HTTP ${res.status}).`);
   }
 }
 
@@ -1053,33 +1162,23 @@ document.getElementById('saveSettingsBtn').addEventListener('click', async () =>
   msg.textContent = 'Speichere …';
 
   try{
-    // aktuelle Datei-SHA holen (für Update-Konflikt-Erkennung nötig)
-    const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
-      headers: ghHeaders(token),
-    });
-    if(!getRes.ok){
-      throw new Error(getRes.status === 401
-        ? 'Token ungültig oder ohne Berechtigung.'
-        : `Konnte config.json nicht lesen (HTTP ${getRes.status}).`);
-    }
-    const getData = await getRes.json();
+    const { content: current, sha } = await fetchCurrentConfig(repo, token);
+    current.cooldown_enabled = enabled;
+    current.criteria = {
+      ...(current.criteria || {}),
+      min_rooms: parseInt(document.getElementById('critRooms').value, 10) || 0,
+      min_size_qm: parseInt(document.getElementById('critSize').value, 10) || 0,
+      min_rent: parseInt(document.getElementById('critRentMin').value, 10) || 0,
+      max_rent: parseInt(document.getElementById('critRentMax').value, 10) || 0,
+      areas: {
+        mitte: document.getElementById('areaMitte').checked,
+        prenzlauer_berg: document.getElementById('areaPrenzlauerBerg').checked,
+        charlottenburg: document.getElementById('areaCharlottenburg').checked,
+        tiergarten_moabit_spree: document.getElementById('areaTiergartenMoabit').checked,
+      },
+    };
 
-    const newContent = JSON.stringify({ cooldown_enabled: enabled }, null, 2) + '\n';
-
-    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
-      method: 'PUT',
-      headers: ghHeaders(token),
-      body: JSON.stringify({
-        message: `Cooldown ${enabled ? 'aktiviert' : 'deaktiviert'} (über die App)`,
-        content: b64EncodeUtf8(newContent),
-        sha: getData.sha,
-      }),
-    });
-
-    if(!putRes.ok){
-      const errBody = await putRes.json().catch(() => ({}));
-      throw new Error(errBody.message || `Speichern fehlgeschlagen (HTTP ${putRes.status}).`);
-    }
+    await writeConfig(repo, token, current, sha, `Kriterien/Cooldown aktualisiert (über die App)`);
 
     currentCooldownEnabled = enabled;
     document.getElementById('cooldownStatusLabel').textContent = enabled ? 'Cooldown ist aktiv' : 'Cooldown ist deaktiviert';
@@ -1090,6 +1189,107 @@ document.getElementById('saveSettingsBtn').addEventListener('click', async () =>
     msg.textContent = e.message || 'Unbekannter Fehler beim Speichern.';
   }finally{
     btn.disabled = false;
+  }
+});
+
+// ---- Suchlauf manuell starten (GitHub Actions workflow_dispatch) ----
+document.getElementById('runNowBtn').addEventListener('click', async () => {
+  const { repo, token } = getRepoAndToken();
+  const msgEl = document.getElementById('runNowMsg');
+  const btn = document.getElementById('runNowBtn');
+  msgEl.style.display = 'block';
+
+  if(!repo || !token){
+    msgEl.textContent = 'Bitte zuerst im ⚙️-Tab Repository & Token hinterlegen.';
+    return;
+  }
+
+  btn.disabled = true;
+  msgEl.textContent = 'Starte Suchlauf …';
+
+  try{
+    const res = await fetch(`https://api.github.com/repos/${repo}/actions/workflows/check.yml/dispatches`, {
+      method: 'POST',
+      headers: ghHeaders(token),
+      body: JSON.stringify({ ref: 'main' }),
+    });
+    if(!res.ok){
+      const errBody = await res.json().catch(() => ({}));
+      throw new Error(errBody.message || `HTTP ${res.status}`);
+    }
+    msgEl.textContent = 'Suchlauf gestartet – dauert je nach Anzahl Seiten einige Minuten. Fortschritt im GitHub-Actions-Tab sichtbar.';
+  }catch(e){
+    msgEl.textContent = 'Fehler: ' + (e.message || 'Suchlauf konnte nicht gestartet werden. Braucht der Token auch die Berechtigung "Actions: Read and write"?');
+  }finally{
+    btn.disabled = false;
+  }
+});
+
+// ---- Eigenes Suchgebiet auf der Karte einzeichnen ----
+let drawMode = false;
+let drawPoints = [];   // [[lat,lng], ...]
+let drawLayer = null;
+let customAreaLayer = null;
+
+function redrawDrawLayer(){
+  if(!leafletMap) return;
+  if(drawLayer){ leafletMap.removeLayer(drawLayer); drawLayer = null; }
+  if(drawPoints.length === 0) return;
+  drawLayer = L.polygon(drawPoints, { color: '#c96f4a', weight: 2, fillOpacity: 0.15, dashArray: '5,5' }).addTo(leafletMap);
+  document.querySelectorAll('.draw-point-count').forEach(el => el.textContent = drawPoints.length);
+}
+
+function renderCustomAreaLayer(points){
+  if(!leafletMap) return;
+  if(customAreaLayer){ leafletMap.removeLayer(customAreaLayer); customAreaLayer = null; }
+  if(points && points.length >= 3){
+    customAreaLayer = L.polygon(points, { color: '#1e5c54', weight: 2, fillOpacity: 0.08 }).addTo(leafletMap);
+  }
+}
+
+function onMapClickForDrawing(e){
+  if(!drawMode) return;
+  drawPoints.push([e.latlng.lat, e.latlng.lng]);
+  redrawDrawLayer();
+}
+
+document.getElementById('drawAreaBtn').addEventListener('click', () => {
+  drawMode = !drawMode;
+  const btn = document.getElementById('drawAreaBtn');
+  btn.textContent = drawMode ? 'Fertig' : 'Gebiet zeichnen';
+  btn.classList.toggle('active-draw', drawMode);
+  document.getElementById('drawAreaControls').style.display = drawMode || drawPoints.length ? 'flex' : 'none';
+});
+
+document.getElementById('clearDrawAreaBtn').addEventListener('click', () => {
+  drawPoints = [];
+  redrawDrawLayer();
+  document.getElementById('drawAreaControls').style.display = drawMode ? 'flex' : 'none';
+});
+
+document.getElementById('saveDrawAreaBtn').addEventListener('click', async () => {
+  const { repo, token } = getRepoAndToken();
+  const msgEl = document.getElementById('drawAreaMsg');
+
+  if(drawPoints.length < 3){
+    msgEl.textContent = 'Bitte mindestens 3 Punkte antippen, um eine Fläche aufzuspannen.';
+    return;
+  }
+  if(!repo || !token){
+    msgEl.textContent = 'Bitte zuerst im ⚙️-Tab Repository & Token hinterlegen.';
+    return;
+  }
+
+  msgEl.textContent = 'Speichere …';
+  try{
+    const { content: current, sha } = await fetchCurrentConfig(repo, token);
+    current.criteria = current.criteria || {};
+    current.criteria.custom_area = { enabled: true, points: drawPoints };
+    await writeConfig(repo, token, current, sha, 'Eigenes Suchgebiet gespeichert (über die App)');
+    msgEl.textContent = 'Gespeichert – gilt zusätzlich zu den benannten Gebieten ab dem nächsten Lauf.';
+    renderCustomAreaLayer(drawPoints);
+  }catch(e){
+    msgEl.textContent = 'Fehler: ' + (e.message || 'Speichern fehlgeschlagen.');
   }
 });
 

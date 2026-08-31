@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T07:50:48.465201+00:00",
+  "generated_at": "2026-08-31T13:28:16.374050+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,48 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.37|2100.0|10407",
+      "title": "Wunderschöne 3 Zimmer Wohnung",
+      "rooms": 3,
+      "size_qm": 94.37,
+      "rent": 2100.0,
+      "district": null,
+      "plz": "10407",
+      "street": null,
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-08-31T13:25:47.001509+00:00"
+    },
+    {
+      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|85.0|1749|10407",
+      "title": "Zauberhafter Erstbezug: lichtdurchflutete und frisch modernisierte Altbauwohnung mit Balkon!",
+      "rooms": 3,
+      "size_qm": 85.0,
+      "rent": 1749,
+      "district": "Prenzlauer Berg",
+      "plz": "10407",
+      "street": null,
+      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "source_name": "immobilienscout24.de",
+      "found_at": "2026-08-31T13:23:54.216503+00:00"
+    },
+    {
+      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|101.1|1849|10439",
+      "title": "WG-geeignet! Zweitbezug nach Totalmodernisierung in der Rodenbergstraße/Prenzlauer Berg!",
+      "rooms": 3,
+      "size_qm": 101.1,
+      "rent": 1849,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": "Rodenbergstraße",
+      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
+      "source_name": "immobilienscout24.de",
+      "found_at": "2026-08-31T13:23:53.658147+00:00"
+    },
     {
       "key": "https://hihc.de/angebote/#/list1::3|127.95|2047.2|prenzlauer berg",
       "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG!",

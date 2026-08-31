@@ -38,6 +38,8 @@ SITES_FILE = "sites.json"
 # neben index.html, damit GitHub Pages sie ausliefern kann)
 APP_DATA_FILE = "data.json"
 STATUS_FILE = "site-status.json"
+CONFIG_FILE = "config.json"  # steuerbare Einstellungen, auch von der App aus änderbar
+DEFAULT_COOLDOWN_ENABLED = False  # auf Wunsch aktuell deaktiviert: jede Seite wird jedes Mal voll geprüft
 MAX_MATCHES_KEPT = 300  # ältere Treffer werden aus der App-Ansicht ausgeblendet
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
@@ -910,6 +912,12 @@ def main():
     status = {u: status[u] for u in sites if u in status}  # entfernte URLs aufräumen
     errors = {}
 
+    config = load_json(CONFIG_FILE, {"cooldown_enabled": DEFAULT_COOLDOWN_ENABLED})
+    cooldown_enabled = bool(config.get("cooldown_enabled", DEFAULT_COOLDOWN_ENABLED))
+    print(f"Cooldown (Aussichtslos-Pause + Unverändert-Überspringen): {'AN' if cooldown_enabled else 'AUS'}")
+    if not cooldown_enabled:
+        print("  -> Alle Seiten werden bei diesem Lauf vollständig extrahiert, unabhängig von Vorlauf-Ergebnissen.")
+
     total_new_matches = 0
     app_matches = []  # Treffer für die Homescreen-App (docs/data.json)
 
@@ -929,21 +937,21 @@ def main():
             print(f"  -> Fehler beim Abrufen: {err}")
             errors[url] = err
             prev_entry = status.get(url, {})
-            if prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
+            if cooldown_enabled and prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
                 update_site_status(status, url, ok=False, skipped=True)
             else:
                 update_site_status(status, url, ok=False, error=err)
             continue
 
         prev_entry = status.get(url, {})
-        if prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
+        if cooldown_enabled and prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
             print("  -> als aussichtslos markiert, überspringe (Cooldown aktiv, keine API-Kosten).")
             update_site_status(status, url, ok=True, skipped=True)
             continue
 
         content_hash = hashlib.sha256(html.encode("utf-8", "ignore")).hexdigest()
         prev_count = prev_entry.get("last_listing_count")
-        if hashes.get(url) == content_hash and prev_count:
+        if cooldown_enabled and hashes.get(url) == content_hash and prev_count:
             print("  -> keine Änderung seit letztem Lauf, überspringe.")
             update_site_status(status, url, ok=True, skipped=True)
             continue

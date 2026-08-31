@@ -319,6 +319,48 @@
   .map-popup .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
   .map-popup .tag{font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:100px;background:#f1ede2;color:var(--petrol-deep);}
   .map-popup a{font-size:12.5px;font-weight:600;color:var(--petrol);text-decoration:none;}
+
+  /* Settings Tab */
+  .settings-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:14px;
+  }
+  .settings-card h3{margin:0 0 6px;font-size:15px;font-weight:700;color:var(--ink);}
+  .settings-card p.help{margin:0 0 12px;font-size:12.5px;color:var(--muted);line-height:1.55;}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;}
+  .toggle-row .label{font-size:14px;font-weight:600;color:var(--ink);}
+  .switch{position:relative;width:48px;height:28px;flex-shrink:0;}
+  .switch input{opacity:0;width:0;height:0;}
+  .switch .slider{
+    position:absolute;inset:0;background:var(--line);border-radius:100px;
+    transition:background .15s;
+  }
+  .switch .slider:before{
+    content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;
+    background:#fff;border-radius:50%;transition:transform .15s;
+    box-shadow:0 1px 3px rgba(0,0,0,.25);
+  }
+  .switch input:checked + .slider{background:var(--petrol);}
+  .switch input:checked + .slider:before{transform:translateX(20px);}
+
+  .field-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 6px;}
+  .field-label:first-child{margin-top:0;}
+  .text-input{
+    width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);
+    background:var(--paper);font-size:13.5px;color:var(--ink);
+  }
+  .save-btn{
+    width:100%;margin-top:14px;padding:12px;border:none;border-radius:12px;
+    background:var(--petrol);color:#fff;font-size:14.5px;font-weight:700;
+  }
+  .save-btn:active{opacity:.8;}
+  .save-btn:disabled{opacity:.5;}
+  .settings-msg{margin-top:10px;font-size:12.5px;line-height:1.5;}
+  .settings-msg.ok{color:var(--ok);}
+  .settings-msg.err{color:var(--danger);}
 </style>
 </head>
 <body>
@@ -333,6 +375,7 @@
     <button class="tab" data-tab="hidden">Ausgeblendet <span class="tab-count" id="hiddenTabCount"></span></button>
     <button class="tab" data-tab="map">Karte</button>
     <button class="tab" data-tab="status">Status <span class="tab-count" id="statusTabCount"></span></button>
+    <button class="tab" data-tab="settings">⚙️</button>
   </div>
 </header>
 
@@ -423,6 +466,40 @@
   <div id="panel-map" style="display:none;">
     <div id="mapContainer"></div>
     <p class="map-note" id="mapNote">Positionen basieren auf der Postleitzahl bzw. dem Stadtteil des Inserats und sind daher ungefähr, nicht die exakte Adresse.</p>
+  </div>
+
+  <div id="panel-settings" style="display:none;">
+    <div class="settings-card">
+      <h3>Cooldown</h3>
+      <p class="help">
+        Wenn aktiviert, überspringt der Scraper Seiten, die sich seit dem letzten Lauf nicht
+        verändert haben, sowie Seiten, die als "aussichtslos" markiert wurden (spart Zeit/Kosten).
+        Wenn deaktiviert, wird bei jedem Lauf wirklich <b>jede</b> Seite vollständig geprüft.
+      </p>
+      <div class="toggle-row">
+        <span class="label" id="cooldownStatusLabel">Lade Status …</span>
+        <label class="switch">
+          <input type="checkbox" id="cooldownToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="settings-card">
+      <h3>Verbindung zu GitHub</h3>
+      <p class="help">
+        Um die Einstellung von hier aus zu speichern, braucht die App einmalig einen GitHub-Zugriffstoken.
+        Er wird ausschließlich auf diesem Gerät gespeichert (nie an Dritte übertragen) und nur direkt an
+        GitHub geschickt. Empfehlung: einen <b>Fine-grained Personal Access Token</b> erstellen, beschränkt
+        auf genau dieses eine Repository, mit der Berechtigung "Contents: Read and write".
+      </p>
+      <div class="field-label">Repository (Format: nutzername/repo-name)</div>
+      <input class="text-input" id="ghRepoInput" placeholder="z.B. nmstolkin/tolkin_im">
+      <div class="field-label">GitHub-Zugriffstoken</div>
+      <input class="text-input" id="ghTokenInput" type="password" placeholder="ghp_… oder github_pat_…">
+      <button class="save-btn" id="saveSettingsBtn">Speichern</button>
+      <div class="settings-msg" id="settingsMsg"></div>
+    </div>
   </div>
 
   <div class="hint" id="feedHint">
@@ -735,9 +812,13 @@ document.querySelectorAll('.tab').forEach(btn => {
     document.getElementById('panel-hidden').style.display = currentTab === 'hidden' ? 'block' : 'none';
     document.getElementById('panel-status').style.display = currentTab === 'status' ? 'block' : 'none';
     document.getElementById('panel-map').style.display = currentTab === 'map' ? 'block' : 'none';
+    document.getElementById('panel-settings').style.display = currentTab === 'settings' ? 'block' : 'none';
     document.getElementById('feedHint').style.display = currentTab === 'feed' ? 'block' : 'none';
     if(currentTab === 'map'){
       setTimeout(() => { initMap(); renderMap(); }, 0);
+    }
+    if(currentTab === 'settings'){
+      loadSettingsPanel();
     }
   });
 });
@@ -912,6 +993,104 @@ document.querySelectorAll('[data-statusfilter]').forEach(btn => {
     statusFilterMode = btn.dataset.statusfilter;
     renderStatus();
   });
+});
+
+// ---- Einstellungen: config.json direkt in GitHub lesen/schreiben ----
+const GH_REPO_KEY = 'immo-watcher-gh-repo';
+const GH_TOKEN_KEY = 'immo-watcher-gh-token';
+let currentConfigSha = null;
+let currentCooldownEnabled = false;
+
+function ghHeaders(token){
+  return {
+    'Authorization': 'Bearer ' + token,
+    'Accept': 'application/vnd.github+json',
+    'Content-Type': 'application/json',
+  };
+}
+
+function b64EncodeUtf8(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+function b64DecodeUtf8(str){
+  return decodeURIComponent(escape(atob(str)));
+}
+
+async function loadSettingsPanel(){
+  document.getElementById('ghRepoInput').value = localStorage.getItem(GH_REPO_KEY) || '';
+  document.getElementById('ghTokenInput').value = localStorage.getItem(GH_TOKEN_KEY) || '';
+
+  const label = document.getElementById('cooldownStatusLabel');
+  try{
+    const res = await fetch('config.json?t=' + Date.now());
+    const cfg = await res.json();
+    currentCooldownEnabled = !!cfg.cooldown_enabled;
+    document.getElementById('cooldownToggle').checked = currentCooldownEnabled;
+    label.textContent = currentCooldownEnabled ? 'Cooldown ist aktiv' : 'Cooldown ist deaktiviert';
+  }catch(e){
+    label.textContent = 'Konnte aktuellen Status nicht laden';
+  }
+}
+
+document.getElementById('saveSettingsBtn').addEventListener('click', async () => {
+  const repo = document.getElementById('ghRepoInput').value.trim();
+  const token = document.getElementById('ghTokenInput').value.trim();
+  const enabled = document.getElementById('cooldownToggle').checked;
+  const msg = document.getElementById('settingsMsg');
+  const btn = document.getElementById('saveSettingsBtn');
+
+  if(!repo || !token){
+    msg.className = 'settings-msg err';
+    msg.textContent = 'Bitte Repository und Zugriffstoken eintragen.';
+    return;
+  }
+
+  localStorage.setItem(GH_REPO_KEY, repo);
+  localStorage.setItem(GH_TOKEN_KEY, token);
+
+  btn.disabled = true;
+  msg.className = 'settings-msg';
+  msg.textContent = 'Speichere …';
+
+  try{
+    // aktuelle Datei-SHA holen (für Update-Konflikt-Erkennung nötig)
+    const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
+      headers: ghHeaders(token),
+    });
+    if(!getRes.ok){
+      throw new Error(getRes.status === 401
+        ? 'Token ungültig oder ohne Berechtigung.'
+        : `Konnte config.json nicht lesen (HTTP ${getRes.status}).`);
+    }
+    const getData = await getRes.json();
+
+    const newContent = JSON.stringify({ cooldown_enabled: enabled }, null, 2) + '\n';
+
+    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/config.json`, {
+      method: 'PUT',
+      headers: ghHeaders(token),
+      body: JSON.stringify({
+        message: `Cooldown ${enabled ? 'aktiviert' : 'deaktiviert'} (über die App)`,
+        content: b64EncodeUtf8(newContent),
+        sha: getData.sha,
+      }),
+    });
+
+    if(!putRes.ok){
+      const errBody = await putRes.json().catch(() => ({}));
+      throw new Error(errBody.message || `Speichern fehlgeschlagen (HTTP ${putRes.status}).`);
+    }
+
+    currentCooldownEnabled = enabled;
+    document.getElementById('cooldownStatusLabel').textContent = enabled ? 'Cooldown ist aktiv' : 'Cooldown ist deaktiviert';
+    msg.className = 'settings-msg ok';
+    msg.textContent = 'Gespeichert. Gilt ab dem nächsten Lauf.';
+  }catch(e){
+    msg.className = 'settings-msg err';
+    msg.textContent = e.message || 'Unbekannter Fehler beim Speichern.';
+  }finally{
+    btn.disabled = false;
+  }
 });
 
 loadAll();

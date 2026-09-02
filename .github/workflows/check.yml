@@ -2,13 +2,11 @@ name: Wohnungssuche Berlin
 
 on:
   schedule:
-    # 13:00 UTC = 15:00 Uhr Berlin während der Sommerzeit (MESZ, UTC+2).
-    # Während der Winterzeit (MEZ, UTC+1, ca. letzter Sonntag im Oktober bis
-    # letzter Sonntag im März) entspricht das 14:00 Uhr Berlin statt 15:00 Uhr,
-    # da GitHub Actions cron ausschließlich UTC kennt und keine automatische
-    # Zeitzonen-/Sommerzeitumstellung unterstützt. Für exakt 15 Uhr im Winter
-    # müsste diese Zeile manuell auf "0 14 * * 1-5" geändert werden.
-    - cron: "0 13 * * 1-5"
+    # Zeiten in UTC. 8:00 + 14:00 UTC = 10:00 + 16:00 Uhr Berlin während der
+    # Sommerzeit (MESZ, UTC+2). Während der Winterzeit (MEZ, UTC+1) wäre das
+    # 9:00 + 15:00 Uhr; für exakt 10/16 Uhr im Winter müssten die Zeilen
+    # manuell auf "0 9,15 * * 1-5" geändert werden.
+    - cron: "0 8,14 * * 1-5"
   workflow_dispatch: {}   # erlaubt manuelles Auslösen über den "Run workflow"-Button
 
 permissions:

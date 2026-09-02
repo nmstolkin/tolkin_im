@@ -3,8 +3,8 @@
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
-    "min_rent": 900,
-    "max_rent": 2200,
+    "min_rent": 1200,
+    "max_rent": 2100,
     "areas": {
       "mitte": true,
       "prenzlauer_berg": true,

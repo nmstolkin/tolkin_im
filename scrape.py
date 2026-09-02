@@ -837,8 +837,12 @@ def update_site_status(status, url, ok, error=None, listing_count=None, suggeste
     if pages_checked is not None:
         entry["pages_checked"] = pages_checked
 
-    had_success = ok and (listing_count or 0) > 0
-    if had_success:
+    # "Aussichtslos" darf NUR bei echten technischen Fehlern greifen (Seite
+    # nicht erreichbar, DNS tot, 404 …). Eine erreichbare Seite mit 0 Inseraten
+    # ist völlig normal - kleine Hausverwaltungen haben oft wochenlang nichts
+    # frei. Diese Seiten weiterhin als "verdächtig" anzeigen, aber nicht
+    # abschalten.
+    if ok:
         entry["consecutive_bad_runs"] = 0
         entry["hopeless"] = False
     else:

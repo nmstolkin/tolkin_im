@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-01T17:29:08.889814+00:00",
+  "generated_at": "2026-09-02T12:12:24.171989+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
-    "min_rent": 900,
-    "max_rent": 2200,
+    "min_rent": 1200,
+    "max_rent": 2100,
     "districts": [
       "Mitte",
       "Prenzlauer Berg",
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3.0|94.37|2100.0|10407",
+      "title": "3 Zimmer Wohnung",
+      "rooms": 3.0,
+      "size_qm": 94.37,
+      "rent": 2100.0,
+      "price_per_sqm": 22.3,
+      "district": "Berlin",
+      "plz": "10407",
+      "street": null,
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-09-02T12:03:10.634852+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990.0|10707",
       "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",

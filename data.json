@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T08:58:09.471763+00:00",
+  "generated_at": "2026-09-03T15:29:21.605710+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,66 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::4|109.75|1461.92|10439",
+      "title": "Klassische Altbauwohnung mit 2 Balkonen in der Rodenbergstraße/Renovierungsbedarf",
+      "rooms": 4,
+      "size_qm": 109.75,
+      "rent": 1461.92,
+      "price_per_sqm": 13.3,
+      "district": null,
+      "plz": "10439",
+      "street": "Rodenbergstraße",
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-09-03T15:16:18.757285+00:00"
+    },
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::3|85|1749|10407",
+      "title": "Zauberhafter Erstbezug: lichtdurchflutete und frisch modernisierte Altbauwohnung mit Balkon!",
+      "rooms": 3,
+      "size_qm": 85,
+      "rent": 1749,
+      "price_per_sqm": 20.6,
+      "district": null,
+      "plz": "10407",
+      "street": null,
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-09-03T15:16:18.757245+00:00"
+    },
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::3|101.13|1849|10439",
+      "title": "WG-geeignet! Zweitbezug nach Totalmodernisierung in der Rodenbergstraße/Prenzlauer Berg!",
+      "rooms": 3,
+      "size_qm": 101.13,
+      "rent": 1849,
+      "price_per_sqm": 18.3,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": "Rodenbergstraße",
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-09-03T15:16:18.757178+00:00"
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|106.1||10179",
+      "title": "Erstbezug-Qualität mit eigener Terrasse: 4-Zimmer-Wohnung in Mitte",
+      "rooms": 4,
+      "size_qm": 106.1,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-03T15:09:07.948557+00:00"
+    },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.87||10179",
       "title": "Exklusive 4 Zimmer Wohnungen mit Terrasse in Mitte",

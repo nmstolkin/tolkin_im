@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T08:52:12.878051+00:00",
+  "generated_at": "2026-09-07T14:52:30.741451+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::4.0|122.0|2001.0|mitte",
+      "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv...",
+      "rooms": 4.0,
+      "size_qm": 122.0,
+      "rent": 2001.0,
+      "price_per_sqm": 16.4,
+      "district": "Mitte",
+      "plz": null,
+      "street": "Prinzenallee 21",
+      "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-09-07T14:35:51.125961+00:00"
+    },
     {
       "key": "https://apartberlin.de/unsere-objekte/::|||10559",
       "title": "Birkenstraße 13, 10559 Berlin",

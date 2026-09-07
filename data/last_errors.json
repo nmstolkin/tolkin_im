@@ -1,12 +1,11 @@
 {
-  "https://www.classic-immobilien-berlin.de/vermietung/": "HTTPSConnectionPool(host='www.classic-immobilien-berlin.de', port=443): Read timed out. (read timeout=25)",
   "https://apartberlin.de/unsere-objekte/": "HTTPSConnectionPool(host='apartberlin.de', port=443): Read timed out. (read timeout=25)",
-  "https://cg-immobilien.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart=wohnen&typ&ort&center&objekt-id&collapse&von-qm=0.00&bis-qm=11460.00&von-zimmer=0.00&bis-zimmer=5.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00": "HTTPSConnectionPool(host='cg-immobilien.de', port=443): Read timed out. (read timeout=25)",
   "https://www.hausverwaltung-kolbe.de/": "403 Client Error: Forbidden for url: https://www.hausverwaltung-kolbe.de/",
-  "https://immobiliensuche.degewo.de/de/search": "HTTPSConnectionPool(host='immobiliensuche.degewo.de', port=443): Max retries exceeded with url: /de/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='immobiliensuche.degewo.de', port=443) at 0x7fbbda90ae10>, 'Connection to immobiliensuche.degewo.de timed out. (connect timeout=25)'))",
+  "https://immobiliensuche.degewo.de/de/search": "HTTPSConnectionPool(host='immobiliensuche.degewo.de', port=443): Max retries exceeded with url: /de/search (Caused by ConnectTimeoutError(<HTTPSConnection(host='immobiliensuche.degewo.de', port=443) at 0x7fe2e4be3010>, 'Connection to immobiliensuche.degewo.de timed out. (connect timeout=25)'))",
   "https://www.stadtundland.de/mieten/wohnungen": "404 Client Error: Not Found for url: https://stadtundland.de/mieten/wohnungen",
   "http://www.hvp-berlin.de/Wohnen.html": "500 Server Error: Internal Server Error for url: http://www.hvp-berlin.de/Wohnen.html",
   "https://www.achat-hausverwaltung.de/": "HTTPSConnectionPool(host='www.achat-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016)')))",
+  "https://artvivendi-immobilien.de/aktuele-angebote.html": "403 Client Error: Forbidden for url: https://artvivendi-immobilien.de/aktuele-angebote.html",
   "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
   "https://tagesspiegel.immowelt.de/liste/berlin/wohnungen/mieten": "HTTPSConnectionPool(host='tagesspiegel.immowelt.de', port=443): Max retries exceeded with url: /liste/berlin/wohnungen/mieten (Caused by NameResolutionError(\"HTTPSConnection(host='tagesspiegel.immowelt.de', port=443): Failed to resolve 'tagesspiegel.immowelt.de' ([Errno -5] No address associated with hostname)\"))",
   "https://www.morgenpost.de/berlin/wohnung-mieten/": "404 Client Error: Not Found for url: https://www.morgenpost.de/berlin/wohnung-mieten/"

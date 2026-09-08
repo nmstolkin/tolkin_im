@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T08:57:57.633005+00:00",
+  "generated_at": "2026-09-08T14:57:14.754085+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,36 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069.0|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-08T14:49:07.704310+00:00"
+    },
+    {
+      "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::||934.64|moabit",
+      "title": "Elberfelder Str. - beliebter Kiez in Berlin-Moabit, san. AB - Whg. QG, 2.OG, Balkon!",
+      "rooms": null,
+      "size_qm": null,
+      "rent": 934.64,
+      "price_per_sqm": null,
+      "district": "Moabit",
+      "plz": null,
+      "street": "Elberfelder Str.",
+      "url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+      "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+      "source_name": "tela-immobilien.de",
+      "found_at": "2026-09-08T14:48:49.113424+00:00"
+    },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::4|122|2001|mitte",
       "title": "Neubau-Dachgeschosswohnung in Berlin – exklusiv...",

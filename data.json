@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T09:03:49.843321+00:00",
+  "generated_at": "2026-09-09T15:37:32.555569+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,36 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|130.0|1900.0|10117",
+      "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",
+      "rooms": 3,
+      "size_qm": 130.0,
+      "rent": 1900.0,
+      "price_per_sqm": 14.6,
+      "district": null,
+      "plz": "10117",
+      "street": "Marienstr.",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-09T15:26:06.336074+00:00"
+    },
+    {
+      "key": "https://imms-immobilien.de/mietobjekte/::3|86||10115",
+      "title": "Berlin-Mitte | 3-Zimmer-Gewerbe-Wohnung",
+      "rooms": 3,
+      "size_qm": 86,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10115",
+      "street": "Invalidenstraße 154",
+      "url": "https://imms-immobilien.de/mietobjekte/",
+      "site_url": "https://imms-immobilien.de/mietobjekte/",
+      "source_name": "imms-immobilien.de",
+      "found_at": "2026-09-09T14:46:44.543306+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069.0|10405",
       "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T08:53:00.398882+00:00",
+  "generated_at": "2026-09-11T15:21:54.383598+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,36 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.core-berlin.de/de/vermietung::|83|1400.0|10439",
+      "title": "Büro direkt am S-Bhf Schönhauser Allee",
+      "rooms": null,
+      "size_qm": 83,
+      "rent": 1400.0,
+      "price_per_sqm": 16.9,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": "Schönhauser Allee 113",
+      "url": "https://www.core-berlin.de/de/vermietung",
+      "site_url": "https://www.core-berlin.de/de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-09-11T14:38:22.088776+00:00"
+    },
+    {
+      "key": "https://www.core-berlin.de/de/vermietung::|409||10439",
+      "title": "Erstbezug Erdgeschoss Ladenbüro Nähe Schönhauser Allee",
+      "rooms": null,
+      "size_qm": 409,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": "Paul-Robeson-Straße 17",
+      "url": "https://www.core-berlin.de/de/vermietung",
+      "site_url": "https://www.core-berlin.de/de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-09-11T14:38:22.088622+00:00"
+    },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::||810.06|",
       "title": "Belepschstr. - ZE-Mitte ca. 5 Minuten! EG-Whg mit eig. Eingang + Balkon",

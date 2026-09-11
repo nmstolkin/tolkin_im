@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T15:46:19.043711+00:00",
+  "generated_at": "2026-09-11T08:53:00.398882+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,36 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::||810.06|",
+      "title": "Belepschstr. - ZE-Mitte ca. 5 Minuten! EG-Whg mit eig. Eingang + Balkon",
+      "rooms": null,
+      "size_qm": null,
+      "rent": 810.06,
+      "price_per_sqm": null,
+      "district": null,
+      "plz": null,
+      "street": "Belepschstr.",
+      "url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+      "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+      "source_name": "tela-immobilien.de",
+      "found_at": "2026-09-11T08:44:34.505324+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|130.0|1900.0|10117",
+      "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",
+      "rooms": 3,
+      "size_qm": 130.0,
+      "rent": 1900.0,
+      "price_per_sqm": 14.6,
+      "district": "Berlin",
+      "plz": "10117",
+      "street": "Marienstr.",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-09-11T08:31:27.411669+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|130.0|1900.0|10117",
       "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",

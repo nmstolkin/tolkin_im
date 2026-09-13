@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-11T15:21:54.383598+00:00",
+  "generated_at": "2026-09-13T14:00:15.541691+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
-    "min_rent": 800,
-    "max_rent": 2300,
+    "min_rent": 1200,
+    "max_rent": 2100,
     "districts": [
       "Mitte",
       "Prenzlauer Berg",
@@ -12,6 +12,51 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://hihc.de/angebote/#/list1::3.0|127.95|2047.2|prenzlauer berg",
+      "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG! ALTBAU, TERRASSE, KÜCHE!",
+      "rooms": 3.0,
+      "size_qm": 127.95,
+      "rent": 2047.2,
+      "price_per_sqm": 16.0,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "street": null,
+      "url": "https://hihc.de/angebote/#/list1",
+      "site_url": "https://hihc.de/angebote/#/list1",
+      "source_name": "hihc.de",
+      "found_at": "2026-09-13T13:54:22.447182+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069.0|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-09-13T13:40:36.439367+00:00"
+    },
+    {
+      "key": "https://imms-immobilien.de/mietobjekte/::3|86.0||10115",
+      "title": "Berlin-Mitte | 3-Zimmer-Gewerbe-Wohnung | ca. 86 m²",
+      "rooms": 3,
+      "size_qm": 86.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10115",
+      "street": "Invalidenstraße 154",
+      "url": "https://imms-immobilien.de/mietobjekte/",
+      "site_url": "https://imms-immobilien.de/mietobjekte/",
+      "source_name": "imms-immobilien.de",
+      "found_at": "2026-09-13T13:37:45.639375+00:00"
+    },
     {
       "key": "https://www.core-berlin.de/de/vermietung::|83|1400.0|10439",
       "title": "Büro direkt am S-Bhf Schönhauser Allee",

@@ -3,7 +3,7 @@
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
-    "min_rent": 1200,
+    "min_rent": 1000,
     "max_rent": 2100,
     "areas": {
       "mitte": true,

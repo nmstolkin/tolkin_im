@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T08:54:30.342452+00:00",
+  "generated_at": "2026-09-14T15:05:53.932818+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://hihc.de/angebote/#/list1::|127.95|2047.2|prenzlauer berg",
+      "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG! ALTBAU, TERRASSE, KÜCHE!",
+      "rooms": null,
+      "size_qm": 127.95,
+      "rent": 2047.2,
+      "price_per_sqm": 16.0,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "street": null,
+      "url": "https://hihc.de/angebote/#/list1",
+      "site_url": "https://hihc.de/angebote/#/list1",
+      "source_name": "hihc.de",
+      "found_at": "2026-09-14T14:53:59.210964+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|130|1900.0|10117",
       "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",

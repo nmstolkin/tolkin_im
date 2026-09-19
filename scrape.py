@@ -693,22 +693,27 @@ def is_within_custom_area(listing):
 
 
 def matches_criteria(listing):
-    """Gibt (passt: bool, grund: str|None) zurück. Der Grund wird fuer die
-    Verworfen-Statistik im Status-Tab gesammelt."""
+    """Gibt (passt: bool, gruende: list[str]) zurueck. ALLE verletzten
+    Kriterien werden gesammelt, nicht nur das erste - sonst verdeckt das
+    zuerst gepruefte Kriterium (Zimmer) alle anderen in der Statistik."""
+    gruende = []
+
     if looks_like_reference(listing):
-        return False, "referenzobjekt"
+        # Referenzobjekt ist ein Ausschluss eigener Art: hier lohnt keine
+        # weitere Pruefung, die Wohnung ist ohnehin nicht zu haben.
+        return False, ["referenzobjekt"]
 
     rooms = listing.get("rooms")
     size = listing.get("size_qm")
     rent = listing.get("rent")
 
     if isinstance(rooms, (int, float)) and rooms < CRITERIA["min_rooms"]:
-        return False, "zimmer"
+        gruende.append("zimmer")
     if isinstance(size, (int, float)) and size < CRITERIA["min_size_qm"]:
-        return False, "groesse"
+        gruende.append("groesse")
     if isinstance(rent, (int, float)):
         if not (CRITERIA["min_rent"] <= rent <= CRITERIA["max_rent"]):
-            return False, "miete"
+            gruende.append("miete")
 
     # Standort: PLZ ist das präzise Signal, wenn vorhanden. Nur als Fallback
     # (keine PLZ erkannt) wird auf den Bezirksnamen ausgewichen - mit
@@ -786,9 +791,9 @@ def matches_criteria(listing):
         location_ok = is_within_custom_area(listing)
 
     if not location_ok:
-        return False, "lage"
+        gruende.append("lage")
 
-    return True, None
+    return (len(gruende) == 0), gruende
 
 
 def _normalize_key_part(v):
@@ -1339,9 +1344,10 @@ def _run():
             known.add(key)
             new_on_this_site += 1
 
-            passt, grund = matches_criteria(listing)
+            passt, gruende = matches_criteria(listing)
             if not passt:
-                rejection_stats[grund] = rejection_stats.get(grund, 0) + 1
+                for g in gruende:
+                    rejection_stats[g] = rejection_stats.get(g, 0) + 1
                 continue
 
             if True:

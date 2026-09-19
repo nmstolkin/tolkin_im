@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T09:19:12.150640+00:00",
+  "generated_at": "2026-09-19T15:17:01.829338+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,38 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5.0|198||10117",
+      "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
+      "rooms": 5.0,
+      "size_qm": 198,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-19T15:08:04.814986+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|130||10115",
+      "title": "Hochwertig möblierte Maisonette mit privater Dachterrasse & Berlin-Panorama | Mitte",
+      "rooms": 4,
+      "size_qm": 130,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10115",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-09-19T14:56:12.854149+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
       "title": "Blow Up Berlin Mitte, 4. OG",
@@ -58,7 +90,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-09-19T09:10:36.248557+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-19T15:17:01.829338+00:00"
     },
     {
       "key": "https://hihc.de/angebote/#/list1::|127.95|2047.2|prenzlauer berg",
@@ -213,7 +246,8 @@
       "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
       "source_name": "tela-immobilien.de",
       "found_at": "2026-09-11T08:44:34.505324+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-19T15:17:01.829338+00:00"
     },
     {
       "key": "https://imms-immobilien.de/mietobjekte/::3|86||10115",

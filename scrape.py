@@ -54,6 +54,13 @@ NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh")
 # AI_PROVIDER, z.B. im GitHub-Actions-Workflow gesetzt.
 AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic").strip().lower()
 
+# Diagnose: bei "1" wird fuer Seiten, die 0 Inserate liefern, ein Ausschnitt des
+# tatsaechlich extrahierten Textes ins Log geschrieben. Damit laesst sich
+# unterscheiden, ob die Seite blockt (Cookie-Banner/Fehlerseite im Text), ob
+# sie leer ist, oder ob die Extraktion den vorhandenen Inhalt nicht erkennt.
+DEBUG_EMPTY = os.environ.get("DEBUG_EMPTY", "").strip() == "1"
+DEBUG_TEXT_CHARS = 1200
+
 MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
 GEMINI_MODEL = "gemini-2.5-flash-lite"  # kostenloser Tarif, für diese Aufgabe ausreichend
 GEMINI_RATE_LIMIT_DELAY = 4.5        # Sekunden zwischen Gemini-Aufrufen, um im Free-Tier-RPM-Limit zu bleiben
@@ -524,8 +531,31 @@ def find_listing_subpage(html, current_url):
         text = a.get_text(strip=True).lower()
         haystack = f"{text} {candidate.lower()}"
         score = sum(weight for kw, weight in LISTING_LINK_KEYWORDS if kw in haystack)
-        # kürzere Pfade (weniger tief verschachtelt) leicht bevorzugen
-        score -= parsed.path.count("/") * 0.1
+
+        # --- Detailseiten aussortieren ------------------------------------
+        # Ziel ist die UEBERSICHT, nicht ein einzelnes Objekt. Detailseiten
+        # erkennt man an tiefen Pfaden, langen ID-Segmenten und daran, dass
+        # der Linktext eine konkrete Wohnung beschreibt. Ohne diese Abwertung
+        # landet der Sucher z.B. bei einer einzelnen Wohnung statt bei der
+        # Angebotsliste - und findet dann nur dieses eine Inserat.
+        path = parsed.path.rstrip("/")
+        segments = [s for s in path.split("/") if s]
+
+        # lange Ziffern-/ID-Segmente sprechen stark fuer eine Detailseite
+        if any(re.fullmatch(r"[\d_\-]{5,}", s) for s in segments):
+            score -= 5
+        # sehr lange, beschreibende Segmente ("3-zimmer-wohnung-mit-balkon-in-...")
+        if any(len(s) > 40 for s in segments):
+            score -= 4
+        # Linktext, der eine einzelne Wohnung beschreibt
+        if re.search(r"\d+[\.,]?\d*\s*(zimmer|zi\.|m²|qm)", text):
+            score -= 4
+        # Hinweise auf Gewerbe statt Wohnen
+        if re.search(r"\b(b(ue|ü)ro|gewerbe|praxis|laden|halle|stellplatz|garage)\b", haystack):
+            score -= 5
+
+        # flache Pfade bevorzugen (Uebersichtsseiten liegen meist weit oben)
+        score -= max(0, len(segments) - 1) * 0.6
 
         if score > best_score:
             best_score, best_url = score, candidate
@@ -1327,6 +1357,12 @@ def _run():
 
         print(f"  -> {len(listings)} Inserat(e) erkannt (über {pages_checked} Seite(n)"
               f"{', per Browser gerendert' if used_playwright else ''})")
+
+        if DEBUG_EMPTY and not listings:
+            dbg = extract_text(current_html)
+            print(f"  [DEBUG] extrahierter Text ({len(dbg)} Zeichen) von {current_page_url}:")
+            print("  [DEBUG] " + (dbg[:DEBUG_TEXT_CHARS].replace("\n", " ") or "(LEER)"))
+            print("  [DEBUG] ---")
         update_site_status(
             status, url, ok=True, listing_count=len(listings),
             suggested_url=suggested_url, pages_checked=pages_checked,

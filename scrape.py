@@ -827,9 +827,22 @@ def matches_criteria(listing):
 
 
 def _normalize_key_part(v):
+    """Vereinheitlicht einen Schluesselbestandteil. Zahlen werden auf eine
+    feste Darstellung gebracht, damit '54', '54.0' und '54,0' denselben
+    Schluessel ergeben - sonst gilt dieselbe Wohnung bei jedem Lauf als neu,
+    weil die KI Zahlen mal mit und mal ohne Nachkommastelle ausgibt."""
     if v is None:
         return ""
-    return re.sub(r"\s+", " ", str(v).strip().lower())
+    s = re.sub(r"\s+", " ", str(v).strip().lower())
+    # reine Zahl (auch mit Komma als Dezimaltrennzeichen)?
+    if re.fullmatch(r"-?\d+(?:[.,]\d+)?", s):
+        try:
+            f = float(s.replace(",", "."))
+            # ganzzahlig -> ohne Nachkommastelle, sonst eine Nachkommastelle
+            return str(int(f)) if f == int(f) else f"{f:.1f}"
+        except ValueError:
+            pass
+    return s
 
 
 def listing_key(listing, site_url):
@@ -1223,6 +1236,12 @@ def _run():
     total_new_matches = 0
     app_matches = []  # Treffer für die Homescreen-App (docs/data.json)
     rejection_stats = {}   # {grund: anzahl} - wie viele Inserate woran scheiterten
+    # Schluessel der bereits in data.json gemeldeten Treffer. Verhindert
+    # Doppelmeldungen, OHNE die Kriterienpruefung selbst zu ueberspringen.
+    already_reported = {
+        m.get("key") for m in load_json(APP_DATA_FILE, {}).get("matches", [])
+    }
+    print(f"Bereits gemeldete Treffer: {len(already_reported)}")
     total_listings_seen = 0  # wie viele Inserate insgesamt erkannt wurden
     seen_keys_this_run = set()  # für die "nicht mehr gelistet"-Erkennung
 
@@ -1375,18 +1394,23 @@ def _run():
             key = listing_key(listing, url)
             seen_keys_this_run.add(key)   # für "nicht mehr gelistet"-Erkennung
             total_listings_seen += 1
-            if key in known:
-                continue
-            known.add(key)
-            new_on_this_site += 1
+            if key not in known:
+                known.add(key)
+                new_on_this_site += 1
 
+            # WICHTIG: Die Kriterien werden auf JEDES erkannte Inserat
+            # angewandt, nicht nur auf neue. Sonst wuerde eine Lockerung der
+            # Kriterien (z.B. niedrigere Mindestmiete) laengst bekannte, aber
+            # nun passende Wohnungen nie erfassen. Ob gemeldet wird, entscheidet
+            # allein, ob der Treffer schon in data.json steht.
             passt, gruende = matches_criteria(listing)
             if not passt:
                 for g in gruende:
                     rejection_stats[g] = rejection_stats.get(g, 0) + 1
                 continue
 
-            if True:
+            if key not in already_reported:
+                already_reported.add(key)
                 print(f"     TREFFER: {listing.get('title')}")
                 rooms_v = listing.get("rooms")
                 size_v = listing.get("size_qm")

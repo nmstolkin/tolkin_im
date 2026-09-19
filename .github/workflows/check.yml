@@ -47,6 +47,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          # Diagnose: auf "1" setzen, um bei Seiten mit 0 Inseraten den
+          # extrahierten Text ins Log zu schreiben. Danach wieder auf "0".
+          DEBUG_EMPTY: "0"
           # Optional: URL der Homescreen-App, wird als "Öffnen"-Link in der
           # Sammel-Push-Nachricht verwendet, z.B. https://nutzername.github.io/repo/
           APP_URL: ${{ vars.APP_URL }}

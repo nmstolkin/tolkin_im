@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-09-19T09:19:12.202778+00:00",
+  "listings_seen": 401,
+  "matches": 3,
+  "rejected": {
+    "referenzobjekt": 11,
+    "zimmer": 100,
+    "lage": 18,
+    "groesse": 14,
+    "miete": 2
+  },
+  "rejected_total": 145,
+  "sites_total": 113,
+  "sites_with_errors": 11
+}

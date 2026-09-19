@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T14:52:46.273030+00:00",
+  "generated_at": "2026-09-19T09:19:12.150640+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -13,6 +13,54 @@
   },
   "matches": [
     {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
+      "title": "Blow Up Berlin Mitte, 4. OG",
+      "rooms": 3,
+      "size_qm": 125,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-09-19T09:11:11.315710+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
+      "title": "Das Wunder von Berlin Berlin Mitte, 4. OG",
+      "rooms": 4,
+      "size_qm": 115,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-09-19T09:11:11.315469+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|130.0||10115",
+      "title": "Hochwertig möblierte Maisonette mit privater Dachterrasse & Berlin-Panorama | Mitte",
+      "rooms": 4,
+      "size_qm": 130.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10115",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-19T09:10:36.248557+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://hihc.de/angebote/#/list1::|127.95|2047.2|prenzlauer berg",
       "title": "GERÄUMIGE BÜROFLÄCHE MIT DIREKTEN STRAßENZUGANG IN BERLIN PRENZLAUER BERG! ALTBAU, TERRASSE, KÜCHE!",
       "rooms": null,
@@ -25,7 +73,9 @@
       "url": "https://hihc.de/angebote/#/list1",
       "site_url": "https://hihc.de/angebote/#/list1",
       "source_name": "hihc.de",
-      "found_at": "2026-09-14T14:53:59.210964+00:00"
+      "found_at": "2026-09-14T14:53:59.210964+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|130|1900.0|10117",
@@ -40,7 +90,10 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-09-13T14:38:14.214230+00:00"
+      "found_at": "2026-09-13T14:38:14.214230+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": []
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|82.0|1990.0|10707",
@@ -55,7 +108,10 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-09-13T14:25:56.220484+00:00"
+      "found_at": "2026-09-13T14:25:56.220484+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": []
     },
     {
       "key": "https://hihc.de/angebote/#/list1::3.0|127.95|2047.2|prenzlauer berg",
@@ -70,7 +126,9 @@
       "url": "https://hihc.de/angebote/#/list1",
       "site_url": "https://hihc.de/angebote/#/list1",
       "source_name": "hihc.de",
-      "found_at": "2026-09-13T13:54:22.447182+00:00"
+      "found_at": "2026-09-13T13:54:22.447182+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069.0|10405",
@@ -85,7 +143,10 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-09-13T13:40:36.439367+00:00"
+      "found_at": "2026-09-13T13:40:36.439367+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": []
     },
     {
       "key": "https://imms-immobilien.de/mietobjekte/::3|86.0||10115",
@@ -100,7 +161,9 @@
       "url": "https://imms-immobilien.de/mietobjekte/",
       "site_url": "https://imms-immobilien.de/mietobjekte/",
       "source_name": "imms-immobilien.de",
-      "found_at": "2026-09-13T13:37:45.639375+00:00"
+      "found_at": "2026-09-13T13:37:45.639375+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.core-berlin.de/de/vermietung::|83|1400.0|10439",
@@ -115,7 +178,9 @@
       "url": "https://www.core-berlin.de/de/vermietung",
       "site_url": "https://www.core-berlin.de/de/vermietung",
       "source_name": "core-berlin.de",
-      "found_at": "2026-09-11T14:38:22.088776+00:00"
+      "found_at": "2026-09-11T14:38:22.088776+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.core-berlin.de/de/vermietung::|409||10439",
@@ -130,7 +195,9 @@
       "url": "https://www.core-berlin.de/de/vermietung",
       "site_url": "https://www.core-berlin.de/de/vermietung",
       "source_name": "core-berlin.de",
-      "found_at": "2026-09-11T14:38:22.088622+00:00"
+      "found_at": "2026-09-11T14:38:22.088622+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::||810.06|",
@@ -145,37 +212,8 @@
       "url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
       "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
       "source_name": "tela-immobilien.de",
-      "found_at": "2026-09-11T08:44:34.505324+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|130.0|1900.0|10117",
-      "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",
-      "rooms": 3,
-      "size_qm": 130.0,
-      "rent": 1900.0,
-      "price_per_sqm": 14.6,
-      "district": "Berlin",
-      "plz": "10117",
-      "street": "Marienstr.",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-09-11T08:31:27.411669+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|130.0|1900.0|10117",
-      "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",
-      "rooms": 3,
-      "size_qm": 130.0,
-      "rent": 1900.0,
-      "price_per_sqm": 14.6,
-      "district": null,
-      "plz": "10117",
-      "street": "Marienstr.",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-09-09T15:26:06.336074+00:00"
+      "found_at": "2026-09-11T08:44:34.505324+00:00",
+      "still_listed": true
     },
     {
       "key": "https://imms-immobilien.de/mietobjekte/::3|86||10115",
@@ -190,22 +228,9 @@
       "url": "https://imms-immobilien.de/mietobjekte/",
       "site_url": "https://imms-immobilien.de/mietobjekte/",
       "source_name": "imms-immobilien.de",
-      "found_at": "2026-09-09T14:46:44.543306+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069.0|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-09-08T14:49:07.704310+00:00"
+      "found_at": "2026-09-09T14:46:44.543306+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::||934.64|moabit",
@@ -220,7 +245,8 @@
       "url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
       "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
       "source_name": "tela-immobilien.de",
-      "found_at": "2026-09-08T14:48:49.113424+00:00"
+      "found_at": "2026-09-08T14:48:49.113424+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::4|122|2001|mitte",
@@ -235,7 +261,9 @@
       "url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
       "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ",
       "source_name": "grandcityproperty.de",
-      "found_at": "2026-09-08T08:52:47.825129+00:00"
+      "found_at": "2026-09-08T08:52:47.825129+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::4.0|122.0|2001.0|mitte",
@@ -250,7 +278,9 @@
       "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
       "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
       "source_name": "grandcityproperty.de",
-      "found_at": "2026-09-07T14:35:51.125961+00:00"
+      "found_at": "2026-09-07T14:35:51.125961+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://apartberlin.de/unsere-objekte/::|||10559",
@@ -265,7 +295,9 @@
       "url": "https://apartberlin.de/unsere-objekte/",
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
-      "found_at": "2026-09-04T08:50:54.500258+00:00"
+      "found_at": "2026-09-04T08:50:54.500258+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::4|109.75|1461.92|10439",
@@ -280,7 +312,12 @@
       "url": "https://www.habitare-immobilien.de/angebote",
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
-      "found_at": "2026-09-03T15:16:18.757285+00:00"
+      "found_at": "2026-09-03T15:16:18.757285+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": [
+        "immobilienscout24.de"
+      ]
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|85|1749|10407",
@@ -295,7 +332,12 @@
       "url": "https://www.habitare-immobilien.de/angebote",
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
-      "found_at": "2026-09-03T15:16:18.757245+00:00"
+      "found_at": "2026-09-03T15:16:18.757245+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": [
+        "immobilienscout24.de"
+      ]
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|101.13|1849|10439",
@@ -310,7 +352,12 @@
       "url": "https://www.habitare-immobilien.de/angebote",
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
-      "found_at": "2026-09-03T15:16:18.757178+00:00"
+      "found_at": "2026-09-03T15:16:18.757178+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": [
+        "immobilienscout24.de"
+      ]
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|106.1||10179",
@@ -325,7 +372,9 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-09-03T15:09:07.948557+00:00"
+      "found_at": "2026-09-03T15:09:07.948557+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.87||10179",
@@ -340,7 +389,9 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-09-03T08:47:20.701046+00:00"
+      "found_at": "2026-09-03T08:47:20.701046+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|127.01||10179",
@@ -355,7 +406,9 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-09-03T08:47:20.701025+00:00"
+      "found_at": "2026-09-03T08:47:20.701025+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|96.34||10179",
@@ -370,7 +423,9 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-09-03T08:47:20.700997+00:00"
+      "found_at": "2026-09-03T08:47:20.700997+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|122.65||10179",
@@ -385,7 +440,9 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-09-03T08:47:20.700974+00:00"
+      "found_at": "2026-09-03T08:47:20.700974+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.46||10179",
@@ -400,22 +457,9 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-09-03T08:47:20.700946+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|130|1900.0|10117",
-      "title": "BEFRISTET DG Maisonette in Top Lage Marienstr. 10117",
-      "rooms": 3,
-      "size_qm": 130,
-      "rent": 1900.0,
-      "price_per_sqm": 14.6,
-      "district": "Mitte",
-      "plz": "10117",
-      "street": "Marienstr.",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-09-03T08:36:07.239822+00:00"
+      "found_at": "2026-09-03T08:47:20.700946+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3.0|94.37|2100.0|10407",
@@ -430,22 +474,10 @@
       "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
       "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
       "source_name": "pandion-service.de",
-      "found_at": "2026-09-02T12:03:10.634852+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990.0|10707",
-      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
-      "rooms": 3,
-      "size_qm": 82,
-      "rent": 1990.0,
-      "price_per_sqm": 24.3,
-      "district": "Charlottenburg-Wilmersdorf",
-      "plz": "10707",
-      "street": "Olivaer Platz",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-09-01T16:29:22.447149+00:00"
+      "found_at": "2026-09-02T12:03:10.634852+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00",
+      "also_on": []
     },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs::4|122|2001|mitte",
@@ -460,7 +492,9 @@
       "url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
       "site_url": "https://www.grandcityproperty.de/wohnungssuche?city=St%C3%A4dte%7CBerlin&price=&rooms=&size=&type=M&sortOrder=&cityText=Berlin&priceRadio=&roomsRadio=&sizeRadio=&Objektzustandhd=&Wohnungstyphd=&Balkonhd=&Aufzughd=&Einbaukhd=&_token=4mRJSf0YOmhNyaSm2nh1d1YH6h__5pXGaPS5e5Q5wPs",
       "source_name": "grandcityproperty.de",
-      "found_at": "2026-09-01T15:01:58.367237+00:00"
+      "found_at": "2026-09-01T15:01:58.367237+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|120||10115",
@@ -475,7 +509,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-09-01T14:19:17.706934+00:00"
+      "found_at": "2026-09-01T14:19:17.706934+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
@@ -490,7 +526,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-09-01T10:36:05.751169+00:00"
+      "found_at": "2026-09-01T10:36:05.751169+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -504,49 +542,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-08-31T20:23:13.504024+00:00"
-    },
-    {
-      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.37|2100.0|10407",
-      "title": "Wunderschöne 3 Zimmer Wohnung",
-      "rooms": 3,
-      "size_qm": 94.37,
-      "rent": 2100.0,
-      "district": null,
-      "plz": "10407",
-      "street": null,
-      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
-      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
-      "source_name": "pandion-service.de",
-      "found_at": "2026-08-31T13:25:47.001509+00:00"
-    },
-    {
-      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|85.0|1749|10407",
-      "title": "Zauberhafter Erstbezug: lichtdurchflutete und frisch modernisierte Altbauwohnung mit Balkon!",
-      "rooms": 3,
-      "size_qm": 85.0,
-      "rent": 1749,
-      "district": "Prenzlauer Berg",
-      "plz": "10407",
-      "street": null,
-      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "source_name": "immobilienscout24.de",
-      "found_at": "2026-08-31T13:23:54.216503+00:00"
-    },
-    {
-      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|101.1|1849|10439",
-      "title": "WG-geeignet! Zweitbezug nach Totalmodernisierung in der Rodenbergstraße/Prenzlauer Berg!",
-      "rooms": 3,
-      "size_qm": 101.1,
-      "rent": 1849,
-      "district": "Prenzlauer Berg",
-      "plz": "10439",
-      "street": "Rodenbergstraße",
-      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "source_name": "immobilienscout24.de",
-      "found_at": "2026-08-31T13:23:53.658147+00:00"
+      "found_at": "2026-08-31T20:23:13.504024+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://hihc.de/angebote/#/list1::3|127.95|2047.2|prenzlauer berg",
@@ -560,7 +558,9 @@
       "url": "https://hihc.de/angebote/#/list1",
       "site_url": "https://hihc.de/angebote/#/list1",
       "source_name": "hihc.de",
-      "found_at": "2026-08-31T06:43:48.916891+00:00"
+      "found_at": "2026-08-31T06:43:48.916891+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125|2050.0|mitte",
@@ -574,7 +574,9 @@
       "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
-      "found_at": "2026-08-31T06:43:30.086215+00:00"
+      "found_at": "2026-08-31T06:43:30.086215+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::3||2018.94|10117",
@@ -588,7 +590,9 @@
       "url": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete",
       "site_url": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete",
       "source_name": "lanzundmelzer.de",
-      "found_at": "2026-08-28T22:09:59.485761+00:00"
+      "found_at": "2026-08-28T22:09:59.485761+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125|2050|mitte",
@@ -602,21 +606,9 @@
       "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
-      "found_at": "2026-08-28T22:09:51.661311+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82.0|1990.0|10707",
-      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
-      "rooms": 3,
-      "size_qm": 82.0,
-      "rent": 1990.0,
-      "district": null,
-      "plz": "10707",
-      "street": "Olivaer Platz",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-08-26T17:05:31.254048+00:00"
+      "found_at": "2026-08-28T22:09:51.661311+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://apartberlin.de/wohnungen/::|||10559",
@@ -630,7 +622,9 @@
       "url": "https://apartberlin.de/wohnungen/",
       "site_url": "https://apartberlin.de/wohnungen/",
       "source_name": "apartberlin.de",
-      "found_at": "2026-08-26T12:24:11.002956+00:00"
+      "found_at": "2026-08-26T12:24:11.002956+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.ivf-immobilien.com/immobilien/mieten/::am markt/poststr. in velten",
@@ -643,7 +637,8 @@
       "url": "https://www.ivf-immobilien.com/immobilien/mieten/",
       "site_url": "https://www.ivf-immobilien.com/immobilien/mieten/",
       "source_name": "ivf-immobilien.com",
-      "found_at": "2026-08-26T09:42:23.310642+00:00"
+      "found_at": "2026-08-26T09:42:23.310642+00:00",
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3.0|83.45|2100.0|10249",
@@ -656,7 +651,9 @@
       "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
       "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
       "source_name": "pandion-service.de",
-      "found_at": "2026-08-26T09:40:53.769235+00:00"
+      "found_at": "2026-08-26T09:40:53.769235+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|140.0|1649.0|10315",
@@ -669,7 +666,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-08-26T09:40:45.496239+00:00"
+      "found_at": "2026-08-26T09:40:45.496239+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|96.0|1500.0|12623",
@@ -682,46 +681,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-08-26T09:40:44.756954+00:00"
-    },
-    {
-      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::4|109.8|1461.92|10439",
-      "title": "Klassische Altbauwohnung mit 2 Balkonen in der Rodenbergstraße/Renovierungsbedarf",
-      "rooms": 4,
-      "size_qm": 109.8,
-      "rent": 1461.92,
-      "district": "Prenzlauer Berg",
-      "plz": "10439",
-      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "source_name": "immobilienscout24.de",
-      "found_at": "2026-08-26T09:39:33.586871+00:00"
-    },
-    {
-      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|85.0|1749.0|10407",
-      "title": "Zauberhafter Erstbezug: lichtdurchflutete und frisch modernisierte Altbauwohnung mit Balkon!",
-      "rooms": 3,
-      "size_qm": 85.0,
-      "rent": 1749.0,
-      "district": "Prenzlauer Berg",
-      "plz": "10407",
-      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "source_name": "immobilienscout24.de",
-      "found_at": "2026-08-26T09:39:32.845846+00:00"
-    },
-    {
-      "key": "https://portal.immobilienscout24.de/ergebnisliste/56227343::3|101.1|1849.0|10439",
-      "title": "WG-geeignet! Zweitbezug nach Totalmodernisierung in der Rodenbergstraße/Prenzlauer Berg!",
-      "rooms": 3,
-      "size_qm": 101.1,
-      "rent": 1849.0,
-      "district": "Prenzlauer Berg",
-      "plz": "10439",
-      "url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "site_url": "https://portal.immobilienscout24.de/ergebnisliste/56227343",
-      "source_name": "immobilienscout24.de",
-      "found_at": "2026-08-26T09:39:32.105646+00:00"
+      "found_at": "2026-08-26T09:40:44.756954+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|89|1750.0|12683",
@@ -734,7 +696,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-08-26T09:35:13.587794+00:00"
+      "found_at": "2026-08-26T09:35:13.587794+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     },
     {
       "key": "https://www.core-berlin.de/de/vermietung::3|84.0|1475.0|10435",
@@ -747,7 +711,9 @@
       "url": "https://www.core-berlin.de/de/vermietung",
       "site_url": "https://www.core-berlin.de/de/vermietung",
       "source_name": "core-berlin.de",
-      "found_at": "2026-08-26T09:33:22.363623+00:00"
+      "found_at": "2026-08-26T09:33:22.363623+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-19T09:19:12.150640+00:00"
     }
   ]
 }

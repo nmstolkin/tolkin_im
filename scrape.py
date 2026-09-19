@@ -32,6 +32,8 @@ DATA_DIR = "data"
 SEEN_FILE = os.path.join(DATA_DIR, "seen_listings.json")
 HASH_FILE = os.path.join(DATA_DIR, "page_hashes.json")
 ERROR_LOG = os.path.join(DATA_DIR, "last_errors.json")
+GEOCODE_CACHE_FILE = os.path.join(DATA_DIR, "geocode_cache.json")
+STATS_FILE = "run-stats.json"  # Verworfen-Statistik, wird von der App angezeigt
 SITES_FILE = "sites.json"
 
 # Dateien, die die Homescreen-App direkt anzeigt (liegen im Repo-Root,
@@ -55,7 +57,7 @@ AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic").strip().lower()
 MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
 GEMINI_MODEL = "gemini-2.5-flash-lite"  # kostenloser Tarif, für diese Aufgabe ausreichend
 GEMINI_RATE_LIMIT_DELAY = 4.5        # Sekunden zwischen Gemini-Aufrufen, um im Free-Tier-RPM-Limit zu bleiben
-MAX_TEXT_CHARS = 8000    # kürzerer Seitentext -> weniger Input-Tokens pro Aufruf
+MAX_TEXT_CHARS = 30000   # großzügig: große Portale (ohne-makler, Deutsche Wohnen …) sonst abgeschnitten
 REQUEST_TIMEOUT = 25
 SLEEP_BETWEEN_SITES = 1.5  # kleine Pause, um nicht wie ein aggressiver Bot zu wirken
 SLEEP_BETWEEN_PAGES = 1.0  # Pause zwischen Folgeseiten derselben Website
@@ -115,6 +117,14 @@ CHARLOTTENBURG_CANDIDATE_PLZ = {
     "10707", "10709",  # angrenzendes Wilmersdorf, falls Grenzfall
 }
 SAVIGNYPLATZ_COORDS = (52.5049, 13.3225)
+
+# Zentren und Radien für Mitte / Prenzlauer Berg. Nur als FALLBACK genutzt,
+# wenn ein Inserat eine Straße, aber keine PLZ nennt - dann wird die Adresse
+# geocodiert und gegen diese Umkreise geprüft, statt das Inserat zu verwerfen.
+MITTE_CENTER = (52.5200, 13.4000)
+MITTE_RADIUS_KM = 1.8
+PRENZLAUER_BERG_CENTER = (52.5390, 13.4245)
+PRENZLAUER_BERG_RADIUS_KM = 1.8
 CHARLOTTENBURG_RADIUS_KM = 1.0
 
 # Tiergarten/Moabit: nur Wohnungen unmittelbar an der Spree. Auch hier zu
@@ -174,7 +184,12 @@ Seite steht: null):
 - "title": kurze Bezeichnung / Adresse des Inserats
 - "rooms": Zimmeranzahl als Zahl
 - "size_qm": Wohnfläche in Quadratmetern als Zahl
-- "rent": Kaltmiete in Euro als Zahl (nur die Zahl, ohne Symbol)
+- "rent": KALTMIETE (Nettokaltmiete/Grundmiete) in Euro als Zahl, ohne Symbol.
+  WICHTIG: Nur die Kaltmiete hier eintragen. Steht auf der Seite ausschließlich
+  eine Warmmiete/Bruttomiete/Gesamtmiete, dann "rent" auf null setzen und den
+  Betrag stattdessen in "rent_warm" eintragen - niemals eine Warmmiete als
+  "rent" ausgeben.
+- "rent_warm": Warmmiete/Gesamtmiete in Euro als Zahl, falls angegeben (sonst null)
 - "district": Stadtteil/Bezirk, falls erkennbar
 - "plz": 5-stellige Postleitzahl, falls im Text erkennbar (sonst null)
 - "street": Straße und Hausnummer, falls im Text erkennbar (sonst null)
@@ -537,9 +552,27 @@ def haversine_km(lat1, lon1, lat2, lon2):
     return 2 * r * math.asin(math.sqrt(a))
 
 
+def load_geocode_cache():
+    """Lädt den über Läufe hinweg gespeicherten Geocoding-Cache. Spart bei
+    jedem Lauf viele (auf 1/Sekunde gedrosselte) Nominatim-Anfragen."""
+    global _geocode_cache
+    raw = load_json(GEOCODE_CACHE_FILE, {})
+    # JSON kennt keine Tupel -> Listen zurück in Tupel wandeln
+    _geocode_cache = {
+        k: (tuple(v) if isinstance(v, list) else None) for k, v in raw.items()
+    }
+    print(f"Geocoding-Cache geladen: {len(_geocode_cache)} Adresse(n)")
+
+
+def save_geocode_cache():
+    save_json(GEOCODE_CACHE_FILE, {
+        k: (list(v) if v else None) for k, v in _geocode_cache.items()
+    })
+
+
 def geocode_address(query):
     """Kostenloses Geocoding über OpenStreetMap/Nominatim. Gibt (lat, lon)
-    oder None zurück. Ergebnisse werden pro Lauf gecacht, Anfragen werden
+    oder None zurück. Ergebnisse werden über Läufe hinweg gecacht, Anfragen
     gemäß Nominatim-Nutzungsregeln auf max. 1/Sekunde gedrosselt."""
     if not query:
         return None
@@ -660,20 +693,22 @@ def is_within_custom_area(listing):
 
 
 def matches_criteria(listing):
+    """Gibt (passt: bool, grund: str|None) zurück. Der Grund wird fuer die
+    Verworfen-Statistik im Status-Tab gesammelt."""
     if looks_like_reference(listing):
-        return False
+        return False, "referenzobjekt"
 
     rooms = listing.get("rooms")
     size = listing.get("size_qm")
     rent = listing.get("rent")
 
     if isinstance(rooms, (int, float)) and rooms < CRITERIA["min_rooms"]:
-        return False
+        return False, "zimmer"
     if isinstance(size, (int, float)) and size < CRITERIA["min_size_qm"]:
-        return False
+        return False, "groesse"
     if isinstance(rent, (int, float)):
         if not (CRITERIA["min_rent"] <= rent <= CRITERIA["max_rent"]):
-            return False
+            return False, "miete"
 
     # Standort: PLZ ist das präzise Signal, wenn vorhanden. Nur als Fallback
     # (keine PLZ erkannt) wird auf den Bezirksnamen ausgewichen - mit
@@ -718,7 +753,30 @@ def matches_criteria(listing):
         district_match = any(
             re.search(rf"\b{re.escape(d)}\b", haystack) for d in active_district_names
         )
-        location_ok = district_match or not STRICT_LOCATION_FILTER
+        location_ok = district_match
+
+        # Kein Bezirksname im Text, aber eine Straße vorhanden? Dann nicht
+        # blind verwerfen, sondern geocodieren und gegen die aktiven Gebiete
+        # prüfen. Ohne diesen Schritt fallen viele Inserate durchs Raster, die
+        # nur "3-Zimmer-Altbau, Zehdenicker Straße" o.ä. angeben.
+        if not location_ok and listing.get("street"):
+            coords = geocode_address(_geocode_query_for_listing(listing))
+            if coords:
+                if areas.get("mitte", True) and \
+                        haversine_km(*coords, *MITTE_CENTER) <= MITTE_RADIUS_KM:
+                    location_ok = True
+                elif areas.get("prenzlauer_berg", True) and \
+                        haversine_km(*coords, *PRENZLAUER_BERG_CENTER) <= PRENZLAUER_BERG_RADIUS_KM:
+                    location_ok = True
+                elif areas.get("charlottenburg", True) and \
+                        haversine_km(*coords, *SAVIGNYPLATZ_COORDS) <= CHARLOTTENBURG_RADIUS_KM:
+                    location_ok = True
+                elif areas.get("tiergarten_moabit_spree", True) and \
+                        distance_to_spree_km(*coords) <= SPREE_PROXIMITY_KM:
+                    location_ok = True
+
+        if not location_ok and not STRICT_LOCATION_FILTER:
+            location_ok = True
 
     # Letzter Fallback: liegt die Adresse im in der App gezeichneten,
     # benutzerdefinierten Gebiet? Nur geprüft, wenn sonst kein Treffer und
@@ -728,9 +786,9 @@ def matches_criteria(listing):
         location_ok = is_within_custom_area(listing)
 
     if not location_ok:
-        return False
+        return False, "lage"
 
-    return True
+    return True, None
 
 
 def _normalize_key_part(v):
@@ -772,28 +830,67 @@ def source_name(site_url):
     return host
 
 
-def update_app_data(new_matches):
-    """Schreibt die aktuellen Treffer in docs/data.json, das die Homescreen-App anzeigt."""
-    if not new_matches:
-        # trotzdem den Zeitstempel aktualisieren, damit die App weiß, dass geprüft wurde
-        existing = load_json(APP_DATA_FILE, {"matches": []})
-    else:
-        existing = load_json(APP_DATA_FILE, {"matches": []})
+def duplicate_signature(m):
+    """Signatur zum Erkennen derselben Wohnung auf mehreren Portalen:
+    gerundete Miete + gerundete Groesse + PLZ. Bewusst grob, weil Anbieter
+    leicht unterschiedliche Werte angeben."""
+    rent = m.get("rent")
+    size = m.get("size_qm")
+    plz = str(m.get("plz") or "").strip()
+    if not isinstance(rent, (int, float)) or not isinstance(size, (int, float)):
+        return None
+    if not plz:
+        return None
+    return f"{round(rent / 25) * 25}|{round(size / 5) * 5}|{plz}"
 
+
+def update_app_data(new_matches, seen_keys_this_run=None):
+    """Schreibt die aktuellen Treffer in data.json, das die Homescreen-App anzeigt.
+    Markiert zusaetzlich Inserate, die beim aktuellen Lauf nicht mehr auf der
+    Anbieterseite auftauchten, und fuehrt Duplikate ueber Quellen hinweg zusammen."""
+    existing = load_json(APP_DATA_FILE, {"matches": []})
     existing_matches = existing.get("matches", [])
     existing_keys = {m.get("key") for m in existing_matches}
+
+    now_iso = datetime.now(timezone.utc).isoformat()
 
     for m in new_matches:
         if m["key"] not in existing_keys:
             existing_matches.append(m)
             existing_keys.add(m["key"])
 
-    # neueste zuerst, auf maximale Anzahl begrenzen
-    existing_matches.sort(key=lambda m: m.get("found_at", ""), reverse=True)
-    existing_matches = existing_matches[:MAX_MATCHES_KEPT]
+    # --- "nicht mehr gelistet" markieren -------------------------------------
+    # Nur wenn der Lauf ueberhaupt Inserate gesehen hat (sonst wuerde ein
+    # kompletter Fehllauf faelschlich alles als verschwunden markieren).
+    if seen_keys_this_run:
+        for m in existing_matches:
+            if m.get("key") in seen_keys_this_run:
+                m["still_listed"] = True
+                m.pop("gone_since", None)
+            elif m.get("still_listed") is not False:
+                m["still_listed"] = False
+                m.setdefault("gone_since", now_iso)
+
+    # --- Duplikate ueber Quellen hinweg zusammenfuehren -----------------------
+    by_signature = {}
+    deduped = []
+    for m in sorted(existing_matches, key=lambda x: x.get("found_at", ""), reverse=True):
+        sig = duplicate_signature(m)
+        if sig and sig in by_signature:
+            primary = by_signature[sig]
+            others = primary.setdefault("also_on", [])
+            name = m.get("source_name")
+            if name and name != primary.get("source_name") and name not in others:
+                others.append(name)
+            continue
+        if sig:
+            by_signature[sig] = m
+        deduped.append(m)
+
+    deduped = deduped[:MAX_MATCHES_KEPT]
 
     payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": now_iso,
         "criteria": {
             "min_rooms": CRITERIA["min_rooms"],
             "min_size_qm": CRITERIA["min_size_qm"],
@@ -801,7 +898,7 @@ def update_app_data(new_matches):
             "max_rent": CRITERIA["max_rent"],
             "districts": ["Mitte", "Prenzlauer Berg", "Charlottenburg"],
         },
-        "matches": existing_matches,
+        "matches": deduped,
     }
     save_json(APP_DATA_FILE, payload)
 
@@ -1066,6 +1163,7 @@ def _run():
     status = {u: status[u] for u in sites if u in status}  # entfernte URLs aufräumen
     errors = {}
 
+    load_geocode_cache()
     config = load_json(CONFIG_FILE, {"cooldown_enabled": DEFAULT_COOLDOWN_ENABLED})
     cooldown_enabled = bool(config.get("cooldown_enabled", DEFAULT_COOLDOWN_ENABLED))
 
@@ -1089,6 +1187,9 @@ def _run():
 
     total_new_matches = 0
     app_matches = []  # Treffer für die Homescreen-App (docs/data.json)
+    rejection_stats = {}   # {grund: anzahl} - wie viele Inserate woran scheiterten
+    total_listings_seen = 0  # wie viele Inserate insgesamt erkannt wurden
+    seen_keys_this_run = set()  # für die "nicht mehr gelistet"-Erkennung
 
     # ---- Phase 1: alle Seiten abrufen (kostenlos) und entscheiden, wer eine
     # Extraktion braucht. Wird gesammelt statt sofort einzeln an die API zu
@@ -1231,12 +1332,19 @@ def _run():
 
         for listing in listings:
             key = listing_key(listing, url)
+            seen_keys_this_run.add(key)   # für "nicht mehr gelistet"-Erkennung
+            total_listings_seen += 1
             if key in known:
                 continue
             known.add(key)
             new_on_this_site += 1
 
-            if matches_criteria(listing):
+            passt, grund = matches_criteria(listing)
+            if not passt:
+                rejection_stats[grund] = rejection_stats.get(grund, 0) + 1
+                continue
+
+            if True:
                 print(f"     TREFFER: {listing.get('title')}")
                 rooms_v = listing.get("rooms")
                 size_v = listing.get("size_qm")
@@ -1272,11 +1380,28 @@ def _run():
     save_json(HASH_FILE, hashes)
     save_json(ERROR_LOG, errors)
     save_json(STATUS_FILE, status)
-    update_app_data(app_matches)
+    save_geocode_cache()
+    update_app_data(app_matches, seen_keys_this_run)
     send_digest_notification(app_matches)
+
+    # Verworfen-Statistik für den Status-Tab: zeigt, woran Inserate scheitern
+    stats_payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "listings_seen": total_listings_seen,
+        "matches": len(app_matches),
+        "rejected": rejection_stats,
+        "rejected_total": sum(rejection_stats.values()),
+        "sites_total": len(sites),
+        "sites_with_errors": len(errors),
+    }
+    save_json(STATS_FILE, stats_payload)
 
     print()
     print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")
+    print(f"Insgesamt {total_listings_seen} Inserat(e) erkannt, "
+          f"{sum(rejection_stats.values())} davon verworfen:")
+    for grund, anzahl in sorted(rejection_stats.items(), key=lambda x: -x[1]):
+        print(f"   {grund}: {anzahl}")
     if errors:
         print(f"{len(errors)} Seite(n) konnten nicht abgerufen werden (siehe {ERROR_LOG}).")
 

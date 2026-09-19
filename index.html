@@ -9,465 +9,408 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Wohnungssuche Berlin">
-<meta name="theme-color" content="#1e5c54">
+<meta name="theme-color" content="#14181F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
   :root{
-    --ink:#1c2321;
-    --paper:#f4f1ea;
-    --paper-raised:#ffffff;
-    --petrol:#1e5c54;
-    --petrol-deep:#12433d;
-    --petrol-pale:#e3ede9;
-    --clay:#c96f4a;
-    --clay-pale:#fbeee6;
-    --line:#e4ddcf;
-    --muted:#736c5f;
-    --danger:#b1453a;
-    --danger-pale:#fbeae8;
-    --ok:#2f7a5e;
-    --ok-pale:#e6f2ec;
+    --ink:#14181F;
+    --ink-soft:#2C333E;
+    --paper:#FFFFFF;
+    --surface:#F1F3F5;
+    --surface-2:#E7EAEE;
+    --line:#DDE2E7;
+    --signal:#FFD400;
+    --signal-deep:#8A7200;
+    --alert:#D42B1F;
+    --alert-pale:#FCEBE9;
+    --live:#0B7A52;
+    --live-pale:#E4F2EC;
+    --muted:#69727E;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--paper);
+    background:var(--surface);
     color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
-    padding-bottom:calc(78px + env(safe-area-inset-bottom));
+    font-family:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:15px;
+    line-height:1.45;
+    padding-bottom:calc(74px + env(safe-area-inset-bottom));
     min-height:100vh;
+    -webkit-font-smoothing:antialiased;
   }
-  button, input, select{font-family:inherit;}
+  button,input,select{font-family:inherit;font-size:inherit;}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.015em;}
 
+  /* ---------- Kopfbereich: Anzeigetafel ---------- */
   header{
-    padding:calc(20px + env(safe-area-inset-top)) 20px 16px;
-    background:var(--petrol);
+    background:var(--ink);
     color:#fff;
-    border-bottom-left-radius:20px;
-    border-bottom-right-radius:20px;
-    position:sticky;
-    top:0;
-    z-index:6;
-    box-shadow:0 6px 20px rgba(18,67,61,.18);
+    padding:calc(16px + env(safe-area-inset-top)) 18px 16px;
+    position:sticky; top:0; z-index:6;
   }
   header .eyebrow{
     font-size:12px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    opacity:.68;
-    margin:0 0 4px;
-    font-weight:600;
+    color:rgba(255,255,255,.55);
+    margin:0 0 2px;
+    font-weight:500;
   }
-  header h1{
-    margin:0;
-    font-size:23px;
-    font-weight:700;
-    letter-spacing:-0.01em;
-  }
+  header h1{font-size:17px;font-weight:600;color:#fff;}
   header .meta{
-    margin-top:7px;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px solid rgba(255,255,255,.14);
     font-size:12.5px;
-    opacity:.8;
-    display:flex;
-    align-items:center;
-    gap:6px;
-    flex-wrap:wrap;
+    color:rgba(255,255,255,.66);
+    display:flex; align-items:center; gap:7px; flex-wrap:wrap;
   }
-  .dot{width:6px;height:6px;border-radius:50%;background:#8fd6c7;display:inline-block;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);display:inline-block;}
 
   .run-now-btn{
     flex-shrink:0;
-    background:rgba(255,255,255,.14);
-    color:#fff;
-    border:1px solid rgba(255,255,255,.28);
-    border-radius:100px;
-    padding:8px 14px;
-    font-size:12.5px;
+    background:var(--signal);
+    color:var(--ink);
+    border:none;
+    border-radius:4px;
+    padding:9px 14px;
+    font-size:13px;
     font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:5px;
+    letter-spacing:.01em;
   }
-  .run-now-btn:active{background:rgba(255,255,255,.24);}
-  .run-now-btn:disabled{opacity:.5;}
+  .run-now-btn:active{background:#E6BF00;}
+  .run-now-btn:disabled{opacity:.45;}
 
-  /* Bottom Navigation */
+  /* ---------- Untere Navigation ---------- */
   .bottom-nav{
-    position:fixed;
-    left:0;right:0;bottom:0;
-    z-index:20;
+    position:fixed; left:0; right:0; bottom:0; z-index:20;
     display:flex;
-    background:rgba(255,255,255,.92);
-    -webkit-backdrop-filter:blur(14px);
-    backdrop-filter:blur(14px);
+    background:var(--paper);
     border-top:1px solid var(--line);
-    padding:8px 4px calc(8px + env(safe-area-inset-bottom));
+    padding:7px 2px calc(7px + env(safe-area-inset-bottom));
   }
   .nav-item{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:2px;
-    background:none;
-    border:none;
-    padding:4px 2px;
-    color:var(--muted);
-    position:relative;
+    flex:1; display:flex; flex-direction:column; align-items:center; gap:3px;
+    background:none; border:none; padding:4px 2px;
+    color:var(--muted); position:relative;
   }
-  .nav-item .nav-icon{font-size:19px;line-height:1;}
-  .nav-item .nav-label{font-size:10px;font-weight:600;letter-spacing:.01em;}
-  .nav-item.active{color:var(--petrol);}
+  .nav-item .nav-icon{
+    display:flex; align-items:center; justify-content:center;
+    height:20px;
+  }
+  .nav-item .nav-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .nav-item .nav-label{font-size:10px;font-weight:600;}
+  .nav-item.active{color:var(--ink);}
+  .nav-item.active .nav-icon{position:relative;}
+  .nav-item.active .nav-icon::after{
+    content:""; position:absolute; bottom:-3px; left:50%; transform:translateX(-50%);
+    width:16px; height:2.5px; background:var(--signal); border-radius:2px;
+  }
   .nav-item .nav-badge{
-    position:absolute;
-    top:-1px;
-    right:calc(50% - 20px);
-    min-width:15px;
-    height:15px;
-    padding:0 4px;
-    border-radius:100px;
-    background:var(--clay);
-    color:#fff;
-    font-size:9.5px;
-    font-weight:700;
-    line-height:15px;
-    text-align:center;
+    position:absolute; top:-2px; right:calc(50% - 21px);
+    min-width:16px; height:16px; padding:0 4px;
+    border-radius:8px; background:var(--alert); color:#fff;
+    font-size:10px; font-weight:700; line-height:16px; text-align:center;
   }
+  .tabs,.tab{display:none;}
 
-  .tabs{display:none;}
-  .tab{display:none;}
+  main{padding:14px 14px 8px;}
 
-  main{padding:16px 20px 8px;}
-
-  /* Filter */
+  /* ---------- Suche und Filter ---------- */
   .filter-toggle{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:var(--paper-raised);
+    display:flex; align-items:center; gap:8px;
+    background:var(--paper);
     border:1px solid var(--line);
-    border-radius:14px;
-    padding:12px 14px;
-    margin-bottom:10px;
-  }
-  .filter-toggle button{
-    border:none;
-    background:none;
-    color:var(--petrol-deep);
-    font-size:13.5px;
-    font-weight:600;
-    padding:0;
-  }
-  .filter-toggle .active-count{
-    background:var(--clay);
-    color:#fff;
-    font-size:11px;
-    font-weight:700;
-    border-radius:100px;
-    padding:1px 7px;
-    margin-left:6px;
+    border-radius:6px;
+    padding:6px 6px 6px 10px;
+    margin-bottom:8px;
   }
   .searchbox{
-    flex:1;
-    margin-right:10px;
-    border:none;
-    background:var(--paper);
-    border-radius:10px;
-    padding:8px 12px;
-    font-size:13.5px;
-    color:var(--ink);
+    flex:1; border:none; background:none; padding:6px 0;
+    font-size:14px; color:var(--ink);
   }
+  .searchbox:focus{outline:none;}
   .searchbox::placeholder{color:var(--muted);}
+  .filter-toggle button{
+    border:1px solid var(--line); background:var(--surface);
+    color:var(--ink); font-size:13px; font-weight:600;
+    padding:7px 12px; border-radius:5px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .filter-toggle .active-count{
+    background:var(--ink); color:#fff;
+    font-size:10.5px; font-weight:700;
+    border-radius:8px; padding:1px 6px;
+  }
 
   .filter-panel{
-    background:var(--paper-raised);
+    background:var(--paper);
     border:1px solid var(--line);
-    border-radius:14px;
+    border-radius:6px;
     padding:14px;
-    margin-bottom:10px;
+    margin-bottom:8px;
     display:none;
   }
   .filter-panel.open{display:block;}
-  .filter-row{margin-bottom:14px;}
+  .filter-row{margin-bottom:16px;}
   .filter-row:last-child{margin-bottom:0;}
   .filter-row label{
-    display:block;
-    font-size:12px;
-    font-weight:700;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:.04em;
-    margin-bottom:8px;
+    display:block; font-size:12.5px; font-weight:600;
+    color:var(--muted); margin-bottom:8px;
   }
-  .chip-group{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip-group{display:flex;flex-wrap:wrap;gap:6px;}
   .chip{
-    font-size:13px;
-    font-weight:600;
-    padding:6px 12px;
-    border-radius:100px;
-    border:1px solid var(--line);
-    background:var(--paper);
-    color:var(--ink);
+    font-size:13px; font-weight:600;
+    padding:7px 13px; border-radius:4px;
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
   }
-  .chip.selected{
-    background:var(--petrol);
-    border-color:var(--petrol);
-    color:#fff;
+  .chip.selected{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .range-row{display:flex;align-items:center;gap:12px;}
+  .range-row input[type="range"]{flex:1;accent-color:var(--ink);}
+  .range-val{
+    font-size:13px; font-weight:700; min-width:72px; text-align:right;
+    font-variant-numeric:tabular-nums; color:var(--ink);
   }
-  .range-row{display:flex;align-items:center;gap:10px;}
-  .range-row input[type="range"]{flex:1;accent-color:var(--petrol);}
-  .range-val{font-size:13px;font-weight:700;min-width:64px;text-align:right;color:var(--petrol-deep);}
   .sort-select{
-    width:100%;
-    padding:9px 10px;
-    border-radius:10px;
-    border:1px solid var(--line);
-    background:var(--paper);
-    font-size:13.5px;
-    color:var(--ink);
+    width:100%; padding:10px; border-radius:5px;
+    border:1px solid var(--line); background:var(--paper);
+    font-size:14px; color:var(--ink);
   }
-  .filter-actions{display:flex;justify-content:flex-end;margin-top:12px;}
-  .reset-btn{border:none;background:none;color:var(--danger);font-size:13px;font-weight:600;padding:4px;}
+  .filter-actions{display:flex;justify-content:flex-end;margin-top:14px;}
+  .reset-btn{border:none;background:none;color:var(--alert);font-size:13px;font-weight:600;padding:4px;}
 
-  .count-row{display:flex;justify-content:space-between;align-items:baseline;margin:10px 2px 12px;}
-  .count-row .n{font-size:13.5px;color:var(--muted);}
-  .count-row .n strong{color:var(--ink);}
-  .refresh{border:none;background:none;color:var(--petrol);font-size:13.5px;font-weight:600;padding:4px 2px;}
+  .count-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin:12px 2px 10px;
+  }
+  .count-row .n{font-size:13px;color:var(--muted);font-weight:500;}
+  .count-row .n strong{color:var(--ink);font-variant-numeric:tabular-nums;}
+  .refresh{border:none;background:none;color:var(--ink);font-size:13px;font-weight:600;padding:4px 2px;}
 
-  /* Cards */
+  /* ---------- Inserat-Zeilen ---------- */
   .card{
-    background:var(--paper-raised);
+    background:var(--paper);
     border:1px solid var(--line);
-    border-radius:18px;
-    padding:16px 16px 14px;
-    margin-bottom:12px;
+    border-left:3px solid var(--signal);
+    border-radius:5px;
+    padding:13px 13px 11px;
+    margin-bottom:7px;
     position:relative;
-    box-shadow:0 1px 3px rgba(28,35,33,.05), 0 1px 2px rgba(28,35,33,.04);
+  }
+  .card.card-gone{border-left-color:var(--line);background:#FAFBFC;}
+  .card.card-gone .rent-figure{color:var(--muted);}
+  .gone-banner{
+    display:inline-block;
+    background:var(--surface-2); color:var(--muted);
+    font-size:11px; font-weight:700;
+    padding:3px 7px; border-radius:3px; margin-bottom:9px;
   }
   .card-link{text-decoration:none;color:inherit;display:block;}
-  .card-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
-  .card h2{margin:0 0 8px;font-size:16px;font-weight:700;line-height:1.32;color:var(--ink);flex:1;}
+  .card-top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .card h2{
+    font-size:14.5px; font-weight:600; line-height:1.35;
+    color:var(--ink); flex:1; margin:0 0 2px;
+  }
+
+  .rent-figure{
+    font-size:21px; font-weight:700; letter-spacing:-0.02em;
+    font-variant-numeric:tabular-nums; color:var(--ink);
+    line-height:1.1; white-space:nowrap;
+  }
+  .rent-figure .unit{font-size:13px;font-weight:600;color:var(--muted);margin-left:2px;}
+  .rent-sub{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;}
 
   .fav-btn{
-    border:none;
-    background:var(--paper);
-    width:34px;height:34px;
-    border-radius:50%;
-    font-size:17px;
-    line-height:1;
-    color:var(--muted);
-    flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
+    border:none; background:none;
+    width:30px; height:30px; border-radius:4px;
+    font-size:17px; line-height:1; color:var(--muted);
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
   }
-  .fav-btn.active{color:var(--clay);background:var(--clay-pale);}
+  .fav-btn.active{color:var(--signal-deep);background:#FFF8D6;}
 
-  .card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
-  .tag{font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:100px;background:#f1ede2;color:var(--petrol-deep);border:1px solid var(--line);}
-  .tag.rent{background:var(--clay-pale);color:#9a4a28;border-color:#f0d9c9;}
-  .card .site{font-size:12px;color:var(--muted);}
-  .card .found{font-size:11.5px;color:var(--muted);margin-top:6px;}
+  .card .tags{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 7px;}
+  .tag{
+    font-size:12px; font-weight:600;
+    padding:3px 8px; border-radius:3px;
+    background:var(--surface); color:var(--ink-soft);
+    font-variant-numeric:tabular-nums;
+  }
+  .tag.rent{background:var(--surface);color:var(--ink-soft);}
+  .card .site{font-size:11.5px;color:var(--muted);}
+  .card .found{font-size:11px;color:var(--muted);margin-top:3px;}
 
   .card-actions{
-    display:flex;
-    gap:8px;
-    margin-top:12px;
-    padding-top:12px;
+    display:flex; gap:6px; margin-top:11px; padding-top:10px;
     border-top:1px solid var(--line);
   }
   .card-actions a, .card-actions button{
-    flex:1;
-    text-align:center;
-    font-size:13px;
-    font-weight:600;
-    padding:8px;
-    border-radius:10px;
-    border:1px solid var(--line);
-    background:var(--paper);
-    color:var(--petrol-deep);
+    flex:1; text-align:center; font-size:12.5px; font-weight:600;
+    padding:8px; border-radius:4px;
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
     text-decoration:none;
   }
-  .card-actions button.hide-btn{color:var(--danger);}
+  .card-actions button.hide-btn{color:var(--muted);}
 
-  .empty{text-align:center;padding:56px 24px 40px;color:var(--muted);}
-  .empty .icon{font-size:36px;margin-bottom:14px;}
-  .empty h3{color:var(--ink);margin:0 0 8px;font-size:17px;}
-  .empty p{margin:0;font-size:14px;line-height:1.6;}
+  .empty{text-align:center;padding:52px 24px 40px;color:var(--muted);}
+  .empty .icon{font-size:30px;margin-bottom:12px;opacity:.5;}
+  .empty h3{color:var(--ink);margin:0 0 7px;font-size:15.5px;}
+  .empty p{margin:0;font-size:13.5px;line-height:1.55;}
 
   .hint{
-    margin:20px 0 0;
-    padding:14px 16px;
-    border:1px dashed var(--line);
-    border-radius:14px;
-    font-size:12.5px;
-    color:var(--muted);
-    line-height:1.6;
+    margin:18px 0 0; padding:12px 14px;
+    background:var(--paper); border:1px solid var(--line); border-radius:5px;
+    font-size:12px; color:var(--muted); line-height:1.5;
   }
 
-  /* Status Tab */
-  .status-summary{display:flex;gap:10px;margin-bottom:14px;}
+  /* ---------- Status ---------- */
+  .status-summary{display:flex;gap:7px;margin-bottom:12px;}
   .status-stat{
-    flex:1;
-    background:var(--paper-raised);
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:12px;
-    text-align:center;
+    flex:1; background:var(--paper); border:1px solid var(--line);
+    border-radius:5px; padding:11px 8px; text-align:center;
   }
-  .status-stat .num{font-size:22px;font-weight:700;}
-  .status-stat.ok .num{color:var(--ok);}
-  .status-stat.err .num{color:var(--danger);}
-  .status-stat .lbl{font-size:11.5px;color:var(--muted);margin-top:2px;}
+  .status-stat .num{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;}
+  .status-stat.ok .num{color:var(--live);}
+  .status-stat.err .num{color:var(--alert);}
+  .status-stat .lbl{font-size:11px;color:var(--muted);margin-top:1px;}
 
   .status-row{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:var(--paper-raised);
-    border:1px solid var(--line);box-shadow:0 1px 3px rgba(28,35,33,.05);
-    border-radius:12px;
-    padding:11px 13px;
-    margin-bottom:8px;
+    display:flex; align-items:center; gap:10px;
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:5px; padding:10px 12px; margin-bottom:6px;
   }
-  .status-badge{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
-  .status-badge.ok{background:var(--ok);}
-  .status-badge.error{background:var(--danger);}
-  .status-badge.hopeless{background:var(--ink);opacity:.55;}
+  .status-badge{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .status-badge.ok{background:var(--live);}
+  .status-badge.error{background:var(--alert);}
+  .status-badge.hopeless{background:var(--ink);opacity:.35;}
   .status-badge.unknown{background:var(--muted);}
   .status-row .info{flex:1;min-width:0;}
-  .status-row .name{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .status-row .detail{font-size:11.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .status-filter{display:flex;gap:7px;margin-bottom:12px;}
+  .status-row .name{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .status-row .detail{font-size:11.5px;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .status-filter{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
 
-  /* Map Tab */
+  /* ---------- Karte ---------- */
   #mapContainer{
-    width:100%;
-    height:calc(100vh - 300px);
-    min-height:360px;
-    border-radius:16px;
-    border:1px solid var(--line);
-    overflow:hidden;
+    width:100%; height:calc(100vh - 300px); min-height:340px;
+    border-radius:5px; border:1px solid var(--line); overflow:hidden;
   }
-  .map-note{
-    font-size:11.5px;
-    color:var(--muted);
-    margin:10px 2px 0;
-    line-height:1.5;
-  }
+  .map-note{font-size:11.5px;color:var(--muted);margin:9px 2px 0;line-height:1.45;}
   .leaflet-popup-content{font-family:inherit;min-width:180px;}
-  .map-popup h3{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--ink);}
-  .map-popup .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
-  .map-popup .tag{font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:100px;background:#f1ede2;color:var(--petrol-deep);}
-  .map-popup a{font-size:12.5px;font-weight:600;color:var(--petrol);text-decoration:none;}
+  .map-popup h3{margin:0 0 5px;font-size:13.5px;font-weight:600;color:var(--ink);}
+  .map-popup .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}
+  .map-popup .tag{font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:3px;background:var(--surface);color:var(--ink-soft);}
+  .map-popup a{font-size:12.5px;font-weight:600;color:var(--ink);}
 
-  .draw-toolbar{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
-  .draw-toolbar-controls{display:none;gap:8px;}
+  .draw-toolbar{display:flex;gap:6px;margin-bottom:9px;flex-wrap:wrap;}
+  .draw-toolbar-controls{display:none;gap:6px;}
   .draw-btn{
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:9px 14px;
-    font-size:13px;
-    font-weight:600;
-    background:var(--paper-raised);
-    color:var(--ink);
+    border:1px solid var(--line); border-radius:5px;
+    padding:9px 13px; font-size:13px; font-weight:600;
+    background:var(--paper); color:var(--ink);
   }
-  .draw-btn.primary{background:var(--petrol);border-color:var(--petrol);color:#fff;}
-  .draw-btn.danger{color:var(--danger);}
+  .draw-btn.primary{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .draw-btn.danger{color:var(--alert);}
   .draw-btn:active{opacity:.75;}
   .draw-banner{
-    background:var(--petrol-pale);
-    color:var(--petrol-deep);
-    border-radius:12px;
-    padding:10px 12px;
-    font-size:12.5px;
-    font-weight:600;
-    margin-bottom:10px;
+    background:#FFF8D6; color:var(--signal-deep);
+    border-radius:5px; padding:10px 12px;
+    font-size:12.5px; font-weight:600; margin-bottom:9px;
   }
   .draw-point-marker{
-    background:var(--clay);
-    border:2px solid #fff;
-    border-radius:50%;
+    background:var(--ink); border:2px solid #fff; border-radius:50%;
     width:12px;height:12px;
-    box-shadow:0 1px 4px rgba(0,0,0,.3);
   }
 
-  /* Settings Tab */
+  /* ---------- Einstellungen ---------- */
   .settings-card{
-    background:var(--paper-raised);
-    border:1px solid var(--line);box-shadow:0 1px 3px rgba(28,35,33,.05);
-    border-radius:14px;
-    padding:16px;
-    margin-bottom:14px;
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:6px; padding:15px; margin-bottom:10px;
   }
-  .settings-card h3{margin:0 0 6px;font-size:15px;font-weight:700;color:var(--ink);}
-  .settings-card p.help{margin:0 0 12px;font-size:12.5px;color:var(--muted);line-height:1.55;}
-  .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;}
-  .toggle-row .label{font-size:14px;font-weight:600;color:var(--ink);}
-  .switch{position:relative;width:48px;height:28px;flex-shrink:0;}
+  .settings-card h3{margin:0 0 5px;font-size:14.5px;font-weight:600;color:var(--ink);}
+  .settings-card p.help{margin:0 0 12px;font-size:12.5px;color:var(--muted);line-height:1.5;}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;gap:12px;}
+  .toggle-row .label{font-size:13.5px;font-weight:500;color:var(--ink);}
+  .switch{position:relative;width:46px;height:27px;flex-shrink:0;}
   .switch input{opacity:0;width:0;height:0;}
-  .switch .slider{
-    position:absolute;inset:0;background:var(--line);border-radius:100px;
-    transition:background .15s;
-  }
+  .switch .slider{position:absolute;inset:0;background:var(--surface-2);border-radius:14px;transition:background .15s;}
   .switch .slider:before{
-    content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;
+    content:"";position:absolute;width:21px;height:21px;left:3px;top:3px;
     background:#fff;border-radius:50%;transition:transform .15s;
-    box-shadow:0 1px 3px rgba(0,0,0,.25);
+    box-shadow:0 1px 3px rgba(0,0,0,.2);
   }
-  .switch input:checked + .slider{background:var(--petrol);}
-  .switch input:checked + .slider:before{transform:translateX(20px);}
+  .switch input:checked + .slider{background:var(--ink);}
+  .switch input:checked + .slider:before{transform:translateX(19px);}
 
-  .field-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:12px 0 6px;}
+  .field-label{font-size:12.5px;font-weight:600;color:var(--muted);margin:13px 0 5px;}
   .field-label:first-child{margin-top:0;}
   .text-input{
-    width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);
-    background:var(--paper);font-size:13.5px;color:var(--ink);
+    width:100%; padding:10px 12px; border-radius:5px;
+    border:1px solid var(--line); background:var(--paper);
+    font-size:14px; color:var(--ink);
   }
+  .text-input:focus{outline:2px solid var(--ink);outline-offset:-2px;}
   .save-btn{
-    width:100%;margin-top:14px;padding:12px;border:none;border-radius:12px;
-    background:var(--petrol);color:#fff;font-size:14.5px;font-weight:700;
+    width:100%; margin-top:14px; padding:13px;
+    border:none; border-radius:5px;
+    background:var(--ink); color:#fff;
+    font-size:14.5px; font-weight:700;
   }
-  .save-btn:active{opacity:.8;}
-  .save-btn:disabled{opacity:.5;}
-  .settings-msg{margin-top:10px;font-size:12.5px;line-height:1.5;}
-  .settings-msg.ok{color:var(--ok);}
-  .settings-msg.err{color:var(--danger);}
+  .save-btn:active{background:var(--ink-soft);}
+  .save-btn:disabled{opacity:.45;}
+  .settings-msg{margin-top:10px;font-size:12.5px;line-height:1.45;}
+  .settings-msg.ok{color:var(--live);}
+  .settings-msg.err{color:var(--alert);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
 </style>
 </head>
 <body>
 
 <header>
-  <p class="eyebrow">Berlin · automatische Suche</p>
-  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;">
-    <h1>Wohnungssuche Berlin</h1>
-    <button class="run-now-btn" id="runNowBtn">▶︎ Suchlauf</button>
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+    <div>
+      <p class="eyebrow">Berlin</p>
+      <h1>Wohnungssuche</h1>
+    </div>
+    <button class="run-now-btn" id="runNowBtn">Jetzt suchen</button>
   </div>
   <div class="meta"><span class="dot" id="statusDot"></span><span id="lastUpdate">Lade Stand …</span></div>
-  <div id="runNowMsg" style="font-size:11.5px;margin-top:6px;color:#cfe9e1;display:none;"></div>
+  <div id="runNowMsg" style="font-size:12px;margin-top:8px;color:var(--signal);display:none;"></div>
 </header>
 
 <nav class="bottom-nav">
   <button class="nav-item active" data-tab="feed">
-    <span class="nav-icon">🏠</span><span class="nav-label">Inserate</span>
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/></svg></span>
+    <span class="nav-label">Inserate</span>
     <span class="nav-badge" id="feedTabCount" style="display:none;"></span>
   </button>
   <button class="nav-item" data-tab="favorites">
-    <span class="nav-icon">★</span><span class="nav-label">Favoriten</span>
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m12 3.8 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 10l5.9-.9z"/></svg></span>
+    <span class="nav-label">Gemerkt</span>
     <span class="nav-badge" id="favTabCount" style="display:none;"></span>
   </button>
   <button class="nav-item" data-tab="hidden">
-    <span class="nav-icon">🙈</span><span class="nav-label">Ausgeblendet</span>
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.4 5.4A9.5 9.5 0 0 1 12 5c5 0 9 4.5 9 7a11 11 0 0 1-2.4 3.4M6.3 6.8C4.2 8.2 3 10.3 3 12c0 2.5 4 7 9 7a9 9 0 0 0 3.3-.6"/></svg></span>
+    <span class="nav-label">Verborgen</span>
     <span class="nav-badge" id="hiddenTabCount" style="display:none;"></span>
   </button>
   <button class="nav-item" data-tab="map">
-    <span class="nav-icon">🗺️</span><span class="nav-label">Karte</span>
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M9 4 3 6.5v13.5L9 17.5l6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg></span>
+    <span class="nav-label">Karte</span>
   </button>
   <button class="nav-item" data-tab="status">
-    <span class="nav-icon">📶</span><span class="nav-label">Status</span>
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 19V11M9.3 19V5M14.7 19v-6M20 19V8"/></svg></span>
+    <span class="nav-label">Status</span>
     <span class="nav-badge" id="statusTabCount" style="display:none;"></span>
   </button>
   <button class="nav-item" data-tab="settings">
-    <span class="nav-icon">⚙️</span><span class="nav-label">Mehr</span>
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 14.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.2a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H2.6a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1A1.7 1.7 0 0 0 9.8 2.7V2.6a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1h.2a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span>
+    <span class="nav-label">Mehr</span>
   </button>
 </nav>
 
@@ -475,7 +418,7 @@
 
   <div id="panel-feed">
     <div class="filter-toggle">
-      <input class="searchbox" id="searchBox" placeholder="Suchen (Adresse, Stichwort) …">
+      <input class="searchbox" id="searchBox" placeholder="Adresse oder Stichwort">
       <button id="filterToggleBtn">Filter<span class="active-count" id="activeFilterCount" style="display:none;"></span></button>
     </div>
 
@@ -489,6 +432,12 @@
           <option value="size_desc">Größe: groß zuerst</option>
           <option value="ppsqm_asc">€/qm: günstig zuerst</option>
         </select>
+      </div>
+      <div class="filter-row">
+        <div class="toggle-row" style="padding:0;">
+          <span class="label" style="font-size:13.5px;">Weg-Inserate verbergen</span>
+          <label class="switch"><input type="checkbox" id="hideGoneToggle" checked><span class="slider"></span></label>
+        </div>
       </div>
       <div class="filter-row">
         <label>Stadtteil</label>
@@ -536,12 +485,13 @@
   <div id="panel-hidden" style="display:none;">
     <div class="count-row" style="margin-top:4px;">
       <span class="n" id="hiddenCountLabel"></span>
-      <button class="refresh" id="resetHiddenBtn">Liste zurücksetzen</button>
+      <button class="refresh" id="resetHiddenBtn">Alle zurückholen</button>
     </div>
     <div id="hiddenList"></div>
   </div>
 
   <div id="panel-status" style="display:none;">
+    <div id="runStatsBox"></div>
     <div class="status-summary">
       <div class="status-stat ok"><div class="num" id="statOkNum">–</div><div class="lbl">erreichbar</div></div>
       <div class="status-stat err"><div class="num" id="statErrNum">–</div><div class="lbl">fehlerhaft</div></div>
@@ -559,7 +509,7 @@
 
   <div id="panel-map" style="display:none;">
     <div class="draw-toolbar">
-      <button class="draw-btn primary" id="drawAreaBtn">✏️ Gebiet zeichnen</button>
+      <button class="draw-btn primary" id="drawAreaBtn">Gebiet zeichnen</button>
       <div id="drawAreaControls" class="draw-toolbar-controls">
         <button class="draw-btn" id="undoDrawPointBtn" title="Letzten Punkt entfernen">↩︎</button>
         <button class="draw-btn danger" id="clearDrawAreaBtn">Löschen</button>
@@ -641,7 +591,7 @@
   </div>
 
   <div class="hint" id="feedHint">
-    Diese Liste wird automatisch mehrmals täglich im Hintergrund aktualisiert. Öffne die App einfach, wenn du nachsehen willst – bei neuen Treffern bekommst du zusätzlich eine Push-Nachricht.
+    Der Bot prüft werktags um 10 und 16 Uhr alle hinterlegten Seiten. Bei neuen Treffern kommt eine Push-Nachricht.
   </div>
 </main>
 
@@ -665,11 +615,12 @@ let hidden = getSet(HIDDEN_KEY);
 
 let allMatches = [];
 let siteStatus = [];
+let runStats = null;
 let currentTab = 'feed';
 let statusFilterMode = 'all';
 
 const filterState = {
-  search: '', districts: new Set(), minRooms: 0, minSize: 0, maxRent: 3000, sort: 'newest',
+  search: '', districts: new Set(), minRooms: 0, minSize: 0, maxRent: 3000, sort: 'newest', hideGone: true,
 };
 
 async function loadAll(){
@@ -692,6 +643,13 @@ async function loadAll(){
     siteStatus = Object.keys(statusObj).map(url => ({url, ...statusObj[url]}));
   }catch(e){
     siteStatus = [];
+  }
+
+  try{
+    const res3 = await fetch('run-stats.json?t=' + Date.now());
+    runStats = await res3.json();
+  }catch(e){
+    runStats = null;
   }
   renderStatus();
 }
@@ -738,6 +696,7 @@ function setupDistrictChips(criteria){
 
 function passesFilter(m){
   if(hidden.has(m.key)) return false;
+  if(filterState.hideGone && m.still_listed === false) return false;
   if(filterState.search){
     const hay = `${m.title||''} ${m.district||''} ${m.plz||''} ${m.source_name||''}`.toLowerCase();
     if(!hay.includes(filterState.search.toLowerCase())) return false;
@@ -768,39 +727,52 @@ function sortMatches(list){
 
 function cardHTML(m, opts){
   opts = opts || {};
+
+  // Die Miete ist die Zahl, nach der zuerst entschieden wird - sie bekommt
+  // eigene Prominenz statt als einer von vielen Tags unterzugehen.
   const tags = [];
   if(m.rooms) tags.push(`<span class="tag">${m.rooms} Zi.</span>`);
-  if(m.size_qm) tags.push(`<span class="tag">${m.size_qm} qm</span>`);
-  if(m.rent) tags.push(`<span class="tag rent">${m.rent} €</span>`);
-  if(m.price_per_sqm) tags.push(`<span class="tag">${m.price_per_sqm} €/qm</span>`);
-  if(m.district) tags.push(`<span class="tag">${m.district}${m.plz ? ' · ' + m.plz : ''}</span>`);
+  if(m.size_qm) tags.push(`<span class="tag">${m.size_qm} m²</span>`);
+  if(m.district) tags.push(`<span class="tag">${m.district}${m.plz ? ' ' + m.plz : ''}</span>`);
   else if(m.plz) tags.push(`<span class="tag">${m.plz}</span>`);
 
   const isFav = favorites.has(m.key);
   const link = m.url || m.site_url || '#';
+  const gone = m.still_listed === false;
+  const alsoOn = (m.also_on && m.also_on.length) ? ` · auch bei ${m.also_on.join(', ')}` : '';
+
+  const rentBlock = m.rent
+    ? `<div style="text-align:right;">
+         <div class="rent-figure">${Number(m.rent).toLocaleString('de-DE')}<span class="unit">€</span></div>
+         ${m.price_per_sqm ? `<div class="rent-sub">${String(m.price_per_sqm).replace('.', ',')} €/m²</div>` : ''}
+       </div>`
+    : `<div class="rent-sub">Miete auf Anfrage</div>`;
 
   return `
-    <div class="card" data-key="${m.key}">
+    <div class="card${gone ? ' card-gone' : ''}" data-key="${m.key}">
+      ${gone ? `<div class="gone-banner">Weg${m.gone_since ? ' — seit ' + relTime(m.gone_since) : ''}</div>` : ''}
       <div class="card-top-row">
-        <a class="card-link" href="${link}" target="_blank" rel="noopener" style="flex:1;">
+        <a class="card-link" href="${link}" target="_blank" rel="noopener" style="flex:1;min-width:0;">
           <h2>${(m.title || 'Wohnungsinserat')}</h2>
         </a>
-        <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav('${m.key}')">${isFav ? '★' : '☆'}</button>
+        ${rentBlock}
+        <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav('${m.key}')"
+                aria-label="${isFav ? 'Aus Merkliste entfernen' : 'Merken'}">${isFav ? '★' : '☆'}</button>
       </div>
       <a class="card-link" href="${link}" target="_blank" rel="noopener">
         <div class="tags">${tags.join('')}</div>
-        <div class="site">${m.source_name || ''}</div>
-        <div class="found">${m.found_at ? 'Gefunden ' + relTime(m.found_at) : ''}</div>
+        <div class="site">${m.source_name || ''}${alsoOn}</div>
+        <div class="found">${m.found_at ? relTime(m.found_at) + ' gefunden' : ''}</div>
       </a>
       ${opts.showHide ? `
       <div class="card-actions">
-        <a href="${link}" target="_blank" rel="noopener">Zum Inserat</a>
-        <button class="hide-btn" onclick="hideListing('${m.key}')">Ausblenden</button>
+        <a href="${link}" target="_blank" rel="noopener">Inserat öffnen</a>
+        <button class="hide-btn" onclick="hideListing('${m.key}')">Verbergen</button>
       </div>` : ''}
       ${opts.showRestore ? `
       <div class="card-actions">
-        <a href="${link}" target="_blank" rel="noopener">Zum Inserat</a>
-        <button onclick="unhideListing('${m.key}')">Wieder einblenden</button>
+        <a href="${link}" target="_blank" rel="noopener">Inserat öffnen</a>
+        <button onclick="unhideListing('${m.key}')">Wieder zeigen</button>
       </div>` : ''}
     </div>`;
 }
@@ -823,9 +795,8 @@ function renderFeed(){
   if(sorted.length === 0){
     list.innerHTML = `
       <div class="empty">
-        <div class="icon">🏠</div>
-        <h3>Noch nichts Passendes dabei</h3>
-        <p>Sobald ein Inserat deine Kriterien erfüllt, erscheint es hier<br>und du bekommst eine Push-Nachricht.</p>
+        <h3>Keine passenden Inserate</h3>
+        <p>Der Bot prüft werktags um 10 und 16 Uhr.<br>Treffer erscheinen hier und als Push-Nachricht.</p>
       </div>`;
     return;
   }
@@ -844,16 +815,47 @@ function renderFavorites(){
   if(sorted.length === 0){
     list.innerHTML = `
       <div class="empty">
-        <div class="icon">☆</div>
-        <h3>Noch keine Favoriten</h3>
-        <p>Tippe auf den Stern bei einem Inserat,<br>um es hier zu merken.</p>
+        <h3>Nichts gemerkt</h3>
+        <p>Tippe den Stern an einem Inserat an,<br>um es hier zu sammeln.</p>
       </div>`;
     return;
   }
   list.innerHTML = sorted.map(m => cardHTML(m, {showHide:false})).join('');
 }
 
+function renderRunStats(){
+  const box = document.getElementById('runStatsBox');
+  if(!runStats){ box.innerHTML = ''; return; }
+
+  const labels = {
+    lage: 'Lage außerhalb der Gebiete',
+    miete: 'Miete außerhalb der Spanne',
+    groesse: 'zu klein',
+    zimmer: 'zu wenige Zimmer',
+    referenzobjekt: 'Referenz / bereits vermietet',
+  };
+  const rej = runStats.rejected || {};
+  const rows = Object.keys(rej)
+    .sort((a,b) => rej[b] - rej[a])
+    .map(k => `<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:12.5px;">
+        <span style="color:var(--muted);">${labels[k] || k}</span>
+        <strong>${rej[k]}</strong>
+      </div>`).join('');
+
+  box.innerHTML = `
+    <div class="settings-card" style="margin-bottom:14px;">
+      <h3>Letzter Lauf</h3>
+      <p class="help" style="margin-bottom:10px;">
+        <strong>${runStats.listings_seen || 0}</strong> Inserate insgesamt erkannt ·
+        <strong>${runStats.matches || 0}</strong> davon passend ·
+        <strong>${runStats.rejected_total || 0}</strong> verworfen
+      </p>
+      ${rows || '<p class="help" style="margin:0;">Keine Verwerfungen erfasst.</p>'}
+    </div>`;
+}
+
 function renderStatus(){
+  renderRunStats();
   const ok = siteStatus.filter(s => s.status === 'ok' && !s.hopeless).length;
   const err = siteStatus.filter(s => s.status === 'error' && !s.hopeless).length;
   const warn = siteStatus.filter(s => s.status === 'ok' && s.last_listing_count === 0 && !s.hopeless).length;
@@ -918,9 +920,8 @@ function renderHidden(){
   if(sorted.length === 0){
     list.innerHTML = `
       <div class="empty">
-        <div class="icon">🙈</div>
-        <h3>Nichts ausgeblendet</h3>
-        <p>Ausgeblendete Inserate landen hier und lassen<br>sich bei Bedarf wieder einblenden.</p>
+        <h3>Nichts verborgen</h3>
+        <p>Verborgene Inserate sammeln sich hier<br>und lassen sich jederzeit zurückholen.</p>
       </div>`;
     return;
   }
@@ -1133,6 +1134,10 @@ document.getElementById('rentRange').addEventListener('input', e => {
   const v = parseInt(e.target.value, 10);
   filterState.maxRent = v;
   document.getElementById('rentVal').textContent = v >= 3000 ? 'alle' : ('bis ' + v + ' €');
+  renderFeed();
+});
+document.getElementById('hideGoneToggle').addEventListener('change', e => {
+  filterState.hideGone = e.target.checked;
   renderFeed();
 });
 document.getElementById('resetFiltersBtn').addEventListener('click', () => {
@@ -1423,7 +1428,7 @@ function onMapClickForDrawing(e){
 function setDrawMode(active){
   drawMode = active;
   const btn = document.getElementById('drawAreaBtn');
-  btn.textContent = drawMode ? '✕ Zeichnen beenden' : '✏️ Gebiet zeichnen';
+  btn.textContent = drawMode ? 'Zeichnen beenden' : 'Gebiet zeichnen';
   document.getElementById('drawAreaControls').style.display = drawMode ? 'flex' : 'none';
   document.getElementById('drawBanner').style.display = drawMode ? 'block' : 'none';
 

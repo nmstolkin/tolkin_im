@@ -1,20 +1,25 @@
-name: Wohnungssuche Berlin
+name: Wohnungssuche Berlin (schnell)
+
+# Prueft nur die ertragreichsten Quellen (sites-fast.json), dafuer stuendlich.
+# Hintergrund: Inserate stehen im Median rund 12 Stunden online, bei schnellen
+# Vermietern oft nur 1-3 Stunden. Ein Lauf alle 6-18 Stunden verpasst daher
+# einen grossen Teil. Die vollstaendige Liste laeuft weiterhin in check.yml.
 
 on:
   schedule:
-    # Zeiten in UTC. 8:00 + 14:00 UTC = 10:00 + 16:00 Uhr Berlin während der
-    # Sommerzeit (MESZ, UTC+2). Während der Winterzeit (MEZ, UTC+1) wäre das
-    # 9:00 + 15:00 Uhr; für exakt 10/16 Uhr im Winter müssten die Zeilen
-    # manuell auf "0 9,15 * * 1-5" geändert werden.
-    - cron: "0 8,14 * * 1-5"
-  workflow_dispatch: {}   # erlaubt manuelles Auslösen über den "Run workflow"-Button
-
-concurrency:
-  group: wohnungssuche
-  cancel-in-progress: false
+    # stuendlich zwischen 6:00 und 19:00 UTC an Werktagen
+    # (entspricht ca. 8-21 Uhr Berlin in der Sommerzeit)
+    - cron: "0 6-19 * * 1-5"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
+
+# Verhindert, dass sich schneller und vollstaendiger Lauf ueberschneiden und
+# beim Zurueckschreiben der Statusdateien gegenseitig ueberholen.
+concurrency:
+  group: wohnungssuche
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -33,7 +38,6 @@ jobs:
 
       - name: Playwright-Browser cachen
         uses: actions/cache@v4
-        id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ runner.os }}
@@ -41,28 +45,22 @@ jobs:
       - name: Playwright-Browser (Chromium) installieren
         run: playwright install --with-deps chromium
 
-      - name: Seiten prüfen
+      - name: Seiten prüfen (Schnell-Liste)
         run: python scrape.py
         env:
-          # Standard: Anthropic (günstig, Batch API). Für den kostenlosen
-          # Gemini-Tarif stattdessen "gemini" setzen und GEMINI_API_KEY als
-          # Secret hinterlegen (ANTHROPIC_API_KEY wird dann nicht gebraucht).
+          SITES_FILE: "sites-fast.json"
           AI_PROVIDER: "gemini"
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          # Diagnose: auf "1" setzen, um bei Seiten mit 0 Inseraten den
-          # extrahierten Text ins Log zu schreiben. Danach wieder auf "0".
           DEBUG_EMPTY: "0"
-          # Optional: URL der Homescreen-App, wird als "Öffnen"-Link in der
-          # Sammel-Push-Nachricht verwendet, z.B. https://nutzername.github.io/repo/
           APP_URL: ${{ vars.APP_URL }}
 
-      - name: Status speichern (data/ zurück ins Repo committen)
+      - name: Status speichern
         run: |
           git config user.name "immo-watcher-bot"
           git config user.email "bot@users.noreply.github.com"
           git pull --rebase --autostash || true
           git add data/ data.json site-status.json run-stats.json
-          git diff --staged --quiet || git commit -m "Status aktualisiert [skip ci]"
+          git diff --staged --quiet || git commit -m "Status aktualisiert (schnell) [skip ci]"
           git push

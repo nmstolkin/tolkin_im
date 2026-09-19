@@ -34,7 +34,11 @@ HASH_FILE = os.path.join(DATA_DIR, "page_hashes.json")
 ERROR_LOG = os.path.join(DATA_DIR, "last_errors.json")
 GEOCODE_CACHE_FILE = os.path.join(DATA_DIR, "geocode_cache.json")
 STATS_FILE = "run-stats.json"  # Verworfen-Statistik, wird von der App angezeigt
-SITES_FILE = "sites.json"
+# Welche Quellenliste geprueft wird. Der schnelle Zusatz-Workflow setzt
+# SITES_FILE=sites-fast.json und prueft nur die ertragreichsten Quellen -
+# noetig, weil Inserate im Median nur ca. 12 Stunden online stehen und ein
+# Lauf alle 6-18 Stunden die Haelfte davon verpasst.
+SITES_FILE = os.environ.get("SITES_FILE", "sites.json")
 
 # Dateien, die die Homescreen-App direkt anzeigt (liegen im Repo-Root,
 # neben index.html, damit GitHub Pages sie ausliefern kann)
@@ -106,6 +110,9 @@ CRITERIA = {
     },
     # in der App auf der Karte gezeichnetes, zusätzliches Suchgebiet
     "custom_area": {"enabled": False, "points": []},
+    # False = Wohnungen, die einen Wohnberechtigungsschein voraussetzen,
+    # werden ausgefiltert (ohne WBS ohnehin nicht anmietbar).
+    "allow_wbs": False,
 }
 
 # Präzise Standortfilterung über Postleitzahlen (zuverlässiger als Bezirks-
@@ -733,6 +740,9 @@ def matches_criteria(listing):
         # weitere Pruefung, die Wohnung ist ohnehin nicht zu haben.
         return False, ["referenzobjekt"]
 
+    if listing.get("wbs_required") and not CRITERIA.get("allow_wbs", False):
+        return False, ["wbs"]
+
     rooms = listing.get("rooms")
     size = listing.get("size_qm")
     rent = listing.get("rent")
@@ -1222,6 +1232,8 @@ def _run():
     for area_key in CRITERIA["areas"]:
         if area_key in cfg_criteria.get("areas", {}):
             CRITERIA["areas"][area_key] = bool(cfg_criteria["areas"][area_key])
+    if "allow_wbs" in cfg_criteria:
+        CRITERIA["allow_wbs"] = bool(cfg_criteria["allow_wbs"])
     if "custom_area" in cfg_criteria:
         CRITERIA["custom_area"] = cfg_criteria["custom_area"]
         n_points = len(CRITERIA["custom_area"].get("points") or [])
@@ -1447,7 +1459,11 @@ def _run():
     save_json(ERROR_LOG, errors)
     save_json(STATUS_FILE, status)
     save_geocode_cache()
-    update_app_data(app_matches, seen_keys_this_run)
+    # "Nicht mehr gelistet" darf nur der vollstaendige Lauf bewerten. Der
+    # schnelle Lauf sieht nur einen Bruchteil der Quellen und wuerde sonst
+    # alle uebrigen Treffer faelschlich als verschwunden markieren.
+    is_full_run = SITES_FILE == "sites.json"
+    update_app_data(app_matches, seen_keys_this_run if is_full_run else None)
     send_digest_notification(app_matches)
 
     # Verworfen-Statistik für den Status-Tab: zeigt, woran Inserate scheitern

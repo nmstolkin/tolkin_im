@@ -394,6 +394,11 @@
     <span class="nav-label">Gemerkt</span>
     <span class="nav-badge" id="favTabCount" style="display:none;"></span>
   </button>
+  <button class="nav-item" data-tab="nearmiss">
+    <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 1.8"/></svg></span>
+    <span class="nav-label">Knapp</span>
+    <span class="nav-badge" id="nearTabCount" style="display:none;"></span>
+  </button>
   <button class="nav-item" data-tab="hidden">
     <span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.4 5.4A9.5 9.5 0 0 1 12 5c5 0 9 4.5 9 7a11 11 0 0 1-2.4 3.4M6.3 6.8C4.2 8.2 3 10.3 3 12c0 2.5 4 7 9 7a9 9 0 0 0 3.3-.6"/></svg></span>
     <span class="nav-label">Verborgen</span>
@@ -480,6 +485,15 @@
       <span class="n" id="favCountLabel"></span>
     </div>
     <div id="favList"></div>
+  </div>
+
+  <div id="panel-nearmiss" style="display:none;">
+    <p class="hint" style="margin:0 0 12px;">
+      Diese Inserate scheitern an genau einem Kriterium — und das nur knapp.
+      Ob 79 statt 80 m² noch passt, entscheidest besser du als der Filter.
+    </p>
+    <div class="count-row"><span class="n" id="nearCountLabel"></span></div>
+    <div id="nearList"></div>
   </div>
 
   <div id="panel-hidden" style="display:none;">
@@ -616,6 +630,8 @@ let hidden = getSet(HIDDEN_KEY);
 let allMatches = [];
 let siteStatus = [];
 let runStats = null;
+let allNearMisses = [];
+let timeOnline = {};
 let currentTab = 'feed';
 let statusFilterMode = 'all';
 
@@ -628,11 +644,14 @@ async function loadAll(){
     const res = await fetch('data.json?t=' + Date.now());
     const data = await res.json();
     allMatches = data.matches || [];
+    allNearMisses = data.near_misses || [];
+    timeOnline = data.time_online || {};
     renderHeader(data);
     setupDistrictChips(data.criteria);
     renderFeed();
     renderFavorites();
     renderHidden();
+    renderNearMisses();
   }catch(e){
     document.getElementById('lastUpdate').textContent = 'Konnte Daten nicht laden';
   }
@@ -823,6 +842,26 @@ function renderFavorites(){
   list.innerHTML = sorted.map(m => cardHTML(m, {showHide:false})).join('');
 }
 
+function renderTimeOnline(){
+  const entries = Object.entries(timeOnline || {})
+    .sort((a,b) => a[1].median_hours - b[1].median_hours);
+  if(!entries.length) return '';
+  const rows = entries.map(([name, v]) => `
+    <div style="display:flex;justify-content:space-between;padding:3px 0;font-size:12.5px;">
+      <span style="color:var(--muted);">${name}</span>
+      <strong>${v.median_hours} h<span style="font-weight:400;color:var(--muted);"> (${v.samples})</span></strong>
+    </div>`).join('');
+  return `
+    <div class="settings-card" style="margin-bottom:14px;">
+      <h3>Wie lange Inserate online bleiben</h3>
+      <p class="help" style="margin-bottom:10px;">
+        Median je Quelle, gemessen an bereits verschwundenen Treffern.
+        Kurze Zeiten heißen: schnell sein. Klammer = Anzahl Messungen.
+      </p>
+      ${rows}
+    </div>`;
+}
+
 function renderRunStats(){
   const box = document.getElementById('runStatsBox');
   if(!runStats){ box.innerHTML = ''; return; }
@@ -833,6 +872,7 @@ function renderRunStats(){
     groesse: 'zu klein',
     zimmer: 'zu wenige Zimmer',
     referenzobjekt: 'Referenz / bereits vermietet',
+    wbs: 'WBS erforderlich',
   };
   const rej = runStats.rejected || {};
   const rows = Object.keys(rej)
@@ -851,7 +891,8 @@ function renderRunStats(){
         <strong>${runStats.rejected_total || 0}</strong> verworfen
       </p>
       ${rows || '<p class="help" style="margin:0;">Keine Verwerfungen erfasst.</p>'}
-    </div>`;
+    </div>
+    ${renderTimeOnline()}`;
 }
 
 function renderStatus(){
@@ -905,6 +946,25 @@ function renderStatus(){
         <div class="detail">${detail}</div>
       </div>
     </div>`;
+  }).join('');
+}
+
+function renderNearMisses(){
+  const labels = {groesse:'zu klein', miete:'zu teuer', zimmer:'zu wenige Zimmer'};
+  const list = document.getElementById('nearList');
+  setNavBadge('nearTabCount', allNearMisses.length);
+  document.getElementById('nearCountLabel').innerHTML = allNearMisses.length
+    ? `<strong>${allNearMisses.length}</strong> knapp verfehlt`
+    : '';
+  if(!allNearMisses.length){
+    list.innerHTML = `<div class="empty"><h3>Nichts knapp verfehlt</h3>
+      <p>Hier landen Inserate, die nur an einem Kriterium<br>und nur knapp scheitern.</p></div>`;
+    return;
+  }
+  list.innerHTML = sortMatches(allNearMisses).map(m => {
+    const html = cardHTML(m, {});
+    const tag = `<span class="tag" style="background:#FFF8D6;color:var(--signal-deep);">${labels[m.miss_reason] || m.miss_reason}</span>`;
+    return html.replace('<div class="tags">', '<div class="tags">' + tag);
   }).join('');
 }
 
@@ -967,6 +1027,7 @@ document.querySelectorAll('.nav-item').forEach(btn => {
     document.getElementById('panel-feed').style.display = currentTab === 'feed' ? 'block' : 'none';
     document.getElementById('panel-favorites').style.display = currentTab === 'favorites' ? 'block' : 'none';
     document.getElementById('panel-hidden').style.display = currentTab === 'hidden' ? 'block' : 'none';
+    document.getElementById('panel-nearmiss').style.display = currentTab === 'nearmiss' ? 'block' : 'none';
     document.getElementById('panel-status').style.display = currentTab === 'status' ? 'block' : 'none';
     document.getElementById('panel-map').style.display = currentTab === 'map' ? 'block' : 'none';
     document.getElementById('panel-settings').style.display = currentTab === 'settings' ? 'block' : 'none';

@@ -33,6 +33,8 @@ SEEN_FILE = os.path.join(DATA_DIR, "seen_listings.json")
 HASH_FILE = os.path.join(DATA_DIR, "page_hashes.json")
 ERROR_LOG = os.path.join(DATA_DIR, "last_errors.json")
 GEOCODE_CACHE_FILE = os.path.join(DATA_DIR, "geocode_cache.json")
+HEARTBEAT_FILE = os.path.join(DATA_DIR, "heartbeat.json")
+HEARTBEAT_DAYS = 7  # nach so vielen Tagen ohne Nachricht ein Lebenszeichen senden
 STATS_FILE = "run-stats.json"  # Verworfen-Statistik, wird von der App angezeigt
 # Welche Quellenliste geprueft wird. Der schnelle Zusatz-Workflow setzt
 # SITES_FILE=sites-fast.json und prueft nur die ertragreichsten Quellen -
@@ -101,6 +103,37 @@ CRITERIA = {
     # Freitext-Fragmente als Rückfalloption, falls keine PLZ erkannt wurde
     # (Wortgrenzen-Suche, siehe matches_criteria)
     "districts": ["mitte", "prenzlauer berg", "prenzlauer", "charlottenburg"],
+    # Kiez-, Platz- und Quartiersnamen. Berliner Inserate benennen die Lage
+    # fast nie nach dem Ortsteil ("Prenzlauer Berg"), sondern nach dem Kiez
+    # ("Winskiez", "Kollwitzplatz"). Ohne diese Liste fallen sie durchs Raster.
+    "kiez_hints": {
+        "mitte": [
+            "rosenthaler platz", "hackescher markt", "hackesche höfe",
+            "museumsinsel", "spandauer vorstadt", "scheunenviertel",
+            "nikolaiviertel", "alexanderplatz", "gendarmenmarkt",
+            "oranienburger", "torstraße", "torstrasse", "monbijou",
+            "chausseestraße", "chausseestrasse", "weinmeister",
+        ],
+        "prenzlauer_berg": [
+            "kollwitzkiez", "kollwitzplatz", "kollwitzstraße", "kollwitzstrasse",
+            "helmholtzplatz", "helmholtzkiez", "winskiez", "winsviertel",
+            "bötzowviertel", "boetzowviertel", "mauerpark", "kastanienallee",
+            "schönhauser allee", "schoenhauser allee", "rykestraße",
+            "rykestrasse", "arnimplatz", "thälmannpark", "thaelmannpark",
+            "gleimviertel", "falkplatz", "zionskirchplatz", "prenzlberg",
+            "prenzl'berg", "prenzl´berg",
+        ],
+        "charlottenburg": [
+            "savignyplatz", "savigny", "mommsenkiez", "mommsenstraße",
+            "mommsenstrasse", "stuttgarter platz", "stuttgarter-platz",
+            "kantstraße", "kantstrasse", "ludwigkirch", "richard-wagner-platz",
+        ],
+        "tiergarten_moabit_spree": [
+            "europacity", "heidestraße", "heidestrasse", "nordhafen",
+            "spreebogen", "hauptbahnhof", "lehrter", "alt-moabit",
+            "stephankiez", "hansaviertel", "wasserstadt", "bellevue",
+        ],
+    },
     # welche Gebiete aktuell aktiv sind - per config.json/App umschaltbar
     "areas": {
         "mitte": True,
@@ -729,6 +762,75 @@ def is_within_custom_area(listing):
     return point_in_polygon(coords[0], coords[1], points)
 
 
+# Wie knapp ein Kriterium verfehlt sein darf, damit ein Inserat als
+# "knapp verfehlt" in einen eigenen Reiter wandert statt still zu verschwinden.
+NEAR_MISS_SIZE_TOLERANCE = 0.12   # bis 12 % unter der Mindestgroesse
+NEAR_MISS_RENT_TOLERANCE = 0.12   # bis 12 % ueber der Maximalmiete
+NEAR_MISS_ROOMS_TOLERANCE = 0.5   # eine halbe Zimmerstufe darunter
+
+
+def is_near_miss(listing, gruende):
+    """True, wenn das Inserat an GENAU EINEM Kriterium scheitert und das auch
+    nur knapp. Lage und Referenzobjekt-Ausschluss sind nie 'knapp' - eine
+    Wohnung liegt entweder im Suchgebiet oder nicht."""
+    if len(gruende) != 1:
+        return False
+    grund = gruende[0]
+
+    if grund == "groesse":
+        size = listing.get("size_qm")
+        return (isinstance(size, (int, float))
+                and size >= CRITERIA["min_size_qm"] * (1 - NEAR_MISS_SIZE_TOLERANCE))
+    if grund == "miete":
+        rent = listing.get("rent")
+        return (isinstance(rent, (int, float))
+                and CRITERIA["max_rent"] < rent
+                <= CRITERIA["max_rent"] * (1 + NEAR_MISS_RENT_TOLERANCE))
+    if grund == "zimmer":
+        rooms = listing.get("rooms")
+        return (isinstance(rooms, (int, float))
+                and rooms >= CRITERIA["min_rooms"] - NEAR_MISS_ROOMS_TOLERANCE)
+    return False
+
+
+# "Mitte" ist mehrdeutig: fast jeder Berliner Bezirk hat ein Ortszentrum, das
+# "<Bezirk>-Mitte" heisst (Zehlendorf-Mitte, Steglitz Mitte, Spandau-Mitte).
+# Da der Bindestrich in einer Wortgrenzen-Suche zaehlt, wuerde die einfache
+# Suche nach "mitte" auf all das anspringen.
+_NOT_MITTE = re.compile(
+    r"\b(zehlendorf|steglitz|spandau|pankow|neukölln|neukoelln|köpenick|koepenick|"
+    r"lichtenberg|reinickendorf|tempelhof|schöneberg|schoeneberg|marzahn|hellersdorf|"
+    r"wilmersdorf|friedrichshain|kreuzberg|treptow|weißensee|weissensee|buch|"
+    r"hohenschönhausen|hohenschoenhausen|stadt)[\s\-]?mitte\b"
+)
+
+
+def kiez_hint_matches(area_key, haystack):
+    """True, wenn ein Kiez-/Platzname des Gebiets im Text vorkommt."""
+    for hint in CRITERIA.get("kiez_hints", {}).get(area_key, []):
+        if hint in haystack:
+            return True
+    return False
+
+
+def mentions_area(area_key, haystack):
+    """Erkennt ein Gebiet an Ortsteilnamen ODER Kiezbezeichnungen."""
+    if kiez_hint_matches(area_key, haystack):
+        return True
+    if area_key == "mitte":
+        # "Berlin-Mitte" ja, "Zehlendorf-Mitte" nein
+        if _NOT_MITTE.search(haystack):
+            return False
+        return bool(re.search(r"\bmitte\b", haystack))
+    if area_key == "prenzlauer_berg":
+        return bool(re.search(r"\bprenzlauer\b", haystack))
+    if area_key == "charlottenburg":
+        return bool(re.search(r"\bcharlottenburg\b", haystack))
+    if area_key == "tiergarten_moabit_spree":
+        return bool(re.search(r"\b(tiergarten|moabit)\b", haystack))
+    return False
+
+
 def matches_criteria(listing):
     """Gibt (passt: bool, gruende: list[str]) zurueck. ALLE verletzten
     Kriterien werden gesammelt, nicht nur das erste - sonst verdeckt das
@@ -766,10 +868,10 @@ def matches_criteria(listing):
     areas = CRITERIA.get("areas", {})
 
     looks_like_charlottenburg = areas.get("charlottenburg", True) and (
-        plz in CHARLOTTENBURG_CANDIDATE_PLZ or re.search(r"\bcharlottenburg\b", haystack)
+        plz in CHARLOTTENBURG_CANDIDATE_PLZ or mentions_area("charlottenburg", haystack)
     )
     looks_like_tiergarten_moabit = areas.get("tiergarten_moabit_spree", True) and (
-        plz in TIERGARTEN_MOABIT_CANDIDATE_PLZ or re.search(r"\b(tiergarten|moabit)\b", haystack)
+        plz in TIERGARTEN_MOABIT_CANDIDATE_PLZ or mentions_area("tiergarten_moabit_spree", haystack)
     )
     allowed_plz_now = set()
     if areas.get("mitte", True):
@@ -796,7 +898,9 @@ def matches_criteria(listing):
         location_ok = plz in allowed_plz_now
     else:
         district_match = any(
-            re.search(rf"\b{re.escape(d)}\b", haystack) for d in active_district_names
+            mentions_area(a, haystack)
+            for a in ("mitte", "prenzlauer_berg")
+            if areas.get(a, True)
         )
         location_ok = district_match
 
@@ -888,6 +992,33 @@ def source_name(site_url):
     return host
 
 
+def build_match_record(key, listing, url):
+    """Baut den Datensatz, den die App anzeigt - fuer Treffer wie fuer
+    knapp verfehlte Inserate."""
+    size_v = listing.get("size_qm")
+    rent_v = listing.get("rent")
+    price_per_sqm = (
+        round(rent_v / size_v, 1)
+        if isinstance(rent_v, (int, float)) and isinstance(size_v, (int, float)) and size_v > 0
+        else None
+    )
+    return {
+        "key": key,
+        "title": listing.get("title"),
+        "rooms": listing.get("rooms"),
+        "size_qm": size_v,
+        "rent": rent_v,
+        "price_per_sqm": price_per_sqm,
+        "district": listing.get("district"),
+        "plz": listing.get("plz"),
+        "street": listing.get("street"),
+        "url": listing.get("url") or url,
+        "site_url": url,
+        "source_name": source_name(url),
+        "found_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+
 def duplicate_signature(m):
     """Signatur zum Erkennen derselben Wohnung auf mehreren Portalen:
     gerundete Miete + gerundete Groesse + PLZ. Bewusst grob, weil Anbieter
@@ -902,7 +1033,34 @@ def duplicate_signature(m):
     return f"{round(rent / 25) * 25}|{round(size / 5) * 5}|{plz}"
 
 
-def update_app_data(new_matches, seen_keys_this_run=None):
+def compute_time_online_stats(matches):
+    """Median-Verweildauer je Quelle: wie lange bleibt ein Inserat online?
+    Basis sind Treffer, die inzwischen verschwunden sind (found_at/gone_since).
+    Damit laesst sich datengestuetzt entscheiden, welche Quellen in die
+    stuendliche Schnell-Liste gehoeren."""
+    from statistics import median
+    per_source = {}
+    for m in matches:
+        if m.get("still_listed") is not False:
+            continue
+        f, g = m.get("found_at"), m.get("gone_since")
+        if not f or not g:
+            continue
+        try:
+            hours = (datetime.fromisoformat(g) - datetime.fromisoformat(f)).total_seconds() / 3600
+        except Exception:
+            continue
+        if hours <= 0:
+            continue
+        per_source.setdefault(m.get("source_name") or "?", []).append(hours)
+
+    return {
+        src_name: {"median_hours": round(median(v), 1), "samples": len(v)}
+        for src_name, v in per_source.items() if len(v) >= 2
+    }
+
+
+def update_app_data(new_matches, seen_keys_this_run=None, near_misses=None):
     """Schreibt die aktuellen Treffer in data.json, das die Homescreen-App anzeigt.
     Markiert zusaetzlich Inserate, die beim aktuellen Lauf nicht mehr auf der
     Anbieterseite auftauchten, und fuehrt Duplikate ueber Quellen hinweg zusammen."""
@@ -957,8 +1115,21 @@ def update_app_data(new_matches, seen_keys_this_run=None):
             "districts": ["Mitte", "Prenzlauer Berg", "Charlottenburg"],
         },
         "matches": deduped,
+        "near_misses": merge_near_misses(existing.get("near_misses", []), near_misses or []),
+        "time_online": compute_time_online_stats(deduped),
     }
     save_json(APP_DATA_FILE, payload)
+
+
+def merge_near_misses(existing, new_items):
+    """Knapp verfehlte Inserate sammeln, neueste zuerst, begrenzt."""
+    keys = {m.get("key") for m in existing}
+    for m in new_items:
+        if m.get("key") not in keys:
+            existing.append(m)
+            keys.add(m.get("key"))
+    existing.sort(key=lambda m: m.get("found_at", ""), reverse=True)
+    return existing[:120]
 
 
 def update_site_status(status, url, ok, error=None, listing_count=None, suggested_url=None, pages_checked=None, skipped=False):
@@ -1140,6 +1311,45 @@ def run_batch_extraction(items):
 APP_URL = os.environ.get("APP_URL")  # optional: URL der Homescreen-App, für den "Öffnen"-Link in der Push
 
 
+def push(title, body, priority="default", tags="house", click=None):
+    """Sendet eine Push-Nachricht ueber ntfy. Zentrale Stelle, damit auch
+    Fehler- und Lebenszeichen-Meldungen denselben Weg nehmen."""
+    if not NTFY_TOPIC:
+        print("NTFY_TOPIC nicht gesetzt, überspringe Benachrichtigung.")
+        return False
+    headers = {"Title": title.encode("utf-8"), "Priority": priority, "Tags": tags}
+    if click or APP_URL:
+        headers["Click"] = click or APP_URL
+    try:
+        requests.post(f"{NTFY_SERVER}/{NTFY_TOPIC}", data=body.encode("utf-8"),
+                      headers=headers, timeout=15)
+        return True
+    except Exception as e:
+        print(f"Benachrichtigung fehlgeschlagen: {e}")
+        return False
+
+
+def maybe_send_heartbeat(stats):
+    """Sendet ein Lebenszeichen, wenn seit HEARTBEAT_DAYS Tagen keine
+    Nachricht rausging. Ohne das ist ein stiller Totalausfall (abgelaufener
+    Token, API-Limit, kaputtes Playwright) nicht von 'gerade nichts Passendes'
+    zu unterscheiden."""
+    hb = load_json(HEARTBEAT_FILE, {})
+    last = hb.get("last_notification_at")
+    if hours_since(last) < HEARTBEAT_DAYS * 24:
+        return
+
+    body = (
+        f"Der Bot läuft.\n"
+        f"{stats['sites_total']} Quellen geprüft, "
+        f"{stats['listings_seen']} Inserate gesehen, "
+        f"{stats['rejected_total']} verworfen.\n"
+        f"Seit {HEARTBEAT_DAYS} Tagen kein passender Treffer."
+    )
+    if push("Wohnungssuche: Lebenszeichen", body, priority="low", tags="heartbeat"):
+        save_json(HEARTBEAT_FILE, {"last_notification_at": datetime.now(timezone.utc).isoformat()})
+
+
 def send_digest_notification(new_matches):
     """Schickt EINE zusammenfassende Push-Nachricht für alle in diesem Lauf
     neu gefundenen Treffer, statt einer Einzel-Nachricht pro Inserat."""
@@ -1174,23 +1384,9 @@ def send_digest_notification(new_matches):
 
     body = "\n".join(lines)
 
-    headers = {
-        "Title": title.encode("utf-8"),
-        "Priority": "high",
-        "Tags": "house",
-    }
-    if APP_URL:
-        headers["Click"] = APP_URL
-
-    try:
-        requests.post(
-            f"{NTFY_SERVER}/{NTFY_TOPIC}",
-            data=body.encode("utf-8"),
-            headers=headers,
-            timeout=15,
-        )
-    except Exception as e:
-        print(f"Benachrichtigung fehlgeschlagen: {e}")
+    if push(title, body, priority="high", tags="house"):
+        # Zeitpunkt merken, damit das Lebenszeichen nur bei echter Stille kommt
+        save_json(HEARTBEAT_FILE, {"last_notification_at": datetime.now(timezone.utc).isoformat()})
 
 
 # ---------------------------------------------------------------------------
@@ -1248,6 +1444,7 @@ def _run():
     total_new_matches = 0
     app_matches = []  # Treffer für die Homescreen-App (docs/data.json)
     rejection_stats = {}   # {grund: anzahl} - wie viele Inserate woran scheiterten
+    app_near_misses = []   # scheitern an genau einem Kriterium, und das knapp
     # Schluessel der bereits in data.json gemeldeten Treffer. Verhindert
     # Doppelmeldungen, OHNE die Kriterienpruefung selbst zu ueberspringen.
     already_reported = {
@@ -1419,34 +1616,19 @@ def _run():
             if not passt:
                 for g in gruende:
                     rejection_stats[g] = rejection_stats.get(g, 0) + 1
+                # Knapp verfehlt? Dann nicht verwerfen, sondern in einen
+                # eigenen Bereich der App legen - die Entscheidung, ob 79 statt
+                # 80 qm noch passt, trifft besser der Mensch als der Filter.
+                if is_near_miss(listing, gruende):
+                    rec = build_match_record(key, listing, url)
+                    rec["miss_reason"] = gruende[0]
+                    app_near_misses.append(rec)
                 continue
 
             if key not in already_reported:
                 already_reported.add(key)
                 print(f"     TREFFER: {listing.get('title')}")
-                rooms_v = listing.get("rooms")
-                size_v = listing.get("size_qm")
-                rent_v = listing.get("rent")
-                price_per_sqm = (
-                    round(rent_v / size_v, 1)
-                    if isinstance(rent_v, (int, float)) and isinstance(size_v, (int, float)) and size_v > 0
-                    else None
-                )
-                app_matches.append({
-                    "key": key,
-                    "title": listing.get("title"),
-                    "rooms": rooms_v,
-                    "size_qm": size_v,
-                    "rent": rent_v,
-                    "price_per_sqm": price_per_sqm,
-                    "district": listing.get("district"),
-                    "plz": listing.get("plz"),
-                    "street": listing.get("street"),
-                    "url": listing.get("url") or url,
-                    "site_url": url,
-                    "source_name": source_name(url),
-                    "found_at": datetime.now(timezone.utc).isoformat(),
-                })
+                app_matches.append(build_match_record(key, listing, url))
                 total_new_matches += 1
 
         if new_on_this_site:
@@ -1463,7 +1645,7 @@ def _run():
     # schnelle Lauf sieht nur einen Bruchteil der Quellen und wuerde sonst
     # alle uebrigen Treffer faelschlich als verschwunden markieren.
     is_full_run = SITES_FILE == "sites.json"
-    update_app_data(app_matches, seen_keys_this_run if is_full_run else None)
+    update_app_data(app_matches, seen_keys_this_run if is_full_run else None, app_near_misses)
     send_digest_notification(app_matches)
 
     # Verworfen-Statistik für den Status-Tab: zeigt, woran Inserate scheitern
@@ -1476,7 +1658,9 @@ def _run():
         "sites_total": len(sites),
         "sites_with_errors": len(errors),
     }
+    stats_payload["near_misses"] = len(app_near_misses)
     save_json(STATS_FILE, stats_payload)
+    maybe_send_heartbeat(stats_payload)
 
     print()
     print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")

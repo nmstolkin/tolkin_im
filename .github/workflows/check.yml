@@ -66,3 +66,11 @@ jobs:
           git add data/ data.json site-status.json run-stats.json
           git diff --staged --quiet || git commit -m "Status aktualisiert [skip ci]"
           git push
+
+      - name: Fehler melden
+        if: failure()
+        run: |
+          curl -s -H "Title: Wohnungssuche: Lauf fehlgeschlagen" \
+               -H "Priority: high" -H "Tags: warning" \
+               -d "Der Suchlauf ist abgebrochen. Details im Actions-Tab des Repositories." \
+               "https://ntfy.sh/${{ secrets.NTFY_TOPIC }}" || true

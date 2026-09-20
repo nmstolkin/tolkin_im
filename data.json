@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-19T15:17:01.829338+00:00",
+  "generated_at": "2026-09-20T16:25:05.409040+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
-    "min_rent": 1000,
+    "min_rent": 1200,
     "max_rent": 2100,
     "districts": [
       "Mitte",
@@ -12,6 +12,23 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
+      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
+      "rooms": 3,
+      "size_qm": 82,
+      "rent": 1990.0,
+      "price_per_sqm": 24.3,
+      "district": "Berlin",
+      "plz": "10707",
+      "street": "Olivaer Platz",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-20T16:14:01.706708+00:00",
+      "still_listed": true,
+      "also_on": []
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5.0|198||10117",
       "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
@@ -26,7 +43,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-09-19T15:08:04.814986+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-20T16:25:05.409040+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|130||10115",
@@ -124,24 +142,6 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-09-13T14:38:14.214230+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-19T09:19:12.150640+00:00",
-      "also_on": []
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|82.0|1990.0|10707",
-      "title": "Etagenwohnung Typ ERSTBEZUG - 3 Zimmer - Olivaer Platz",
-      "rooms": 3,
-      "size_qm": 82.0,
-      "rent": 1990.0,
-      "price_per_sqm": 24.3,
-      "district": "Charlottenburg-Wilmersdorf",
-      "plz": "10707",
-      "street": "Olivaer Platz",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-09-13T14:25:56.220484+00:00",
       "still_listed": false,
       "gone_since": "2026-09-19T09:19:12.150640+00:00",
       "also_on": []
@@ -280,7 +280,8 @@
       "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
       "source_name": "tela-immobilien.de",
       "found_at": "2026-09-08T14:48:49.113424+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-20T16:25:05.409040+00:00"
     },
     {
       "key": "https://www.grandcityproperty.de/wohnungssuche?city=Berlin&type=&price=&rooms=&size=&cityText=St%C3%A4dte%7CBerlin%7CBerlin&_token=a5d5ee3fb954692b466aa9307dc1f9fc._-03XLymgIw--ujJiprDoQzqv59lR774Mbda72d3qbE.vtpGL_fW1OJXq6a55a2EkTyryfUjKPbBWtY_ly4i59DKuw4kztTi6Fm-sQ::4|122|2001|mitte",
@@ -330,8 +331,7 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-04T08:50:54.500258+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-19T09:19:12.150640+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::4|109.75|1461.92|10439",
@@ -749,5 +749,97 @@
       "still_listed": false,
       "gone_since": "2026-09-19T09:19:12.150640+00:00"
     }
-  ]
+  ],
+  "near_misses": [
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|72.1|1890|10407",
+      "title": "3 Zimmer Wohnung",
+      "rooms": 3,
+      "size_qm": 72.11,
+      "rent": 1890.0,
+      "price_per_sqm": 26.2,
+      "district": null,
+      "plz": "10407",
+      "street": null,
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-09-20T16:15:06.030447+00:00",
+      "miss_reason": "groesse"
+    },
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
+      "title": "Schöne 3 Zimmer Wohnung",
+      "rooms": 3,
+      "size_qm": 94.3,
+      "rent": 2260.0,
+      "price_per_sqm": 24.0,
+      "district": null,
+      "plz": "10407",
+      "street": null,
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-09-20T16:15:06.030293+00:00",
+      "miss_reason": "miete"
+    },
+    {
+      "key": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::3|75|1800|10405",
+      "title": "Vollmöblierte 3 Zimmer Wohnung im Prenzlauer Berg – Nahe Kollwitzkiez",
+      "rooms": 3,
+      "size_qm": 75,
+      "rent": 1800,
+      "price_per_sqm": 24.0,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/",
+      "site_url": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/",
+      "source_name": "aden-immo.com",
+      "found_at": "2026-09-20T16:05:19.434529+00:00",
+      "miss_reason": "groesse"
+    }
+  ],
+  "time_online": {
+    "kip.net": {
+      "median_hours": 428.9,
+      "samples": 10
+    },
+    "hihc.de": {
+      "median_hours": 139.4,
+      "samples": 3
+    },
+    "imms-immobilien.de": {
+      "median_hours": 187.1,
+      "samples": 2
+    },
+    "core-berlin.de": {
+      "median_hours": 186.7,
+      "samples": 3
+    },
+    "tela-immobilien.de": {
+      "median_hours": 244.1,
+      "samples": 2
+    },
+    "grandcityproperty.de": {
+      "median_hours": 282.7,
+      "samples": 3
+    },
+    "habitare-immobilien.de": {
+      "median_hours": 378.0,
+      "samples": 3
+    },
+    "wbm.de": {
+      "median_hours": 384.5,
+      "samples": 6
+    },
+    "pandion-service.de": {
+      "median_hours": 490.5,
+      "samples": 2
+    },
+    "caseaberlino.com": {
+      "median_hours": 486.9,
+      "samples": 2
+    }
+  }
 }

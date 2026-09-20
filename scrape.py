@@ -70,7 +70,9 @@ DEBUG_TEXT_CHARS = 1200
 MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
 GEMINI_MODEL = "gemini-2.5-flash-lite"  # kostenloser Tarif, für diese Aufgabe ausreichend
 GEMINI_RATE_LIMIT_DELAY = 4.5        # Sekunden zwischen Gemini-Aufrufen, um im Free-Tier-RPM-Limit zu bleiben
-MAX_TEXT_CHARS = 30000   # großzügig: große Portale (ohne-makler, Deutsche Wohnen …) sonst abgeschnitten
+MAX_TEXT_CHARS = 12000   # Kompromiss: grosse Portale weitgehend abgedeckt, aber
+                         # vertraeglich mit dem kostenlosen Gemini-Kontingent
+                         # (30000 hatte das Tageslimit gesprengt)
 REQUEST_TIMEOUT = 25
 SLEEP_BETWEEN_SITES = 1.5  # kleine Pause, um nicht wie ein aggressiver Bot zu wirken
 SLEEP_BETWEEN_PAGES = 1.0  # Pause zwischen Folgeseiten derselben Website
@@ -448,11 +450,23 @@ def resolve_gemini_model():
 
 GEMINI_TIMEOUT = 90
 GEMINI_MAX_TIMEOUT_RETRIES = 2
+# Nach so vielen Seiten in Folge, die am Rate-Limit scheitern, gilt das
+# Tageskontingent als erschoepft. Dann bringt Weiterprobieren nichts mehr -
+# jede weitere Seite kostet nur 100 Sekunden Wartezeit. Ohne diese Bremse
+# laeuft ein Lauf stundenlang ins Leere.
+QUOTA_EXHAUSTED_AFTER = 5
+_quota_exhausted = False
+_consecutive_rate_limited = 0
 
 
 def call_gemini_extract(url, text, _retry=0, _model=None, _timeout_retry=0):
     """Extraktion über die kostenlose Gemini API (statt Anthropic)."""
     if not text or len(text) < 50:
+        return []
+
+    global _consecutive_rate_limited, _quota_exhausted
+
+    if _quota_exhausted:
         return []
 
     model = _model or GEMINI_MODEL
@@ -486,12 +500,22 @@ def call_gemini_extract(url, text, _retry=0, _model=None, _timeout_retry=0):
         new_model = resolve_gemini_model()
         return call_gemini_extract(url, text, _retry=_retry + 1, _model=new_model)
 
-    # Free-Tier-Rate-Limit getroffen (429) -> kurz warten, einmal erneut versuchen
-    if resp.status_code == 429 and _retry < 3:
-        wait = 20 * (_retry + 1)
-        print(f"    Gemini Rate-Limit erreicht, warte {wait}s …")
-        time.sleep(wait)
-        return call_gemini_extract(url, text, _retry=_retry + 1, _model=model)
+    # Rate-Limit (429). Zwei Faelle unterscheiden:
+    #  - kurzzeitig zu schnell -> kurz warten hilft
+    #  - Tageskontingent erschoepft -> Warten hilft nicht mehr, nur Abbruch
+    if resp.status_code == 429:
+        if _retry < 2:
+            wait = 20 * (_retry + 1)
+            print(f"    Gemini Rate-Limit erreicht, warte {wait}s …")
+            time.sleep(wait)
+            return call_gemini_extract(url, text, _retry=_retry + 1, _model=model)
+
+        _consecutive_rate_limited += 1
+        if _consecutive_rate_limited >= QUOTA_EXHAUSTED_AFTER:
+            _quota_exhausted = True
+            print("    Kontingent offenbar erschöpft – weitere Extraktionen "
+                  "werden für diesen Lauf übersprungen.")
+        return []
 
     try:
         resp.raise_for_status()
@@ -510,6 +534,7 @@ def call_gemini_extract(url, text, _retry=0, _model=None, _timeout_retry=0):
     except (KeyError, IndexError):
         raw = ""
 
+    _consecutive_rate_limited = 0
     return _parse_extraction_text(raw)
 
 
@@ -1659,8 +1684,20 @@ def _run():
         "sites_with_errors": len(errors),
     }
     stats_payload["near_misses"] = len(app_near_misses)
+    stats_payload["quota_exhausted"] = _quota_exhausted
     save_json(STATS_FILE, stats_payload)
-    maybe_send_heartbeat(stats_payload)
+
+    if _quota_exhausted:
+        # Wichtig zu wissen: dieser Lauf war unvollstaendig. Sonst sieht ein
+        # ausgeschoepftes Kontingent aus wie "es gab nichts Passendes".
+        print("WARNUNG: Gemini-Kontingent war erschöpft – dieser Lauf hat "
+              "nicht alle Seiten ausgewertet.")
+        push("Wohnungssuche: Lauf unvollständig",
+             "Das Gemini-Tageskontingent war erschöpft. Nicht alle Quellen "
+             "wurden ausgewertet. Prüfe die Lauf-Frequenz.",
+             priority="high", tags="warning")
+    else:
+        maybe_send_heartbeat(stats_payload)
 
     print()
     print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")

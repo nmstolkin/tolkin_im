@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T06:12:56.428058+00:00",
+  "generated_at": "2026-09-21T08:55:33.158690+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::|||berlin neukölln",
+      "title": "Emserstr. 43, GE 02, Büro-/Ladenfläche im EG in Neukölln nahe Flugfeld Tempelhof",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Berlin Neukölln",
+      "plz": null,
+      "street": "Emserstr. 43",
+      "url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
+      "site_url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
+      "source_name": "rbb-immo.de",
+      "found_at": "2026-09-21T08:51:24.437020+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
       "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
@@ -26,8 +42,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-09-20T16:14:01.706708+00:00",
-      "still_listed": true,
-      "also_on": []
+      "still_listed": false,
+      "also_on": [],
+      "gone_since": "2026-09-21T08:55:33.158690+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5.0|198||10117",
@@ -60,7 +77,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-19T14:56:12.854149+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-21T08:55:33.158690+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
@@ -331,7 +349,8 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-04T08:50:54.500258+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-21T08:55:33.158690+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::4|109.75|1461.92|10439",
@@ -802,8 +821,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 428.9,
-      "samples": 10
+      "median_hours": 283.3,
+      "samples": 12
     },
     "hihc.de": {
       "median_hours": 139.4,
@@ -824,6 +843,10 @@
     "grandcityproperty.de": {
       "median_hours": 282.7,
       "samples": 3
+    },
+    "apartberlin.de": {
+      "median_hours": 490.5,
+      "samples": 2
     },
     "habitare-immobilien.de": {
       "median_hours": 378.0,

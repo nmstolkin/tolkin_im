@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T15:28:58.902710+00:00",
+  "generated_at": "2026-09-22T19:08:52.641429+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,54 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::4|120.5|2065.9|10179",
+      "title": "Familien-Masionette-4-Zimmer-Wohnung mit Terrasse in Mitte",
+      "rooms": 4.0,
+      "size_qm": 120.46,
+      "rent": 2065.89,
+      "price_per_sqm": 17.2,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-09-22T18:35:14.533813+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::4|96.3|2023.1|10179",
+      "title": "Family Apartment mit 4-Zimmern und Dachterrasse in Mitte",
+      "rooms": 4.0,
+      "size_qm": 96.34,
+      "rent": 2023.14,
+      "price_per_sqm": 21.0,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-09-22T18:35:14.533738+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::4|105.9|2011.5|10179",
+      "title": "Exklusive 4 Zimmer Wohnungen mit Terrasse in Mitte",
+      "rooms": 4.0,
+      "size_qm": 105.87,
+      "rent": 2011.53,
+      "price_per_sqm": 19.0,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-09-22T18:35:14.533649+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
       "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
@@ -62,8 +110,7 @@
       "site_url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
       "source_name": "rbb-immo.de",
       "found_at": "2026-09-21T08:51:24.437020+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-21T20:05:55.923659+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5.0|198||10117",
@@ -352,7 +399,8 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-04T08:50:54.500258+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-22T19:08:52.641429+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::4|109.75|1461.92|10439",
@@ -598,7 +646,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-08-31T20:23:13.504024+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-22T19:08:52.641429+00:00"
     },
     {
       "key": "https://hihc.de/angebote/#/list1::3|127.95|2047.2|prenzlauer berg",
@@ -772,6 +821,38 @@
   ],
   "near_misses": [
     {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::5|122.7|2177.0|10179",
+      "title": "Stilvolle 5-Zimmer-Wohnung mit Terrasse in Top Lage von Mitte",
+      "rooms": 5.0,
+      "size_qm": 122.65,
+      "rent": 2177.04,
+      "price_per_sqm": 17.8,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-09-22T18:35:14.533777+00:00",
+      "miss_reason": "miete"
+    },
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::5|127.0|2222.7|10179",
+      "title": "Viel Platz für Alltag u. Zukunft – 5 Zimmer mit Terrasse zum Ankommen in Mitte",
+      "rooms": 5.0,
+      "size_qm": 127.01,
+      "rent": 2222.68,
+      "price_per_sqm": 17.5,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-09-22T18:35:14.533700+00:00",
+      "miss_reason": "miete"
+    },
+    {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|76|2000|10439",
       "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
       "rooms": 4,
@@ -838,8 +919,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 138.7,
-      "samples": 11
+      "median_hours": 282.8,
+      "samples": 12
     },
     "caseaberlino.com": {
       "median_hours": 268.3,
@@ -864,6 +945,10 @@
     "grandcityproperty.de": {
       "median_hours": 282.7,
       "samples": 3
+    },
+    "apartberlin.de": {
+      "median_hours": 507.6,
+      "samples": 2
     },
     "habitare-immobilien.de": {
       "median_hours": 378.0,

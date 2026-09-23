@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T19:34:40.493292+00:00",
+  "generated_at": "2026-09-23T10:35:32.238325+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://carat24-immobilien.de/zur-miete/::|118||10435",
+      "title": "Große Gewerbeeinheit im Prenzlauer Berg Wörther Straße 6, Kollwitzkiez, Prenzlauer Berg, Pankow, Berlin",
+      "rooms": null,
+      "size_qm": 118,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10435",
+      "street": "Wörther Straße 6",
+      "url": "https://carat24-immobilien.de/zur-miete/",
+      "site_url": "https://carat24-immobilien.de/zur-miete/",
+      "source_name": "carat24-immobilien.de",
+      "found_at": "2026-09-23T10:35:03.455342+00:00"
+    },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|120.5|2065.9|10179",
       "title": "Familien-Masionette-4-Zimmer-Wohnung mit Terrasse in Mitte",

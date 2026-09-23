@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T10:35:32.238325+00:00",
+  "generated_at": "2026-09-23T15:58:36.682907+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -13,6 +13,54 @@
   },
   "matches": [
     {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|122.7||10179",
+      "title": "Stilvolle 5-Zimmer-Wohnung mit Terrasse in Top Lage von Mitte",
+      "rooms": 5,
+      "size_qm": 122.65,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-23T15:10:39.413322+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.5||10179",
+      "title": "Familien-Maisonette-4-Zimmer-Wohnung mit Terrasse in Mitte",
+      "rooms": 4,
+      "size_qm": 120.46,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-23T15:10:39.413297+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.grandcityproperty.de/wohnung-berlin::|||10115",
+      "title": "Dauerhafter Parkplatz statt täglichem Parkplatz...",
+      "rooms": null,
+      "size_qm": null,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": null,
+      "plz": "10115",
+      "street": "Menzelstraße 1",
+      "url": "https://www.grandcityproperty.de/wohnung-berlin",
+      "site_url": "https://www.grandcityproperty.de/wohnung-berlin",
+      "source_name": "grandcityproperty.de",
+      "found_at": "2026-09-23T14:54:29.562167+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://carat24-immobilien.de/zur-miete/::|118||10435",
       "title": "Große Gewerbeeinheit im Prenzlauer Berg Wörther Straße 6, Kollwitzkiez, Prenzlauer Berg, Pankow, Berlin",
       "rooms": null,
@@ -25,7 +73,9 @@
       "url": "https://carat24-immobilien.de/zur-miete/",
       "site_url": "https://carat24-immobilien.de/zur-miete/",
       "source_name": "carat24-immobilien.de",
-      "found_at": "2026-09-23T10:35:03.455342+00:00"
+      "found_at": "2026-09-23T10:35:03.455342+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-23T15:58:36.682907+00:00"
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|120.5|2065.9|10179",
@@ -41,7 +91,8 @@
       "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
       "source_name": "inberlinwohnen.de",
       "found_at": "2026-09-22T18:35:14.533813+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-23T15:58:36.682907+00:00"
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|96.3|2023.1|10179",
@@ -57,7 +108,8 @@
       "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
       "source_name": "inberlinwohnen.de",
       "found_at": "2026-09-22T18:35:14.533738+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-23T15:58:36.682907+00:00"
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|105.9|2011.5|10179",
@@ -73,7 +125,8 @@
       "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
       "source_name": "inberlinwohnen.de",
       "found_at": "2026-09-22T18:35:14.533649+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-23T15:58:36.682907+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -836,6 +889,22 @@
   ],
   "near_misses": [
     {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|2000|10439",
+      "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
+      "rooms": 4.0,
+      "size_qm": 76.0,
+      "rent": 2000.0,
+      "price_per_sqm": 26.3,
+      "district": null,
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-23T15:22:16.082935+00:00",
+      "miss_reason": "groesse"
+    },
+    {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::5|122.7|2177.0|10179",
       "title": "Stilvolle 5-Zimmer-Wohnung mit Terrasse in Top Lage von Mitte",
       "rooms": 5.0,
@@ -933,6 +1002,10 @@
     }
   ],
   "time_online": {
+    "inberlinwohnen.de": {
+      "median_hours": 21.4,
+      "samples": 3
+    },
     "kip.net": {
       "median_hours": 282.8,
       "samples": 12

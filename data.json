@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T19:23:50.412595+00:00",
+  "generated_at": "2026-09-24T19:48:05.025687+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
+      "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
+      "rooms": 5,
+      "size_qm": 198,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-09-24T19:43:23.050898+00:00"
+    },
     {
       "key": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::|||berlin neukölln",
       "title": "Emserstr. 43, GE 02, Büro-/Ladenfläche im EG in Neukölln nahe Flugfeld Tempelhof",

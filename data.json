@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T10:59:30.387011+00:00",
+  "generated_at": "2026-09-24T16:03:54.007779+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -26,7 +26,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-09-23T18:57:08.337188+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
@@ -42,7 +43,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-09-23T18:57:08.337167+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|122.7||10179",
@@ -58,7 +60,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-09-23T15:10:39.413322+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.5||10179",
@@ -74,7 +77,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-09-23T15:10:39.413297+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.grandcityproperty.de/wohnung-berlin::|||10115",
@@ -176,7 +180,8 @@
       "source_name": "kip.net",
       "found_at": "2026-09-22T10:40:22.972514+00:00",
       "also_on": [],
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|82|1990|10707",
@@ -210,8 +215,7 @@
       "site_url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
       "source_name": "rbb-immo.de",
       "found_at": "2026-09-21T08:51:24.437020+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-23T19:14:57.280040+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5.0|198||10117",
@@ -261,7 +265,8 @@
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
       "found_at": "2026-09-19T09:11:11.315710+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
@@ -277,7 +282,8 @@
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
       "found_at": "2026-09-19T09:11:11.315469+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|130.0||10115",
@@ -498,7 +504,8 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-04T08:50:54.500258+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::4|109.75|1461.92|10439",
@@ -574,7 +581,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-09-03T15:09:07.948557+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.87||10179",
@@ -838,7 +846,8 @@
       "site_url": "https://www.ivf-immobilien.com/immobilien/mieten/",
       "source_name": "ivf-immobilien.com",
       "found_at": "2026-08-26T09:42:23.310642+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-24T16:03:54.007779+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3.0|83.45|2100.0|10249",
@@ -1031,6 +1040,10 @@
     }
   ],
   "time_online": {
+    "wbm.de": {
+      "median_hours": 384.5,
+      "samples": 10
+    },
     "grandcityproperty.de": {
       "median_hours": 273.6,
       "samples": 4
@@ -1040,8 +1053,12 @@
       "samples": 3
     },
     "kip.net": {
-      "median_hours": 427.0,
-      "samples": 11
+      "median_hours": 282.8,
+      "samples": 12
+    },
+    "caseaberlino.com": {
+      "median_hours": 292.7,
+      "samples": 4
     },
     "hihc.de": {
       "median_hours": 139.4,
@@ -1059,20 +1076,16 @@
       "median_hours": 244.1,
       "samples": 2
     },
+    "apartberlin.de": {
+      "median_hours": 530.1,
+      "samples": 2
+    },
     "habitare-immobilien.de": {
       "median_hours": 378.0,
       "samples": 3
     },
-    "wbm.de": {
-      "median_hours": 384.5,
-      "samples": 5
-    },
     "pandion-service.de": {
       "median_hours": 490.5,
-      "samples": 2
-    },
-    "caseaberlino.com": {
-      "median_hours": 486.9,
       "samples": 2
     }
   }

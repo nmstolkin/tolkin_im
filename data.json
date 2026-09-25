@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T15:46:46.658453+00:00",
+  "generated_at": "2026-09-25T19:30:25.294835+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -26,7 +26,8 @@
       "site_url": "https://carat24-immobilien.de/zur-miete/",
       "source_name": "carat24-immobilien.de",
       "found_at": "2026-09-25T13:52:42.553605+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-25T19:30:25.294835+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
@@ -42,7 +43,8 @@
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
       "found_at": "2026-09-25T10:55:28.322109+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-25T19:30:25.294835+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
@@ -74,7 +76,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-24T19:43:23.050898+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-25T19:30:25.294835+00:00"
     },
     {
       "key": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::|||berlin neukölln",
@@ -106,8 +109,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-24T18:51:38.259241+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-25T14:27:12.969233+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -123,8 +125,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-24T18:51:38.259192+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-25T14:27:12.969233+00:00"
+      "still_listed": true
     }
   ],
   "near_misses": [
@@ -177,10 +178,5 @@
       "miss_reason": "miete"
     }
   ],
-  "time_online": {
-    "kip.net": {
-      "median_hours": 19.6,
-      "samples": 2
-    }
-  }
+  "time_online": {}
 }

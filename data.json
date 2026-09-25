@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T19:48:05.025687+00:00",
+  "generated_at": "2026-09-25T10:57:45.760217+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,36 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
+      "title": "Blow Up, 4. OG",
+      "rooms": 3,
+      "size_qm": 125,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-09-25T10:55:28.322109+00:00"
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
+      "title": "Das Wunder von Berlin",
+      "rooms": 4.0,
+      "size_qm": 115.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-09-25T10:55:28.321260+00:00"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
       "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",

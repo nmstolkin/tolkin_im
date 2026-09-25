@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T10:57:45.760217+00:00",
+  "generated_at": "2026-09-25T14:27:12.969233+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -13,6 +13,22 @@
   },
   "matches": [
     {
+      "key": "https://carat24-immobilien.de/zur-miete/::|118||10435",
+      "title": "Große Gewerbeeinheit im Prenzlauer Berg",
+      "rooms": null,
+      "size_qm": 118,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10435",
+      "street": "Wörther Straße 6",
+      "url": "https://carat24-immobilien.de/zur-miete/",
+      "site_url": "https://carat24-immobilien.de/zur-miete/",
+      "source_name": "carat24-immobilien.de",
+      "found_at": "2026-09-25T13:52:42.553605+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
       "title": "Blow Up, 4. OG",
       "rooms": 3,
@@ -25,7 +41,8 @@
       "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
-      "found_at": "2026-09-25T10:55:28.322109+00:00"
+      "found_at": "2026-09-25T10:55:28.322109+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
@@ -40,7 +57,8 @@
       "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
-      "found_at": "2026-09-25T10:55:28.321260+00:00"
+      "found_at": "2026-09-25T10:55:28.321260+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
@@ -55,7 +73,8 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-09-24T19:43:23.050898+00:00"
+      "found_at": "2026-09-24T19:43:23.050898+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::|||berlin neukölln",
@@ -87,7 +106,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-24T18:51:38.259241+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-25T14:27:12.969233+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -103,10 +123,27 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-24T18:51:38.259192+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-25T14:27:12.969233+00:00"
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|76|2000|10439",
+      "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
+      "rooms": 4,
+      "size_qm": 76,
+      "rent": 2000.0,
+      "price_per_sqm": 26.3,
+      "district": null,
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-09-25T13:49:51.310206+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|72.1|1890|10407",
       "title": "3 Zimmer Wohnung",
@@ -140,5 +177,10 @@
       "miss_reason": "miete"
     }
   ],
-  "time_online": {}
+  "time_online": {
+    "kip.net": {
+      "median_hours": 19.6,
+      "samples": 2
+    }
+  }
 }

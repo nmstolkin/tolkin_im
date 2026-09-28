@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T19:53:43.126175+00:00",
+  "generated_at": "2026-09-28T12:46:41.932435+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,81 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.5||10179",
+      "title": "Familien-Maisonette-4-Zimmer-Wohnung mit Terrasse in Mitte Köpenicker Straße 105",
+      "rooms": 4,
+      "size_qm": 120.46,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-28T12:39:16.877446+00:00"
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|96.4||10179",
+      "title": "Exklusive 4-Zimmer-Wohnung mit Dachterrasse in Mitte Köpenicker Straße 105A",
+      "rooms": 4,
+      "size_qm": 96.4,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-28T12:39:16.877350+00:00"
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
+      "title": "Moderne Familien-4-Zimmer-Wohnung mit Dachterrasse in Mitte Köpenicker Straße 105A",
+      "rooms": 4,
+      "size_qm": 99.08,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-28T12:39:16.877316+00:00"
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|122.7||10179",
+      "title": "Stilvolle 5-Zimmer-Wohnung mit Terrasse in Top Lage von Mitte Köpenicker Straße 105A",
+      "rooms": 5,
+      "size_qm": 122.65,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-28T12:39:16.877278+00:00"
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|106.1||10179",
+      "title": "Wohnen in Mitte mit eigener Terrasse: Erstbezug 4-Zimmer-Wohnung Köpenicker Straße 105A",
+      "rooms": 4,
+      "size_qm": 106.1,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-28T12:39:16.877193+00:00"
+    },
     {
       "key": "https://carat24-immobilien.de/zur-miete/::|118||10435",
       "title": "Große Gewerbeeinheit im Prenzlauer Berg",
@@ -129,6 +204,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::3|79.8||10179",
+      "title": "Zeitgemäßes Wohnen: Attraktive 3-Zimmer-Wohnung zum Wohlfühlen Köpenicker Straße 115",
+      "rooms": 3,
+      "size_qm": 79.76,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 115",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-28T12:39:16.877384+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|76|2000|10439",
       "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T11:56:09.110347+00:00",
+  "generated_at": "2026-09-29T15:32:23.393570+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -26,7 +26,8 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-28T17:58:39.751937+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-29T15:32:23.393570+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.5||10179",
@@ -188,8 +189,7 @@
       "site_url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
       "source_name": "rbb-immo.de",
       "found_at": "2026-09-24T19:20:19.708728+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-28T18:56:32.774905+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|82|1990|10707",
@@ -205,7 +205,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-09-24T18:51:38.259241+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-29T15:32:23.393570+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -226,6 +227,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::3|75|1750|10405",
+      "title": "Wohnen am Kollwitzkiez – stilvolle 3-Zimmer-Wohnung, vollmöbliert",
+      "rooms": 3,
+      "size_qm": 75,
+      "rent": 1750,
+      "price_per_sqm": 23.3,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/",
+      "site_url": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/",
+      "source_name": "aden-immo.com",
+      "found_at": "2026-09-29T15:13:46.022182+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|2000|10439",
       "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
@@ -309,8 +326,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 59.9,
-      "samples": 2
+      "median_hours": 96.1,
+      "samples": 3
     }
   }
 }

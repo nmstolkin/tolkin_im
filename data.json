@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T17:26:40.608500+00:00",
+  "generated_at": "2026-09-29T21:47:11.953486+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
+      "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
+      "rooms": 5,
+      "size_qm": 198,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-29T21:44:43.058992+00:00"
+    },
     {
       "key": "https://apartberlin.de/unsere-objekte/::|||10559",
       "title": "Birkenstraße 13, 10559 Berlin",

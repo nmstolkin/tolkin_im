@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T21:47:11.953486+00:00",
+  "generated_at": "2026-09-30T08:37:47.189656+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -25,7 +25,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-09-29T21:44:43.058992+00:00"
+      "found_at": "2026-09-29T21:44:43.058992+00:00",
+      "still_listed": false,
+      "gone_since": "2026-09-30T08:37:47.189656+00:00"
     },
     {
       "key": "https://apartberlin.de/unsere-objekte/::|||10559",
@@ -41,8 +43,7 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-28T17:58:39.751937+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-29T15:32:23.393570+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.5||10179",
@@ -138,8 +139,7 @@
       "site_url": "https://carat24-immobilien.de/zur-miete/",
       "source_name": "carat24-immobilien.de",
       "found_at": "2026-09-25T13:52:42.553605+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-25T19:30:25.294835+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
@@ -204,7 +204,8 @@
       "site_url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
       "source_name": "rbb-immo.de",
       "found_at": "2026-09-24T19:20:19.708728+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-09-30T08:37:47.189656+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|82|1990|10707",
@@ -341,8 +342,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 96.1,
-      "samples": 3
+      "median_hours": 59.9,
+      "samples": 4
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T17:27:54.334978+00:00",
+  "generated_at": "2026-09-30T21:54:19.551270+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-09-30T21:50:11.453153+00:00",
+      "also_on": []
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
       "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
@@ -230,23 +246,6 @@
       "found_at": "2026-09-24T18:51:38.259241+00:00",
       "still_listed": false,
       "gone_since": "2026-09-29T15:32:23.393570+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-09-24T18:51:38.259192+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-28T18:56:32.774905+00:00"
     }
   ],
   "near_misses": [
@@ -373,8 +372,8 @@
       "samples": 2
     },
     "kip.net": {
-      "median_hours": 96.1,
-      "samples": 3
+      "median_hours": 70.2,
+      "samples": 2
     }
   }
 }

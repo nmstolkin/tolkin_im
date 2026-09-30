@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T08:37:47.189656+00:00",
+  "generated_at": "2026-09-30T11:43:51.913338+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -243,6 +243,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::3|72.0||10179",
+      "title": "3-Zimmer-Wohnung in Friedrichshain mit WBS 160 - 220",
+      "rooms": 3,
+      "size_qm": 72.05,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Friedrichshain",
+      "plz": "10179",
+      "street": "Lichtenberger Straße 20",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-09-30T11:42:01.915750+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::3|75|1750|10405",
       "title": "Wohnen am Kollwitzkiez – stilvolle 3-Zimmer-Wohnung, vollmöbliert",

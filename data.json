@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T18:43:41.017771+00:00",
+  "generated_at": "2026-10-01T23:02:42.604677+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-01T23:00:01.997528+00:00",
+      "also_on": []
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
       "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
@@ -26,24 +42,6 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-01T12:09:22.300449+00:00",
-      "also_on": [],
-      "still_listed": false,
-      "gone_since": "2026-10-01T15:56:01.076655+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-09-30T21:50:11.453153+00:00",
       "also_on": [],
       "still_listed": false,
       "gone_since": "2026-10-01T15:56:01.076655+00:00"
@@ -367,8 +365,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 20.9,
-      "samples": 4
+      "median_hours": 23.8,
+      "samples": 3
     },
     "wbm.de": {
       "median_hours": 51.4,

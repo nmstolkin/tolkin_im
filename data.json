@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T12:11:56.584556+00:00",
+  "generated_at": "2026-10-01T15:56:01.076655+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -26,7 +26,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-01T12:09:22.300449+00:00",
-      "also_on": []
+      "also_on": [],
+      "still_listed": false,
+      "gone_since": "2026-10-01T15:56:01.076655+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
@@ -42,7 +44,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-09-30T21:50:11.453153+00:00",
-      "also_on": []
+      "also_on": [],
+      "still_listed": false,
+      "gone_since": "2026-10-01T15:56:01.076655+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -58,7 +62,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-09-29T21:44:43.058992+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-01T15:56:01.076655+00:00"
     },
     {
       "key": "https://apartberlin.de/unsere-objekte/::|||10559",
@@ -74,7 +79,8 @@
       "site_url": "https://apartberlin.de/unsere-objekte/",
       "source_name": "apartberlin.de",
       "found_at": "2026-09-28T17:58:39.751937+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-01T15:56:01.076655+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.5||10179",
@@ -192,8 +198,7 @@
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
       "found_at": "2026-09-25T10:55:28.322109+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-30T16:00:26.235178+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
@@ -209,8 +214,7 @@
       "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
       "source_name": "caseaberlino.com",
       "found_at": "2026-09-25T10:55:28.321260+00:00",
-      "still_listed": false,
-      "gone_since": "2026-09-30T16:00:26.235178+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
@@ -362,13 +366,13 @@
     }
   ],
   "time_online": {
+    "kip.net": {
+      "median_hours": 20.9,
+      "samples": 4
+    },
     "wbm.de": {
       "median_hours": 51.4,
       "samples": 5
-    },
-    "caseaberlino.com": {
-      "median_hours": 125.1,
-      "samples": 2
     }
   }
 }

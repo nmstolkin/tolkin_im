@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T15:17:04.833139+00:00",
+  "generated_at": "2026-10-02T17:12:52.347550+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|82|1990|10707",
+      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
+      "rooms": 3,
+      "size_qm": 82,
+      "rent": 1990.0,
+      "price_per_sqm": 24.3,
+      "district": null,
+      "plz": "10707",
+      "street": "Olivaer Platz",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-02T17:08:53.541315+00:00",
+      "also_on": []
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
       "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
@@ -29,23 +45,6 @@
       "also_on": [],
       "still_listed": false,
       "gone_since": "2026-10-02T15:17:04.833139+00:00"
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
-      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
-      "rooms": 3,
-      "size_qm": 82.0,
-      "rent": 1990.0,
-      "price_per_sqm": 24.3,
-      "district": "Wilmersdorf",
-      "plz": "10707",
-      "street": "Olivaer Platz",
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-10-01T12:09:22.300449+00:00",
-      "also_on": [],
-      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",

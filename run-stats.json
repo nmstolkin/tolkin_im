@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-02T17:12:52.426812+00:00",
-  "listings_seen": 225,
-  "matches": 1,
+  "generated_at": "2026-10-02T21:42:20.433925+00:00",
+  "listings_seen": 224,
+  "matches": 0,
   "rejected": {
-    "zimmer": 166,
-    "groesse": 147,
-    "miete": 37,
-    "lage": 190
+    "zimmer": 171,
+    "groesse": 153,
+    "lage": 189,
+    "miete": 42
   },
-  "rejected_total": 540,
+  "rejected_total": 555,
   "sites_total": 15,
   "sites_with_errors": 1,
   "near_misses": 1,

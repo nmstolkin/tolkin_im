@@ -333,7 +333,7 @@ def fetch(url):
 # für den ganzen Lauf offengehalten (Startkosten nur einmal), nicht pro Seite.
 # ---------------------------------------------------------------------------
 _playwright_ctx = None  # (playwright_instance, browser)
-PLAYWRIGHT_WAIT_MS = 2500  # kurze Wartezeit nach dem Laden, falls Inhalte nachgeladen werden
+PLAYWRIGHT_WAIT_MS = 4000  # kurze Wartezeit nach dem Laden, falls Inhalte nachgeladen werden
 
 
 def _get_playwright_browser():
@@ -378,7 +378,17 @@ def fetch_rendered_html(url):
         return None
     try:
         page = browser.new_page(user_agent=HEADERS["User-Agent"])
-        page.goto(url, timeout=30000, wait_until="networkidle")
+        # "networkidle" wartet, bis gar keine Netzwerkaktivitaet mehr laeuft.
+        # Seiten mit Tracking, Chat-Widgets oder offenen Verbindungen erreichen
+        # das nie und laufen in den Timeout - obwohl die Inserate laengst da
+        # sind. Deshalb nur bis "domcontentloaded" warten und danach dem
+        # Nachladen eine feste Frist geben.
+        page.goto(url, timeout=45000, wait_until="domcontentloaded")
+        try:
+            # Kurz auf Ruhe hoffen, aber nicht darauf bestehen.
+            page.wait_for_load_state("networkidle", timeout=8000)
+        except Exception:
+            pass
         page.wait_for_timeout(PLAYWRIGHT_WAIT_MS)
         html = page.content()
         page.close()
@@ -1814,8 +1824,9 @@ def _run():
 
     print()
     print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")
-    print(f"Insgesamt {total_listings_seen} Inserat(e) erkannt, "
-          f"{sum(rejection_stats.values())} davon verworfen:")
+    print(f"Insgesamt {total_listings_seen} Inserat(e) erkannt. "
+          f"Verworfen nach Grund (ein Inserat kann an mehreren scheitern, "
+          f"die Summe liegt daher ueber der Zahl der Inserate):")
     for grund, anzahl in sorted(rejection_stats.items(), key=lambda x: -x[1]):
         print(f"   {grund}: {anzahl}")
     if errors:

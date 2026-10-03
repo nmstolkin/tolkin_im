@@ -130,6 +130,15 @@ CRITERIA = {
             "mommsenstrasse", "stuttgarter platz", "stuttgarter-platz",
             "kantstraße", "kantstrasse", "ludwigkirch", "richard-wagner-platz",
         ],
+        "viktoria_luise": [
+            "viktoria-luise-platz", "viktoria luise", "viktoria-luise",
+            "bayerisches viertel", "bayerischen viertel", "bayerischer platz",
+            "bayerischen platz", "winterfeldtplatz",
+            "winterfeldtstraße", "winterfeldtstrasse", "nollendorfplatz",
+            "barbarossaplatz", "barbarossastraße", "barbarossastrasse",
+            "motzstraße", "motzstrasse", "regensburger straße",
+            "regensburger strasse", "münchener straße", "muenchener strasse",
+        ],
         "tiergarten_moabit_spree": [
             "europacity", "heidestraße", "heidestrasse", "nordhafen",
             "spreebogen", "hauptbahnhof", "lehrter", "alt-moabit",
@@ -142,12 +151,18 @@ CRITERIA = {
         "prenzlauer_berg": True,
         "charlottenburg": True,
         "tiergarten_moabit_spree": True,
+        "viktoria_luise": True,
     },
     # in der App auf der Karte gezeichnetes, zusätzliches Suchgebiet
     "custom_area": {"enabled": False, "points": []},
     # False = Wohnungen, die einen Wohnberechtigungsschein voraussetzen,
     # werden ausgefiltert (ohne WBS ohnehin nicht anmietbar).
     "allow_wbs": False,
+    # Moeblierte Wohnungen und Zeitmieten sind ein anderes Produkt als eine
+    # dauerhafte Wohnung - und pro qm deutlich teurer. WG-Zimmer ebenso.
+    "allow_furnished": False,
+    "allow_temporary": False,
+    "allow_shared": False,
 }
 
 # Präzise Standortfilterung über Postleitzahlen (zuverlässiger als Bezirks-
@@ -192,6 +207,15 @@ SPREE_REFERENCE_POINTS = [
     (52.5175, 13.3800),  # Richtung Reichstag / Übergang zu Mitte
 ]
 SPREE_PROXIMITY_KM = 0.25  # "unmittelbar an der Spree"
+
+# Viktoria-Luise-Kiez in Schoeneberg. Wie bei Charlottenburg zaehlt der echte
+# Umkreis, nicht die Postleitzahl - "Schoeneberg" als Ortsteil waere viel zu
+# weit (reicht bis Tempelhof und Friedenau).
+VIKTORIA_LUISE_COORDS = (52.4958, 13.3415)
+VIKTORIA_LUISE_RADIUS_KM = 1.0
+VIKTORIA_LUISE_CANDIDATE_PLZ = {
+    "10777", "10779", "10781", "10783", "10825", "10827", "10789",
+}
 
 GEOCODE_RATE_LIMIT_SECONDS = 1.1  # Nominatim-Nutzungsregeln: max. 1 Anfrage/Sekunde
 _geocode_cache = {}
@@ -715,6 +739,15 @@ def is_within_charlottenburg_radius(listing):
     return distance <= CHARLOTTENBURG_RADIUS_KM
 
 
+def is_within_viktoria_luise_radius(listing):
+    """Prueft per Geocoding, ob ein Inserat innerhalb von
+    VIKTORIA_LUISE_RADIUS_KM um den Viktoria-Luise-Platz liegt."""
+    coords = geocode_address(_geocode_query_for_listing(listing))
+    if not coords:
+        return False
+    return haversine_km(*coords, *VIKTORIA_LUISE_COORDS) <= VIKTORIA_LUISE_RADIUS_KM
+
+
 def distance_to_spree_km(lat, lon):
     """Kürzester Abstand eines Punkts zum (grob angenäherten) Spreeverlauf,
     berechnet über Punkt-zu-Strecke-Distanz auf einer lokalen, ebenen
@@ -853,7 +886,60 @@ def mentions_area(area_key, haystack):
         return bool(re.search(r"\bcharlottenburg\b", haystack))
     if area_key == "tiergarten_moabit_spree":
         return bool(re.search(r"\b(tiergarten|moabit)\b", haystack))
+    if area_key == "viktoria_luise":
+        # bewusst KEIN generisches "schoeneberg" - der Ortsteil ist zu gross.
+        # Es zaehlen nur die Kiez- und Platznamen oben.
+        return False
     return False
+
+
+# Gewerbe ist keine Wohnung. Ohne diese Sperre landen Buero-, Laden- und
+# Praxisflaechen im Feed - in den echten Daten z.B. "Grosse Gewerbeeinheit im
+# Prenzlauer Berg" und "Buero-/Ladenflaeche in Neukoelln".
+_COMMERCIAL = re.compile(
+    r"\b(gewerbe|gewerbeeinheit|gewerbefl(ä|ae)che|b(ü|ue)ro|b(ü|ue)rofl(ä|ae)che|"
+    r"praxis|praxisfl(ä|ae)che|ladenfl(ä|ae)che|ladengesch(ä|ae)ft|laden|halle|"
+    r"lagerfl(ä|ae)che|atelierfl(ä|ae)che|stellplatz|tiefgarage|garage|"
+    r"duplex[- ]?stellplatz)\b"
+)
+
+
+_FURNISHED = re.compile(r"\b(m(ö|oe)bliert|vollm(ö|oe)bliert|teilm(ö|oe)bliert|furnished|"
+                        r"all[- ]inclusive|serviced apartment)\b")
+_TEMPORARY = re.compile(r"(wohnen auf zeit|auf zeit\b|zwischenmiete|zwischenvermietung|"
+                        r"befristet|befristete vermietung|max\.? \d+ monate|"
+                        r"\d+ monate\b|temporary|short[- ]?term)")
+_SHARED = re.compile(r"\b(wg[- ]zimmer|wg zimmer|zimmer in (einer |der )?wg|"
+                     r"shared (apartment|flat)|wohngemeinschaft|room in)\b")
+
+
+def _hay(listing):
+    return f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
+
+
+def looks_furnished(listing):
+    return bool(_FURNISHED.search(_hay(listing)))
+
+
+def looks_temporary(listing):
+    return bool(_TEMPORARY.search(_hay(listing)))
+
+
+def looks_shared(listing):
+    return bool(_SHARED.search(_hay(listing)))
+
+
+def looks_commercial(listing):
+    hay = f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
+    return bool(_COMMERCIAL.search(hay))
+
+
+def has_enough_data(listing):
+    """Ein Inserat ohne jede Kenngroesse ist nicht bewertbar. Mindestens
+    Zimmerzahl ODER Wohnflaeche muss vorliegen - sonst rutscht alles durch,
+    weil die Einzelpruefungen fehlende Werte bewusst durchlassen."""
+    return isinstance(listing.get("rooms"), (int, float)) \
+        or isinstance(listing.get("size_qm"), (int, float))
 
 
 def matches_criteria(listing):
@@ -866,6 +952,19 @@ def matches_criteria(listing):
         # Referenzobjekt ist ein Ausschluss eigener Art: hier lohnt keine
         # weitere Pruefung, die Wohnung ist ohnehin nicht zu haben.
         return False, ["referenzobjekt"]
+
+    if looks_commercial(listing):
+        return False, ["gewerbe"]
+
+    if not has_enough_data(listing):
+        return False, ["keine_daten"]
+
+    if looks_shared(listing) and not CRITERIA.get("allow_shared", False):
+        return False, ["wg_zimmer"]
+    if looks_furnished(listing) and not CRITERIA.get("allow_furnished", False):
+        return False, ["moebliert"]
+    if looks_temporary(listing) and not CRITERIA.get("allow_temporary", False):
+        return False, ["zeitmiete"]
 
     if listing.get("wbs_required") and not CRITERIA.get("allow_wbs", False):
         return False, ["wbs"]
@@ -898,6 +997,9 @@ def matches_criteria(listing):
     looks_like_tiergarten_moabit = areas.get("tiergarten_moabit_spree", True) and (
         plz in TIERGARTEN_MOABIT_CANDIDATE_PLZ or mentions_area("tiergarten_moabit_spree", haystack)
     )
+    looks_like_viktoria_luise = areas.get("viktoria_luise", True) and (
+        plz in VIKTORIA_LUISE_CANDIDATE_PLZ or mentions_area("viktoria_luise", haystack)
+    )
     allowed_plz_now = set()
     if areas.get("mitte", True):
         allowed_plz_now |= PLZ_MITTE
@@ -919,6 +1021,9 @@ def matches_criteria(listing):
     elif looks_like_tiergarten_moabit:
         # Tiergarten/Moabit: nur zulassen, wenn unmittelbar an der Spree
         location_ok = is_within_spree_proximity(listing)
+    elif looks_like_viktoria_luise:
+        # Schoeneberg: nur der Kiez um den Viktoria-Luise-Platz
+        location_ok = is_within_viktoria_luise_radius(listing)
     elif plz:
         location_ok = plz in allowed_plz_now
     else:
@@ -947,6 +1052,9 @@ def matches_criteria(listing):
                     location_ok = True
                 elif areas.get("tiergarten_moabit_spree", True) and \
                         distance_to_spree_km(*coords) <= SPREE_PROXIMITY_KM:
+                    location_ok = True
+                elif areas.get("viktoria_luise", True) and \
+                        haversine_km(*coords, *VIKTORIA_LUISE_COORDS) <= VIKTORIA_LUISE_RADIUS_KM:
                     location_ok = True
 
         if not location_ok and not STRICT_LOCATION_FILTER:
@@ -1439,7 +1547,11 @@ def _run():
     seen = load_json(SEEN_FILE, {})       # {site_url: [listing_key, ...]}
     hashes = load_json(HASH_FILE, {})     # {site_url: content_hash}
     status = load_json(STATUS_FILE, {})   # {site_url: {status, error, last_checked, last_success}}
-    status = {u: status[u] for u in sites if u in status}  # entfernte URLs aufräumen
+    # Nur der vollstaendige Lauf darf entfernte URLs aus dem Status werfen.
+    # Der Schnell-Lauf kennt nur 15 Quellen und wuerde sonst den Status der
+    # uebrigen ~98 loeschen.
+    if SITES_FILE == "sites.json":
+        status = {u: status[u] for u in sites if u in status}
     errors = {}
 
     load_geocode_cache()
@@ -1453,8 +1565,9 @@ def _run():
     for area_key in CRITERIA["areas"]:
         if area_key in cfg_criteria.get("areas", {}):
             CRITERIA["areas"][area_key] = bool(cfg_criteria["areas"][area_key])
-    if "allow_wbs" in cfg_criteria:
-        CRITERIA["allow_wbs"] = bool(cfg_criteria["allow_wbs"])
+    for flag in ("allow_wbs", "allow_furnished", "allow_temporary", "allow_shared"):
+        if flag in cfg_criteria:
+            CRITERIA[flag] = bool(cfg_criteria[flag])
     if "custom_area" in cfg_criteria:
         CRITERIA["custom_area"] = cfg_criteria["custom_area"]
         n_points = len(CRITERIA["custom_area"].get("points") or [])

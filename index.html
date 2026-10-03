@@ -569,6 +569,9 @@
       <div class="toggle-row"><span class="label">Tiergarten/Moabit (Spreeufer)</span>
         <label class="switch"><input type="checkbox" id="areaTiergartenMoabit"><span class="slider"></span></label>
       </div>
+      <div class="toggle-row"><span class="label">Viktoria-Luise-Kiez (1km um den Platz)</span>
+        <label class="switch"><input type="checkbox" id="areaViktoriaLuise"><span class="slider"></span></label>
+      </div>
     </div>
 
     <div class="settings-card">
@@ -873,6 +876,11 @@ function renderRunStats(){
     zimmer: 'zu wenige Zimmer',
     referenzobjekt: 'Referenz / bereits vermietet',
     wbs: 'WBS erforderlich',
+    gewerbe: 'Gewerbe statt Wohnung',
+    keine_daten: 'keine verwertbaren Angaben',
+    moebliert: 'möbliert',
+    zeitmiete: 'Zeitmiete / befristet',
+    wg_zimmer: 'WG-Zimmer',
   };
   const rej = runStats.rejected || {};
   const rows = Object.keys(rej)
@@ -1082,6 +1090,8 @@ const DISTRICT_COORDS = {
   'prenzlauer berg': [52.5390, 13.4245],
   'prenzlauer': [52.5390, 13.4245],
   'charlottenburg': [52.5150, 13.3050],
+  'schöneberg': [52.4958, 13.3415],
+  'schoeneberg': [52.4958, 13.3415],
 };
 const BERLIN_FALLBACK = [52.5170, 13.3890];
 
@@ -1268,6 +1278,7 @@ function applyConfigToForm(cfg){
   document.getElementById('areaPrenzlauerBerg').checked = areas.prenzlauer_berg !== false;
   document.getElementById('areaCharlottenburg').checked = areas.charlottenburg !== false;
   document.getElementById('areaTiergartenMoabit').checked = areas.tiergarten_moabit_spree !== false;
+  document.getElementById('areaViktoriaLuise').checked = areas.viktoria_luise !== false;
 }
 
 async function loadSettingsPanel(){

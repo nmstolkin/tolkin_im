@@ -398,10 +398,27 @@ def fetch_rendered_html(url):
         return None
 
 
+# Elemente, deren class/id auf Navigation, Cookie-Banner, Fuss- oder Kopfzeile
+# hindeutet. Die fressen sonst das Zeichenbudget auf, bevor die Inserate kommen -
+# im Diagnoselauf endeten 8 Seiten exakt bei 12.000 Zeichen, mitten im Menue.
+_NOISE_ATTR = re.compile(
+    r"(cookie|consent|gdpr|datenschutzhinweis|banner|navbar|navigation|mainmenu|"
+    r"hauptmenu|megamenu|breadcrumb|sidebar|offcanvas|modal|popup|overlay|"
+    r"skip-link|social|newsletter|footer|header|topbar|kontaktformular)"
+)
+
+
 def extract_text(html):
     soup = BeautifulSoup(html, "html.parser")
-    for tag in soup(["script", "style", "nav", "footer", "svg", "noscript"]):
+    for tag in soup(["script", "style", "nav", "footer", "header", "aside",
+                     "form", "svg", "noscript", "iframe", "template"]):
         tag.decompose()
+    # zusaetzlich alles wegwerfen, was sich per class/id als Beiwerk ausweist
+    for tag in soup.find_all(attrs={"class": _NOISE_ATTR}):
+        tag.decompose()
+    for tag in soup.find_all(attrs={"id": _NOISE_ATTR}):
+        tag.decompose()
+
     text = soup.get_text(separator=" ", strip=True)
     text = re.sub(r"\s+", " ", text)
     return text[:MAX_TEXT_CHARS]

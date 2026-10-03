@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T15:50:25.092583+00:00",
+  "generated_at": "2026-10-03T16:33:31.072102+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -26,7 +26,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-10-02T17:08:53.541315+00:00",
-      "also_on": []
+      "also_on": [],
+      "still_listed": false,
+      "gone_since": "2026-10-03T16:33:31.072102+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -365,8 +367,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 23.8,
-      "samples": 3
+      "median_hours": 23.6,
+      "samples": 4
     },
     "wbm.de": {
       "median_hours": 51.4,

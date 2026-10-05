@@ -13,6 +13,7 @@
   },
   "https://www.core-berlin.de/vermietung": {
     "source_name": "core-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:41:46.461660+00:00",
     "status": "ok",
     "error": null,
@@ -21,6 +22,16 @@
     "consecutive_bad_runs": 0,
     "hopeless": false,
     "last_listing_count_at": "2026-10-05T12:41:46.461660+00:00",
+=======
+    "last_checked": "2026-10-05T13:15:51.187393+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:15:51.187393+00:00",
+    "last_listing_count": 7,
+    "consecutive_bad_runs": 0,
+    "hopeless": false,
+    "last_listing_count_at": "2026-10-05T13:15:51.187393+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1
   },
   "https://imms-immobilien.de/mietobjekte/": {
@@ -37,12 +48,21 @@
   },
   "https://inberlinwohnen.de/wohnungsfinder/": {
     "source_name": "inberlinwohnen.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:42:20.168058+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:42:20.168058+00:00",
     "last_listing_count": 10,
     "last_listing_count_at": "2026-10-05T12:42:20.168058+00:00",
+=======
+    "last_checked": "2026-10-05T13:15:52.580585+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:15:52.580585+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-05T13:15:52.580585+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -109,12 +129,21 @@
   },
   "https://www.woelki-pm.de/#nean": {
     "source_name": "woelki-pm.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:44:35.443770+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:44:35.443770+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-05T12:44:35.443770+00:00",
+=======
+    "last_checked": "2026-10-05T13:18:31.620809+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:18:31.620809+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-05T13:18:31.620809+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -182,6 +211,7 @@
   },
   "https://www.kip.net/berlin/mieten/wohnungen/1": {
     "source_name": "kip.net",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:45:56.128048+00:00",
     "status": "ok",
     "error": null,
@@ -189,6 +219,15 @@
     "last_listing_count": 20,
     "last_listing_count_at": "2026-10-05T12:45:56.128048+00:00",
     "pages_checked": 1,
+=======
+    "last_checked": "2026-10-05T13:15:51.134163+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:15:51.134163+00:00",
+    "last_listing_count": 20,
+    "last_listing_count_at": "2026-10-05T13:15:51.134163+00:00",
+    "pages_checked": 3,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
@@ -286,12 +325,21 @@
   },
   "https://carat24-immobilien.de/zur-miete/": {
     "source_name": "carat24-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:48:06.948705+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:48:06.948705+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-05T12:48:06.948705+00:00",
+=======
+    "last_checked": "2026-10-05T13:17:17.737104+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:17:17.737104+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-05T13:17:17.737104+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -358,12 +406,21 @@
   },
   "https://www.grandcityproperty.de/wohnung-berlin": {
     "source_name": "grandcityproperty.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:49:14.077546+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:49:14.077546+00:00",
     "last_listing_count": 4,
     "last_listing_count_at": "2026-10-05T12:49:14.077546+00:00",
+=======
+    "last_checked": "2026-10-05T13:18:31.741037+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:18:31.741037+00:00",
+    "last_listing_count": 4,
+    "last_listing_count_at": "2026-10-05T13:18:31.741037+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -419,12 +476,21 @@
   },
   "https://aden-immo.com/immobilien-berlin/wohnung-mieten/": {
     "source_name": "aden-immo.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:50:35.997778+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:50:35.997778+00:00",
     "last_listing_count": 5,
     "last_listing_count_at": "2026-10-05T12:50:35.997778+00:00",
+=======
+    "last_checked": "2026-10-05T13:17:47.543369+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:17:47.543369+00:00",
+    "last_listing_count": 5,
+    "last_listing_count_at": "2026-10-05T13:17:47.543369+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -515,12 +581,21 @@
   },
   "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": {
     "source_name": "klingerimmobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:53:13.234368+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:53:13.234368+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-05T12:53:13.234368+00:00",
+=======
+    "last_checked": "2026-10-05T13:18:11.253535+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:18:11.253535+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-05T13:18:11.253535+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -599,12 +674,21 @@
   },
   "https://www.wbm.de/wohnungen-berlin/angebote/": {
     "source_name": "wbm.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:54:58.184546+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:54:58.184546+00:00",
     "last_listing_count": 12,
     "last_listing_count_at": "2026-10-05T12:54:58.184546+00:00",
+=======
+    "last_checked": "2026-10-05T13:15:52.605964+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:15:52.605964+00:00",
+    "last_listing_count": 12,
+    "last_listing_count_at": "2026-10-05T13:15:52.605964+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -799,12 +883,21 @@
   },
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": {
     "source_name": "kip.net",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:58:13.154139+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:58:13.154139+00:00",
     "last_listing_count": 20,
     "last_listing_count_at": "2026-10-05T12:58:13.154139+00:00",
+=======
+    "last_checked": "2026-10-05T13:15:51.178630+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:15:51.178630+00:00",
+    "last_listing_count": 20,
+    "last_listing_count_at": "2026-10-05T13:15:51.178630+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -823,12 +916,21 @@
   },
   "https://www.habitare-immobilien.de/angebote": {
     "source_name": "habitare-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:58:56.995318+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:58:56.995318+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-05T12:58:56.995318+00:00",
+=======
+    "last_checked": "2026-10-05T13:16:18.058792+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:16:18.058792+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-05T13:16:18.058792+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false,
@@ -836,12 +938,21 @@
   },
   "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": {
     "source_name": "lanzundmelzer.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:58:57.008121+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:58:57.008121+00:00",
     "last_listing_count": 6,
     "last_listing_count_at": "2026-10-05T12:58:57.008121+00:00",
+=======
+    "last_checked": "2026-10-05T13:18:11.267361+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:18:11.267361+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-05T13:18:11.267361+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -860,12 +971,21 @@
   },
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": {
     "source_name": "pandion-service.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T12:59:10.022630+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T12:59:10.022630+00:00",
     "last_listing_count": 13,
     "last_listing_count_at": "2026-10-05T12:59:10.022630+00:00",
+=======
+    "last_checked": "2026-10-05T13:16:18.096825+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:16:18.096825+00:00",
+    "last_listing_count": 13,
+    "last_listing_count_at": "2026-10-05T13:16:18.096825+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -1218,36 +1338,63 @@
   },
   "https://www.qh-living.com/wohnungen": {
     "source_name": "qh-living.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T13:11:02.772941+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T13:11:02.772941+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-05T13:11:02.772941+00:00",
+=======
+    "last_checked": "2026-10-05T13:16:57.961643+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:16:57.961643+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-05T13:16:57.961643+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.mueller-merkle.de/projekte/europacity-ensembles/": {
     "source_name": "mueller-merkle.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T13:11:31.132050+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T13:11:31.132050+00:00",
     "last_listing_count": 18,
     "last_listing_count_at": "2026-10-05T13:11:31.132050+00:00",
+=======
+    "last_checked": "2026-10-05T13:17:17.621009+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:17:17.621009+00:00",
+    "last_listing_count": 18,
+    "last_listing_count_at": "2026-10-05T13:17:17.621009+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/": {
     "source_name": "mueller-merkle.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-05T13:11:31.149866+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-05T13:11:31.149866+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-05T13:11:31.149866+00:00",
+=======
+    "last_checked": "2026-10-05T13:17:17.643653+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:17:17.643653+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-05T13:17:17.643653+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
@@ -1284,6 +1431,18 @@
     "last_success": null,
     "last_listing_count": null,
     "consecutive_bad_runs": 3,
+    "hopeless": false
+  },
+  "https://tki.berlin/immobilien-vermarktungsart/miete/": {
+    "source_name": "tki.berlin",
+    "last_checked": "2026-10-05T13:16:45.523542+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-05T13:16:45.523542+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-05T13:16:45.523542+00:00",
+    "pages_checked": 3,
+    "consecutive_bad_runs": 0,
     "hopeless": false
   }
 }

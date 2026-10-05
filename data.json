@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-10-05T13:12:24.741139+00:00",
+=======
+  "generated_at": "2026-10-05T13:18:31.745550+00:00",
+>>>>>>> Stashed changes
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -276,13 +280,21 @@
       "size_qm": 121.7,
       "rent": 2314.0,
       "price_per_sqm": 19.0,
+<<<<<<< Updated upstream
       "district": "Charlottenburg-Wilmersdorf",
+=======
+      "district": "Charlottenburg",
+>>>>>>> Stashed changes
       "plz": "10629",
       "street": "Clausewitzstraße 1",
       "url": "https://www.core-berlin.de/vermietung",
       "site_url": "https://www.core-berlin.de/vermietung",
       "source_name": "core-berlin.de",
+<<<<<<< Updated upstream
       "found_at": "2026-10-05T12:41:47.695153+00:00",
+=======
+      "found_at": "2026-10-05T13:15:52.506390+00:00",
+>>>>>>> Stashed changes
       "miss_reason": "miete"
     },
     {

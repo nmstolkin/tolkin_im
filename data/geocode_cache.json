@@ -324,6 +324,7 @@
   "Clausewitzstraße 1, 10629, Berlin, Germany": [
     52.5017359,
     13.3094176
+<<<<<<< Updated upstream
   ],
   "Bremer Straße 12, 10551, Berlin, Germany": [
     52.5295779,
@@ -331,4 +332,7 @@
   ],
   "GROßZÜGIGE ALTBAUWOHNUNG MIT PRIVATER TERRASSE UND EIGENEM GARTEN, 10777, Berlin, Germany": null,
   "Charmantes, voll möbliertes 1-Zimmer-Apartment, 10825, Berlin, Germany": null
+=======
+  ]
+>>>>>>> Stashed changes
 }

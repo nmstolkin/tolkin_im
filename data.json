@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T21:28:42.716424+00:00",
+  "generated_at": "2026-10-06T12:33:32.241504+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-06T12:31:21.478705+00:00"
+    },
     {
       "key": "https://www.core-berlin.de/vermietung::|409||10439",
       "title": "Erstbezug Erdgeschoss Ladenbüro Nähe Schönhauser Allee",

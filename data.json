@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T12:33:32.241504+00:00",
+  "generated_at": "2026-10-06T15:46:32.765928+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -13,6 +13,22 @@
   },
   "matches": [
     {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
+      "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
+      "rooms": 5,
+      "size_qm": 198,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-06T15:35:43.015466+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
       "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
       "rooms": 4,
@@ -25,7 +41,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-10-06T12:31:21.478705+00:00"
+      "found_at": "2026-10-06T12:31:21.478705+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-06T15:46:32.765928+00:00"
     },
     {
       "key": "https://www.core-berlin.de/vermietung::|409||10439",
@@ -41,7 +59,8 @@
       "site_url": "https://www.core-berlin.de/vermietung",
       "source_name": "core-berlin.de",
       "found_at": "2026-10-05T17:12:07.460499+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-06T15:46:32.765928+00:00"
     }
   ],
   "near_misses": [

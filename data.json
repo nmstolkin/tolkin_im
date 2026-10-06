@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T15:46:32.765928+00:00",
+  "generated_at": "2026-10-06T18:47:59.934208+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-06T18:45:18.066168+00:00",
+      "also_on": []
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
       "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
@@ -27,23 +43,6 @@
       "source_name": "kip.net",
       "found_at": "2026-10-06T15:35:43.015466+00:00",
       "still_listed": true
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-10-06T12:31:21.478705+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-06T15:46:32.765928+00:00"
     },
     {
       "key": "https://www.core-berlin.de/vermietung::|409||10439",
@@ -64,6 +63,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2300|10179",
+      "title": "3 Zimmer – DG Wohnung",
+      "rooms": 3.0,
+      "size_qm": 85.42,
+      "rent": 2300.0,
+      "price_per_sqm": 26.9,
+      "district": "Berlin",
+      "plz": "10179",
+      "street": null,
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-10-06T18:45:46.102511+00:00",
+      "miss_reason": "miete"
+    },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
       "title": "Schöne 3 Zimmer Wohnung",

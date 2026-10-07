@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T16:14:45.246975+00:00",
+  "generated_at": "2026-10-07T19:14:02.672330+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -13,22 +13,35 @@
   },
   "matches": [
     {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
+      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
+      "rooms": 3,
+      "size_qm": 82,
+      "rent": 1990.0,
+      "price_per_sqm": 24.3,
+      "district": null,
+      "plz": "10707",
+      "street": "Olivaer Platz",
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-10-06T18:45:18.066168+00:00",
-      "also_on": [],
-      "still_listed": false,
-      "gone_since": "2026-10-07T16:14:45.246975+00:00"
+      "found_at": "2026-10-07T19:11:21.731529+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114.0,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Berlin",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-07T19:11:20.377719+00:00",
+      "also_on": []
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -115,10 +128,5 @@
       "miss_reason": "miete"
     }
   ],
-  "time_online": {
-    "kip.net": {
-      "median_hours": 23.1,
-      "samples": 2
-    }
-  }
+  "time_online": {}
 }

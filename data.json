@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T12:37:17.388750+00:00",
+  "generated_at": "2026-10-08T16:03:44.842685+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -13,6 +13,86 @@
   },
   "matches": [
     {
+      "key": "https://www.covivio.immo/wohnen/immobilie-finden/::4|96.3|1535|10117",
+      "title": "Zuhause in Raum und Zeit ~ ganz und gar anders",
+      "rooms": 4,
+      "size_qm": 96.28,
+      "rent": 1535.0,
+      "price_per_sqm": 15.9,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": "Tucholskystr. 18",
+      "url": "https://www.covivio.immo/wohnen/immobilie-finden/",
+      "site_url": "https://www.covivio.immo/wohnen/immobilie-finden/",
+      "source_name": "covivio.immo",
+      "found_at": "2026-10-08T16:01:58.532356+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.2||10179",
+      "title": "Wohnen in Mitte mit eigener Terrasse: Erstbezug 4-Zimmer-Wohnung",
+      "rooms": 4,
+      "size_qm": 105.2,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 111",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-08T15:49:35.239982+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|97.7||10179",
+      "title": "Einzigartige 4-Zimmer-Wohnung mit Dachterrasse in Mitte",
+      "rooms": 4,
+      "size_qm": 97.65,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-08T15:49:35.239922+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|98.8||10179",
+      "title": "Exklusive 4-Zimmer-Wohnung mit Terrasse in Mitte",
+      "rooms": 4,
+      "size_qm": 98.77,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-08T15:49:35.239895+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
+      "title": "Moderne 4-Zimmer-Wohnung mit Dachterrasse in Mitte",
+      "rooms": 4,
+      "size_qm": 99.13,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-08T15:49:35.239863+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
       "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
       "rooms": 3,
@@ -25,7 +105,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
-      "found_at": "2026-10-07T19:11:21.731529+00:00"
+      "found_at": "2026-10-07T19:11:21.731529+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-08T16:03:44.842685+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -41,7 +123,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-10-07T19:11:20.377719+00:00",
-      "also_on": []
+      "also_on": [],
+      "still_listed": false,
+      "gone_since": "2026-10-08T16:03:44.842685+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -128,5 +212,10 @@
       "miss_reason": "miete"
     }
   ],
-  "time_online": {}
+  "time_online": {
+    "kip.net": {
+      "median_hours": 20.9,
+      "samples": 3
+    }
+  }
 }

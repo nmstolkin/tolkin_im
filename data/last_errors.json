@@ -1,1 +1,11 @@
-{}
+{
+  "https://www.hausverwaltung-kolbe.de/": "403 Client Error: Forbidden for url: https://www.hausverwaltung-kolbe.de/",
+  "http://www.hvp-berlin.de/Wohnen.html": "500 Server Error: Internal Server Error for url: http://www.hvp-berlin.de/Wohnen.html",
+  "https://www.achat-hausverwaltung.de/": "HTTPSConnectionPool(host='www.achat-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016)')))",
+  "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
+  "https://www.optima-hausverwaltung.de/": "HTTPSConnectionPool(host='www.optima-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.optima-hausverwaltung.de', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+  "https://www.hilfswerk-siedlung.de/": "HTTPSConnectionPool(host='www.hilfswerk-siedlung.de', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.hilfswerk-siedlung.de', port=443): Failed to resolve 'www.hilfswerk-siedlung.de' ([Errno -2] Name or service not known)\"))",
+  "https://www.fantasticfrank.com/en/berlin/for-rent/": "429 Client Error: Too Many Requests for url: https://www.fantasticfrank.com/en/berlin/for-rent/",
+  "https://www.von-poll.com/de/wohnung-mieten/berlin": "403 Client Error: Forbidden for url: https://www.von-poll.com/de/wohnung-mieten/berlin",
+  "https://moellerherm-immobilien.de/aktuelle-angebote-wohnen/": "403 Client Error: Forbidden for url: https://moellerherm-immobilien.de/aktuelle-angebote-wohnen/"
+}

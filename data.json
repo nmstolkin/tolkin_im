@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T19:15:09.999198+00:00",
+  "generated_at": "2026-10-09T12:24:44.217503+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|122.7||10179",
+      "title": "Stilvolle 5-Zimmer-Wohnung mit Terrasse in Top Lage von Mitte",
+      "rooms": 5,
+      "size_qm": 122.65,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-09T12:22:07.515894+00:00"
+    },
     {
       "key": "https://www.covivio.immo/wohnen/immobilie-finden/::4|96.3|1535|10117",
       "title": "Zuhause in Raum und Zeit ~ ganz und gar anders",

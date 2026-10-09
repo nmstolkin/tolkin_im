@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T16:02:44.701219+00:00",
+  "generated_at": "2026-10-09T18:48:56.666287+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -12,6 +12,37 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.core-berlin.de/vermietung::3|121.7||10629",
+      "title": "Dachgeschoss nahe Adenauer Platz",
+      "rooms": 3,
+      "size_qm": 121.7,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Charlottenburg",
+      "plz": "10629",
+      "street": "Clausewitzstraße 1",
+      "url": "https://www.core-berlin.de/vermietung",
+      "site_url": "https://www.core-berlin.de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-10-09T18:44:30.450733+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-09T18:44:30.442346+00:00",
+      "also_on": []
+    },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
       "title": "Schöner Altbau urban+ruhig nahe Senefelderplatz 3 Zimmer+Wohnküche+ ...",
@@ -155,24 +186,6 @@
       "source_name": "kip.net",
       "found_at": "2026-10-07T19:11:21.731529+00:00",
       "still_listed": true
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114.0,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Berlin",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-10-07T19:11:20.377719+00:00",
-      "also_on": [],
-      "still_listed": false,
-      "gone_since": "2026-10-08T16:03:44.842685+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T14:02:42.159154+00:00",
+  "generated_at": "2026-10-12T18:28:44.838348+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -25,7 +25,9 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-10-12T14:00:16.481654+00:00"
+      "found_at": "2026-10-12T14:00:16.481654+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|180||mitte",
@@ -41,7 +43,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850155+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
@@ -57,7 +60,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850107+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||mitte",
@@ -73,7 +77,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850060+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|178||mitte",
@@ -89,7 +94,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850005+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|330||mitte",
@@ -105,7 +111,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849685+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|160||mitte",
@@ -121,7 +128,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849437+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|206||mitte",
@@ -137,7 +145,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849387+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::6|563||prenzlauer berg",
@@ -153,7 +162,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849274+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -169,7 +179,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849084+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -201,7 +212,8 @@
       "site_url": "https://www.core-berlin.de/vermietung",
       "source_name": "core-berlin.de",
       "found_at": "2026-10-09T18:44:30.450733+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
@@ -285,7 +297,8 @@
       "site_url": "https://www.covivio.immo/wohnen/immobilie-finden/",
       "source_name": "covivio.immo",
       "found_at": "2026-10-08T16:01:58.532356+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-12T18:28:44.838348+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.2||10179",
@@ -487,8 +500,16 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 93.0,
-      "samples": 3
+      "median_hours": 69.3,
+      "samples": 4
+    },
+    "engelvoelkers.com": {
+      "median_hours": 26.3,
+      "samples": 9
+    },
+    "core-berlin.de": {
+      "median_hours": 47.2,
+      "samples": 2
     },
     "smartsite2.myonoffice.de": {
       "median_hours": 48.4,

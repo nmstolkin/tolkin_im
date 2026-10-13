@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T13:46:07.966667+00:00",
+  "generated_at": "2026-10-13T19:16:32.058583+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -43,8 +43,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850155+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
@@ -60,8 +59,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850107+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||mitte",
@@ -77,8 +75,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850060+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|178||mitte",
@@ -94,8 +91,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.850005+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|330||mitte",
@@ -111,8 +107,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849685+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|160||mitte",
@@ -128,8 +123,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849437+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|206||mitte",
@@ -145,8 +139,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849387+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::6|563||prenzlauer berg",
@@ -162,8 +155,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849274+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -179,8 +171,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-11T16:08:54.849084+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -281,7 +272,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-09T12:22:07.515894+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-13T19:16:32.058583+00:00"
     },
     {
       "key": "https://www.covivio.immo/wohnen/immobilie-finden/::4|96.3|1535|10117",
@@ -314,7 +306,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-08T15:49:35.239982+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-13T19:16:32.058583+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|97.7||10179",
@@ -330,7 +323,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-08T15:49:35.239922+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-13T19:16:32.058583+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|98.8||10179",
@@ -346,7 +340,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-08T15:49:35.239895+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-13T19:16:32.058583+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
@@ -362,7 +357,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-08T15:49:35.239863+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-13T19:16:32.058583+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -503,10 +499,6 @@
       "median_hours": 69.3,
       "samples": 4
     },
-    "engelvoelkers.com": {
-      "median_hours": 26.3,
-      "samples": 9
-    },
     "core-berlin.de": {
       "median_hours": 47.2,
       "samples": 2
@@ -514,6 +506,10 @@
     "smartsite2.myonoffice.de": {
       "median_hours": 48.4,
       "samples": 2
+    },
+    "wbm.de": {
+      "median_hours": 123.4,
+      "samples": 5
     }
   }
 }

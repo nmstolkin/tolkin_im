@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T10:59:00.335112+00:00",
+  "generated_at": "2026-10-14T14:23:51.532691+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://herbert-kohlmeyer.de/immobilien/::4|150||10115",
+      "title": "Townhouse in Bestlage zu vermieten",
+      "rooms": 4,
+      "size_qm": 150.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Berlin",
+      "plz": "10115",
+      "street": null,
+      "url": "https://herbert-kohlmeyer.de/immobilien/",
+      "site_url": "https://herbert-kohlmeyer.de/immobilien/",
+      "source_name": "herbert-kohlmeyer.de",
+      "found_at": "2026-10-14T13:47:42.792609+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
       "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
@@ -391,8 +407,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-06T15:35:43.015466+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-11T16:13:44.374439+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.core-berlin.de/vermietung::|409||10439",
@@ -496,8 +511,8 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 69.3,
-      "samples": 4
+      "median_hours": 45.5,
+      "samples": 3
     },
     "core-berlin.de": {
       "median_hours": 47.2,

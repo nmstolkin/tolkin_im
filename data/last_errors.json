@@ -1,1 +1,3 @@
-{}
+{
+  "https://www.qh-living.com/wohnungen": "HTTPSConnectionPool(host='www.europacityensembles.de', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.europacityensembles.de', port=443): Failed to resolve 'www.europacityensembles.de' ([Errno -2] Name or service not known)\"))"
+}

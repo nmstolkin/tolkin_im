@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T10:41:02.470943+00:00",
+  "generated_at": "2026-10-15T14:27:13.339482+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -42,8 +42,7 @@
       "site_url": "https://herbert-kohlmeyer.de/immobilien/",
       "source_name": "herbert-kohlmeyer.de",
       "found_at": "2026-10-14T13:47:42.792609+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-14T19:25:00.648592+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
@@ -59,8 +58,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-10-12T14:00:16.481654+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-12T18:28:44.838348+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|180||mitte",
@@ -271,8 +269,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-09T15:49:45.376991+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-11T16:13:44.374439+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
@@ -288,8 +285,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-09T15:49:39.855358+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-11T16:13:44.374439+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::5|122.7||10179",
@@ -407,7 +403,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-07T19:11:21.731529+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-15T14:27:13.339482+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -543,17 +540,13 @@
     }
   ],
   "time_online": {
-    "kip.net": {
-      "median_hours": 45.5,
-      "samples": 3
-    },
     "core-berlin.de": {
       "median_hours": 47.2,
       "samples": 2
     },
-    "smartsite2.myonoffice.de": {
-      "median_hours": 48.4,
-      "samples": 2
+    "kip.net": {
+      "median_hours": 187.3,
+      "samples": 3
     },
     "wbm.de": {
       "median_hours": 123.4,

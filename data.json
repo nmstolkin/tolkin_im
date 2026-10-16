@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-10-16T19:12:05.187934+00:00",
+=======
+  "generated_at": "2026-10-16T19:23:41.462177+00:00",
+>>>>>>> Stashed changes
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,

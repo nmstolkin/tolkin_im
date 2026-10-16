@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T14:20:44.783306+00:00",
+  "generated_at": "2026-10-16T15:16:07.030884+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::4|99.1|2080.7|10179",
+      "title": "Köpenicker Straße 105A, 10179 Mitte",
+      "rooms": 4.0,
+      "size_qm": 99.08,
+      "rent": 2080.68,
+      "price_per_sqm": 21.0,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-10-16T15:10:31.947148+00:00"
+    },
     {
       "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|90||10117",
       "title": "Helle, voll möblierte 3-Zimmer-Wohnung in Berlin-Mitte",

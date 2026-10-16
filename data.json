@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T15:16:07.030884+00:00",
+  "generated_at": "2026-10-16T19:12:05.187934+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -13,6 +13,70 @@
   },
   "matches": [
     {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|97.6||10179",
+      "title": "Ankommen u. genießen: 4-Zimmer-Wohnung mit Dachterrasse in Mitte",
+      "rooms": 4,
+      "size_qm": 97.64,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 111",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-16T18:41:03.419786+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.9||10179",
+      "title": "Moderne 4-Zimmer-City-Wohnung mit Terrasse",
+      "rooms": 4,
+      "size_qm": 105.87,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-10-16T18:41:03.419733+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::4|105.9|2011.5|10179",
+      "title": "Moderne 4-Zimmer-City-Wohnung mit Terrasse",
+      "rooms": 4.0,
+      "size_qm": 105.87,
+      "rent": 2011.53,
+      "price_per_sqm": 19.0,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 107",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-10-16T18:22:23.302915+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://inberlinwohnen.de/wohnungsfinder/::4|97.6|2050.4|10179",
+      "title": "Ankommen u. genießen: 4-Zimmer-Wohnung mit Dachterrasse in Mitte",
+      "rooms": 4.0,
+      "size_qm": 97.64,
+      "rent": 2050.44,
+      "price_per_sqm": 21.0,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 111",
+      "url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
+      "source_name": "inberlinwohnen.de",
+      "found_at": "2026-10-16T18:22:23.302860+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|99.1|2080.7|10179",
       "title": "Köpenicker Straße 105A, 10179 Mitte",
       "rooms": 4.0,
@@ -25,7 +89,8 @@
       "url": "https://inberlinwohnen.de/wohnungsfinder/",
       "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
       "source_name": "inberlinwohnen.de",
-      "found_at": "2026-10-16T15:10:31.947148+00:00"
+      "found_at": "2026-10-16T15:10:31.947148+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|90||10117",
@@ -271,7 +336,8 @@
       "source_name": "kip.net",
       "found_at": "2026-10-09T18:44:30.442346+00:00",
       "also_on": [],
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-16T19:12:05.187934+00:00"
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
@@ -406,8 +472,7 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-08T15:49:35.239863+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-13T19:16:32.058583+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -423,8 +488,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-07T19:11:21.731529+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-15T14:27:13.339482+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -561,7 +625,7 @@
   ],
   "time_online": {
     "kip.net": {
-      "median_hours": 187.3,
+      "median_hours": 168.5,
       "samples": 3
     },
     "core-berlin.de": {
@@ -574,7 +638,7 @@
     },
     "wbm.de": {
       "median_hours": 123.4,
-      "samples": 5
+      "samples": 4
     }
   }
 }

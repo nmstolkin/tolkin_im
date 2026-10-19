@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T16:36:49.468316+00:00",
+  "generated_at": "2026-10-19T18:05:43.973374+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,36 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
+      "title": "Schöne 3 Zimmer Wohnung",
+      "rooms": 3,
+      "size_qm": 94.3,
+      "rent": 2260.0,
+      "price_per_sqm": 24.0,
+      "district": "Berlin",
+      "plz": "10407",
+      "street": null,
+      "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+      "source_name": "pandion-service.de",
+      "found_at": "2026-10-19T18:03:13.839602+00:00"
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-19T18:02:40.231186+00:00"
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
       "title": "Zentrale Hauptstadtresidenz für höchste Wohnansprüche",

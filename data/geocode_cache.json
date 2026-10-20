@@ -282,6 +282,7 @@
   "2,5 Zimmer 3.OG nahe Spree+Hauptbahnhof! Aufzug+Balkon+EBK+Tageslichtbad, 10557, Berlin, Germany": null,
   "Single-Ideal nahe Spree+Hauptbahnhof! 1 Zimmer-Balkon-Duschbad-EBK-Keller-Aufzug, 10557, Berlin, Germany": null,
   "Charmantes, voll möbliertes 1-Zimmer-Apartment, 10825, Berlin, Germany": null,
+<<<<<<< Updated upstream
   "Schützenstraße 11, Berlin, Germany": [
     52.5510788,
     13.2105701
@@ -295,4 +296,7 @@
     13.3142178
   ],
   "IHRE 2 BÜROETAGEN IN TOPLAGE BERLIN CHARLOTTENBURG! AM RICHARD-WAGNER-PLATZ!, Berlin, Germany": null
+=======
+  "Möblierte 2Zi Wohnung 5 Min zum Kudamm, Geschäftswohnung, 10707, Berlin, Germany": null
+>>>>>>> Stashed changes
 }

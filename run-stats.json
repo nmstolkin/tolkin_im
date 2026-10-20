@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-10-20T19:57:45.221749+00:00",
   "listings_seen": 246,
   "matches": 1,
@@ -18,5 +19,22 @@
   "sites_total": 139,
   "sites_with_errors": 11,
   "near_misses": 2,
+=======
+  "generated_at": "2026-10-20T20:12:50.188378+00:00",
+  "listings_seen": 35,
+  "matches": 0,
+  "rejected": {
+    "groesse": 18,
+    "lage": 22,
+    "zimmer": 14,
+    "moebliert": 3,
+    "gewerbe": 1,
+    "miete": 7
+  },
+  "rejected_total": 65,
+  "sites_total": 17,
+  "sites_with_errors": 1,
+  "near_misses": 0,
+>>>>>>> Stashed changes
   "quota_exhausted": true
 }

@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "https://www.kip.net/berlin/mieten/wohnungen/1": "fe749a94cb1904ff31928817e4352e70850899c32f6b3dbb7dc1d8481ca5594a",
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": "1410b40703e9a87fe02583f9551e4be4a4a6ad6ba9584f582a404d63e30b0037",
   "https://www.core-berlin.de/vermietung": "2730ac8d6602b4d2d472c6ffb536e8b1fd88fce2d5530e309a963816360d2f93",
@@ -15,6 +16,24 @@
   "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": "eb6d9639cff27c8916b3188767fcc756b715040293193dbbbadbbedf75cfc1c3",
   "https://www.woelki-pm.de/#nean": "b40784e0e28c3a6588e8a5a16f7a202cda00de8042ee6cd960f8e10eb4701f11",
   "https://www.grandcityproperty.de/wohnung-berlin": "c225e230c96edfad5b81f0dd152b989a2ec1bd2c6042b15fdaa454b5c51e86f1",
+=======
+  "https://www.kip.net/berlin/mieten/wohnungen/1": "2bd9ac1c01a3cc18c0e5630fa522e6082e42b9198850ceeff88190746c370e3a",
+  "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": "fb215b2963cb776ead2848930f932958004e6665c8b62b3edffbd84bf24bd9f5",
+  "https://www.core-berlin.de/vermietung": "4bf2bc112ddf86f63e94f5bbc57f43e6aab022277ad21a42ba9c8b6c2f887700",
+  "https://inberlinwohnen.de/wohnungsfinder/": "bebe08653a79b872f1d5915eaa375e5e38b69915224bb58a1951d20032eddfee",
+  "https://www.wbm.de/wohnungen-berlin/angebote/": "b8111e8f00185f3842fa4f106466b0e855b074229ce8774ec9384feee4ee0c7a",
+  "https://www.habitare-immobilien.de/angebote": "e20944f8f2dabdb086ac31b71f40459bce99fcb52c45e5f539f678dee0b58a71",
+  "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": "323e0e7e0fbb31e022f98d5c267db79d0555ddce1cef8f5a993b5271b7ebe1cd",
+  "https://tki.berlin/immobilien-vermarktungsart/miete/": "d335a26f0a50970dcbc79c042f5c283a3f421ad191ad684acbeeee87e6dd7577",
+  "https://www.qh-living.com/wohnungen": "291030c59987cd7810f8bb5c13bddb271a693367c88f830dd7a5bb38c3ce00f3",
+  "https://www.mueller-merkle.de/projekte/europacity-ensembles/": "317086a94bcf837146632221a3b1a75ef8b4e9d1e7e60d5031e8214ab6cbc03b",
+  "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/": "bc847d6d03dd03eb8ec9699625a80bd90bd676a13cdfccb4188c250e9065b33a",
+  "https://aden-immo.com/immobilien-berlin/wohnung-mieten/": "49adfd7623933f7ca4767ceb0f8b154ed1541f66385993addff499beb2cf7e0b",
+  "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": "19bd85171f87b99e5d55af916713455437841e7f91474cd866e9d77652f80357",
+  "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": "d840418c9626969c1219eae0c71558aa31f46f0bc9f1604e822bdcdc3163d196",
+  "https://www.woelki-pm.de/#nean": "b40784e0e28c3a6588e8a5a16f7a202cda00de8042ee6cd960f8e10eb4701f11",
+  "https://www.grandcityproperty.de/wohnung-berlin": "92d430bd71772b3709b7a171aa5fd87fb00a92298441878113758c7f9024b441",
+>>>>>>> Stashed changes
   "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php": "bc07c1ad2f7c67df709493d069332452272cecb8e343dd518cb17dc481fd857d",
   "https://imms-immobilien.de/mietobjekte/": "88870eab988d74215a21a72a6c2e676972aca9579dd154ee90fe75413c6eced2",
   "https://www.kfh-hv.de/mieten/wohnen/": "8e4caaf7060230ac45500fcffc245a9c80094fc6b98dbfeb2585f7695e60c15d",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T15:53:48.333150+00:00",
+  "generated_at": "2026-10-21T19:24:57.395384+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -25,7 +25,9 @@
       "url": "https://www.core-berlin.de/vermietung",
       "site_url": "https://www.core-berlin.de/vermietung",
       "source_name": "core-berlin.de",
-      "found_at": "2026-10-21T15:49:29.114819+00:00"
+      "found_at": "2026-10-21T15:49:29.114819+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-21T19:24:57.395384+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||mitte",

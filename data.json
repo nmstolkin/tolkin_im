@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T15:32:51.412522+00:00",
+  "generated_at": "2026-10-21T15:53:48.333150+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.core-berlin.de/vermietung::|409||10439",
+      "title": "Erstbezug Erdgeschoss Ladenbüro Nähe Schönhauser Allee",
+      "rooms": null,
+      "size_qm": 409.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": "Paul-Robeson-Straße 17",
+      "url": "https://www.core-berlin.de/vermietung",
+      "site_url": "https://www.core-berlin.de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-10-21T15:49:29.114819+00:00"
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||mitte",
       "title": "Über den Dächern der Friedrichstadt: Weitläufiges Penthouse im Upper Eastside Berlin",

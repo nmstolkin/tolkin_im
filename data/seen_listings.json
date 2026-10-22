@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php": [
     "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php::3|||charlottenburg",
     "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php::4|||pankow",
@@ -361,4 +362,94 @@
   ],
   "https://wg-solidaritaet.de/wohnen/mietangebote/": [],
   "https://www.wbv-neukoelln.de/aktuelles/wohnungsangebote.html": []
+=======
+  "https://www.kip.net/berlin/mieten/wohnungen/1": [
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|76||10245",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|44||10439",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|91||14197",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|50|1350|14052",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|37||12279",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|25|740|12459",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|30|660|10179",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::4|126|2300|13127",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::5|160|3520|13627",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|100|1950|14195",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|55|1250|12209",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|80|2100|14197",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|35|975|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|50|1750|12163",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|74|910|13353",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|30|655|13591",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|29|1150|10715",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|59||12163",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|59|1670|12163",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|80||10713"
+  ],
+  "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|67|2100|10785",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|34|795|14193",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|52||12279",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|58|1299|13127",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|55|1250|12209",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|52|1275|13585",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|71|505|13595",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|25|740|12459",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|73|1615|12489",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|110|1960|12683",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|60|895|13595",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|89|1690|12683",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|70|1750|12555",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|98|2200|10317",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|64|895|14169",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|59|1670|12163",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|110||12207",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|36|800|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|60|1180|12357",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|85|1600|10779"
+  ],
+  "https://www.core-berlin.de/vermietung": [
+    "https://www.core-berlin.de/vermietung::2|80|1113.8|10243",
+    "https://www.core-berlin.de/vermietung::3|141.3|1785|12203",
+    "https://www.core-berlin.de/vermietung::3|106.4|1702.2|13351",
+    "https://www.core-berlin.de/vermietung::4|198|3776.7|10557",
+    "https://www.core-berlin.de/vermietung::4|210|4452|10557",
+    "https://www.core-berlin.de/vermietung::1|30.4|860.9|10245",
+    "https://www.core-berlin.de/vermietung::3|160|3200|10557",
+    "https://www.core-berlin.de/vermietung::4|210|4200|10557",
+    "https://www.core-berlin.de/vermietung::2|78.4|1333.1|13351"
+  ],
+  "https://inberlinwohnen.de/wohnungsfinder/": [],
+  "https://www.wbm.de/wohnungen-berlin/angebote/": [
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|71.8||13591",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|113.2||13587",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|69.2||13599",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|97.6||10179",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.9||10179",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|101.8||13587",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::2|73.0||13587",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|69.4||13599",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|112.5||13587"
+  ],
+  "https://www.habitare-immobilien.de/angebote": [],
+  "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": [],
+  "https://tki.berlin/immobilien-vermarktungsart/miete/": [],
+  "https://www.qh-living.com/wohnungen": [],
+  "https://www.mueller-merkle.de/projekte/europacity-ensembles/": [],
+  "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/": [],
+  "https://carat24-immobilien.de/zur-miete/": [],
+  "https://aden-immo.com/immobilien-berlin/wohnung-mieten/": [],
+  "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": [],
+  "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": [],
+  "https://www.woelki-pm.de/#nean": [],
+  "https://www.grandcityproperty.de/wohnung-berlin": [
+    "https://www.grandcityproperty.de/wohnung-berlin::3|60|677|rüdersdorf bei berlin",
+    "https://www.grandcityproperty.de/wohnung-berlin::3|59|595|rüdersdorf bei berlin",
+    "https://www.grandcityproperty.de/wohnung-berlin::3|79|1333|erkner",
+    "https://www.grandcityproperty.de/wohnung-berlin::4|122|2001|berlin",
+    "https://www.grandcityproperty.de/wohnung-berlin::1.5|54|594|berlin",
+    "https://www.grandcityproperty.de/wohnung-berlin::2|33|836|berlin",
+    "https://www.grandcityproperty.de/wohnung-berlin::2|30|758|berlin"
+  ]
+>>>>>>> Stashed changes
 }

@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "Neue Kantstraße 25, Berlin, Germany": [
     52.5064949,
     13.2906906
@@ -8,10 +9,15 @@
     52.5709786,
     13.4159874
   ],
+=======
+  "Exklusive Designerwohnung mit Balkon – Neubau mit Altbaucharme in Bestlage am Potsdamer Platz, 10785, Berlin, Germany": null,
+  "Frisch sanierte, voll möblierte 85 m² Altbauwohnung in Berlin-Wilmersdorf ab sofort, 10779, Berlin, Germany": null,
+>>>>>>> Stashed changes
   "Helgoländer Ufer 6, 10557, Berlin, Germany": [
     52.5218328,
     13.3491809
   ],
+<<<<<<< Updated upstream
   "Westhafen Stuckaltbau, sonnig, grün, ruhig, Balkon, hohe Räume, 10551, Berlin, Germany": null,
   "Erstbezug nach Kernsanierung: 2-Zi-Wohnung im in Berlin-Charlottenburg (Wilmersdorf), 10707, Berlin, Germany": null,
   "Finkenkruger Straße 90, Berlin, Germany": null,
@@ -111,6 +117,8 @@
     52.5396918,
     13.3940394
   ],
+=======
+>>>>>>> Stashed changes
   "Neue Vogelsdorfer Straße 18, Berlin, Germany": [
     52.485046,
     13.7647988
@@ -131,6 +139,7 @@
   "Prinzenallee 21, Berlin, Germany": [
     52.5554978,
     13.3842423
+<<<<<<< Updated upstream
   ],
   "Helle Dachgeschosswohnung mit 2 Terrassen in bester Lage nahe Kurfürstendamm – 3,5 Zimmer, 10707, Berlin, Germany": null,
   "EXKLUSIV EINGERICHTETE 4 ZIMMER WOHNUNG IN DEN ROSENGÄRTEN IN BERLIN - WILMERSDORF, 10707, Berlin, Germany": null,
@@ -160,4 +169,7 @@
   "Dachgeschosswohnung in Charlottenburg – 6 Zimmer, Dachterrasse & 3 Balkone, Berlin, Germany": null,
   "5. OG ganz oben! Nahe Spree+Hauptbahnhof!, 10557, Berlin, Germany": null,
   "Ab Januar 2023-Erstbezug nach Modernisierung! 2,5 Zimmer nahe Spree+Hauptbahnhof ..., 10557, Berlin, Germany": null
+=======
+  ]
+>>>>>>> Stashed changes
 }

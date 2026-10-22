@@ -226,6 +226,7 @@
     52.4619585,
     13.4416058
   ],
+<<<<<<< Updated upstream
   "Reichweindamm 4, 13627, Berlin, Germany": [
     52.535244,
     13.2995042
@@ -290,5 +291,11 @@
   "Warschauer Straße, Berlin, Germany": [
     52.5063685,
     13.4501205
+=======
+  "Hochwertig kernsanierte 2-Zimmer-Wohnung mit Balkon, Ankleide & Einbauküche in Berlin-Westend, 14052, Berlin, Germany": null,
+  "Reichweindamm 4, 13627, Berlin, Germany": [
+    52.535244,
+    13.2995042
+>>>>>>> Stashed changes
   ]
 }

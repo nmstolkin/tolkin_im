@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T19:58:48.604448+00:00",
+  "generated_at": "2026-10-22T11:00:25.035932+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
+      "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
+      "rooms": 5,
+      "size_qm": 198.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-22T10:56:06.745536+00:00"
+    },
     {
       "key": "https://www.core-berlin.de/vermietung::|409||10439",
       "title": "Erstbezug Erdgeschoss Ladenbüro Nähe Schönhauser Allee",

@@ -1,43 +1,21 @@
 {
-<<<<<<< Updated upstream
-  "generated_at": "2026-10-22T15:55:50.334877+00:00",
-  "listings_seen": 317,
-  "matches": 1,
+  "generated_at": "2026-10-22T19:43:49.965600+00:00",
+  "listings_seen": 229,
+  "matches": 12,
   "rejected": {
-    "lage": 235,
-    "keine_daten": 12,
-    "zimmer": 153,
-    "groesse": 179,
-    "miete": 58,
-    "moebliert": 7,
-    "gewerbe": 20,
-    "zeitmiete": 1,
-    "wg_zimmer": 2,
-    "referenzobjekt": 8
+    "lage": 172,
+    "keine_daten": 10,
+    "zimmer": 118,
+    "groesse": 134,
+    "miete": 41,
+    "moebliert": 3,
+    "gewerbe": 11,
+    "zeitmiete": 2,
+    "referenzobjekt": 4
   },
-  "rejected_total": 675,
+  "rejected_total": 495,
   "sites_total": 139,
   "sites_with_errors": 11,
   "near_misses": 2,
-=======
-  "generated_at": "2026-10-22T16:35:39.610932+00:00",
-  "listings_seen": 109,
-  "matches": 0,
-  "rejected": {
-    "wg_zimmer": 6,
-    "zimmer": 49,
-    "groesse": 65,
-    "miete": 30,
-    "lage": 81,
-    "moebliert": 4,
-    "zeitmiete": 2,
-    "gewerbe": 1,
-    "referenzobjekt": 1
-  },
-  "rejected_total": 239,
-  "sites_total": 17,
-  "sites_with_errors": 0,
-  "near_misses": 1,
->>>>>>> Stashed changes
-  "quota_exhausted": false
+  "quota_exhausted": true
 }

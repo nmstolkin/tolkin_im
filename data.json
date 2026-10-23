@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T15:41:51.963108+00:00",
+  "generated_at": "2026-10-23T19:18:13.076155+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -154,7 +154,8 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-23T14:35:31.670022+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-23T19:18:13.076155+00:00"
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
@@ -170,7 +171,8 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-23T14:35:26.054942+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-23T19:18:13.076155+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -369,5 +371,10 @@
       "miss_reason": "groesse"
     }
   ],
-  "time_online": {}
+  "time_online": {
+    "smartsite2.myonoffice.de": {
+      "median_hours": 4.7,
+      "samples": 2
+    }
+  }
 }

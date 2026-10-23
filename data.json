@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T10:54:43.291385+00:00",
+  "generated_at": "2026-10-23T14:44:53.606728+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -13,6 +13,182 @@
   },
   "matches": [
     {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
+      "title": "Zentrale Hauptstadtresidenz für höchste Wohnansprüche",
+      "rooms": 5,
+      "size_qm": 223,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.229346+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||mitte",
+      "title": "Über den Dächern der Friedrichstadt: Weitläufiges Penthouse im Upper Eastside Berlin",
+      "rooms": 5,
+      "size_qm": 335,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.229301+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|178||mitte",
+      "title": "Upper Eastside Berlin: Minimalistische Residenz in Weiß an der Friedrichstraße",
+      "rooms": 4,
+      "size_qm": 178,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.229246+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|330||mitte",
+      "title": "Kronjuwel AM TACHELES: Luxuriöses Penthouse mit Stadtpanorama",
+      "rooms": 5,
+      "size_qm": 330,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.228894+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|160||mitte",
+      "title": "Spektakuläre Maisonette über den Dächern der Kunstszene im Scheunenviertel",
+      "rooms": 3,
+      "size_qm": 160,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.228644+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|206||mitte",
+      "title": "Architektur mit klarer Linie: Großzügiges Refugium von Sebastian Treese Architekten",
+      "rooms": 5,
+      "size_qm": 206,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.228595+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::6|563||prenzlauer berg",
+      "title": "Wohnen mit Klasse Vollmöbliertes Penthouse im Kollwitzkiez",
+      "rooms": 6,
+      "size_qm": 563,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.228488+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
+      "title": "360° Berlin im Blick: Spektakuläres Dachgeschoss-Refugium mit Profi-Gastroküche",
+      "rooms": 5.5,
+      "size_qm": 268,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.228370+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
+      "title": "Schöner Altbau urban+ruhig nahe Senefelderplatz 3 Zimmer+Wohnküche+ ...",
+      "rooms": 3,
+      "size_qm": 101,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10435",
+      "street": null,
+      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "source_name": "smartsite2.myonoffice.de",
+      "found_at": "2026-10-23T14:35:31.670022+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
+      "title": "Penthouse mit besten Aussichten! Schnittstelle Prenzlauer Berg-Mitte: 2 Terrasse",
+      "rooms": 4,
+      "size_qm": 147,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg-Mitte",
+      "plz": "10435",
+      "street": null,
+      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "source_name": "smartsite2.myonoffice.de",
+      "found_at": "2026-10-23T14:35:26.054942+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
+      "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
+      "rooms": 5,
+      "size_qm": 198.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-23T14:13:27.758382+00:00",
+      "still_listed": true
+    },
+    {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
       "title": "Schöne 3 Zimmer Wohnung",
       "rooms": 3.0,
@@ -25,7 +201,8 @@
       "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
       "site_url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
       "source_name": "pandion-service.de",
-      "found_at": "2026-10-23T10:48:20.082485+00:00"
+      "found_at": "2026-10-23T10:48:20.082485+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|97.6||10179",
@@ -40,7 +217,8 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-10-23T10:47:52.960656+00:00"
+      "found_at": "2026-10-23T10:47:52.960656+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.8||10179",
@@ -55,7 +233,8 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-10-23T10:47:52.960605+00:00"
+      "found_at": "2026-10-23T10:47:52.960605+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.9||10179",
@@ -70,7 +249,8 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-10-23T10:47:52.960362+00:00"
+      "found_at": "2026-10-23T10:47:52.960362+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
@@ -85,7 +265,8 @@
       "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
-      "found_at": "2026-10-23T10:47:52.960316+00:00"
+      "found_at": "2026-10-23T10:47:52.960316+00:00",
+      "still_listed": true
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|120.8|2072.6|10179",
@@ -100,7 +281,9 @@
       "url": "https://inberlinwohnen.de/wohnungsfinder/",
       "site_url": "https://inberlinwohnen.de/wohnungsfinder/",
       "source_name": "inberlinwohnen.de",
-      "found_at": "2026-10-23T10:47:52.924230+00:00"
+      "found_at": "2026-10-23T10:47:52.924230+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-23T14:44:53.606728+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
@@ -115,10 +298,28 @@
       "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
-      "found_at": "2026-10-23T10:47:48.447642+00:00"
+      "found_at": "2026-10-23T10:47:48.447642+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-23T14:44:53.606728+00:00"
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|86||prenzlauer berg",
+      "title": "Attraktives Wohnen im Gleimviertel!",
+      "rooms": 4,
+      "size_qm": 86,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-23T14:37:23.228427+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2300|10179",
       "title": "3 Zimmer – DG Wohnung",

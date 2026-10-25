@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-23T19:50:19.676279+00:00",
+  "generated_at": "2026-10-25T20:30:23.549425+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
     "min_rent": 1000,
-    "max_rent": 2300,
+    "max_rent": 2500,
     "districts": [
       "Mitte",
       "Prenzlauer Berg",
@@ -12,6 +12,38 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|550||friedrichshain",
+      "title": "Auf höchstem LIVING LEVEL: Atemberaubendes Penthouse am Spreeufer",
+      "rooms": 5,
+      "size_qm": 550,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Friedrichshain",
+      "plz": null,
+      "street": "Spreeufer",
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-10-25T20:25:03.278478+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-25T19:59:33.744547+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
       "title": "Zentrale Hauptstadtresidenz für höchste Wohnansprüche",
@@ -188,7 +220,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-23T14:13:27.758382+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-25T20:30:23.549425+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -301,8 +334,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-10-23T10:47:48.447642+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-23T14:44:53.606728+00:00"
+      "still_listed": true
     }
   ],
   "near_misses": [

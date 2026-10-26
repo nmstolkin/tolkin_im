@@ -1,55 +1,95 @@
 {
   "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php": {
     "source_name": "hausverwaltung-bauriedel.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:18:57.335599+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:18:57.335599+00:00",
     "last_listing_count": 10,
     "last_listing_count_at": "2026-10-26T14:18:57.335599+00:00",
+=======
+    "last_checked": "2026-10-26T17:01:50.774964+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:01:50.774964+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-26T17:01:50.774964+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.core-berlin.de/vermietung": {
     "source_name": "core-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:18:57.347638+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:18:57.347638+00:00",
     "last_listing_count": 10,
     "last_listing_count_at": "2026-10-26T14:18:57.347638+00:00",
+=======
+    "last_checked": "2026-10-26T17:01:50.781123+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:01:50.781123+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-26T17:01:50.781123+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://imms-immobilien.de/mietobjekte/": {
     "source_name": "imms-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:19:43.527840+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:19:43.527840+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:19:43.527840+00:00",
+=======
+    "last_checked": "2026-10-26T17:02:28.503103+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:02:28.503103+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:02:28.503103+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://inberlinwohnen.de/wohnungsfinder/": {
     "source_name": "inberlinwohnen.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:19:43.621341+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:19:43.621341+00:00",
     "last_listing_count": 10,
     "last_listing_count_at": "2026-10-26T14:19:43.621341+00:00",
+=======
+    "last_checked": "2026-10-26T17:02:28.549773+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:02:28.549773+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-26T17:02:28.549773+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.trialog-gmbh.com/wohnungen.xhtml?pagetype=object&f%5B2084-134%5D=ind_Schl_2544&f%5B2084-2%5D=0&f%5B2084-4%5D=0&f%5B2084-6%5D=miete&f%5B2084-8%5D=wohnung&f%5B2084-126%5D=miete&f%5B2084-138%5D=ind_Schl_2544": {
     "source_name": "trialog-gmbh.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:25:30.708441+00:00",
+=======
+    "last_checked": "2026-10-26T16:08:32.843540+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.trialog-gmbh.com', port=443): Max retries exceeded with url: /wohnungen.xhtml?pagetype=object&f%5B2084-134%5D=ind_Schl_2544&f%5B2084-2%5D=0&f%5B2084-4%5D=0&f%5B2084-6%5D=miete&f%5B2084-8%5D=wohnung&f%5B2084-126%5D=miete&f%5B2084-138%5D=ind_Schl_2544 (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.trialog-gmbh.com'. (_ssl.c:1016)\")))",
     "last_success": null,
@@ -59,126 +99,217 @@
   },
   "https://www.kfh-hv.de/mieten/wohnen/": {
     "source_name": "kfh-hv.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:20:48.571838+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:20:48.571838+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:20:48.571838+00:00",
+=======
+    "last_checked": "2026-10-26T17:03:21.552529+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:03:21.552529+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:03:21.552529+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.goodlifeimmobilien.de/wohnungsangebote": {
     "source_name": "goodlifeimmobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:21:29.037166+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:21:29.037166+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:21:29.037166+00:00",
+=======
+    "last_checked": "2026-10-26T17:03:54.344826+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:03:54.344826+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:03:54.344826+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.ivd24immobilien.de/search-photon/?osm_id=62422&osm_key=place&osm_value=city&osm_postcode=&osm_lat=52.5170365&osm_long=13.3888599&nutzungsart_id=&vermarktungsart_id=10000000010&64c7e73484b8c=Berlin&search_term=Berlin&objektart_id=2&anzahl_zimmer=&preis_bis=&groesse_ab=&radius=0": {
     "source_name": "ivd24immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:22:25.483368+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:22:25.483368+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:22:25.483368+00:00",
+=======
+    "last_checked": "2026-10-26T17:04:52.540119+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:04:52.540119+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:04:52.540119+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.classic-immobilien-berlin.de/vermietung/": {
     "source_name": "classic-immobilien-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:23:29.529901+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:23:29.529901+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:23:29.529901+00:00",
+=======
+    "last_checked": "2026-10-26T17:05:48.904946+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:05:48.904946+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:05:48.904946+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.woelki-pm.de/#nean": {
     "source_name": "woelki-pm.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:24:21.858013+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:24:21.858013+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:24:21.858013+00:00",
+=======
+    "last_checked": "2026-10-26T17:06:25.555113+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:06:25.555113+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:06:25.555113+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.rw-living.immo/service/vermietung#/list1": {
     "source_name": "rw-living.immo",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:24:55.840843+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:24:55.840843+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:24:55.840843+00:00",
+=======
+    "last_checked": "2026-10-26T17:07:06.013143+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:07:06.013143+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:07:06.013143+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://portal1s.easysquare.com/hws-berlin/index.html?deeplink=%2FESQ_IA_REOBJ%2FESQ_VM_REOBJ_ALL#/form/%252Fsheet%252Fsection/DD0EA8DE-1E78-755D-0299-C4987FE944DD/%252Fsection%252F0%252Fbox%252F0%252Fhead%252F6": {
     "source_name": "portal1s.easysquare.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:25:49.586770+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:25:49.586770+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:25:49.586770+00:00",
+=======
+    "last_checked": "2026-10-26T17:07:47.578733+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:07:47.578733+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:07:47.578733+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.harry-gerlach.de/wohnung-mieten-berlin/": {
     "source_name": "harry-gerlach.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:25:53.126943+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:25:53.126943+00:00",
     "last_listing_count": 6,
     "last_listing_count_at": "2026-10-26T14:25:53.126943+00:00",
+=======
+    "last_checked": "2026-10-26T17:07:49.821073+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:07:49.821073+00:00",
+    "last_listing_count": 6,
+    "last_listing_count_at": "2026-10-26T17:07:49.821073+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://herbert-kohlmeyer.de/immobilien/": {
     "source_name": "herbert-kohlmeyer.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:27:08.442736+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:27:08.442736+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:27:08.442736+00:00",
+=======
+    "last_checked": "2026-10-26T17:08:41.212076+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:08:41.212076+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:08:41.212076+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://apartberlin.de/unsere-objekte/": {
     "source_name": "apartberlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:27:29.696830+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:27:29.696830+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:27:29.696830+00:00",
+=======
+    "last_checked": "2026-10-26T17:09:01.597091+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:09:01.597091+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:09:01.597091+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.kip.net/berlin/mieten/wohnungen/1": {
     "source_name": "kip.net",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:27:29.750414+00:00",
     "status": "ok",
     "error": null,
@@ -186,24 +317,46 @@
     "last_listing_count": 20,
     "last_listing_count_at": "2026-10-26T14:27:29.750414+00:00",
     "pages_checked": 1,
+=======
+    "last_checked": "2026-10-26T17:10:06.860449+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:10:06.860449+00:00",
+    "last_listing_count": 20,
+    "last_listing_count_at": "2026-10-26T17:10:06.860449+00:00",
+    "pages_checked": 3,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=Berlin&immoType=wohnung": {
     "source_name": "vonovia.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:28:30.968783+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:28:30.968783+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:28:30.968783+00:00",
+=======
+    "last_checked": "2026-10-26T17:11:06.898413+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:11:06.898413+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:11:06.898413+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.hausverwaltung-kolbe.de/": {
     "source_name": "hausverwaltung-kolbe.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:25:55.463300+00:00",
+=======
+    "last_checked": "2026-10-26T16:09:01.478905+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "403 Client Error: Forbidden for url: https://www.hausverwaltung-kolbe.de/",
     "last_success": null,
@@ -213,54 +366,91 @@
   },
   "https://progenea-berlin.de/immobilien-mieten/": {
     "source_name": "progenea-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:29:15.799188+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:29:15.799188+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:29:15.799188+00:00",
+=======
+    "last_checked": "2026-10-26T17:11:31.027453+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:11:31.027453+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:11:31.027453+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.livinginberlin.de/angebote/mieten": {
     "source_name": "livinginberlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:30:56.964369+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:30:56.964369+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:30:56.964369+00:00",
+=======
+    "last_checked": "2026-10-26T17:12:34.904676+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:12:34.904676+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:12:34.904676+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.degewo.de/immosuche": {
     "source_name": "degewo.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:33:51.141382+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:33:51.141382+00:00",
     "last_listing_count": 40,
     "last_listing_count_at": "2026-10-26T14:33:51.141382+00:00",
+=======
+    "last_checked": "2026-10-26T17:13:55.994975+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:13:55.994975+00:00",
+    "last_listing_count": 40,
+    "last_listing_count_at": "2026-10-26T17:13:55.994975+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 4,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.buwog-immobilientreuhand.de/immobilien?&property_search%5Bresult_count_only%5D=true&property_search%5Bmarketing_type%5D=rent&property_search%5Bproperty_type%5D=flat&property_search%5Bminimum_total_size%5D=0&property_search%5Bmaximum_total_size%5D=241&property_search%5Bminimum_rent_price%5D=0&property_search%5Bmaximum_rent_price%5D=4165&property_search%5Bzip_code%5D=12527,12555": {
     "source_name": "buwog-immobilientreuhand.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:35:04.712576+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:35:04.712576+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:35:04.712576+00:00",
+=======
+    "last_checked": "2026-10-26T17:15:20.230495+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:15:20.230495+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:15:20.230495+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://stadtundland.de/mieten/": {
     "source_name": "stadtundland.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:35:52.180123+00:00",
     "status": "ok",
     "error": null,
@@ -268,59 +458,105 @@
     "last_listing_count": 3,
     "last_listing_count_at": "2026-10-26T14:35:52.180123+00:00",
     "pages_checked": 3,
+=======
+    "last_checked": "2026-10-26T17:15:20.236596+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:15:20.236596+00:00",
+    "last_listing_count": 3,
+    "last_listing_count_at": "2026-10-26T17:15:20.236596+00:00",
+    "pages_checked": 1,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://blp-management.com/immobilien-vermarktungsart/miete/": {
     "source_name": "blp-management.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:36:51.468128+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:36:51.468128+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:36:51.468128+00:00",
+=======
+    "last_checked": "2026-10-26T17:16:03.224793+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:16:03.224793+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:16:03.224793+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://carat24-immobilien.de/zur-miete/": {
     "source_name": "carat24-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:37:13.078605+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:37:13.078605+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:37:13.078605+00:00",
+=======
+    "last_checked": "2026-10-26T17:16:24.553858+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:16:24.553858+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:16:24.553858+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.city-concept.de/wohnungen/mieten": {
     "source_name": "city-concept.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:38:15.828998+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:38:15.828998+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:38:15.828998+00:00",
+=======
+    "last_checked": "2026-10-26T17:16:57.720093+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:16:57.720093+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:16:57.720093+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://tag-wohnen.de/immosuche?filters%5Bproperty_city%5D%5B%5D=Berlin&rooms%5Bmin%5D=2&size=10&view=LIST": {
     "source_name": "tag-wohnen.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:39:10.206710+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:39:10.206710+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:39:10.206710+00:00",
+=======
+    "last_checked": "2026-10-26T17:17:32.190187+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:17:32.190187+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:17:32.190187+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://deinhart-immobilien.de/immobilien-fenster/": {
     "source_name": "deinhart-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:39:10.232759+00:00",
     "status": "ok",
     "error": null,
@@ -328,47 +564,84 @@
     "last_listing_count": 3,
     "last_listing_count_at": "2026-10-26T14:39:10.232759+00:00",
     "pages_checked": 1,
+=======
+    "last_checked": "2026-10-26T17:18:20.320007+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:18:20.320007+00:00",
+    "last_listing_count": 3,
+    "last_listing_count_at": "2026-10-26T17:18:20.320007+00:00",
+    "pages_checked": 3,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.kwco.de/de": {
     "source_name": "kwco.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:40:02.361258+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:40:02.361258+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:40:02.361258+00:00",
+=======
+    "last_checked": "2026-10-26T17:19:11.623489+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:19:11.623489+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:19:11.623489+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.dydo.de/": {
     "source_name": "dydo.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:41:27.815349+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:41:27.815349+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:41:27.815349+00:00",
+=======
+    "last_checked": "2026-10-26T17:20:13.353903+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:20:13.353903+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:20:13.353903+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.grandcityproperty.de/wohnung-berlin": {
     "source_name": "grandcityproperty.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:41:28.002443+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:41:28.002443+00:00",
     "last_listing_count": 7,
     "last_listing_count_at": "2026-10-26T14:41:28.002443+00:00",
+=======
+    "last_checked": "2026-10-26T17:20:13.432590+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:20:13.432590+00:00",
+    "last_listing_count": 6,
+    "last_listing_count_at": "2026-10-26T17:20:13.432590+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.zachger.de/immobilienangebote/": {
     "source_name": "zachger.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:41:46.498642+00:00",
     "status": "ok",
     "error": null,
@@ -376,288 +649,508 @@
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:41:46.498642+00:00",
     "pages_checked": 1,
+=======
+    "last_checked": "2026-10-26T17:20:52.455476+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:20:52.455476+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:20:52.455476+00:00",
+    "pages_checked": 2,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.harke-vonbismarck.de/immobilien/mietobjekte": {
     "source_name": "harke-vonbismarck.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:42:56.736693+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:42:56.736693+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:42:56.736693+00:00",
+=======
+    "last_checked": "2026-10-26T17:21:58.984115+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:21:58.984115+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:21:58.984115+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.ruedrich-immobilien.de/immobilie-mieten-berlin/": {
     "source_name": "ruedrich-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:42:56.763713+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:42:56.763713+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T14:42:56.763713+00:00",
+=======
+    "last_checked": "2026-10-26T17:21:58.996628+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:21:58.996628+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:21:58.996628+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://krossa-co.de/": {
     "source_name": "krossa-co.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:43:14.656833+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:43:14.656833+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:43:14.656833+00:00",
+=======
+    "last_checked": "2026-10-26T17:22:14.848145+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:22:14.848145+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:22:14.848145+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://aden-immo.com/immobilien-berlin/wohnung-mieten/": {
     "source_name": "aden-immo.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:44:26.747260+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:44:26.747260+00:00",
     "last_listing_count": 4,
     "last_listing_count_at": "2026-10-26T14:44:26.747260+00:00",
+=======
+    "last_checked": "2026-10-26T17:23:26.788345+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:23:26.788345+00:00",
+    "last_listing_count": 4,
+    "last_listing_count_at": "2026-10-26T17:23:26.788345+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.schacher-immobilien.de/angebote/wohnungen/?pageIdc99d0251=2#list_c99d0251": {
     "source_name": "schacher-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:44:47.803201+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:44:47.803201+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:44:47.803201+00:00",
+=======
+    "last_checked": "2026-10-26T17:24:07.256504+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:24:07.256504+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:24:07.256504+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.agas-immobilien.de/immobilien/": {
     "source_name": "agas-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:46:10.464973+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:46:10.464973+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:46:10.464973+00:00",
+=======
+    "last_checked": "2026-10-26T17:25:10.567840+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:25:10.567840+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:25:10.567840+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://immodo-berlin.de/immobilien/": {
     "source_name": "immodo-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:47:34.083529+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:47:34.083529+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:47:34.083529+00:00",
+=======
+    "last_checked": "2026-10-26T17:25:39.735238+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:25:39.735238+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:25:39.735238+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.beckerundkries.de/mietende/angebote-wohnen/": {
     "source_name": "beckerundkries.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:48:41.611403+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:48:41.611403+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:48:41.611403+00:00",
+=======
+    "last_checked": "2026-10-26T17:26:21.428737+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:26:21.428737+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:26:21.428737+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6": {
     "source_name": "berlinovo.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:48:59.571894+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:48:59.571894+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:48:59.571894+00:00",
+=======
+    "last_checked": "2026-10-26T17:26:40.232874+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:26:40.232874+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:26:40.232874+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://imw-wus.de/": {
     "source_name": "imw-wus.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:49:39.329401+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:49:39.329401+00:00",
     "last_listing_count": 2,
     "last_listing_count_at": "2026-10-26T14:49:39.329401+00:00",
+=======
+    "last_checked": "2026-10-26T17:27:10.158720+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:27:10.158720+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:27:10.158720+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung": {
     "source_name": "gewobag.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:50:01.399571+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:50:01.399571+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:50:01.399571+00:00",
+=======
+    "last_checked": "2026-10-26T17:27:31.971266+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:27:31.971266+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:27:31.971266+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": {
     "source_name": "klingerimmobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:50:53.777879+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:50:53.777879+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:50:53.777879+00:00",
+=======
+    "last_checked": "2026-10-26T17:28:12.473186+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:28:12.473186+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:28:12.473186+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.wegner-immoconsult.de/vermietung": {
     "source_name": "wegner-immoconsult.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:52:01.845517+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:52:01.845517+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:52:01.845517+00:00",
+=======
+    "last_checked": "2026-10-26T17:28:49.114676+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:28:49.114676+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:28:49.114676+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://ar-immobilien.de/immobilienangebote.html": {
     "source_name": "ar-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:53:18.526343+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:53:18.526343+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:53:18.526343+00:00",
+=======
+    "last_checked": "2026-10-26T17:29:25.187367+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:29:25.187367+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:29:25.187367+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html": {
     "source_name": "plaza-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:53:18.552683+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:53:18.552683+00:00",
     "last_listing_count": 4,
     "last_listing_count_at": "2026-10-26T14:53:18.552683+00:00",
+=======
+    "last_checked": "2026-10-26T17:29:25.200842+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:29:25.200842+00:00",
+    "last_listing_count": 4,
+    "last_listing_count_at": "2026-10-26T17:29:25.200842+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.mj-immobilien.de/mietangebote-in-berlin.html": {
     "source_name": "mj-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:54:13.554279+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:54:13.554279+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:54:13.554279+00:00",
+=======
+    "last_checked": "2026-10-26T17:30:07.264838+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:30:07.264838+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:30:07.264838+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.gottschau-immobilien.de/miete.xhtml": {
     "source_name": "gottschau-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:54:49.003658+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:54:49.003658+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:54:49.003658+00:00",
+=======
+    "last_checked": "2026-10-26T17:30:36.790716+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:30:36.790716+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:30:36.790716+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://guthmann.estate/de/immobilien/": {
     "source_name": "guthmann.estate",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:55:49.010735+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:55:49.010735+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:55:49.010735+00:00",
+=======
+    "last_checked": "2026-10-26T17:31:16.174753+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:31:16.174753+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:31:16.174753+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.wbm.de/wohnungen-berlin/angebote/": {
     "source_name": "wbm.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:55:49.043537+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:55:49.043537+00:00",
     "last_listing_count": 11,
     "last_listing_count_at": "2026-10-26T14:55:49.043537+00:00",
+=======
+    "last_checked": "2026-10-26T17:31:16.192403+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:31:16.192403+00:00",
+    "last_listing_count": 13,
+    "last_listing_count_at": "2026-10-26T17:31:16.192403+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.hancock-ag.de/wohnungsangebote/": {
     "source_name": "hancock-ag.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:56:10.040348+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:56:10.040348+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:56:10.040348+00:00",
+=======
+    "last_checked": "2026-10-26T17:31:34.939051+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:31:34.939051+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:31:34.939051+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0": {
     "source_name": "petruswerk.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:56:50.692172+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:56:50.692172+00:00",
     "last_listing_count": 3,
     "last_listing_count_at": "2026-10-26T14:56:50.692172+00:00",
+=======
+    "last_checked": "2026-10-26T17:31:57.518731+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:31:57.518731+00:00",
+    "last_listing_count": 3,
+    "last_listing_count_at": "2026-10-26T17:31:57.518731+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.gesobau.de/mieten/wohnungssuche/": {
     "source_name": "gesobau.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:56:50.773456+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:56:50.773456+00:00",
     "last_listing_count": 6,
     "last_listing_count_at": "2026-10-26T14:56:50.773456+00:00",
+=======
+    "last_checked": "2026-10-26T17:31:57.560105+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:31:57.560105+00:00",
+    "last_listing_count": 6,
+    "last_listing_count_at": "2026-10-26T17:31:57.560105+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://immonexxt.com/de/mietangebote-wohnen": {
     "source_name": "immonexxt.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:57:14.371803+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:57:14.371803+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:57:14.371803+00:00",
+=======
+    "last_checked": "2026-10-26T17:32:24.437843+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:32:24.437843+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:32:24.437843+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "http://www.hvp-berlin.de/Wohnen.html": {
     "source_name": "hvp-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:27:21.068797+00:00",
+=======
+    "last_checked": "2026-10-26T16:10:07.021000+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "500 Server Error: Internal Server Error for url: http://www.hvp-berlin.de/Wohnen.html",
     "last_success": null,
@@ -667,19 +1160,32 @@
   },
   "https://www.hausverwalter-berlin.de/aktuelle-wohnungsangebote": {
     "source_name": "hausverwalter-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:57:47.993767+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:57:47.993767+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:57:47.993767+00:00",
+=======
+    "last_checked": "2026-10-26T17:32:46.525221+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:32:46.525221+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:32:46.525221+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.achat-hausverwaltung.de/": {
     "source_name": "achat-hausverwaltung.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:27:22.454653+00:00",
+=======
+    "last_checked": "2026-10-26T16:10:08.269002+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.achat-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016)')))",
     "last_success": null,
@@ -689,12 +1195,21 @@
   },
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": {
     "source_name": "esta-haus.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:58:12.492124+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:58:12.492124+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T14:58:12.492124+00:00",
+=======
+    "last_checked": "2026-10-26T17:33:02.265873+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:33:02.265873+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:33:02.265873+00:00",
+>>>>>>> Stashed changes
     "suggested_url": "http://www.esta-haus.de/index.php?option=com_estateagent&Itemid=28",
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
@@ -702,36 +1217,63 @@
   },
   "https://www.kurtzke-immobilien.de/objektstatus/miete/": {
     "source_name": "kurtzke-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:58:34.323610+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:58:34.323610+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T14:58:34.323610+00:00",
+=======
+    "last_checked": "2026-10-26T17:33:23.301236+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:33:23.301236+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:33:23.301236+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://artvivendi-immobilien.de/aktuele-angebote.html": {
     "source_name": "artvivendi-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:27:26.930533+00:00",
     "status": "error",
     "error": "403 Client Error: Forbidden for url: https://artvivendi-immobilien.de/aktuele-angebote.html",
     "last_success": "2026-10-23T18:56:24.205432+00:00",
     "last_listing_count": 0,
     "consecutive_bad_runs": 2,
+=======
+    "last_checked": "2026-10-26T17:34:05.974153+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:34:05.974153+00:00",
+    "last_listing_count": 0,
+    "consecutive_bad_runs": 0,
+>>>>>>> Stashed changes
     "hopeless": false,
-    "last_listing_count_at": "2026-10-23T18:56:24.205432+00:00",
+    "last_listing_count_at": "2026-10-26T17:34:05.974153+00:00",
     "pages_checked": 3
   },
   "https://www.werz-werz.de/werzimmobilien/": {
     "source_name": "werz-werz.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:59:04.981758+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:59:04.981758+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T14:59:04.981758+00:00",
+=======
+    "last_checked": "2026-10-26T17:34:23.541431+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:34:23.541431+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:34:23.541431+00:00",
+>>>>>>> Stashed changes
     "suggested_url": "https://www.werz-werz.de/immobilien/4037/",
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
@@ -739,55 +1281,95 @@
   },
   "https://www.immoagenten.de/startseite.xhtml": {
     "source_name": "immoagenten.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T14:59:05.012381+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T14:59:05.012381+00:00",
     "last_listing_count": 4,
     "last_listing_count_at": "2026-10-26T14:59:05.012381+00:00",
+=======
+    "last_checked": "2026-10-26T17:34:23.557574+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:34:23.557574+00:00",
+    "last_listing_count": 4,
+    "last_listing_count_at": "2026-10-26T17:34:23.557574+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "http://www.mika-immobilien.de/vermietung-wohnung/": {
     "source_name": "mika-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:00:17.536907+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:00:17.536907+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:00:17.536907+00:00",
+=======
+    "last_checked": "2026-10-26T17:35:06.252627+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:35:06.252627+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:35:06.252627+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.tela-immobilien.de/angebote-mietimmobilien": {
     "source_name": "tela-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:01:17.627347+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:01:17.627347+00:00",
     "last_listing_count": 3,
     "last_listing_count_at": "2026-10-26T15:01:17.627347+00:00",
+=======
+    "last_checked": "2026-10-26T17:35:51.799207+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:35:51.799207+00:00",
+    "last_listing_count": 3,
+    "last_listing_count_at": "2026-10-26T17:35:51.799207+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.foelske.de/hausverwaltung-berlin/angebote.html": {
     "source_name": "foelske.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:02:07.414181+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:02:07.414181+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:02:07.414181+00:00",
+=======
+    "last_checked": "2026-10-26T17:36:25.670752+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:36:25.670752+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:36:25.670752+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie": {
     "source_name": "immobilienscout24.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:27:33.832135+00:00",
+=======
+    "last_checked": "2026-10-26T16:10:18.031242+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
     "last_success": null,
@@ -797,36 +1379,63 @@
   },
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": {
     "source_name": "kip.net",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:02:07.468880+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:02:07.468880+00:00",
     "last_listing_count": 20,
     "last_listing_count_at": "2026-10-26T15:02:07.468880+00:00",
+=======
+    "last_checked": "2026-10-26T17:36:25.698612+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:36:25.698612+00:00",
+    "last_listing_count": 20,
+    "last_listing_count_at": "2026-10-26T17:36:25.698612+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/": {
     "source_name": "caseaberlino.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:02:27.694561+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:02:27.694561+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:02:27.694561+00:00",
+=======
+    "last_checked": "2026-10-26T17:36:45.331225+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:36:45.331225+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:36:45.331225+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.habitare-immobilien.de/angebote": {
     "source_name": "habitare-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:03:06.724882+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:03:06.724882+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:03:06.724882+00:00",
+=======
+    "last_checked": "2026-10-26T17:37:37.635227+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:37:37.635227+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:37:37.635227+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false,
@@ -834,12 +1443,21 @@
   },
   "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": {
     "source_name": "lanzundmelzer.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:03:06.743434+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:03:06.743434+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T15:03:06.743434+00:00",
+=======
+    "last_checked": "2026-10-26T17:37:37.645311+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:37:37.645311+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:37:37.645311+00:00",
+>>>>>>> Stashed changes
     "suggested_url": "https://lanzundmelzer.de/immobilienangebote",
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
@@ -847,114 +1465,196 @@
   },
   "https://schick-24.everreal.co/candidates/public/listings": {
     "source_name": "schick-24.everreal.co",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:04:39.472978+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:04:39.472978+00:00",
     "last_listing_count": 2,
     "last_listing_count_at": "2026-10-26T15:04:39.472978+00:00",
+=======
+    "last_checked": "2026-10-26T17:38:14.902686+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:38:14.902686+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:38:14.902686+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": {
     "source_name": "pandion-service.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:04:41.325209+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:04:41.325209+00:00",
     "last_listing_count": 7,
     "last_listing_count_at": "2026-10-26T15:04:41.325209+00:00",
+=======
+    "last_checked": "2026-10-26T17:38:14.922221+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:38:14.922221+00:00",
+    "last_listing_count": 7,
+    "last_listing_count_at": "2026-10-26T17:38:14.922221+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://famoza.de/ff/immobilien/?schema=flat_rent&price=&ffpage=1&sort=date": {
     "source_name": "famoza.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:05:32.922582+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:05:32.922582+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:05:32.922582+00:00",
+=======
+    "last_checked": "2026-10-26T17:38:51.228459+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:38:51.228459+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:38:51.228459+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://hihc.de/angebote/#/list1": {
     "source_name": "hihc.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:06:01.690044+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:06:01.690044+00:00",
     "last_listing_count": 13,
     "last_listing_count_at": "2026-10-26T15:06:01.690044+00:00",
+=======
+    "last_checked": "2026-10-26T17:39:17.009722+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:39:17.009722+00:00",
+    "last_listing_count": 13,
+    "last_listing_count_at": "2026-10-26T17:39:17.009722+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://tki.berlin/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id#038;vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id": {
     "source_name": "tki.berlin",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:06:30.098110+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:06:30.098110+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:06:30.098110+00:00",
+=======
+    "last_checked": "2026-10-26T17:39:47.623838+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:39:47.623838+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:39:47.623838+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://akzent-info.de/angebote_2/": {
     "source_name": "akzent-info.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:06:49.487280+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:06:49.487280+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:06:49.487280+00:00",
+=======
+    "last_checked": "2026-10-26T17:40:07.676013+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:40:07.676013+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:40:07.676013+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://howe-immo.de/immobilien/": {
     "source_name": "howe-immo.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:08:02.755903+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:08:02.755903+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:08:02.755903+00:00",
+=======
+    "last_checked": "2026-10-26T17:40:54.428616+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:40:54.428616+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:40:54.428616+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.acb-immobilien.de/angebote/": {
     "source_name": "acb-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:08:29.519472+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:08:29.519472+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:08:29.519472+00:00",
+=======
+    "last_checked": "2026-10-26T17:41:35.069867+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:41:35.069867+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:41:35.069867+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://immodo-berlin.de/angebote/": {
     "source_name": "immodo-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:08:44.460240+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:08:44.460240+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:08:44.460240+00:00",
+=======
+    "last_checked": "2026-10-26T17:42:05.207644+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:42:05.207644+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:42:05.207644+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.ivf-immobilien.com/immobilien/mieten/": {
     "source_name": "ivf-immobilien.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:09:52.704109+00:00",
     "status": "ok",
     "error": null,
@@ -962,108 +1662,193 @@
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:09:52.704109+00:00",
     "pages_checked": 3,
+=======
+    "last_checked": "2026-10-26T17:42:05.216399+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:42:05.216399+00:00",
+    "last_listing_count": 6,
+    "last_listing_count_at": "2026-10-26T17:42:05.216399+00:00",
+    "pages_checked": 1,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.evernest.com/de/": {
     "source_name": "evernest.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:11:02.626498+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:11:02.626498+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:11:02.626498+00:00",
+=======
+    "last_checked": "2026-10-26T17:43:05.307944+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:43:05.307944+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:43:05.307944+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.borcherthv.de/": {
     "source_name": "borcherthv.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:12:04.967474+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:12:04.967474+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:12:04.967474+00:00",
+=======
+    "last_checked": "2026-10-26T17:43:57.796422+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:43:57.796422+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:43:57.796422+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://conforma-hausverwaltung.de/immobilien/": {
     "source_name": "conforma-hausverwaltung.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:13:28.495773+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:13:28.495773+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:13:28.495773+00:00",
+=======
+    "last_checked": "2026-10-26T17:44:38.608018+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:44:38.608018+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:44:38.608018+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://wobege.de/": {
     "source_name": "wobege.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:14:38.982069+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:14:38.982069+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:14:38.982069+00:00",
+=======
+    "last_checked": "2026-10-26T17:45:19.331139+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:45:19.331139+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:45:19.331139+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://findus-hv.de/": {
     "source_name": "findus-hv.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:15:16.571875+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:15:16.571875+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:15:16.571875+00:00",
+=======
+    "last_checked": "2026-10-26T17:45:50.747447+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:45:50.747447+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:45:50.747447+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://hws-berlin.de/wohnen/": {
     "source_name": "hws-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:16:11.429680+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:16:11.429680+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:16:11.429680+00:00",
+=======
+    "last_checked": "2026-10-26T17:46:24.856001+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:46:24.856001+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:46:24.856001+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html": {
     "source_name": "rbb-immo.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:16:31.442163+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:16:31.442163+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:16:31.442163+00:00",
+=======
+    "last_checked": "2026-10-26T17:46:44.882026+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:46:44.882026+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:46:44.882026+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList": {
     "source_name": "howoge.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:17:04.040263+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:17:04.040263+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:17:04.040263+00:00",
+=======
+    "last_checked": "2026-10-26T17:47:11.065548+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:47:11.065548+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:47:11.065548+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://portal.immobilienscout24.de/ergebnisliste/92830022": {
     "source_name": "immobilienscout24.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:28:05.653126+00:00",
+=======
+    "last_checked": "2026-10-26T16:10:51.956478+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "500 Server Error: Internal Server Error for url: https://portal.immobilienscout24.de/ergebnisliste/92830022",
     "last_success": null,
@@ -1073,6 +1858,7 @@
   },
   "https://portal.immobilienscout24.de/ergebnisliste/58427637": {
     "source_name": "immobilienscout24.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:17:04.049695+00:00",
     "status": "ok",
     "error": null,
@@ -1081,11 +1867,25 @@
     "consecutive_bad_runs": 0,
     "hopeless": false,
     "last_listing_count_at": "2026-10-26T15:17:04.049695+00:00",
+=======
+    "last_checked": "2026-10-26T17:47:11.071004+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:47:11.071004+00:00",
+    "last_listing_count": 2,
+    "consecutive_bad_runs": 0,
+    "hopeless": false,
+    "last_listing_count_at": "2026-10-26T17:47:11.071004+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1
   },
   "https://portal.immobilienscout24.de/ergebnisliste/80994727/1?sid=vsbj3s4otoa9fq2jff6c483n13": {
     "source_name": "immobilienscout24.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:28:10.136015+00:00",
+=======
+    "last_checked": "2026-10-26T16:10:55.963130+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "500 Server Error: Internal Server Error for url: https://portal.immobilienscout24.de/ergebnisliste/80994727/1?sid=vsbj3s4otoa9fq2jff6c483n13",
     "last_success": null,
@@ -1095,6 +1895,7 @@
   },
   "https://portal.immobilienscout24.de/ergebnisliste/25476741": {
     "source_name": "immobilienscout24.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:17:34.911521+00:00",
     "status": "ok",
     "error": null,
@@ -1103,10 +1904,21 @@
     "consecutive_bad_runs": 0,
     "hopeless": false,
     "last_listing_count_at": "2026-10-26T15:17:34.911521+00:00",
+=======
+    "last_checked": "2026-10-26T17:47:31.276421+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:47:31.276421+00:00",
+    "last_listing_count": 0,
+    "consecutive_bad_runs": 0,
+    "hopeless": false,
+    "last_listing_count_at": "2026-10-26T17:47:31.276421+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2
   },
   "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/": {
     "source_name": "ohne-makler.net",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:18:47.550446+00:00",
     "status": "ok",
     "error": null,
@@ -1114,84 +1926,151 @@
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:18:47.550446+00:00",
     "pages_checked": 3,
+=======
+    "last_checked": "2026-10-26T17:47:31.331897+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:47:31.331897+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-26T17:47:31.331897+00:00",
+    "pages_checked": 1,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.flatbee.de/wohnung-mieten-berlin": {
     "source_name": "flatbee.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:20:01.332445+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:20:01.332445+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:20:01.332445+00:00",
+=======
+    "last_checked": "2026-10-26T17:48:36.813128+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:48:36.813128+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:48:36.813128+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.wohnungssuche-berlin.net/provisionsfrei.html": {
     "source_name": "wohnungssuche-berlin.net",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:20:58.539443+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:20:58.539443+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:20:58.539443+00:00",
+=======
+    "last_checked": "2026-10-26T17:49:06.930821+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:49:06.930821+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:49:06.930821+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung": {
     "source_name": "deutsche-wohnen.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:22:19.650543+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:22:19.650543+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:22:19.650543+00:00",
+=======
+    "last_checked": "2026-10-26T17:49:48.413297+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:49:48.413297+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:49:48.413297+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://heimstaden.de/": {
     "source_name": "heimstaden.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:22:50.917603+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:22:50.917603+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:22:50.917603+00:00",
+=======
+    "last_checked": "2026-10-26T17:50:13.288422+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:50:13.288422+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:50:13.288422+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.covivio.immo/wohnen/immobilie-finden/": {
     "source_name": "covivio.immo",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:24:27.882659+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:24:27.882659+00:00",
     "last_listing_count": 13,
     "last_listing_count_at": "2026-10-26T15:24:27.882659+00:00",
+=======
+    "last_checked": "2026-10-26T17:50:54.536983+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:50:54.536983+00:00",
+    "last_listing_count": 15,
+    "last_listing_count_at": "2026-10-26T17:50:54.536983+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.peachproperty.com/de/immobilien": {
     "source_name": "peachproperty.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:27:35.949770+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:27:35.949770+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:27:35.949770+00:00",
+=======
+    "last_checked": "2026-10-26T17:51:24.308631+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:51:24.308631+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:51:24.308631+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.optima-hausverwaltung.de/": {
     "source_name": "optima-hausverwaltung.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:28:23.995715+00:00",
+=======
+    "last_checked": "2026-10-26T16:11:14.110907+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.optima-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.optima-hausverwaltung.de', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
     "last_success": null,
@@ -1201,72 +2080,126 @@
   },
   "https://www.hausverwaltung-bauriedel.de/de/berliner-altbau.php": {
     "source_name": "hausverwaltung-bauriedel.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:28:02.426003+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:28:02.426003+00:00",
     "last_listing_count": 5,
     "last_listing_count_at": "2026-10-26T15:28:02.426003+00:00",
+=======
+    "last_checked": "2026-10-26T17:51:38.860053+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:51:38.860053+00:00",
+    "last_listing_count": 5,
+    "last_listing_count_at": "2026-10-26T17:51:38.860053+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.qh-living.com/wohnungen": {
     "source_name": "qh-living.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:28:50.445572+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:28:50.445572+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:28:50.445572+00:00",
+=======
+    "last_checked": "2026-10-26T17:51:59.860426+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:51:59.860426+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:51:59.860426+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.mueller-merkle.de/projekte/europacity-ensembles/": {
     "source_name": "mueller-merkle.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:30:16.644856+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:30:16.644856+00:00",
     "last_listing_count": 20,
     "last_listing_count_at": "2026-10-26T15:30:16.644856+00:00",
+=======
+    "last_checked": "2026-10-26T17:52:58.814494+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:52:58.814494+00:00",
+    "last_listing_count": 20,
+    "last_listing_count_at": "2026-10-26T17:52:58.814494+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 4,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/": {
     "source_name": "mueller-merkle.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:31:13.007792+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:31:13.007792+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:31:13.007792+00:00",
+=======
+    "last_checked": "2026-10-26T17:53:50.451943+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:53:50.451943+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:53:50.451943+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.allod.de/": {
     "source_name": "allod.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:32:01.801705+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:32:01.801705+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:32:01.801705+00:00",
+=======
+    "last_checked": "2026-10-26T17:54:29.950591+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:54:29.950591+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:54:29.950591+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.adler-group.com/suche/wohnung": {
     "source_name": "adler-group.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:32:44.986978+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:32:44.986978+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T15:32:44.986978+00:00",
+=======
+    "last_checked": "2026-10-26T17:54:46.144405+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:54:46.144405+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:54:46.144405+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false,
@@ -1274,7 +2207,11 @@
   },
   "https://www.hilfswerk-siedlung.de/": {
     "source_name": "hilfswerk-siedlung.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:28:34.477138+00:00",
+=======
+    "last_checked": "2026-10-26T16:11:26.265787+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "HTTPSConnectionPool(host='www.hilfswerk-siedlung.de', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.hilfswerk-siedlung.de', port=443): Failed to resolve 'www.hilfswerk-siedlung.de' ([Errno -2] Name or service not known)\"))",
     "last_success": null,
@@ -1284,42 +2221,70 @@
   },
   "https://www.berlinhaus.com/mietangebote/": {
     "source_name": "berlinhaus.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:33:10.424913+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:33:10.424913+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:33:10.424913+00:00",
+=======
+    "last_checked": "2026-10-26T17:55:11.621420+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:55:11.621420+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:55:11.621420+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml": {
     "source_name": "smartsite2.myonoffice.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:33:10.443641+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:33:10.443641+00:00",
     "last_listing_count": 10,
     "last_listing_count_at": "2026-10-26T15:33:10.443641+00:00",
+=======
+    "last_checked": "2026-10-26T17:55:11.631062+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:55:11.631062+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-26T17:55:11.631062+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://cap-con.de/immobilien-berlin/": {
     "source_name": "cap-con.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:33:36.255758+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:33:36.255758+00:00",
     "last_listing_count": 6,
     "last_listing_count_at": "2026-10-26T15:33:36.255758+00:00",
+=======
+    "last_checked": "2026-10-26T17:55:29.040075+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:55:29.040075+00:00",
+    "last_listing_count": 6,
+    "last_listing_count_at": "2026-10-26T17:55:29.040075+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml": {
     "source_name": "smartsite2.myonoffice.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:36:48.037777+00:00",
     "status": "ok",
     "error": null,
@@ -1327,24 +2292,46 @@
     "last_listing_count": 31,
     "last_listing_count_at": "2026-10-26T15:36:48.037777+00:00",
     "pages_checked": 4,
+=======
+    "last_checked": "2026-10-26T17:55:40.356919+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:55:40.356919+00:00",
+    "last_listing_count": 6,
+    "last_listing_count_at": "2026-10-26T17:55:40.356919+00:00",
+    "pages_checked": 2,
+>>>>>>> Stashed changes
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://fineandmine.de/immobilien/": {
     "source_name": "fineandmine.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:37:34.088301+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:37:34.088301+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:37:34.088301+00:00",
+=======
+    "last_checked": "2026-10-26T17:56:09.504812+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:56:09.504812+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:56:09.504812+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.fantasticfrank.com/en/berlin/for-rent/": {
     "source_name": "fantasticfrank.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:28:44.528811+00:00",
+=======
+    "last_checked": "2026-10-26T16:11:36.187049+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "429 Client Error: Too Many Requests for url: https://www.fantasticfrank.com/en/berlin/for-rent/",
     "last_success": null,
@@ -1354,43 +2341,74 @@
   },
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte": {
     "source_name": "engelvoelkers.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:39:13.817866+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:39:13.817866+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:39:13.817866+00:00",
+=======
+    "last_checked": "2026-10-26T17:56:45.162738+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:56:45.162738+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:56:45.162738+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg": {
     "source_name": "engelvoelkers.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:40:32.077440+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:40:32.077440+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:40:32.077440+00:00",
+=======
+    "last_checked": "2026-10-26T17:57:16.842884+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:57:16.842884+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:57:16.842884+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg": {
     "source_name": "engelvoelkers.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:40:32.155862+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:40:32.155862+00:00",
     "last_listing_count": 21,
     "last_listing_count_at": "2026-10-26T15:40:32.155862+00:00",
+=======
+    "last_checked": "2026-10-26T17:57:16.931583+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:57:16.931583+00:00",
+    "last_listing_count": 21,
+    "last_listing_count_at": "2026-10-26T17:57:16.931583+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.von-poll.com/de/wohnung-mieten/berlin": {
     "source_name": "von-poll.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T13:28:46.517711+00:00",
+=======
+    "last_checked": "2026-10-26T16:11:37.448661+00:00",
+>>>>>>> Stashed changes
     "status": "error",
     "error": "403 Client Error: Forbidden for url: https://www.von-poll.com/de/wohnung-mieten/berlin",
     "last_success": null,
@@ -1400,252 +2418,441 @@
   },
   "https://www.wohnwitz.de/de/wohnung/finden": {
     "source_name": "wohnwitz.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:41:34.688298+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:41:34.688298+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:41:34.688298+00:00",
+=======
+    "last_checked": "2026-10-26T17:57:50.573632+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:57:50.573632+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:57:50.573632+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://hpm2.immosolve.eu/immosolve_presentation/pub/modern/2145111/HP/immo.jsp": {
     "source_name": "hpm2.immosolve.eu",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:42:09.738565+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:42:09.738565+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T15:42:09.738565+00:00",
+=======
+    "last_checked": "2026-10-26T17:58:16.248092+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:58:16.248092+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T17:58:16.248092+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://2106276.hpm.immosolve.eu/#!/result-list-2": {
     "source_name": "2106276.hpm.immosolve.eu",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:42:37.385623+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:42:37.385623+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:42:37.385623+00:00",
+=======
+    "last_checked": "2026-10-26T17:59:19.768241+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T17:59:19.768241+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T17:59:19.768241+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.auen-immobilien.de/objekte": {
     "source_name": "auen-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:44:04.298724+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:44:04.298724+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:44:04.298724+00:00",
+=======
+    "last_checked": "2026-10-26T18:00:26.533850+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:00:26.533850+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:00:26.533850+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://moellerherm-immobilien.de/aktuelle-angebote-wohnen/": {
     "source_name": "moellerherm-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:45:04.047265+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:45:04.047265+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:45:04.047265+00:00",
+=======
+    "last_checked": "2026-10-26T18:01:48.997289+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:01:48.997289+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:01:48.997289+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.poeppel-immobilien.de/aktuelle-immobilien/": {
     "source_name": "poeppel-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:45:26.200876+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:45:26.200876+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:45:26.200876+00:00",
+=======
+    "last_checked": "2026-10-26T18:02:09.607970+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:02:09.607970+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:02:09.607970+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.saxowert.de/berlin/vermietung/wohnungen": {
     "source_name": "saxowert.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:46:41.257744+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:46:41.257744+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:46:41.257744+00:00",
+=======
+    "last_checked": "2026-10-26T18:04:01.644172+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:04:01.644172+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:04:01.644172+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/": {
     "source_name": "sawall-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:47:08.888791+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:47:08.888791+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:47:08.888791+00:00",
+=======
+    "last_checked": "2026-10-26T18:04:53.985489+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:04:53.985489+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:04:53.985489+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.trad-immobilien.de/wohnung/?type=rent": {
     "source_name": "trad-immobilien.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:48:18.758260+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:48:18.758260+00:00",
     "last_listing_count": 3,
     "last_listing_count_at": "2026-10-26T15:48:18.758260+00:00",
+=======
+    "last_checked": "2026-10-26T18:06:44.535337+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:06:44.535337+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:06:44.535337+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.georgimmobilien.com/immobilien-verkauf-vermietung-berlin": {
     "source_name": "georgimmobilien.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:49:17.014847+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:49:17.014847+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:49:17.014847+00:00",
+=======
+    "last_checked": "2026-10-26T18:08:30.685946+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:08:30.685946+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:08:30.685946+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten": {
     "source_name": "kensington-international.com",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:49:55.950165+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:49:55.950165+00:00",
     "last_listing_count": 24,
     "last_listing_count_at": "2026-10-26T15:49:55.950165+00:00",
+=======
+    "last_checked": "2026-10-26T18:09:19.377239+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:09:19.377239+00:00",
+    "last_listing_count": 12,
+    "last_listing_count_at": "2026-10-26T18:09:19.377239+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote": {
     "source_name": "charlotte1907.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:49:56.102482+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:49:56.102482+00:00",
     "last_listing_count": 10,
     "last_listing_count_at": "2026-10-26T15:49:56.102482+00:00",
+=======
+    "last_checked": "2026-10-26T18:09:22.815371+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:09:22.815371+00:00",
+    "last_listing_count": 10,
+    "last_listing_count_at": "2026-10-26T18:09:22.815371+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://abg-paradies.de/wohnungsangebote/": {
     "source_name": "abg-paradies.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:50:10.562691+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:50:10.562691+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:50:10.562691+00:00",
+=======
+    "last_checked": "2026-10-26T18:09:37.248062+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:09:37.248062+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:09:37.248062+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.bwv-zk.de/wohnen-bauen/vermietungsangebote.html": {
     "source_name": "bwv-zk.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:50:25.961716+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:50:25.961716+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:50:25.961716+00:00",
+=======
+    "last_checked": "2026-10-26T18:09:52.146017+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:09:52.146017+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:09:52.146017+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.friedrichsheim-eg.de/category/wohnungsangebote-fuer-alle/feed/": {
     "source_name": "friedrichsheim-eg.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:51:00.874126+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:51:00.874126+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:51:00.874126+00:00",
+=======
+    "last_checked": "2026-10-26T18:10:43.289023+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:10:43.289023+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:10:43.289023+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://selbstbau-eg.de/category/allgemein/feed/": {
     "source_name": "selbstbau-eg.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:51:35.382932+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:51:35.382932+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:51:35.382932+00:00",
+=======
+    "last_checked": "2026-10-26T18:11:33.982372+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:11:33.982372+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:11:33.982372+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 2,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.maerkische-scholle.de/wohnungsangebote.html": {
     "source_name": "maerkische-scholle.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:52:32.114082+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:52:32.114082+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:52:32.114082+00:00",
+=======
+    "last_checked": "2026-10-26T18:13:14.028802+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:13:14.028802+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:13:14.028802+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://vineta98.de/wohnungen/": {
     "source_name": "vineta98.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:52:54.233078+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:52:54.233078+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:52:54.233078+00:00",
+=======
+    "last_checked": "2026-10-26T18:13:34.540725+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:13:34.540725+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:13:34.540725+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.neues-berlin.de/wohnen/wohnungsangebote": {
     "source_name": "neues-berlin.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:52:54.252687+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:52:54.252687+00:00",
     "last_listing_count": 1,
     "last_listing_count_at": "2026-10-26T15:52:54.252687+00:00",
+=======
+    "last_checked": "2026-10-26T18:13:34.551147+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:13:34.551147+00:00",
+    "last_listing_count": 1,
+    "last_listing_count_at": "2026-10-26T18:13:34.551147+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 1,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://wg-solidaritaet.de/wohnen/mietangebote/": {
     "source_name": "wg-solidaritaet.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:53:18.936574+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:53:18.936574+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:53:18.936574+00:00",
+=======
+    "last_checked": "2026-10-26T18:13:58.088377+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:13:58.088377+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:13:58.088377+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false
   },
   "https://www.wbv-neukoelln.de/aktuelles/wohnungsangebote.html": {
     "source_name": "wbv-neukoelln.de",
+<<<<<<< Updated upstream
     "last_checked": "2026-10-26T15:53:33.009570+00:00",
     "status": "ok",
     "error": null,
     "last_success": "2026-10-26T15:53:33.009570+00:00",
     "last_listing_count": 0,
     "last_listing_count_at": "2026-10-26T15:53:33.009570+00:00",
+=======
+    "last_checked": "2026-10-26T18:14:12.022589+00:00",
+    "status": "ok",
+    "error": null,
+    "last_success": "2026-10-26T18:14:12.022589+00:00",
+    "last_listing_count": 0,
+    "last_listing_count_at": "2026-10-26T18:14:12.022589+00:00",
+>>>>>>> Stashed changes
     "pages_checked": 3,
     "consecutive_bad_runs": 0,
     "hopeless": false

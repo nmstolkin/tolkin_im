@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "generated_at": "2026-10-26T15:53:33.014339+00:00",
+=======
+  "generated_at": "2026-10-26T18:14:12.025952+00:00",
+>>>>>>> Stashed changes
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -46,6 +50,26 @@
       "still_listed": true
     },
     {
+<<<<<<< Updated upstream
+=======
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-10-25T19:59:33.744547+00:00",
+      "still_listed": false,
+      "gone_since": "2026-10-26T18:14:12.025952+00:00"
+    },
+    {
+>>>>>>> Stashed changes
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
       "title": "Zentrale Hauptstadtresidenz für höchste Wohnansprüche",
       "rooms": 5,
@@ -253,7 +277,11 @@
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960656+00:00",
       "still_listed": false,
+<<<<<<< Updated upstream
       "gone_since": "2026-10-26T15:53:33.014339+00:00"
+=======
+      "gone_since": "2026-10-26T18:14:12.025952+00:00"
+>>>>>>> Stashed changes
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.8||10179",
@@ -270,7 +298,11 @@
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960605+00:00",
       "still_listed": false,
+<<<<<<< Updated upstream
       "gone_since": "2026-10-26T15:53:33.014339+00:00"
+=======
+      "gone_since": "2026-10-26T18:14:12.025952+00:00"
+>>>>>>> Stashed changes
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.9||10179",
@@ -286,7 +318,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960362+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-26T18:14:12.025952+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
@@ -303,7 +336,11 @@
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960316+00:00",
       "still_listed": false,
+<<<<<<< Updated upstream
       "gone_since": "2026-10-26T15:53:33.014339+00:00"
+=======
+      "gone_since": "2026-10-26T18:14:12.025952+00:00"
+>>>>>>> Stashed changes
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|120.8|2072.6|10179",
@@ -337,7 +374,11 @@
       "source_name": "kip.net",
       "found_at": "2026-10-23T10:47:48.447642+00:00",
       "still_listed": false,
+<<<<<<< Updated upstream
       "gone_since": "2026-10-26T15:53:33.014339+00:00"
+=======
+      "gone_since": "2026-10-26T18:14:12.025952+00:00"
+>>>>>>> Stashed changes
     }
   ],
   "near_misses": [
@@ -424,12 +465,25 @@
   ],
   "time_online": {
     "kip.net": {
+<<<<<<< Updated upstream
       "median_hours": 65.7,
       "samples": 2
     },
     "wbm.de": {
       "median_hours": 77.1,
       "samples": 3
+=======
+      "median_hours": 54.3,
+      "samples": 3
+    },
+    "smartsite2.myonoffice.de": {
+      "median_hours": 4.7,
+      "samples": 2
+    },
+    "wbm.de": {
+      "median_hours": 79.4,
+      "samples": 4
+>>>>>>> Stashed changes
     }
   }
 }

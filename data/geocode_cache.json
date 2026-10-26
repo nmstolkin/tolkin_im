@@ -235,10 +235,18 @@
   ],
   "Living Levels, Berlin, Germany": null,
   "Stuckaltbau im Wiclefkiez, Sonnenbalkon, grün, ruhig, hohe Decken, 10551, Berlin, Germany": null,
+<<<<<<< Updated upstream
+=======
+  "Geisbergstraße 17, 10777, Berlin, Germany": [
+    52.4978976,
+    13.3384992
+  ],
+>>>>>>> Stashed changes
   "Courbièrestraße 10, 10787, Berlin, Germany": [
     52.5007967,
     13.3503663
   ],
+<<<<<<< Updated upstream
   "ERSTBEZUG - 3 Zimmer - Olivaer Platz, 10707, Berlin, Germany": null,
   "Allee der Kosmonauten 200, Berlin, Germany": [
     52.5419129,
@@ -263,11 +271,29 @@
   "Eisenhutweg 76, Berlin, Germany": [
     52.4298395,
     13.5087003
+=======
+  "Grüne Trift 6, Berlin, Germany": [
+    52.4404431,
+    13.5863334
+  ],
+  "Wutzkyallee 51, Berlin, Germany": [
+    52.4247165,
+    13.4741306
+  ],
+  "Avenue Jean Mermoz 29, Berlin, Germany": [
+    52.5669769,
+    13.2999087
+  ],
+  "Abram-Joffe-Straße 8, Berlin, Germany": [
+    52.4334537,
+    13.529027
+>>>>>>> Stashed changes
   ],
   "Zwickauer Damm 12, Berlin, Germany": [
     52.4231626,
     13.483328
   ],
+<<<<<<< Updated upstream
   "Stralsunder Straße 16, Berlin, Germany": [
     52.539715,
     13.3941969
@@ -280,6 +306,28 @@
     52.6090016,
     13.3073803
   ],
+=======
+  "Amberbaumallee 10, Berlin, Germany": [
+    52.4662004,
+    13.1585199
+  ],
+  "Kleeblattstraße 16, Berlin, Germany": [
+    52.4080614,
+    13.5536528
+  ],
+  "Wendenschloßstraße 109A, Berlin, Germany": [
+    52.4416084,
+    13.5825393
+  ],
+  "Eisenhutweg 76, Berlin, Germany": [
+    52.4298395,
+    13.5087003
+  ],
+  "IHRE 2 BÜROETAGEN IN TOPLAGE BERLIN CHARLOTTENBURG!, Berlin, Germany": null,
+  "Wunderschöne helle 3-Zi-Altbauwhg., oberstes OG, EBK, Aufzug, Loggia, Blick ins Grüne, Kudammnähe, 10709, Berlin, Germany": null,
+  "Aubing, Berlin, Germany": null,
+  "Kölner Altstadt, Berlin, Germany": null,
+>>>>>>> Stashed changes
   "Schlangenbader Str. 87, 14197, Berlin, Germany": [
     52.4750688,
     13.3083716

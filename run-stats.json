@@ -1,5 +1,6 @@
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "generated_at": "2026-10-26T15:53:33.284798+00:00",
   "listings_seen": 340,
   "matches": 1,
@@ -39,6 +40,17 @@
   "sites_total": 139,
   "sites_with_errors": 11,
   "near_misses": 2,
+  "quota_exhausted": true
+>>>>>>> Stashed changes
+=======
+  "generated_at": "2026-10-26T18:28:04.075775+00:00",
+  "listings_seen": 0,
+  "matches": 0,
+  "rejected": {},
+  "rejected_total": 0,
+  "sites_total": 17,
+  "sites_with_errors": 0,
+  "near_misses": 0,
   "quota_exhausted": true
 >>>>>>> Stashed changes
 }

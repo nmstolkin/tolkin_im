@@ -1,8 +1,12 @@
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "generated_at": "2026-10-26T15:53:33.014339+00:00",
 =======
   "generated_at": "2026-10-26T18:14:12.025952+00:00",
+>>>>>>> Stashed changes
+=======
+  "generated_at": "2026-10-26T18:28:04.066304+00:00",
 >>>>>>> Stashed changes
   "criteria": {
     "min_rooms": 3,

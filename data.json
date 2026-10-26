@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T12:03:50.476146+00:00",
+  "generated_at": "2026-10-26T15:53:33.014339+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,23 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-26T15:02:07.469343+00:00",
+      "still_listed": true,
+      "also_on": []
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|550||friedrichshain",
       "title": "Auf höchstem LIVING LEVEL: Atemberaubendes Penthouse am Spreeufer",
@@ -26,22 +43,6 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-25T20:25:03.278478+00:00",
-      "still_listed": true
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-10-25T19:59:33.744547+00:00",
       "still_listed": true
     },
     {
@@ -186,8 +187,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-23T14:35:31.670022+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-23T19:18:13.076155+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
@@ -203,8 +203,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-23T14:35:26.054942+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-23T19:18:13.076155+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|198||10117",
@@ -253,7 +252,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960656+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-26T15:53:33.014339+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.8||10179",
@@ -269,7 +269,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960605+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-26T15:53:33.014339+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|105.9||10179",
@@ -301,7 +302,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-23T10:47:52.960316+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-26T15:53:33.014339+00:00"
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|120.8|2072.6|10179",
@@ -334,7 +336,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-10-23T10:47:48.447642+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-10-26T15:53:33.014339+00:00"
     }
   ],
   "near_misses": [
@@ -420,9 +423,13 @@
     }
   ],
   "time_online": {
-    "smartsite2.myonoffice.de": {
-      "median_hours": 4.7,
+    "kip.net": {
+      "median_hours": 65.7,
       "samples": 2
+    },
+    "wbm.de": {
+      "median_hours": 77.1,
+      "samples": 3
     }
   }
 }

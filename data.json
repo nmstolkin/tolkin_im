@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T20:30:23.549425+00:00",
+  "generated_at": "2026-10-26T12:03:50.476146+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -338,6 +338,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
+      "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
+      "rooms": 3,
+      "size_qm": 82,
+      "rent": 1990.0,
+      "price_per_sqm": 24.3,
+      "district": null,
+      "plz": "10707",
+      "street": "Olivaer Platz",
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-26T11:59:04.165193+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|86||prenzlauer berg",
       "title": "Attraktives Wohnen im Gleimviertel!",

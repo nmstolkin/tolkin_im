@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T15:39:04.133998+00:00",
+  "generated_at": "2026-10-27T17:15:49.170049+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114.0,
+      "rent": 2069.0,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-10-27T17:10:49.325722+00:00",
+      "also_on": []
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
       "title": "Zentrale Hauptstadtresidenz für höchste Wohnansprüche",
@@ -173,23 +189,6 @@
       "still_listed": true
     },
     {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-10-26T22:36:28.230857+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-27T15:39:04.133998+00:00"
-    },
-    {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|198||10117",
       "title": "SOFORT BEZUGSFREI IN ERSTKLASSIGER LAGE",
       "rooms": 5,
@@ -241,10 +240,5 @@
       "miss_reason": "groesse"
     }
   ],
-  "time_online": {
-    "kip.net": {
-      "median_hours": 17.0,
-      "samples": 2
-    }
-  }
+  "time_online": {}
 }

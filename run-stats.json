@@ -1,19 +1,21 @@
 {
-  "generated_at": "2026-11-04T13:40:32.787067+00:00",
-  "listings_seen": 114,
-  "matches": 0,
+  "generated_at": "2026-11-04T18:08:50.040298+00:00",
+  "listings_seen": 325,
+  "matches": 1,
   "rejected": {
-    "gewerbe": 6,
-    "groesse": 76,
-    "lage": 94,
-    "zimmer": 58,
-    "miete": 38,
-    "zeitmiete": 3,
-    "moebliert": 1
+    "lage": 244,
+    "keine_daten": 12,
+    "zimmer": 164,
+    "groesse": 187,
+    "miete": 62,
+    "gewerbe": 15,
+    "moebliert": 4,
+    "wg_zimmer": 4,
+    "referenzobjekt": 10
   },
-  "rejected_total": 276,
-  "sites_total": 17,
-  "sites_with_errors": 0,
-  "near_misses": 1,
+  "rejected_total": 702,
+  "sites_total": 139,
+  "sites_with_errors": 8,
+  "near_misses": 2,
   "quota_exhausted": false
 }

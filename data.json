@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T13:40:32.749863+00:00",
+  "generated_at": "2026-11-04T18:08:49.932864+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,23 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|101|2190|10179",
+      "title": "Exklusive 3-Zimmer zentral in Mitte mit Loggia",
+      "rooms": 3,
+      "size_qm": 101,
+      "rent": 2190.0,
+      "price_per_sqm": 21.7,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-11-04T17:03:11.278321+00:00",
+      "still_listed": true,
+      "also_on": []
+    },
     {
       "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|101||10179",
       "title": "Exklusive 3-Zimmer zentral in Mitte mit Loggia",
@@ -26,23 +43,8 @@
       "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
       "source_name": "ohne-makler.net",
       "found_at": "2026-11-03T16:52:21.443311+00:00",
-      "still_listed": true
-    },
-    {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|101|2190|10179",
-      "title": "Exklusive 3-Zimmer zentral in Mitte mit Loggia,",
-      "rooms": 3,
-      "size_qm": 101,
-      "rent": 2190.0,
-      "price_per_sqm": 21.7,
-      "district": "Mitte",
-      "plz": "10179",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
-      "source_name": "kip.net",
-      "found_at": "2026-11-03T16:44:35.114702+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-04T18:08:49.932864+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -140,8 +142,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-28T17:50:31.473033+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-29T17:29:51.886409+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
@@ -269,8 +270,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:25:31.609765+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-28T16:56:22.801476+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
@@ -286,8 +286,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:24:59.084624+00:00",
-      "still_listed": false,
-      "gone_since": "2026-10-28T16:56:22.801476+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -389,14 +388,5 @@
       "miss_reason": "groesse"
     }
   ],
-  "time_online": {
-    "kip.net": {
-      "median_hours": 20.3,
-      "samples": 2
-    },
-    "smartsite2.myonoffice.de": {
-      "median_hours": 25.5,
-      "samples": 2
-    }
-  }
+  "time_online": {}
 }

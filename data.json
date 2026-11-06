@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T21:01:30.459962+00:00",
+  "generated_at": "2026-11-06T13:35:10.828044+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -372,6 +372,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.core-berlin.de/vermietung::3|86.5|1800|10115",
+      "title": "möbliertes Apartment nahe U-Bhf Schwarzkopfstraße",
+      "rooms": 3,
+      "size_qm": 86.5,
+      "rent": 1800.0,
+      "price_per_sqm": 20.8,
+      "district": "Mitte",
+      "plz": "10115",
+      "street": "Wöhlertstraße 18",
+      "url": "https://www.core-berlin.de/vermietung",
+      "site_url": "https://www.core-berlin.de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-11-06T13:31:35.893591+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2100|10179",
       "title": "3 Zimmer – DG Wohnung",

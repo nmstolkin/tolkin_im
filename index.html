@@ -633,6 +633,7 @@ let hidden = getSet(HIDDEN_KEY);
 let allMatches = [];
 let siteStatus = [];
 let runStats = null;
+let runStatsFast = null;
 let allNearMisses = [];
 let timeOnline = {};
 let currentTab = 'feed';
@@ -669,9 +670,12 @@ async function loadAll(){
 
   try{
     const res3 = await fetch('run-stats.json?t=' + Date.now());
-    runStats = await res3.json();
+    const raw = await res3.json();
+    // Neues Format: {voll: {...}, schnell: {...}}. Altes Format weiterhin lesbar.
+    runStats = raw.voll || raw.schnell || raw;
+    runStatsFast = raw.voll ? raw.schnell : null;
   }catch(e){
-    runStats = null;
+    runStats = null; runStatsFast = null;
   }
   renderStatus();
 }
@@ -845,6 +849,21 @@ function renderFavorites(){
   list.innerHTML = sorted.map(m => cardHTML(m, {showHide:false})).join('');
 }
 
+function renderFastStats(){
+  const s = runStatsFast;
+  if(!s) return '';
+  return `
+    <div class="settings-card" style="margin-bottom:14px;">
+      <h3>Letzter Schnell-Lauf</h3>
+      <p class="help" style="margin:0;">
+        <strong>${s.sites_total || 0}</strong> Quellen ·
+        <strong>${s.listings_seen || 0}</strong> Inserate ·
+        <strong>${s.matches || 0}</strong> passend
+        ${s.quota_exhausted ? ' · <span style="color:var(--alert);">Kontingent war erschöpft</span>' : ''}
+      </p>
+    </div>`;
+}
+
 function renderTimeOnline(){
   const entries = Object.entries(timeOnline || {})
     .sort((a,b) => a[1].median_hours - b[1].median_hours);
@@ -892,7 +911,7 @@ function renderRunStats(){
 
   box.innerHTML = `
     <div class="settings-card" style="margin-bottom:14px;">
-      <h3>Letzter Lauf</h3>
+      <h3>Letzter vollständiger Lauf</h3>
       <p class="help" style="margin-bottom:10px;">
         <strong>${runStats.listings_seen || 0}</strong> Inserate insgesamt erkannt ·
         <strong>${runStats.matches || 0}</strong> davon passend ·
@@ -900,6 +919,7 @@ function renderRunStats(){
       </p>
       ${rows || '<p class="help" style="margin:0;">Keine Verwerfungen erfasst.</p>'}
     </div>
+    ${renderFastStats()}
     ${renderTimeOnline()}`;
 }
 

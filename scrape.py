@@ -401,17 +401,23 @@ def fetch_rendered_html(url):
 # Elemente, deren class/id auf Navigation, Cookie-Banner, Fuss- oder Kopfzeile
 # hindeutet. Die fressen sonst das Zeichenbudget auf, bevor die Inserate kommen -
 # im Diagnoselauf endeten 8 Seiten exakt bei 12.000 Zeichen, mitten im Menue.
+# Bewusst eng gehalten: Muster wie "modal", "overlay" oder "header" kommen
+# auch in Inseratskarten vor (Bildergalerie, Kartenkopf) - sie wuerden echte
+# Treffer mitreissen.
 _NOISE_ATTR = re.compile(
-    r"(cookie|consent|gdpr|datenschutzhinweis|banner|navbar|navigation|mainmenu|"
-    r"hauptmenu|megamenu|breadcrumb|sidebar|offcanvas|modal|popup|overlay|"
-    r"skip-link|social|newsletter|footer|header|topbar|kontaktformular)"
+    r"(cookie|consent|gdpr|datenschutzhinweis|cmp-|navbar|main-?navigation|"
+    r"mainmenu|hauptmenu|megamenu|breadcrumb|skip-link|social-|newsletter|"
+    r"site-footer|page-footer|site-header|topbar)"
 )
 
 
 def extract_text(html):
     soup = BeautifulSoup(html, "html.parser")
-    for tag in soup(["script", "style", "nav", "footer", "header", "aside",
-                     "form", "svg", "noscript", "iframe", "template"]):
+    # ACHTUNG: "form" und "iframe" bewusst NICHT entfernen. Eingebettete
+    # Makler-Widgets (immobilie1, onOffice, immosolve) liefern ihre Inserate
+    # haeufig genau darin - sie wegzuwerfen kostet echte Treffer.
+    for tag in soup(["script", "style", "nav", "footer", "svg", "noscript",
+                     "template"]):
         tag.decompose()
     # zusaetzlich alles wegwerfen, was sich per class/id als Beiwerk ausweist
     for tag in soup.find_all(attrs={"class": _NOISE_ATTR}):
@@ -1825,7 +1831,16 @@ def _run():
     }
     stats_payload["near_misses"] = len(app_near_misses)
     stats_payload["quota_exhausted"] = _quota_exhausted
-    save_json(STATS_FILE, stats_payload)
+    stats_payload["run_type"] = "voll" if is_full_run else "schnell"
+
+    # Beide Lauf-Arten schrieben bisher in dieselbe Datei - der kurze Lauf
+    # (17 Quellen) ueberschrieb damit die Auswertung des langen (139 Quellen).
+    # Jetzt behaelt jede Art ihren eigenen Eintrag.
+    stats_all = load_json(STATS_FILE, {})
+    if "listings_seen" in stats_all:        # altes Format einmalig uebernehmen
+        stats_all = {"voll": stats_all}
+    stats_all[stats_payload["run_type"]] = stats_payload
+    save_json(STATS_FILE, stats_all)
 
     if _quota_exhausted:
         # Wichtig zu wissen: dieser Lauf war unvollstaendig. Sonst sieht ein

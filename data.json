@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T20:18:00.088292+00:00",
+  "generated_at": "2026-11-07T18:59:10.125872+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 90,
@@ -12,6 +12,166 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|180||mitte",
+      "title": "Über den Dächern der Dorotheenstadt: High-End-Wohnen im LUX",
+      "rooms": 4,
+      "size_qm": 180,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.744140+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|335||mitte",
+      "title": "Über den Dächern der Friedrichstadt: Weitläufiges Penthouse im Upper Eastside Berlin",
+      "rooms": 5,
+      "size_qm": 335,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.744055+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|178||mitte",
+      "title": "Upper Eastside Berlin: Minimalistische Residenz in Weiß an der Friedrichstraße",
+      "rooms": 4,
+      "size_qm": 178,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.744015+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|160||mitte",
+      "title": "Spektakuläre Maisonette über den Dächern der Kunstszene im Scheunenviertel",
+      "rooms": 3,
+      "size_qm": 160,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.743977+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|223||mitte",
+      "title": "Zentrale Hauptstadtresidenz für höchste Wohnansprüche",
+      "rooms": 5,
+      "size_qm": 223,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.743943+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|154||mitte",
+      "title": "Ihr Logenplatz am Brandenburger Tor - Repräsentative Maisonette in historischer Bestlage",
+      "rooms": 3,
+      "size_qm": 154,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.743894+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|205||mitte",
+      "title": "Um das Licht gebaut: Ihr repräsentativer Logenplatz am Brandenburger Tor",
+      "rooms": 3,
+      "size_qm": 205,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-07T18:52:40.743847+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
+      "title": "Blow Up",
+      "rooms": 3.0,
+      "size_qm": 125.0,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-11-07T18:40:05.744025+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::4|115||mitte",
+      "title": "Das Wunder von Berlin Berlin Mitte, 4. OG",
+      "rooms": 4,
+      "size_qm": 115,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "site_url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+      "source_name": "caseaberlino.com",
+      "found_at": "2026-11-07T18:39:59.409635+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://imms-immobilien.de/mietobjekte/::3|165||10405",
+      "title": "Berlin – Prenzlauer Berg | 3-Zimmer-Dachgeschoss-Wohnung | Chodowieckistraße 20",
+      "rooms": 3,
+      "size_qm": 165,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": "Chodowieckistraße 20",
+      "url": "https://imms-immobilien.de/mietobjekte/",
+      "site_url": "https://imms-immobilien.de/mietobjekte/",
+      "source_name": "imms-immobilien.de",
+      "found_at": "2026-11-07T18:23:39.611152+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|101|2190|10179",
       "title": "Exklusive 3-Zimmer zentral in Mitte mit Loggia",
@@ -26,7 +186,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-11-06T20:13:39.777424+00:00",
-      "also_on": []
+      "also_on": [],
+      "still_listed": false,
+      "gone_since": "2026-11-07T18:59:10.125872+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -42,7 +204,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-11-06T20:13:37.061352+00:00",
-      "also_on": []
+      "also_on": [],
+      "still_listed": false,
+      "gone_since": "2026-11-07T18:59:10.125872+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|170||halensee",
@@ -90,7 +254,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-11-06T16:08:11.487455+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-07T18:59:10.125872+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.7||10179",
@@ -220,7 +385,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
       "source_name": "kip.net",
       "found_at": "2026-10-28T17:50:31.473033+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-07T18:59:10.125872+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|223||mitte",
@@ -349,8 +515,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:25:31.609765+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-05T17:33:41.259207+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
@@ -366,8 +531,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:24:59.084624+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-05T17:33:41.259207+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -404,6 +568,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.core-berlin.de/vermietung::3|86.5||10115",
+      "title": "möbliertes Apartment nahe U-Bhf Schwarzkopfstraße",
+      "rooms": 3,
+      "size_qm": 86.5,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Mitte",
+      "plz": "10115",
+      "street": "Wöhlertstraße 18",
+      "url": "https://www.core-berlin.de/vermietung",
+      "site_url": "https://www.core-berlin.de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-11-07T18:23:39.597176+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
       "title": "ERSTBEZUG - 3 Zimmer - Olivaer Platz",
@@ -502,9 +682,9 @@
     }
   ],
   "time_online": {
-    "smartsite2.myonoffice.de": {
-      "median_hours": 218.1,
-      "samples": 2
+    "kip.net": {
+      "median_hours": 22.8,
+      "samples": 5
     }
   }
 }

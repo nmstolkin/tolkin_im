@@ -933,15 +933,18 @@ _COMMERCIAL = re.compile(
     r"\b(gewerbe|gewerbeeinheit|gewerbefl(ä|ae)che|b(ü|ue)ro|b(ü|ue)rofl(ä|ae)che|"
     r"praxis|praxisfl(ä|ae)che|ladenfl(ä|ae)che|ladengesch(ä|ae)ft|laden|halle|"
     r"lagerfl(ä|ae)che|atelierfl(ä|ae)che|stellplatz|tiefgarage|garage|"
-    r"duplex[- ]?stellplatz)\b"
+    r"duplex[- ]?stellplatz|tiefgaragenstellplatz|garagenstellplatz|"
+    r"pkw[- ]?stellplatz)\b"
 )
 
 
 _FURNISHED = re.compile(r"\b(m(ö|oe)bliert|vollm(ö|oe)bliert|teilm(ö|oe)bliert|furnished|"
                         r"all[- ]inclusive|serviced apartment)\b")
+# ACHTUNG beim Wort "befristet": ohne Wortgrenze davor matcht es auch in
+# "UNbefristet" - also genau im Gegenteil dessen, was gemeint ist.
 _TEMPORARY = re.compile(r"(wohnen auf zeit|auf zeit\b|zwischenmiete|zwischenvermietung|"
-                        r"befristet|befristete vermietung|max\.? \d+ monate|"
-                        r"\d+ monate\b|temporary|short[- ]?term)")
+                        r"\bbefristet|\bzeitmietvertrag|max\.? \d+ monate|"
+                        r"f(ü|ue)r \d+ monate\b|temporary rental|short[- ]?term)")
 _SHARED = re.compile(r"\b(wg[- ]zimmer|wg zimmer|zimmer in (einer |der )?wg|"
                      r"shared (apartment|flat)|wohngemeinschaft|room in)\b")
 
@@ -962,9 +965,32 @@ def looks_shared(listing):
     return bool(_SHARED.search(_hay(listing)))
 
 
+# Begriffe, die das Objekt eindeutig als Wohnung ausweisen. Liegt einer davon
+# vor, darf ein beilaeufig erwaehnter Stellplatz oder eine Garage NICHT dazu
+# fuehren, dass die Wohnung als Gewerbe aussortiert wird.
+# Deutsche Komposita: "Wohlfuehlwohnung", "Dachgeschosswohnung", "Familienwohnung"
+# enden auf "wohnung", beginnen aber nicht damit - eine Wortgrenze davor
+# wuerde sie verfehlen. Deshalb hier bewusst ohne fuehrendes \b.
+_RESIDENTIAL = re.compile(
+    r"(wohnung|wohnungen|zimmer\b|\bzi\.|\bwhg\b|maisonette|penthouse|"
+    r"apartment|appartement|wohntraum|townhouse|haus\b|reihenhaus|"
+    r"\bwohnen\b|dachgeschoss|altbau|neubau|loft\b)"
+)
+# Nur diese Begriffe sind fuer sich allein noch kein Gewerbe-Beweis - sie
+# tauchen staendig als Zusatzausstattung in Wohnungsinseraten auf.
+_NEBENSACHE = re.compile(r"\b(stellplatz|tiefgarage|garage|duplex[- ]?stellplatz)\b")
+
+
 def looks_commercial(listing):
     hay = f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
-    return bool(_COMMERCIAL.search(hay))
+    if not _COMMERCIAL.search(hay):
+        return False
+    # Wenn der Gewerbe-Verdacht NUR auf Stellplatz/Garage beruht und das Objekt
+    # sich zugleich als Wohnung ausweist, ist es keine Gewerbeflaeche.
+    ohne_nebensache = _NEBENSACHE.sub(" ", hay)
+    if not _COMMERCIAL.search(ohne_nebensache) and _RESIDENTIAL.search(hay):
+        return False
+    return True
 
 
 def has_enough_data(listing):

@@ -1,0 +1,77 @@
+name: Wohnungssuche Berlin (schnell)
+
+# Prueft nur die ertragreichsten Quellen (sites-fast.json), dreimal taeglich
+# (7, 11 und 17 Uhr UTC = ca. 9, 13 und 19 Uhr Berlin). Bewusst versetzt zu
+# den vollstaendigen Laeufen (8 und 14 UTC), und reduziert von fuenf auf drei,
+# weil beide Lauf-Arten sich dasselbe Gemini-Tageskontingent teilen.
+# Hintergrund: Inserate stehen im Median rund 12 Stunden online, bei schnellen
+# Vermietern oft nur 1-3 Stunden. Ein Lauf alle 6-18 Stunden verpasst daher
+# einen grossen Teil. Die vollstaendige Liste laeuft weiterhin in check.yml.
+
+on:
+  schedule:
+    # stuendlich zwischen 6:00 und 19:00 UTC an Werktagen
+    # (entspricht ca. 8-21 Uhr Berlin in der Sommerzeit)
+    - cron: "0 7,11,17 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Verhindert, dass sich schneller und vollstaendiger Lauf ueberschneiden und
+# beim Zurueckschreiben der Statusdateien gegenseitig ueberholen.
+concurrency:
+  group: wohnungssuche
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Playwright-Browser cachen
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}
+
+      - name: Playwright-Browser (Chromium) installieren
+        run: playwright install --with-deps chromium
+
+      - name: Seiten prüfen (Schnell-Liste)
+        run: python scrape.py
+        env:
+          SITES_FILE: "sites-fast.json"
+          AI_PROVIDER: "gemini"
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          DEBUG_EMPTY: "0"
+          APP_URL: ${{ vars.APP_URL }}
+
+      - name: Status speichern
+        run: |
+          git config user.name "immo-watcher-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git pull --rebase --autostash || true
+          git add data/ data.json site-status.json run-stats.json
+          git diff --staged --quiet || git commit -m "Status aktualisiert (schnell) [skip ci]"
+          git push
+
+      - name: Fehler melden
+        if: failure()
+        run: |
+          curl -s -H "Title: Wohnungssuche: Lauf fehlgeschlagen" \
+               -H "Priority: high" -H "Tags: warning" \
+               -d "Der Suchlauf ist abgebrochen. Details im Actions-Tab des Repositories." \
+               "https://ntfy.sh/${{ secrets.NTFY_TOPIC }}" || true

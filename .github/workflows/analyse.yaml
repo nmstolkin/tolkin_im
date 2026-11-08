@@ -1,0 +1,45 @@
+name: Quellen analysieren
+
+# Einmalige Messung: Welche Quellen liefern ihre Inserate bereits
+# maschinenlesbar (schema.org, RSS-Feed, bekannter Makler-Baukasten)?
+# Macht KEINEN KI-Aufruf und verbraucht kein Gemini-Kontingent.
+# Nur manuell startbar - laeuft nicht nach Zeitplan.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Abhängigkeiten installieren
+        run: pip install requests beautifulsoup4
+
+      - name: Quellen prüfen
+        run: python analyse_quellen.py
+
+      - name: Bericht in die Job-Zusammenfassung schreiben
+        if: always()
+        run: cat quellen-analyse.md >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Bericht ins Repository committen
+        if: always()
+        run: |
+          git config user.name "immo-watcher-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git pull --rebase --autostash || true
+          git add quellen-analyse.md quellen-analyse.json
+          git diff --staged --quiet || git commit -m "Quellen-Analyse [skip ci]"
+          git push

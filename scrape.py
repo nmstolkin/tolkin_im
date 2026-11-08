@@ -426,6 +426,158 @@ _NOISE_ATTR = re.compile(
 )
 
 
+# ---------------------------------------------------------------------------
+# Strukturierte Daten (schema.org / JSON-LD)
+#
+# Rund 15 Quellen liefern ihre Inserate bereits maschinenlesbar mit - die
+# Auszeichnung, die Google fuer seine Suchergebnisse braucht. Sie auszulesen
+# ist kostenlos, exakt (Zahlen statt geschaetzter Werte aus Fliesstext) und
+# kennt kein Kontingent. Besonders wertvoll: Darunter sind die groessten
+# Portale, deren Seiten bis zu 1,6 Mio. Zeichen haben und beim Kuerzen auf
+# unter zwei Prozent zusammenschrumpfen wuerden.
+# ---------------------------------------------------------------------------
+
+_LD_IMMO_TYPEN = {
+    "realestatelisting", "apartment", "house", "singlefamilyresidence",
+    "residence", "accommodation", "suite", "apartmentcomplex",
+}
+
+
+def _ld_zahl(wert):
+    """Holt eine Zahl aus den unterschiedlichen schema.org-Schreibweisen."""
+    if isinstance(wert, (int, float)):
+        return float(wert)
+    if isinstance(wert, dict):
+        for k in ("value", "minValue", "price"):
+            if k in wert:
+                return _ld_zahl(wert[k])
+        return None
+    if isinstance(wert, str):
+        return _zahl_aus_text(wert)
+    return None
+
+
+def _zahl_aus_text(s):
+    """Liest eine Zahl aus Text und erkennt dabei beide Schreibweisen.
+
+    schema.org schreibt Preise meist englisch ("1890.00"), deutsche Seiten
+    dagegen "1.890,00". Ein Punkt kann also Dezimal- ODER Tausendertrenner
+    sein - wer das verwechselt, macht aus 1.890 € schnell 189.000 €.
+    """
+    m = re.search(r"-?\d[\d.,]*", s or "")
+    if not m:
+        return None
+    roh = m.group(0)
+
+    hat_punkt, hat_komma = "." in roh, "," in roh
+    if hat_punkt and hat_komma:
+        # "1.890,00" -> deutsch; "1,890.00" -> englisch: das hintere gewinnt
+        if roh.rfind(",") > roh.rfind("."):
+            roh = roh.replace(".", "").replace(",", ".")
+        else:
+            roh = roh.replace(",", "")
+    elif hat_komma:
+        # einziges Komma: Dezimaltrenner, wenn danach 1-2 Stellen folgen
+        roh = roh.replace(",", "." if re.search(r",\d{1,2}$", roh) else "")
+    elif hat_punkt:
+        # einziger Punkt: Tausendertrenner nur bei genau 3 Stellen danach
+        if re.search(r"\.\d{3}$", roh) and len(roh.split(".")[0]) <= 3:
+            roh = roh.replace(".", "")
+    try:
+        return float(roh)
+    except ValueError:
+        return None
+
+
+def _ld_objekte(daten):
+    """Laeuft durch verschachteltes JSON-LD und gibt alle Objekte zurueck."""
+    stapel, raus = [daten], []
+    while stapel:
+        d = stapel.pop()
+        if isinstance(d, list):
+            stapel.extend(d)
+        elif isinstance(d, dict):
+            raus.append(d)
+            stapel.extend(v for v in d.values() if isinstance(v, (dict, list)))
+    return raus
+
+
+def _ld_typen(d):
+    t = d.get("@type")
+    if isinstance(t, str):
+        return {t.lower()}
+    if isinstance(t, list):
+        return {x.lower() for x in t if isinstance(x, str)}
+    return set()
+
+
+def extract_jsonld_listings(html, basis_url):
+    """Liest Inserate aus schema.org-Auszeichnung. Gibt dieselbe Struktur
+    zurueck wie die KI-Extraktion - oder eine leere Liste."""
+    try:
+        soup = BeautifulSoup(html, "html.parser")
+    except Exception:
+        return []
+
+    kandidaten = []
+    for tag in soup.find_all("script", attrs={"type": "application/ld+json"}):
+        roh = tag.string or tag.get_text() or ""
+        try:
+            kandidaten.extend(_ld_objekte(json.loads(roh)))
+        except Exception:
+            continue
+
+    inserate = []
+    for d in kandidaten:
+        typen = _ld_typen(d)
+        angebot = d if "offer" in typen else (d.get("offers") or {})
+        if isinstance(angebot, list):
+            angebot = angebot[0] if angebot else {}
+        if not isinstance(angebot, dict):
+            angebot = {}
+
+        # Ein Eintrag zaehlt, wenn er eine Immobilie beschreibt ODER ein
+        # Angebot mit Wohnungsmerkmalen ist.
+        ist_immo = bool(typen & _LD_IMMO_TYPEN)
+        hat_merkmale = any(k in d for k in
+                           ("numberOfRooms", "floorSize", "numberOfBedrooms"))
+        if not (ist_immo or hat_merkmale):
+            continue
+
+        adresse = d.get("address") or {}
+        if isinstance(adresse, list):
+            adresse = adresse[0] if adresse else {}
+        if not isinstance(adresse, dict):
+            adresse = {}
+
+        preis = _ld_zahl(angebot.get("price")) or _ld_zahl(d.get("price"))
+        name = d.get("name") or angebot.get("name")
+
+        eintrag = {
+            "title": name if isinstance(name, str) else None,
+            "rooms": _ld_zahl(d.get("numberOfRooms")) or _ld_zahl(d.get("numberOfBedrooms")),
+            "size_qm": _ld_zahl(d.get("floorSize")),
+            "rent": preis,
+            "plz": str(adresse.get("postalCode") or "").strip() or None,
+            "district": adresse.get("addressLocality") or adresse.get("addressRegion"),
+            "street": adresse.get("streetAddress"),
+            "url": d.get("url") or angebot.get("url") or basis_url,
+            "status": "verfuegbar",
+        }
+        # Ohne jede Kenngroesse ist der Eintrag wertlos (oft nur die Firma)
+        if eintrag["rooms"] or eintrag["size_qm"] or eintrag["rent"]:
+            inserate.append(eintrag)
+
+    # Dubletten innerhalb derselben Seite entfernen
+    gesehen, sauber = set(), []
+    for e in inserate:
+        kennung = (e.get("title"), e.get("rooms"), e.get("size_qm"), e.get("rent"))
+        if kennung not in gesehen:
+            gesehen.add(kennung)
+            sauber.append(e)
+    return sauber
+
+
 def extract_text(html):
     soup = BeautifulSoup(html, "html.parser")
     # ACHTUNG: "form" und "iframe" bewusst NICHT entfernen. Eingebettete
@@ -442,7 +594,47 @@ def extract_text(html):
 
     text = soup.get_text(separator=" ", strip=True)
     text = re.sub(r"\s+", " ", text)
-    return text[:MAX_TEXT_CHARS]
+    return kuerze_auf_inserate(text)
+
+
+# Merkmale, an denen ein Inseratsbereich zu erkennen ist
+_INSERAT_SIGNAL = re.compile(r"(€|EUR\b|m²|\bqm\b|\bZimmer\b|\bZi\.|Kaltmiete|Wohnfläche)",
+                             re.IGNORECASE)
+_FENSTER = 2000   # Schrittweite, in der der Text abgetastet wird
+
+
+def kuerze_auf_inserate(text):
+    """Schneidet ueberlange Seiten nicht stumpf vorne ab, sondern waehlt den
+    Abschnitt mit der hoechsten Dichte an Inseratsmerkmalen.
+
+    Hintergrund: Mehrere Quellen liefern Seiten mit bis zu 1,6 Mio. Zeichen.
+    Bei einem harten Schnitt nach 12.000 Zeichen sahen wir davon unter zwei
+    Prozent - meist nur Navigation und Kopfbereich. Die Inserate stehen aber
+    weiter unten. Deshalb hier: in Fenstern abtasten, zaehlen wo Preise,
+    Quadratmeter und Zimmerangaben haeufen, und diesen Bereich nehmen.
+    """
+    if len(text) <= MAX_TEXT_CHARS:
+        return text
+
+    # Dichte je Fenster bestimmen
+    dichten = []
+    for start in range(0, len(text), _FENSTER):
+        ausschnitt = text[start:start + _FENSTER]
+        dichten.append(len(_INSERAT_SIGNAL.findall(ausschnitt)))
+
+    if not any(dichten):
+        return text[:MAX_TEXT_CHARS]          # nichts gefunden -> wie bisher
+
+    # zusammenhaengenden Block von MAX_TEXT_CHARS mit der groessten Summe suchen
+    breite = max(1, MAX_TEXT_CHARS // _FENSTER)
+    beste_summe, bester_start = -1, 0
+    for i in range(max(1, len(dichten) - breite + 1)):
+        summe = sum(dichten[i:i + breite])
+        if summe > beste_summe:
+            beste_summe, bester_start = summe, i
+
+    anfang = bester_start * _FENSTER
+    return text[anfang:anfang + MAX_TEXT_CHARS]
 
 
 def call_claude_extract(url, text):
@@ -1681,6 +1873,7 @@ def _run():
     pending = {}        # url -> {"html": ..., "prev_entry": ...}
     batch_items = []    # nur fuer Anthropic: (custom_id, url, text)
     batch_results = {}  # url -> Liste erkannter Inserate
+    jsonld_treffer = 0  # Seiten, die ohne KI auskamen
 
     # Die Zweiteilung "erst alles abrufen, dann alles extrahieren" existierte
     # nur fuer die Anthropic Batch API (ein Sammelauftrag, 50 % guenstiger).
@@ -1725,6 +1918,18 @@ def _run():
 
         hashes[url] = content_hash
         pending[url] = {"html": html, "prev_entry": prev_entry}
+
+        # Zuerst strukturierte Daten versuchen: kostenlos, exakt und
+        # unabhaengig davon, wie gross die Seite ist. Erst wenn das nichts
+        # ergibt, die KI bemuehen.
+        strukturiert = extract_jsonld_listings(html, url)
+        if strukturiert:
+            print(f"  -> {len(strukturiert)} Inserat(e) aus strukturierten Daten "
+                  f"(ohne KI-Aufruf)")
+            batch_results[url] = strukturiert
+            jsonld_treffer += 1
+            continue
+
         text = extract_text(html)
 
         if einzeldurchgang:
@@ -1901,6 +2106,7 @@ def _run():
         "sites_total": len(sites),
         "sites_with_errors": len(errors),
     }
+    stats_payload["ohne_ki"] = jsonld_treffer
     stats_payload["near_misses"] = len(app_near_misses)
     stats_payload["quota_exhausted"] = _quota_exhausted
     stats_payload["run_type"] = "voll" if is_full_run else "schnell"
@@ -1928,6 +2134,8 @@ def _run():
 
     print()
     print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")
+    print(f"{jsonld_treffer} Seite(n) kamen ohne KI-Aufruf aus "
+          f"(strukturierte Daten).")
     print(f"Insgesamt {total_listings_seen} Inserat(e) erkannt. "
           f"Verworfen nach Grund (ein Inserat kann an mehreren scheitern, "
           f"die Summe liegt daher ueber der Zahl der Inserate):")

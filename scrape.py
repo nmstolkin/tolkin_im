@@ -333,7 +333,7 @@ def fetch(url):
 # für den ganzen Lauf offengehalten (Startkosten nur einmal), nicht pro Seite.
 # ---------------------------------------------------------------------------
 _playwright_ctx = None  # (playwright_instance, browser)
-PLAYWRIGHT_WAIT_MS = 4000  # kurze Wartezeit nach dem Laden, falls Inhalte nachgeladen werden
+PLAYWRIGHT_WAIT_MS = 2500  # kurze Wartezeit nach dem Laden, falls Inhalte nachgeladen werden
 
 
 def _get_playwright_browser():
@@ -383,10 +383,10 @@ def fetch_rendered_html(url):
         # das nie und laufen in den Timeout - obwohl die Inserate laengst da
         # sind. Deshalb nur bis "domcontentloaded" warten und danach dem
         # Nachladen eine feste Frist geben.
-        page.goto(url, timeout=45000, wait_until="domcontentloaded")
+        page.goto(url, timeout=25000, wait_until="domcontentloaded")
         try:
             # Kurz auf Ruhe hoffen, aber nicht darauf bestehen.
-            page.wait_for_load_state("networkidle", timeout=8000)
+            page.wait_for_load_state("networkidle", timeout=4000)
         except Exception:
             pass
         page.wait_for_timeout(PLAYWRIGHT_WAIT_MS)
@@ -527,6 +527,14 @@ GEMINI_MAX_TIMEOUT_RETRIES = 2
 # jede weitere Seite kostet nur 100 Sekunden Wartezeit. Ohne diese Bremse
 # laeuft ein Lauf stundenlang ins Leere.
 QUOTA_EXHAUSTED_AFTER = 5
+# Harte Zeitgrenze. GitHub bricht Jobs nach 6 Stunden ersatzlos ab - dann waere
+# alles verloren. Wir hoeren vorher freiwillig auf und sichern das Erreichte.
+RUN_BUDGET_MINUTES = int(os.environ.get("RUN_BUDGET_MINUTES", "150"))
+_run_started = time.time()
+
+
+def budget_exceeded():
+    return (time.time() - _run_started) / 60 >= RUN_BUDGET_MINUTES
 _quota_exhausted = False
 _consecutive_rate_limited = 0
 
@@ -1666,15 +1674,29 @@ def _run():
     total_listings_seen = 0  # wie viele Inserate insgesamt erkannt wurden
     seen_keys_this_run = set()  # für die "nicht mehr gelistet"-Erkennung
 
-    # ---- Phase 1: alle Seiten abrufen (kostenlos) und entscheiden, wer eine
-    # Extraktion braucht. Wird gesammelt statt sofort einzeln an die API zu
-    # schicken, damit alle Erst-Extraktionen zusammen als EIN Batch (50%
-    # günstiger) verschickt werden können. ----
-    pending = {}  # url -> {"html": ..., "prev_entry": ...}
-    batch_items = []  # (custom_id, url, text)
+    # ---- Hauptdurchgang: jede Seite abrufen, pruefen ob eine Extraktion
+    # noetig ist (Cooldown, unveraenderter Inhalt), und sie bei Gemini sofort
+    # auswerten. Nur bei Anthropic werden die Texte gesammelt und als Batch
+    # verschickt, weil das dort die Haelfte kostet. ----
+    pending = {}        # url -> {"html": ..., "prev_entry": ...}
+    batch_items = []    # nur fuer Anthropic: (custom_id, url, text)
+    batch_results = {}  # url -> Liste erkannter Inserate
 
-    print("Phase 1/2: Seiten abrufen …")
+    # Die Zweiteilung "erst alles abrufen, dann alles extrahieren" existierte
+    # nur fuer die Anthropic Batch API (ein Sammelauftrag, 50 % guenstiger).
+    # Gemini kennt keinen Batch - dort ist die Trennung reine Altlast: sie
+    # haelt alle Seiten gleichzeitig im Speicher, verdoppelt die Log-Ausgabe
+    # und laesst die Zeitgrenze erst spaet greifen. Deshalb bei Gemini ein
+    # einziger Durchgang pro Seite.
+    einzeldurchgang = AI_PROVIDER == "gemini"
+
+    print("Seiten abrufen" + (" und auswerten …" if einzeldurchgang
+                              else " (Phase 1/2) …"))
     for i, url in enumerate(sites, 1):
+        if budget_exceeded():
+            print(f"ZEITGRENZE nach {RUN_BUDGET_MINUTES} Min erreicht - "
+                  f"{len(sites) - i + 1} Seite(n) werden diesmal nicht abgerufen.")
+            break
         print(f"[{i}/{len(sites)}] {url}")
         html, err = fetch(url)
 
@@ -1703,27 +1725,32 @@ def _run():
 
         hashes[url] = content_hash
         pending[url] = {"html": html, "prev_entry": prev_entry}
-        batch_items.append((url, url, extract_text(html)))
+        text = extract_text(html)
 
-    # ---- Phase 2: gesammelte Erst-Extraktionen als EIN Batch verschicken ----
-    print(f"\nPhase 2/2: {len(batch_items)} Seite(n) extrahieren (Anbieter: {AI_PROVIDER}) …")
-    if AI_PROVIDER == "gemini":
-        # Kein Vorteil durch Batch-Verarbeitung im kostenlosen Tarif -> einfach
-        # nacheinander abfragen, mit Pause zur Einhaltung des Rate-Limits.
-        batch_results = {}
-        for i, (cid, u, t) in enumerate(batch_items, 1):
-            print(f"  [{i}/{len(batch_items)}] {u}")
+        if einzeldurchgang:
             try:
-                batch_results[cid] = call_gemini_extract(u, t)
+                batch_results[url] = call_gemini_extract(url, text)
             except Exception as e:
-                print(f"    Unerwarteter Fehler bei {u}, überspringe diese Seite: {e}")
-                batch_results[cid] = []
+                print(f"  -> Unerwarteter Fehler bei der Auswertung, übersprungen: {e}")
+                batch_results[url] = []
             time.sleep(GEMINI_RATE_LIMIT_DELAY)
-    else:
+        else:
+            batch_items.append((url, url, text))
+
+    # ---- Anthropic: gesammelte Extraktionen als EIN Batch (50 % guenstiger) ----
+    if not einzeldurchgang:
+        print(f"\nPhase 2/2: {len(batch_items)} Seite(n) extrahieren (Anbieter: {AI_PROVIDER}) …")
         batch_results = run_batch_extraction(batch_items)
 
+    verarbeitet_bis = 0
     for i, (url, info) in enumerate(pending.items(), 1):
-        print(f"[{i}/{len(pending)}] Verarbeite Ergebnis: {url}")
+        if budget_exceeded():
+            print(f"ZEITGRENZE nach {RUN_BUDGET_MINUTES} Min erreicht - "
+                  f"{len(pending) - i + 1} Ergebnis(se) bleiben unverarbeitet. "
+                  f"Das bisher Gefundene wird gespeichert.")
+            break
+        verarbeitet_bis = i
+        print(f"[{i}/{len(pending)}] Treffer prüfen: {url}")
         html = info["html"]
         listings = batch_results.get(url) or []
 
@@ -1856,7 +1883,11 @@ def _run():
     # "Nicht mehr gelistet" darf nur der vollstaendige Lauf bewerten. Der
     # schnelle Lauf sieht nur einen Bruchteil der Quellen und wuerde sonst
     # alle uebrigen Treffer faelschlich als verschwunden markieren.
-    is_full_run = SITES_FILE == "sites.json"
+    vollstaendig_durchgelaufen = not budget_exceeded()
+    is_full_run = SITES_FILE == "sites.json" and vollstaendig_durchgelaufen
+    if not vollstaendig_durchgelaufen:
+        print("Hinweis: Lauf wurde durch die Zeitgrenze beendet - die "
+              "'nicht mehr gelistet'-Erkennung bleibt deshalb aus.")
     update_app_data(app_matches, seen_keys_this_run if is_full_run else None, app_near_misses)
     send_digest_notification(app_matches)
 

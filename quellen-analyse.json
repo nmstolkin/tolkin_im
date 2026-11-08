@@ -1,0 +1,1791 @@
+[
+  {
+    "url": "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php",
+    "host": "www.hausverwaltung-bauriedel.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 21126
+  },
+  {
+    "url": "https://www.core-berlin.de/vermietung",
+    "host": "www.core-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.core-berlin.de/de/component/jea/?format=feed&type=atom",
+      "https://www.core-berlin.de/de/component/jea/?format=feed&type=rss"
+    ],
+    "baukasten": [],
+    "zeichen": 48514
+  },
+  {
+    "url": "https://imms-immobilien.de/mietobjekte/",
+    "host": "imms-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://imms-immobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 186603
+  },
+  {
+    "url": "https://inberlinwohnen.de/wohnungsfinder/",
+    "host": "inberlinwohnen.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 623111
+  },
+  {
+    "url": "https://www.trialog-gmbh.com/wohnungen.xhtml?pagetype=object&f%5B2084-134%5D=ind_Schl_2544&f%5B2084-2%5D=0&f%5B2084-4%5D=0&f%5B2084-6%5D=miete&f%5B2084-8%5D=wohnung&f%5B2084-126%5D=miete&f%5B2084-138%5D=ind_Schl_2544",
+    "host": "www.trialog-gmbh.com",
+    "fehler": "HTTPSConnectionPool(host='www.trialog-gmbh.com', port=443): Max retries exceeded with url: /wohnungen.xhtml?pagetype=object&f%5B2084-134%5D=ind_Schl_2544&f%5B20",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.kfh-hv.de/mieten/wohnen/",
+    "host": "www.kfh-hv.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.kfh-hv.de/comments/feed/",
+      "https://www.kfh-hv.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "everreal"
+    ],
+    "zeichen": 442135
+  },
+  {
+    "url": "https://www.goodlifeimmobilien.de/wohnungsangebote",
+    "host": "www.goodlifeimmobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 76377
+  },
+  {
+    "url": "https://www.ivd24immobilien.de/search-photon/?osm_id=62422&osm_key=place&osm_value=city&osm_postcode=&osm_lat=52.5170365&osm_long=13.3888599&nutzungsart_id=&vermarktungsart_id=10000000010&64c7e73484b8c=Berlin&search_term=Berlin&objektart_id=2&anzahl_zimmer=&preis_bis=&groesse_ab=&radius=0",
+    "host": "www.ivd24immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 76076
+  },
+  {
+    "url": "https://www.classic-immobilien-berlin.de/vermietung/",
+    "host": "www.classic-immobilien-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.classic-immobilien-berlin.de/comments/feed/",
+      "https://www.classic-immobilien-berlin.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 40416
+  },
+  {
+    "url": "https://www.woelki-pm.de/#nean",
+    "host": "www.woelki-pm.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.woelki-pm.de/comments/feed/",
+      "https://www.woelki-pm.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 81815
+  },
+  {
+    "url": "https://www.rw-living.immo/service/vermietung#/list1",
+    "host": "www.rw-living.immo",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 34623
+  },
+  {
+    "url": "https://portal1s.easysquare.com/hws-berlin/index.html?deeplink=%2FESQ_IA_REOBJ%2FESQ_VM_REOBJ_ALL#/form/%252Fsheet%252Fsection/DD0EA8DE-1E78-755D-0299-C4987FE944DD/%252Fsection%252F0%252Fbox%252F0%252Fhead%252F6",
+    "host": "portal1s.easysquare.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "easysquare"
+    ],
+    "zeichen": 6553
+  },
+  {
+    "url": "https://www.harry-gerlach.de/wohnung-mieten-berlin/",
+    "host": "www.harry-gerlach.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 70312
+  },
+  {
+    "url": "https://herbert-kohlmeyer.de/immobilien/",
+    "host": "herbert-kohlmeyer.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 52597
+  },
+  {
+    "url": "https://apartberlin.de/unsere-objekte/",
+    "host": "apartberlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://apartberlin.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 207337
+  },
+  {
+    "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+    "host": "www.kip.net",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 134832
+  },
+  {
+    "url": "https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=Berlin&immoType=wohnung",
+    "host": "www.vonovia.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 248532
+  },
+  {
+    "url": "https://www.hausverwaltung-kolbe.de/",
+    "host": "www.hausverwaltung-kolbe.de",
+    "fehler": "403 Client Error: Forbidden for url: https://www.hausverwaltung-kolbe.de/",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://progenea-berlin.de/immobilien-mieten/",
+    "host": "progenea-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 2584
+  },
+  {
+    "url": "https://www.livinginberlin.de/angebote/mieten",
+    "host": "www.livinginberlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 114489
+  },
+  {
+    "url": "https://www.degewo.de/immosuche",
+    "host": "www.degewo.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "OpenImmo",
+      "TYPO3"
+    ],
+    "zeichen": 210362
+  },
+  {
+    "url": "https://www.buwog-immobilientreuhand.de/immobilien?&property_search%5Bresult_count_only%5D=true&property_search%5Bmarketing_type%5D=rent&property_search%5Bproperty_type%5D=flat&property_search%5Bminimum_total_size%5D=0&property_search%5Bmaximum_total_size%5D=241&property_search%5Bminimum_rent_price%5D=0&property_search%5Bmaximum_rent_price%5D=4165&property_search%5Bzip_code%5D=12527,12555",
+    "host": "www.buwog-immobilientreuhand.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 98597
+  },
+  {
+    "url": "https://stadtundland.de/mieten/",
+    "host": "stadtundland.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 100329
+  },
+  {
+    "url": "https://blp-management.com/immobilien-vermarktungsart/miete/",
+    "host": "blp-management.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://blp-management.com/comments/feed/",
+      "https://blp-management.com/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 201561
+  },
+  {
+    "url": "https://carat24-immobilien.de/zur-miete/",
+    "host": "carat24-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.carat24-immobilien.de/comments/feed/",
+      "https://www.carat24-immobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 276585
+  },
+  {
+    "url": "https://www.city-concept.de/wohnungen/mieten",
+    "host": "www.city-concept.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 10095
+  },
+  {
+    "url": "https://tag-wohnen.de/immosuche?filters%5Bproperty_city%5D%5B%5D=Berlin&rooms%5Bmin%5D=2&size=10&view=LIST",
+    "host": "tag-wohnen.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 119848
+  },
+  {
+    "url": "https://deinhart-immobilien.de/immobilien-fenster/",
+    "host": "deinhart-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "FlowFact",
+      "WordPress"
+    ],
+    "zeichen": 93369
+  },
+  {
+    "url": "https://www.kwco.de/de",
+    "host": "www.kwco.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 80448
+  },
+  {
+    "url": "https://www.dydo.de/",
+    "host": "www.dydo.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 172294
+  },
+  {
+    "url": "https://www.grandcityproperty.de/wohnung-berlin",
+    "host": "www.grandcityproperty.de",
+    "fehler": null,
+    "jsonld": [
+      "RealEstateListing"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 616999
+  },
+  {
+    "url": "https://www.zachger.de/immobilienangebote/",
+    "host": "www.zachger.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://zachger-immobilien.berlin/comments/feed/",
+      "https://zachger-immobilien.berlin/feed/"
+    ],
+    "baukasten": [
+      "FlowFact",
+      "WordPress"
+    ],
+    "zeichen": 205864
+  },
+  {
+    "url": "https://www.harke-vonbismarck.de/immobilien/mietobjekte",
+    "host": "www.harke-vonbismarck.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 32411
+  },
+  {
+    "url": "https://www.ruedrich-immobilien.de/immobilie-mieten-berlin/",
+    "host": "www.ruedrich-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.ruedrich-immobilien.de/comments/feed/",
+      "https://www.ruedrich-immobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "frymo"
+    ],
+    "zeichen": 386387
+  },
+  {
+    "url": "https://krossa-co.de/",
+    "host": "krossa-co.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://krossa-co.online/comments/feed/",
+      "https://krossa-co.online/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "onOffice"
+    ],
+    "zeichen": 139922
+  },
+  {
+    "url": "https://aden-immo.com/immobilien-berlin/wohnung-mieten/",
+    "host": "aden-immo.com",
+    "fehler": null,
+    "jsonld": [
+      "Place"
+    ],
+    "microdata": [],
+    "feeds": [
+      "https://aden-immo.com/de/comments/feed/",
+      "https://aden-immo.com/de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 730831
+  },
+  {
+    "url": "https://www.schacher-immobilien.de/angebote/wohnungen/?pageIdc99d0251=2#list_c99d0251",
+    "host": "www.schacher-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "onOffice"
+    ],
+    "zeichen": 85040
+  },
+  {
+    "url": "https://www.agas-immobilien.de/immobilien/",
+    "host": "www.agas-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.agas-immobilien.de/rss/blog"
+    ],
+    "baukasten": [
+      "onOffice"
+    ],
+    "zeichen": 88790
+  },
+  {
+    "url": "https://immodo-berlin.de/immobilien/",
+    "host": "immodo-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 345073
+  },
+  {
+    "url": "https://www.beckerundkries.de/mietende/angebote-wohnen/",
+    "host": "www.beckerundkries.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress",
+      "immomakler"
+    ],
+    "zeichen": 157477
+  },
+  {
+    "url": "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6",
+    "host": "www.berlinovo.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 97211
+  },
+  {
+    "url": "https://imw-wus.de/",
+    "host": "imw-wus.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 107783
+  },
+  {
+    "url": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung",
+    "host": "www.gewobag.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 587835
+  },
+  {
+    "url": "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/",
+    "host": "www.klingerimmobilien.de",
+    "fehler": null,
+    "jsonld": [
+      "Offer"
+    ],
+    "microdata": [],
+    "feeds": [
+      "https://www.klingerimmobilien.de/comments/feed/",
+      "https://www.klingerimmobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 239315
+  },
+  {
+    "url": "https://www.wegner-immoconsult.de/vermietung",
+    "host": "www.wegner-immoconsult.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 318871
+  },
+  {
+    "url": "https://ar-immobilien.de/immobilienangebote.html",
+    "host": "ar-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 54718
+  },
+  {
+    "url": "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html",
+    "host": "www.plaza-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 124956
+  },
+  {
+    "url": "https://www.mj-immobilien.de/mietangebote-in-berlin.html",
+    "host": "www.mj-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 46641
+  },
+  {
+    "url": "https://www.gottschau-immobilien.de/miete.xhtml",
+    "host": "www.gottschau-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress",
+      "onOffice"
+    ],
+    "zeichen": 143615
+  },
+  {
+    "url": "https://guthmann.estate/de/immobilien/",
+    "host": "guthmann.estate",
+    "fehler": null,
+    "jsonld": [
+      "Product"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 262943
+  },
+  {
+    "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+    "host": "www.wbm.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "OpenImmo",
+      "TYPO3"
+    ],
+    "zeichen": 104183
+  },
+  {
+    "url": "https://www.hancock-ag.de/wohnungsangebote/",
+    "host": "www.hancock-ag.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 18577
+  },
+  {
+    "url": "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0",
+    "host": "www.petruswerk.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 27924
+  },
+  {
+    "url": "https://www.gesobau.de/mieten/wohnungssuche/",
+    "host": "www.gesobau.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 569357
+  },
+  {
+    "url": "https://immonexxt.com/de/mietangebote-wohnen",
+    "host": "immonexxt.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://immonexxt.com/comments/feed/",
+      "https://immonexxt.com/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "everreal",
+      "frymo"
+    ],
+    "zeichen": 115037
+  },
+  {
+    "url": "http://www.hvp-berlin.de/Wohnen.html",
+    "host": "www.hvp-berlin.de",
+    "fehler": "500 Server Error: Internal Server Error for url: http://www.hvp-berlin.de/Wohnen.html",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.hausverwalter-berlin.de/aktuelle-wohnungsangebote",
+    "host": "www.hausverwalter-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.hausverwalter-berlin.de/feed/atom",
+      "https://www.hausverwalter-berlin.de/feed/rss2"
+    ],
+    "baukasten": [],
+    "zeichen": 46695
+  },
+  {
+    "url": "https://www.achat-hausverwaltung.de/",
+    "host": "www.achat-hausverwaltung.de",
+    "fehler": "HTTPSConnectionPool(host='www.achat-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1",
+    "host": "www.esta-haus.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 7347
+  },
+  {
+    "url": "https://www.kurtzke-immobilien.de/objektstatus/miete/",
+    "host": "www.kurtzke-immobilien.de",
+    "fehler": null,
+    "jsonld": [
+      "Product"
+    ],
+    "microdata": [],
+    "feeds": [
+      "https://www.kurtzke-immobilien.de/feed/",
+      "https://www.kurtzke-immobilien.de/objektstatus/miete/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 247519
+  },
+  {
+    "url": "https://artvivendi-immobilien.de/aktuele-angebote.html",
+    "host": "artvivendi-immobilien.de",
+    "fehler": "403 Client Error: Forbidden for url: https://artvivendi-immobilien.de/aktuele-angebote.html",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.werz-werz.de/werzimmobilien/",
+    "host": "www.werz-werz.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.werz-werz.de/comments/feed/",
+      "https://www.werz-werz.de/feed/",
+      "https://www.werz-werz.de/werzimmobilien/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 408501
+  },
+  {
+    "url": "https://www.immoagenten.de/startseite.xhtml",
+    "host": "www.immoagenten.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "onOffice"
+    ],
+    "zeichen": 814707
+  },
+  {
+    "url": "http://www.mika-immobilien.de/vermietung-wohnung/",
+    "host": "www.mika-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 15575
+  },
+  {
+    "url": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 514838
+  },
+  {
+    "url": "https://www.foelske.de/hausverwaltung-berlin/angebote.html",
+    "host": "www.foelske.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 4844
+  },
+  {
+    "url": "https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
+    "host": "www.immobilienscout24.de",
+    "fehler": "401 Client Error: Unauthorized for url: https://www.immobilienscout24.de/anbieter/profil/leible-und-cie",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+    "host": "www.kip.net",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 134889
+  },
+  {
+    "url": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/",
+    "host": "www.caseaberlino.com",
+    "fehler": null,
+    "jsonld": [
+      "Product",
+      "RealEstateListing",
+      "Residence"
+    ],
+    "microdata": [],
+    "feeds": [
+      "https://www.caseaberlino.com/comments/feed/",
+      "https://www.caseaberlino.com/feed/",
+      "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "immomakler"
+    ],
+    "zeichen": 377722
+  },
+  {
+    "url": "https://www.habitare-immobilien.de/angebote",
+    "host": "www.habitare-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 524232
+  },
+  {
+    "url": "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete",
+    "host": "lanzundmelzer.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "OpenImmo"
+    ],
+    "zeichen": 54565
+  },
+  {
+    "url": "https://schick-24.everreal.co/candidates/public/listings",
+    "host": "schick-24.everreal.co",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "OpenImmo",
+      "everreal",
+      "onOffice"
+    ],
+    "zeichen": 1206689
+  },
+  {
+    "url": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00",
+    "host": "pandion-service.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress",
+      "immomakler"
+    ],
+    "zeichen": 129831
+  },
+  {
+    "url": "https://famoza.de/ff/immobilien/?schema=flat_rent&price=&ffpage=1&sort=date",
+    "host": "famoza.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://famoza.de/comments/feed/",
+      "https://famoza.de/feed/"
+    ],
+    "baukasten": [
+      "FlowFact",
+      "WordPress"
+    ],
+    "zeichen": 69320
+  },
+  {
+    "url": "https://hihc.de/angebote/#/list1",
+    "host": "hihc.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress",
+      "frymo"
+    ],
+    "zeichen": 192980
+  },
+  {
+    "url": "https://tki.berlin/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id#038;vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id",
+    "host": "tki.berlin",
+    "fehler": null,
+    "jsonld": [
+      "Product",
+      "RealEstateListing",
+      "Residence"
+    ],
+    "microdata": [],
+    "feeds": [
+      "https://tki.berlin/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "immomakler"
+    ],
+    "zeichen": 132057
+  },
+  {
+    "url": "https://akzent-info.de/angebote_2/",
+    "host": "akzent-info.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://akzent-info.de/comments/feed/",
+      "https://akzent-info.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 21269
+  },
+  {
+    "url": "https://howe-immo.de/immobilien/",
+    "host": "howe-immo.de",
+    "fehler": null,
+    "jsonld": [
+      "Place"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 53772
+  },
+  {
+    "url": "https://www.acb-immobilien.de/angebote/",
+    "host": "www.acb-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.acb-immobilien.de/comments/feed/",
+      "https://www.acb-immobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 172693
+  },
+  {
+    "url": "https://immodo-berlin.de/angebote/",
+    "host": "immodo-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 345073
+  },
+  {
+    "url": "https://www.ivf-immobilien.com/immobilien/mieten/",
+    "host": "www.ivf-immobilien.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 39731
+  },
+  {
+    "url": "https://www.evernest.com/de/",
+    "host": "www.evernest.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 313637
+  },
+  {
+    "url": "https://www.borcherthv.de/",
+    "host": "www.borcherthv.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 122562
+  },
+  {
+    "url": "https://conforma-hausverwaltung.de/immobilien/",
+    "host": "conforma-hausverwaltung.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://conforma-hausverwaltung.de/comments/feed/",
+      "https://conforma-hausverwaltung.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 140199
+  },
+  {
+    "url": "https://wobege.de/",
+    "host": "wobege.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 215410
+  },
+  {
+    "url": "https://findus-hv.de/",
+    "host": "findus-hv.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://findus-hv.de/comments/feed",
+      "https://findus-hv.de/feed"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 253124
+  },
+  {
+    "url": "https://hws-berlin.de/wohnen/",
+    "host": "hws-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://hws-berlin.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "easysquare"
+    ],
+    "zeichen": 472322
+  },
+  {
+    "url": "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html",
+    "host": "www.rbb-immo.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 52433
+  },
+  {
+    "url": "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList",
+    "host": "www.howoge.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 39705
+  },
+  {
+    "url": "https://portal.immobilienscout24.de/ergebnisliste/92830022",
+    "host": "portal.immobilienscout24.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 19230
+  },
+  {
+    "url": "https://portal.immobilienscout24.de/ergebnisliste/58427637",
+    "host": "portal.immobilienscout24.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 2441
+  },
+  {
+    "url": "https://portal.immobilienscout24.de/ergebnisliste/80994727/1?sid=vsbj3s4otoa9fq2jff6c483n13",
+    "host": "portal.immobilienscout24.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 34144
+  },
+  {
+    "url": "https://portal.immobilienscout24.de/ergebnisliste/25476741",
+    "host": "portal.immobilienscout24.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 39993
+  },
+  {
+    "url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+    "host": "www.ohne-makler.net",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 1048195
+  },
+  {
+    "url": "https://www.flatbee.de/wohnung-mieten-berlin",
+    "host": "www.flatbee.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 328739
+  },
+  {
+    "url": "https://www.wohnungssuche-berlin.net/provisionsfrei.html",
+    "host": "www.wohnungssuche-berlin.net",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 19175
+  },
+  {
+    "url": "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung",
+    "host": "www.deutsche-wohnen.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 110424
+  },
+  {
+    "url": "https://heimstaden.de/",
+    "host": "heimstaden.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 277661
+  },
+  {
+    "url": "https://www.covivio.immo/wohnen/immobilie-finden/",
+    "host": "www.covivio.immo",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 259502
+  },
+  {
+    "url": "https://www.peachproperty.com/de/immobilien",
+    "host": "www.peachproperty.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.peachproperty.com/de/comments/feed/",
+      "https://www.peachproperty.com/de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 91951
+  },
+  {
+    "url": "https://www.optima-hausverwaltung.de/",
+    "host": "www.optima-hausverwaltung.de",
+    "fehler": "HTTPSConnectionPool(host='www.optima-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.op",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.hausverwaltung-bauriedel.de/de/berliner-altbau.php",
+    "host": "www.hausverwaltung-bauriedel.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 19743
+  },
+  {
+    "url": "https://www.qh-living.com/wohnungen",
+    "host": "www.qh-living.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 1659498
+  },
+  {
+    "url": "https://www.mueller-merkle.de/projekte/europacity-ensembles/",
+    "host": "www.mueller-merkle.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "FlowFact",
+      "WordPress"
+    ],
+    "zeichen": 199536
+  },
+  {
+    "url": "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/",
+    "host": "www.mueller-merkle.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "FlowFact",
+      "WordPress"
+    ],
+    "zeichen": 121635
+  },
+  {
+    "url": "https://www.allod.de/",
+    "host": "www.allod.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 46129
+  },
+  {
+    "url": "https://www.adler-group.com/suche/wohnung",
+    "host": "www.adler-group.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3",
+      "everreal"
+    ],
+    "zeichen": 275201
+  },
+  {
+    "url": "https://www.hilfswerk-siedlung.de/",
+    "host": "www.hilfswerk-siedlung.de",
+    "fehler": "HTTPSConnectionPool(host='www.hilfswerk-siedlung.de', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.hilf",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.berlinhaus.com/mietangebote/",
+    "host": "www.berlinhaus.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.berlinhaus.com/comments/feed/",
+      "https://www.berlinhaus.com/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "frymo"
+    ],
+    "zeichen": 264841
+  },
+  {
+    "url": "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml",
+    "host": "smartsite2.myonoffice.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "onOffice"
+    ],
+    "zeichen": 33899
+  },
+  {
+    "url": "https://cap-con.de/immobilien-berlin/",
+    "host": "cap-con.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://cap-con.de/feed/"
+    ],
+    "baukasten": [
+      "OpenImmo",
+      "WordPress",
+      "frymo"
+    ],
+    "zeichen": 561377
+  },
+  {
+    "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+    "host": "smartsite2.myonoffice.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "onOffice"
+    ],
+    "zeichen": 28655
+  },
+  {
+    "url": "https://fineandmine.de/immobilien/",
+    "host": "fineandmine.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://fineandmine.de/comments/feed/",
+      "https://fineandmine.de/feed/",
+      "https://fineandmine.de/immobilien/feed/"
+    ],
+    "baukasten": [
+      "WordPress",
+      "immomakler"
+    ],
+    "zeichen": 613454
+  },
+  {
+    "url": "https://www.fantasticfrank.com/en/berlin/for-rent/",
+    "host": "www.fantasticfrank.com",
+    "fehler": "429 Client Error: Too Many Requests for url: https://www.fantasticfrank.com/en/berlin/for-rent/",
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 0
+  },
+  {
+    "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+    "host": "www.engelvoelkers.com",
+    "fehler": null,
+    "jsonld": [
+      "Offer",
+      "Product"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 788976
+  },
+  {
+    "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
+    "host": "www.engelvoelkers.com",
+    "fehler": null,
+    "jsonld": [
+      "Offer",
+      "Product"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 736698
+  },
+  {
+    "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
+    "host": "www.engelvoelkers.com",
+    "fehler": null,
+    "jsonld": [
+      "Offer",
+      "Product"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 694123
+  },
+  {
+    "url": "https://www.von-poll.com/de/wohnung-mieten/berlin",
+    "host": "www.von-poll.com",
+    "fehler": null,
+    "jsonld": [
+      "Apartment",
+      "Offer",
+      "Product"
+    ],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 998952
+  },
+  {
+    "url": "https://www.wohnwitz.de/de/wohnung/finden",
+    "host": "www.wohnwitz.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [
+      "place"
+    ],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 25655
+  },
+  {
+    "url": "https://hpm2.immosolve.eu/immosolve_presentation/pub/modern/2145111/HP/immo.jsp",
+    "host": "hpm2.immosolve.eu",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immosolve"
+    ],
+    "zeichen": 149258
+  },
+  {
+    "url": "https://2106276.hpm.immosolve.eu/#!/result-list-2",
+    "host": "2106276.hpm.immosolve.eu",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immosolve"
+    ],
+    "zeichen": 1418
+  },
+  {
+    "url": "https://www.auen-immobilien.de/objekte",
+    "host": "www.auen-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 564932
+  },
+  {
+    "url": "https://moellerherm-immobilien.de/aktuelle-angebote-wohnen/",
+    "host": "moellerherm-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 747254
+  },
+  {
+    "url": "https://www.poeppel-immobilien.de/aktuelle-immobilien/",
+    "host": "www.poeppel-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [
+      "offer"
+    ],
+    "feeds": [
+      "https://www.poeppel-immobilien.de/comments/feed/",
+      "https://www.poeppel-immobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 358672
+  },
+  {
+    "url": "https://www.saxowert.de/berlin/vermietung/wohnungen",
+    "host": "www.saxowert.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 104563
+  },
+  {
+    "url": "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/",
+    "host": "www.sawall-immobilien.de",
+    "fehler": null,
+    "jsonld": [
+      "Place"
+    ],
+    "microdata": [],
+    "feeds": [
+      "https://www.sawall-immobilien.de/comments/feed/",
+      "https://www.sawall-immobilien.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 265427
+  },
+  {
+    "url": "https://www.trad-immobilien.de/wohnung/?type=rent",
+    "host": "www.trad-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 37248
+  },
+  {
+    "url": "https://www.georgimmobilien.com/immobilien-verkauf-vermietung-berlin",
+    "host": "www.georgimmobilien.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 15927
+  },
+  {
+    "url": "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten",
+    "host": "kensington-international.com",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 613239
+  },
+  {
+    "url": "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote",
+    "host": "charlotte1907.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 251075
+  },
+  {
+    "url": "https://abg-paradies.de/wohnungsangebote/",
+    "host": "abg-paradies.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://abg-paradies.de/comments/feed/",
+      "https://abg-paradies.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 102875
+  },
+  {
+    "url": "https://www.bwv-zk.de/wohnen-bauen/vermietungsangebote.html",
+    "host": "www.bwv-zk.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 26487
+  },
+  {
+    "url": "https://www.friedrichsheim-eg.de/category/wohnungsangebote-fuer-alle/feed/",
+    "host": "www.friedrichsheim-eg.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 1135
+  },
+  {
+    "url": "https://selbstbau-eg.de/category/allgemein/feed/",
+    "host": "selbstbau-eg.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 19850
+  },
+  {
+    "url": "https://www.maerkische-scholle.de/wohnungsangebote.html",
+    "host": "www.maerkische-scholle.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 40646
+  },
+  {
+    "url": "https://vineta98.de/wohnungen/",
+    "host": "vineta98.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://vineta98.de/comments/feed/",
+      "https://vineta98.de/feed/",
+      "https://vineta98.de/wohnungen/feed/"
+    ],
+    "baukasten": [
+      "TYPO3",
+      "WordPress"
+    ],
+    "zeichen": 1150035
+  },
+  {
+    "url": "https://www.neues-berlin.de/wohnen/wohnungsangebote",
+    "host": "www.neues-berlin.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "TYPO3"
+    ],
+    "zeichen": 39526
+  },
+  {
+    "url": "https://wg-solidaritaet.de/wohnen/mietangebote/",
+    "host": "wg-solidaritaet.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://wg-solidaritaet.de/comments/feed/",
+      "https://wg-solidaritaet.de/feed/"
+    ],
+    "baukasten": [
+      "WordPress"
+    ],
+    "zeichen": 119631
+  },
+  {
+    "url": "https://www.wbv-neukoelln.de/aktuelles/wohnungsangebote.html",
+    "host": "www.wbv-neukoelln.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [],
+    "zeichen": 25703
+  },
+  {
+    "url": "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 1365459
+  },
+  {
+    "url": "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 1427629
+  },
+  {
+    "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 1164074
+  },
+  {
+    "url": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 1354865
+  },
+  {
+    "url": "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 1222599
+  },
+  {
+    "url": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten",
+    "host": "www.immobilie1.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [],
+    "baukasten": [
+      "immobilie1"
+    ],
+    "zeichen": 1212285
+  },
+  {
+    "url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+    "host": "www.tela-immobilien.de",
+    "fehler": null,
+    "jsonld": [],
+    "microdata": [],
+    "feeds": [
+      "https://www.tela-immobilien.de/comments/feed",
+      "https://www.tela-immobilien.de/feed"
+    ],
+    "baukasten": [
+      "WordPress",
+      "immobilie1"
+    ],
+    "zeichen": 50843
+  }
+]

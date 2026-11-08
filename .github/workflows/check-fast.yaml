@@ -27,6 +27,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 65
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v4
@@ -57,6 +58,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           DEBUG_EMPTY: "0"
+          RUN_BUDGET_MINUTES: "40"
           APP_URL: ${{ vars.APP_URL }}
 
       - name: Status speichern

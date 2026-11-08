@@ -19,6 +19,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 175
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v4
@@ -54,6 +55,7 @@ jobs:
           # Diagnose: auf "1" setzen, um bei Seiten mit 0 Inseraten den
           # extrahierten Text ins Log zu schreiben. Danach wieder auf "0".
           DEBUG_EMPTY: "0"
+          RUN_BUDGET_MINUTES: "150"
           # Optional: URL der Homescreen-App, wird als "Öffnen"-Link in der
           # Sammel-Push-Nachricht verwendet, z.B. https://nutzername.github.io/repo/
           APP_URL: ${{ vars.APP_URL }}

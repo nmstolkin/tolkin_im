@@ -27,12 +27,29 @@ jobs:
       - name: Abhängigkeiten installieren
         run: pip install requests beautifulsoup4
 
+      - name: Vorhandene Dateien prüfen
+        run: |
+          if [ ! -f analyse_quellen.py ]; then
+            echo "::error::analyse_quellen.py fehlt im Hauptverzeichnis des Repositorys."
+            echo "Vorhandene Dateien:"; ls -1
+            exit 1
+          fi
+          if [ ! -f sites.json ]; then
+            echo "::error::sites.json fehlt."; exit 1
+          fi
+          echo "Alles vorhanden."
+
       - name: Quellen prüfen
         run: python analyse_quellen.py
 
       - name: Bericht in die Job-Zusammenfassung schreiben
         if: always()
-        run: cat quellen-analyse.md >> "$GITHUB_STEP_SUMMARY" || true
+        run: |
+          if [ -f quellen-analyse.md ]; then
+            cat quellen-analyse.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Kein Bericht erzeugt - die Prüfung lief nicht durch." >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Bericht ins Repository committen
         if: always()
@@ -40,6 +57,6 @@ jobs:
           git config user.name "immo-watcher-bot"
           git config user.email "bot@users.noreply.github.com"
           git pull --rebase --autostash || true
-          git add quellen-analyse.md quellen-analyse.json
+          git add quellen-analyse.md quellen-analyse.json 2>/dev/null || true
           git diff --staged --quiet || git commit -m "Quellen-Analyse [skip ci]"
-          git push
+          git push || true

@@ -189,7 +189,7 @@ MITTE_CENTER = (52.5200, 13.4000)
 MITTE_RADIUS_KM = 1.8
 PRENZLAUER_BERG_CENTER = (52.5390, 13.4245)
 PRENZLAUER_BERG_RADIUS_KM = 1.8
-CHARLOTTENBURG_RADIUS_KM = 1.0
+CHARLOTTENBURG_RADIUS_KM = 1.2  # erweitert, damit der Olivaer Platz sicher drin liegt
 
 # Tiergarten/Moabit: nur Wohnungen unmittelbar an der Spree. Auch hier zu
 # grob für PLZ-Whitelisting - stattdessen Abstand zum Flusslauf berechnen.
@@ -391,6 +391,21 @@ def fetch_rendered_html(url):
             pass
         page.wait_for_timeout(PLAYWRIGHT_WAIT_MS)
         html = page.content()
+
+        # Viele Makler binden ihre Angebotsliste als eingebettetes Widget in
+        # einem iframe ein (immobilie1, onOffice, immosolve). page.content()
+        # liefert nur das aeussere Dokument - der eigentliche Inhalt steckt in
+        # den Unterrahmen. Die haengen wir hier an.
+        for frame in page.frames:
+            if frame == page.main_frame:
+                continue
+            try:
+                inner = frame.content()
+            except Exception:
+                continue
+            if inner and len(inner) > 500:
+                html += "\n<!-- eingebetteter Rahmen -->\n" + inner
+
         page.close()
         return html
     except Exception as e:

@@ -1,17 +1,67 @@
 {
-  "generated_at": "2026-11-09T11:40:39.868503+00:00",
+  "generated_at": "2026-11-09T14:23:25.172586+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
     "min_rent": 1200,
     "max_rent": 2100,
-    "districts": [
-      "Mitte",
-      "Prenzlauer Berg",
-      "Charlottenburg"
+    "areas": [
+      "mitte",
+      "prenzlauer_berg",
+      "charlottenburg",
+      "tiergarten_moabit_spree",
+      "viktoria_luise"
     ]
   },
   "matches": [
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::3|104.9|1995|10178",
+      "title": "Zauberhafte Komfortwohnung mit Terrasse und eigenem Gartenstück: tolle Lage, Berolinastraße!",
+      "rooms": 3,
+      "size_qm": 104.88,
+      "rent": 1995,
+      "price_per_sqm": 19.0,
+      "district": null,
+      "plz": "10178",
+      "street": "Berolinastraße",
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-11-09T14:23:25.068766+00:00"
+    },
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::3|97.0|1424.6|10439",
+      "title": "Tolle Altbauwohnung mit Wannenbad in schöner Wohnlage: Lewaldstraße/Prenzlauer Berg!",
+      "rooms": 3,
+      "size_qm": 96.98,
+      "rent": 1424.58,
+      "price_per_sqm": 14.7,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": "Lewaldstraße",
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-11-09T14:23:25.067951+00:00"
+    },
+    {
+      "key": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|95.2||10437",
+      "title": "Schliemannstr. 24, 10437 Berlin/Pankow",
+      "rooms": 3,
+      "size_qm": 95.23,
+      "rent": null,
+      "price_per_sqm": 12.8,
+      "district": "Prenzlauer Berg",
+      "plz": "10437",
+      "street": "Schliemannstr. 24",
+      "url": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung",
+      "site_url": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung",
+      "source_name": "gewobag.de",
+      "found_at": "2026-11-09T14:20:25.742659+00:00",
+      "rent_warm": 1504.09,
+      "rent_kalt_geschaetzt": 1218,
+      "frei_ab": "01.01.2027"
+    },
     {
       "key": "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/::https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/",
       "title": "+++ Moderne 3 Zimmer Dachgeschosswohnung mit Dachterrasse im begehrten Kollwitzkiez +++",

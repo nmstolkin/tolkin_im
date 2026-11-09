@@ -50,6 +50,8 @@ CONFIG_FILE = "config.json"  # steuerbare Einstellungen, auch von der App aus ä
 DEFAULT_COOLDOWN_ENABLED = False  # auf Wunsch aktuell deaktiviert: jede Seite wird jedes Mal voll geprüft
 MAX_MATCHES_KEPT = 300  # ältere Treffer werden aus der App-Ansicht ausgeblendet
 MAX_SEEN_PER_SITE = 400  # so viele bereits gesehene Inserate je Quelle merken
+PLAYWRIGHT_GIVE_UP_AFTER = 4   # nach so vielen vergeblichen Versuchen aussetzen
+PLAYWRIGHT_RETRY_EVERY = 10    # und nur noch jeden 10. Lauf erneut versuchen
 MAX_NEAR_MISS_GONE_DAYS = 14  # verschwundene Knapp-Treffer so lange behalten
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
@@ -79,7 +81,9 @@ REQUEST_TIMEOUT = 25
 SLEEP_BETWEEN_SITES = 1.5  # kleine Pause, um nicht wie ein aggressiver Bot zu wirken
 SLEEP_BETWEEN_PAGES = 1.0  # Pause zwischen Folgeseiten derselben Website
 
-MAX_EXTRA_PAGES = 3       # zusätzlich zur ersten Seite max. 3 Folgeseiten laden
+MAX_EXTRA_PAGES = 2       # zusätzlich zur ersten Seite max. 2 Folgeseiten laden.
+                          # Jede Folgeseite kostet einen KI-Aufruf samt Pause -
+                          # bei 143 Quellen summiert sich das auf Stunden.
 MAX_DISCOVERY_TRIES = 1   # wie viele vermutete Unterseiten bei 0 Treffern probiert werden
 
 # "Aussichtslos"-Erkennung: nach wie vielen aufeinanderfolgenden erfolglosen
@@ -728,7 +732,11 @@ GEMINI_MAX_TIMEOUT_RETRIES = 2
 QUOTA_EXHAUSTED_AFTER = 5
 # Harte Zeitgrenze. GitHub bricht Jobs nach 6 Stunden ersatzlos ab - dann waere
 # alles verloren. Wir hoeren vorher freiwillig auf und sichern das Erreichte.
-RUN_BUDGET_MINUTES = int(os.environ.get("RUN_BUDGET_MINUTES", "150"))
+try:
+    RUN_BUDGET_MINUTES = float(os.environ.get("RUN_BUDGET_MINUTES", "150"))
+except ValueError:
+    print("RUN_BUDGET_MINUTES unbrauchbar, nutze 150 Minuten.")
+    RUN_BUDGET_MINUTES = 150.0
 _run_started = time.time()
 
 
@@ -2090,7 +2098,16 @@ def _run():
         # 0 Inserate, könnte die Seite ihre Angebote per JavaScript nachladen.
         # Letzter, teurerer Versuch mit echtem Browser statt reinem HTTP-Abruf.
         used_playwright = False
-        if not listings:
+        # Playwright ist der teuerste Schritt. Quellen, bei denen er schon
+        # mehrfach nichts gebracht hat, nicht jedes Mal erneut damit belasten -
+        # alle PLAYWRIGHT_RETRY_EVERY Laeufe genuegt ein neuer Versuch.
+        pw_fehl = (prev_entry or {}).get("playwright_vergeblich", 0)
+        pw_versuchen = pw_fehl < PLAYWRIGHT_GIVE_UP_AFTER or \
+            (pw_fehl % PLAYWRIGHT_RETRY_EVERY == 0)
+        if not listings and not pw_versuchen:
+            print(f"  -> Browser-Rendering übersprungen "
+                  f"({pw_fehl}x ohne Ergebnis)")
+        if not listings and pw_versuchen:
             rendered_html = fetch_rendered_html(current_page_url)
             if rendered_html:
                 pages_checked += 1
@@ -2142,6 +2159,13 @@ def _run():
             status, url, ok=True, listing_count=len(listings),
             suggested_url=suggested_url, pages_checked=pages_checked,
         )
+        # Zaehler fuer vergebliche Browser-Versuche pflegen
+        if used_playwright and listings:
+            status[url]["playwright_vergeblich"] = 0
+        elif pw_versuchen and not listings:
+            status[url]["playwright_vergeblich"] = pw_fehl + 1
+        elif pw_fehl:
+            status[url]["playwright_vergeblich"] = pw_fehl
 
         # Reihenfolge bewusst erhalten (Liste statt Menge): nur so laesst
         # sich spaeter das Aelteste abschneiden. Das Set dient nur dem
@@ -2198,6 +2222,7 @@ def _run():
     save_json(ERROR_LOG, errors)
     save_json(STATUS_FILE, status)
     save_geocode_cache()
+
     # "Nicht mehr gelistet" darf nur der vollstaendige Lauf bewerten. Der
     # schnelle Lauf sieht nur einen Bruchteil der Quellen und wuerde sonst
     # alle uebrigen Treffer faelschlich als verschwunden markieren.

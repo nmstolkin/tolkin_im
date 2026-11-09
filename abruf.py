@@ -6,7 +6,9 @@ Playwright (inkl. Mitschnitt der JSON-Datenabfragen) und Link-Navigation
 
 import json
 import re
+import socket
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse, urljoin
 
@@ -50,16 +52,73 @@ def _session():
     return s
 
 
-def fetch(url):
+MAX_ABRUF_SEKUNDEN = 45       # Gesamtdauer je Abruf (Timeout gilt sonst nur je Datenpaket)
+MAX_ABRUF_BYTES = 8_000_000
+
+
+def _verbindung_kappen(r):
+    """Schliesst die Leitung von aussen - ein blockiertes Lesen kehrt dann
+    sofort zurueck. Anders laesst sich ein tropfender Server nicht stoppen."""
+    kandidaten = []
     try:
-        r = _session().get(url, timeout=REQUEST_TIMEOUT)
-        r.raise_for_status()
-        # requests raet bei fehlender Zeichensatzangabe ISO-8859-1 - deutsche
-        # Seiten liefern dann "WohnflÃ¤che". Im Zweifel den Inhalt fragen.
-        if r.encoding and r.encoding.lower() == "iso-8859-1" and "charset" not in \
-                (r.headers.get("content-type") or "").lower():
-            r.encoding = r.apparent_encoding
-        return r.text, None
+        conn = getattr(r.raw, "_connection", None) or getattr(r.raw, "connection", None)
+        kandidaten.append(getattr(conn, "sock", None))
+    except Exception:
+        pass
+    try:
+        # Ohne Content-Length gibt http.client die Leitung an die Antwort ab;
+        # dann haengt der Socket nur noch an deren Lese-Objekt.
+        kandidaten.append(r.raw._fp.fp.raw._sock)
+    except Exception:
+        pass
+    for sock in kandidaten:
+        if sock is None:
+            continue
+        try:
+            sock.shutdown(socket.SHUT_RDWR)
+        except Exception:
+            pass
+    try:
+        r.close()
+    except Exception:
+        pass
+
+
+def fetch(url):
+    """HTTP-Abruf mit harter Gesamtdauer. Der requests-Timeout gilt nur je
+    gelesenem Datenpaket - ein Server, der alle 20 s ein Byte schickt, hielte
+    den Abruf sonst beliebig lange fest."""
+    start = time.time()
+    try:
+        with _session().get(url, timeout=REQUEST_TIMEOUT, stream=True) as r:
+            r.raise_for_status()
+            rest = max(1.0, MAX_ABRUF_SEKUNDEN - (time.time() - start))
+            wecker = threading.Timer(rest, _verbindung_kappen, args=(r,))
+            wecker.daemon = True
+            wecker.start()
+            try:
+                teile, groesse = [], 0
+                for teil in r.iter_content(65536):
+                    teile.append(teil)
+                    groesse += len(teil)
+                    if groesse > MAX_ABRUF_BYTES:
+                        break
+            except Exception:
+                if time.time() - start >= MAX_ABRUF_SEKUNDEN - 0.5:
+                    return None, f"Abruf nach {MAX_ABRUF_SEKUNDEN}s abgebrochen (Server zu langsam)"
+                raise
+            finally:
+                wecker.cancel()
+            if time.time() - start >= MAX_ABRUF_SEKUNDEN - 0.5:
+                return None, f"Abruf nach {MAX_ABRUF_SEKUNDEN}s abgebrochen (Server zu langsam)"
+            r._content = b"".join(teile)
+            r._content_consumed = True
+            # requests raet bei fehlender Zeichensatzangabe ISO-8859-1 - deutsche
+            # Seiten liefern dann "WohnflÃ¤che". Im Zweifel den Inhalt fragen.
+            if (r.encoding or "").lower() in ("", "iso-8859-1") and "charset" not in \
+                    (r.headers.get("content-type") or "").lower():
+                r.encoding = r.apparent_encoding
+            return r.text, None
     except Exception as e:
         return None, str(e)
 
@@ -85,6 +144,8 @@ def abruf_parallel(auftraege, workers=PARALLEL_ABRUFE):
 # Playwright
 # ---------------------------------------------------------------------------
 _pw = None  # (playwright, browser, context)
+browser_deaktiviert = False  # nach einem haengenden Browser fuer den Rest des Laufs aus
+im_browser = False           # True, solange fetch_rendered arbeitet
 _BLOCKIERT = {"image", "media", "font"}
 _MAX_JSON_BYTES = 3_000_000
 # JS-Pruefung: stehen schon genug Inseratsmerkmale auf der Seite?
@@ -107,6 +168,10 @@ def _browser_context():
         p = sync_playwright().start()
         browser = p.chromium.launch(headless=True)
         ctx = browser.new_context(user_agent=HEADERS["User-Agent"], locale="de-DE")
+        # Jeder Browser-Befehl bekommt eine Obergrenze - sonst kann z. B.
+        # page.content() auf einer kaputten Seite unbegrenzt warten.
+        ctx.set_default_timeout(15000)
+        ctx.set_default_navigation_timeout(25000)
         # Bilder, Videos und Schriften brauchen wir nicht - sie machen den
         # Grossteil der Ladezeit aus.
         ctx.route("**/*", lambda route: route.abort()
@@ -116,6 +181,19 @@ def _browser_context():
     except Exception as e:
         print(f"  Playwright-Browser konnte nicht gestartet werden: {e}")
         return None
+
+
+def browser_abschalten():
+    """Nach einem haengenden Browser: Referenz verwerfen und fuer den Rest
+    des Laufs keinen neuen starten (der Playwright-Zustand ist nach einer
+    Unterbrechung nicht mehr verlaesslich)."""
+    global _pw, browser_deaktiviert, im_browser
+    if not im_browser:
+        return False
+    browser_deaktiviert = True
+    im_browser = False
+    _pw = None
+    return True
 
 
 def close_playwright():
@@ -136,18 +214,29 @@ def fetch_rendered(url):
     json_antworten: alle JSON-Daten, die die Seite per XHR/fetch nachlaedt.
     Bei Makler-Widgets stehen die Inserate dort bereits vollstaendig und
     strukturiert drin - auslesen kostet keinen KI-Aufruf."""
-    if budget_exceeded():
+    global im_browser
+    if budget_exceeded() or browser_deaktiviert:
         return None, []
+    im_browser = True
+    try:
+        return _rendern(url)
+    finally:
+        im_browser = False
+
+
+def _rendern(url):
     ctx = _browser_context()
     if not ctx:
         return None, []
     page = None
-    antworten = []
+    fertig = []
     try:
         page = ctx.new_page()
-        page.on("response", lambda r: antworten.append(r)
-                if r.request.resource_type in ("xhr", "fetch")
-                and "json" in (r.headers.get("content-type") or "") else None)
+        # Nur ABGESCHLOSSENE Datenabfragen merken. Frueher wurde jede Antwort
+        # gemerkt und spaeter ihr Inhalt gelesen - bei einer offenen
+        # Dauerverbindung (Live-Updates, Chat-Widget) wartet das ewig.
+        page.on("requestfinished", lambda req: fertig.append(req)
+                if req.resource_type in ("xhr", "fetch") else None)
         page.goto(url, timeout=25000, wait_until="domcontentloaded")
         # Statt fester Wartezeit: warten, bis Preise/Flaechen auftauchen.
         try:
@@ -167,8 +256,11 @@ def fetch_rendered(url):
                 html += "\n<!-- eingebetteter Rahmen -->\n" + inner
 
         daten = []
-        for r in antworten[:40]:
+        for req in fertig[:40]:
             try:
+                r = req.response()
+                if not r or "json" not in (r.headers.get("content-type") or ""):
+                    continue
                 laenge = int(r.headers.get("content-length") or 0)
                 if laenge > _MAX_JSON_BYTES:
                     continue

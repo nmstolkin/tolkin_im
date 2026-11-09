@@ -19,6 +19,7 @@ Seitentext unveraendert, wird das Ergebnis wiederverwendet - ohne KI-Aufruf.
 
 import os
 import re
+import signal
 import sys
 import time
 from urllib.parse import urlparse, urljoin
@@ -66,6 +67,10 @@ SLEEP_BETWEEN_PAGES = 1.0
 # wenn neue Inserate nachgeladen werden.
 KI_CACHE_STUNDEN = 24
 KI_CACHE_LEER_STUNDEN = 8
+# Hoechstdauer je Quelle. Haengt eine Quelle laenger (Server, Browser, KI),
+# wird sie abgebrochen und der Lauf geht mit der naechsten weiter.
+QUELLE_MAX_SEKUNDEN = 240
+ZWISCHENSTAND_ALLE = 10   # so oft (in Quellen) den Stand auf die Platte schreiben
 
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
 NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh")
@@ -656,7 +661,65 @@ def _lade_config():
           f"({S['cache_h']:.0f} h / leer {S['cache_leer_h']:.0f} h)")
 
 
+class QuelleZuLangsam(BaseException):
+    """BaseException, damit kein "except Exception" unterwegs sie verschluckt."""
+    pass
+
+
+def _watchdog_ausloesen(signum, frame):
+    raise QuelleZuLangsam()
+
+
+def _abbruch_signal(signum, frame):
+    # "Cancel workflow" in GitHub schickt SIGINT/SIGTERM. Als Unterbrechung
+    # behandeln, damit der Zwischenstand noch gespeichert wird.
+    raise KeyboardInterrupt()
+
+
+def speichere_zwischenstand(status, errors):
+    save_json(SEEN_FILE, S["seen"])
+    save_json(SITE_CACHE_FILE, S["cache"], kompakt=True)
+    save_json(ERROR_LOG, errors)
+    save_json(STATUS_FILE, status)
+    _speichere_gemeldet()
+    kriterien.save_geocode_cache()
+
+
+def _verarbeite_quelle(site, abruf_url, html, err, status, errors, batch):
+    if err and abruf_url != site:
+        # gemerkte Unterseite/Feed tot -> normale Seite versuchen
+        html, err = abruf.fetch(site)
+        abruf_url = site
+        S["cache"].pop(site, None)
+    if err:
+        print(f"  -> Fehler beim Abrufen: {err}")
+        errors[site] = err
+        update_site_status(status, site, ok=False, error=err)
+        # Voruebergehende Stoerung: zuletzt bekannte Inserate gelten als
+        # weiterhin gelistet - sonst erscheinen sie in der App als "weg".
+        S["seen_keys"].update(listing_key(l, site) for l in
+                              (S["cache"].get(site) or {}).get("inserate", []))
+        return
+    try:
+        r = stufe1(site, abruf_url, html)
+        if r.get("ki_offen"):
+            batch.append(r)
+            return
+        abschliessen(r)
+    except QuelleZuLangsam:
+        raise
+    except Exception as e:  # eine kaputte Quelle darf den Lauf nicht beenden
+        print(f"  -> Unerwarteter Fehler, Quelle übersprungen: {e!r}")
+        errors[site] = f"intern: {e!r}"
+
+
 def main():
+    # Ausgabe zeilenweise statt in 8-KB-Bloecken - sonst wirkt das Log in
+    # GitHub Actions minutenlang eingefroren, obwohl der Lauf arbeitet.
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
+    except Exception:
+        pass
     try:
         _run()
     finally:
@@ -707,39 +770,44 @@ def _run():
 
     batch = []
     verarbeitet = 0
+    hat_watchdog = hasattr(signal, "SIGALRM")
+    if hat_watchdog:
+        signal.signal(signal.SIGALRM, _watchdog_ausloesen)
+    signal.signal(signal.SIGTERM, _abbruch_signal)
+    signal.signal(signal.SIGINT, _abbruch_signal)
     print(f"Rufe {len(auftraege)} Quelle(n) ab ({abruf.PARALLEL_ABRUFE} parallel) …")
-    for i, (site, abruf_url, html, err) in enumerate(abruf.abruf_parallel(auftraege), 1):
-        if budget_exceeded():
-            print(f"ZEITGRENZE nach {util.RUN_BUDGET_MINUTES:.0f} Min erreicht - "
-                  f"{len(auftraege) - i + 1} Quelle(n) bleiben diesmal offen.")
-            break
-        verarbeitet += 1
-        print(f"[{i}/{len(auftraege)}] {site}")
-        if err and abruf_url != site:
-            # gemerkte Unterseite/Feed tot -> normale Seite versuchen
-            html, err = abruf.fetch(site)
-            abruf_url = site
-            S["cache"].pop(site, None)
-        if err:
-            print(f"  -> Fehler beim Abrufen: {err}")
-            errors[site] = err
-            update_site_status(status, site, ok=False, error=err)
-            # Voruebergehende Stoerung: zuletzt bekannte Inserate gelten als
-            # weiterhin gelistet - sonst erscheinen sie in der App als "weg".
-            S["seen_keys"].update(listing_key(l, site) for l in
-                                  (S["cache"].get(site) or {}).get("inserate", []))
-            continue
-        try:
-            r = stufe1(site, abruf_url, html)
-            if r.get("ki_offen"):
-                batch.append(r)
-                continue
-            abschliessen(r)
-        except Exception as e:  # eine kaputte Quelle darf den Lauf nicht beenden
-            print(f"  -> Unerwarteter Fehler, Quelle übersprungen: {e!r}")
-            errors[site] = f"intern: {e!r}"
+    try:
+        for i, (site, abruf_url, html, err) in enumerate(abruf.abruf_parallel(auftraege), 1):
+            if budget_exceeded():
+                print(f"ZEITGRENZE nach {util.RUN_BUDGET_MINUTES:.0f} Min erreicht - "
+                      f"{len(auftraege) - i + 1} Quelle(n) bleiben diesmal offen.")
+                break
+            verarbeitet += 1
+            print(f"[{i}/{len(auftraege)} · {util.minuten_seit_start():.0f} Min] {site}")
+            if hat_watchdog:
+                signal.alarm(QUELLE_MAX_SEKUNDEN)
+            try:
+                _verarbeite_quelle(site, abruf_url, html, err, status, errors, batch)
+            except QuelleZuLangsam:
+                print(f"  -> ABGEBROCHEN nach {QUELLE_MAX_SEKUNDEN}s - Quelle hing, weiter mit der nächsten.")
+                errors[site] = f"nach {QUELLE_MAX_SEKUNDEN}s abgebrochen"
+                update_site_status(status, site, ok=False, error=errors[site])
+                S["seen_keys"].update(listing_key(l, site) for l in
+                                      (S["cache"].get(site) or {}).get("inserate", []))
+                # Hing der Browser, ist sein Zustand nicht mehr verlaesslich
+                if abruf.browser_abschalten():
+                    print("  -> Browser hing - für den Rest des Laufs ohne Browser.")
+            finally:
+                if hat_watchdog:
+                    signal.alarm(0)
+            if verarbeitet % ZWISCHENSTAND_ALLE == 0:
+                speichere_zwischenstand(status, errors)
+    except KeyboardInterrupt:
+        print("\nABBRUCH von außen - speichere den bisherigen Stand …")
+        verarbeitet = -1  # Lauf gilt als unvollständig
 
-    if batch:
+    if batch and verarbeitet >= 0:
+
         print(f"\nAnthropic-Batch: {len(batch)} Seite(n) …")
         ergebnisse = extraktion.run_batch_extraction(
             [(str(n), r["page_url"], r["text"]) for n, r in enumerate(batch)])
@@ -753,12 +821,7 @@ def _run():
             except Exception as e:
                 print(f"  -> Unerwarteter Fehler: {e!r}")
 
-    save_json(SEEN_FILE, S["seen"])
-    save_json(SITE_CACHE_FILE, S["cache"], kompakt=True)
-    save_json(ERROR_LOG, errors)
-    save_json(STATUS_FILE, status)
-    _speichere_gemeldet()
-    kriterien.save_geocode_cache()
+    speichere_zwischenstand(status, errors)
 
     vollstaendig = verarbeitet == len(auftraege) and not budget_exceeded()
     is_full_run = SITES_FILE == "sites.json" and vollstaendig

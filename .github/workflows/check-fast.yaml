@@ -1,18 +1,18 @@
 name: Wohnungssuche Berlin (schnell)
 
-# Prueft nur die ertragreichsten Quellen (sites-fast.json), dreimal taeglich
-# (7, 11 und 17 Uhr UTC = ca. 9, 13 und 19 Uhr Berlin). Bewusst versetzt zu
-# den vollstaendigen Laeufen (8 und 14 UTC), und reduziert von fuenf auf drei,
-# weil beide Lauf-Arten sich dasselbe Gemini-Tageskontingent teilen.
-# Hintergrund: Inserate stehen im Median rund 12 Stunden online, bei schnellen
-# Vermietern oft nur 1-3 Stunden. Ein Lauf alle 6-18 Stunden verpasst daher
-# einen grossen Teil. Die vollstaendige Liste laeuft weiterhin in check.yml.
+# Prueft nur die ertragreichsten Quellen (sites-fast.json) alle zwei Stunden,
+# Montag bis Samstag, jeweils zur halben Stunde - versetzt zu den vollen
+# Laeufen (8:00/14:00 UTC), damit sich beide nicht in die Quere kommen.
+# GitHub-Cron rechnet in UTC: 7:30-19:30 UTC = 8:30-20:30 Uhr Berlin im
+# Winter (MEZ) bzw. 9:30-21:30 Uhr im Sommer (MESZ).
+#
+# Moeglich ist der engere Takt durch den Ergebnis-Cache: unveraenderte Seiten
+# kosten keinen KI-Aufruf mehr. Inserate stehen im Median rund 12 Stunden
+# online, bei schnellen Vermietern oft nur 1-3 Stunden.
 
 on:
   schedule:
-    # stuendlich zwischen 6:00 und 19:00 UTC an Werktagen
-    # (entspricht ca. 8-21 Uhr Berlin in der Sommerzeit)
-    - cron: "0 7,11,17 * * 1-5"
+    - cron: "30 7-19/2 * * 1-6"
   workflow_dispatch: {}
 
 permissions:
@@ -61,14 +61,22 @@ jobs:
           RUN_BUDGET_MINUTES: "40"
           APP_URL: ${{ vars.APP_URL }}
 
+      # if: always() - auch nach Abbruch/Fehler sichern. Sonst gehen bereits
+      # gepushte Treffer verloren und werden beim naechsten Lauf erneut gemeldet.
       - name: Status speichern
+        if: always()
         run: |
           git config user.name "immo-watcher-bot"
           git config user.email "bot@users.noreply.github.com"
-          git pull --rebase --autostash || true
           git add data/ data.json site-status.json run-stats.json
-          git diff --staged --quiet || git commit -m "Status aktualisiert (schnell) [skip ci]"
-          git push
+          git diff --staged --quiet && exit 0
+          git commit -m "Status aktualisiert (schnell) [skip ci]"
+          # Bis zu 3 Versuche, falls parallel ein anderer Commit (z. B. aus der App) kam
+          for i in 1 2 3; do
+            git pull --rebase -X theirs && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "::error::Status konnte nicht gepusht werden."; exit 1
 
       - name: Fehler melden
         if: failure()

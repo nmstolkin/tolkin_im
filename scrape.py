@@ -49,6 +49,8 @@ STATUS_FILE = "site-status.json"
 CONFIG_FILE = "config.json"  # steuerbare Einstellungen, auch von der App aus änderbar
 DEFAULT_COOLDOWN_ENABLED = False  # auf Wunsch aktuell deaktiviert: jede Seite wird jedes Mal voll geprüft
 MAX_MATCHES_KEPT = 300  # ältere Treffer werden aus der App-Ansicht ausgeblendet
+MAX_SEEN_PER_SITE = 400  # so viele bereits gesehene Inserate je Quelle merken
+MAX_NEAR_MISS_GONE_DAYS = 14  # verschwundene Knapp-Treffer so lange behalten
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -217,7 +219,8 @@ VIKTORIA_LUISE_CANDIDATE_PLZ = {
     "10777", "10779", "10781", "10783", "10825", "10827", "10789",
 }
 
-GEOCODE_RATE_LIMIT_SECONDS = 1.1  # Nominatim-Nutzungsregeln: max. 1 Anfrage/Sekunde
+GEOCODE_RATE_LIMIT_SECONDS = 1.1
+GEOCODE_MISS_RETRY_DAYS = 30  # nicht auffindbare Adressen so lange nicht erneut anfragen  # Nominatim-Nutzungsregeln: max. 1 Anfrage/Sekunde
 _geocode_cache = {}
 
 # True = Inserate ganz ohne erkennbare PLZ/Bezirk werden ausgefiltert
@@ -924,17 +927,50 @@ def load_geocode_cache():
     jedem Lauf viele (auf 1/Sekunde gedrosselte) Nominatim-Anfragen."""
     global _geocode_cache
     raw = load_json(GEOCODE_CACHE_FILE, {})
-    # JSON kennt keine Tupel -> Listen zurück in Tupel wandeln
-    _geocode_cache = {
-        k: (tuple(v) if isinstance(v, list) else None) for k, v in raw.items()
-    }
-    print(f"Geocoding-Cache geladen: {len(_geocode_cache)} Adresse(n)")
+    _geocode_cache = {}
+    abgelaufen = 0
+    for k, v in raw.items():
+        if isinstance(v, list):                       # Treffer
+            _geocode_cache[k] = tuple(v)
+        elif isinstance(v, dict) and "miss_at" in v:  # Fehlanzeige mit Datum
+            if hours_since(v["miss_at"]) < GEOCODE_MISS_RETRY_DAYS * 24:
+                _geocode_cache[k] = v
+            else:
+                abgelaufen += 1                       # erneut versuchen
+        # altes Format (None) bewusst verwerfen: darunter sind Adressen, die
+        # nur wegen einer Stoerung als unauffindbar galten
+    treffer = sum(1 for v in _geocode_cache.values() if isinstance(v, tuple))
+    print(f"Geocoding-Cache: {treffer} Adresse(n), "
+          f"{len(_geocode_cache) - treffer} Fehlanzeige(n)"
+          + (f", {abgelaufen} erneut zu prüfen" if abgelaufen else ""))
 
 
 def save_geocode_cache():
     save_json(GEOCODE_CACHE_FILE, {
-        k: (list(v) if v else None) for k, v in _geocode_cache.items()
+        k: (list(v) if isinstance(v, tuple) else v)
+        for k, v in _geocode_cache.items()
     })
+
+
+def geocode_photon(query):
+    """Rueckfall-Geocoder (Photon, ebenfalls auf OpenStreetMap-Basis)."""
+    try:
+        resp = requests.get(
+            "https://photon.komoot.io/api/",
+            params={"q": query, "limit": 1, "lang": "de"},
+            headers={"User-Agent": "ImmoWatcher/1.0 (privates Wohnungssuche-Tool)"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        treffer = (resp.json() or {}).get("features") or []
+        if not treffer:
+            return None
+        lon, lat = treffer[0]["geometry"]["coordinates"][:2]
+        print(f"    (über Zweitdienst geocodiert: '{query}')")
+        return (float(lat), float(lon))
+    except Exception as e2:
+        print(f"    Auch Zweitdienst gestört für '{query}': {e2}")
+        return None
 
 
 def geocode_address(query):
@@ -944,7 +980,8 @@ def geocode_address(query):
     if not query:
         return None
     if query in _geocode_cache:
-        return _geocode_cache[query]
+        treffer = _geocode_cache[query]
+        return treffer if isinstance(treffer, tuple) else None
 
     time.sleep(GEOCODE_RATE_LIMIT_SECONDS)
     try:
@@ -957,14 +994,30 @@ def geocode_address(query):
         resp.raise_for_status()
         results = resp.json()
         if not results:
-            _geocode_cache[query] = None
+            # Sauber beantwortet, aber nichts gefunden: als Fehlanzeige mit
+            # Datum merken und nach GEOCODE_MISS_RETRY_DAYS erneut versuchen -
+            # Adressen koennen auch spaeter noch in OpenStreetMap landen.
+            _geocode_cache[query] = {"miss_at": datetime.now(timezone.utc).isoformat()}
             return None
         coords = (float(results[0]["lat"]), float(results[0]["lon"]))
         _geocode_cache[query] = coords
         return coords
     except Exception as e:
-        print(f"    Geocoding fehlgeschlagen für '{query}': {e}")
-        _geocode_cache[query] = None
+        # Zweiter Dienst als Rueckfall. Photon laeuft ebenfalls auf
+        # OpenStreetMap-Daten, wird aber getrennt betrieben - faellt einer
+        # aus, springt der andere ein. Ohne das bleiben Charlottenburg,
+        # Viktoria-Luise und das Spreeufer bei jeder Stoerung blind.
+        coords = geocode_photon(query)
+        if coords:
+            _geocode_cache[query] = coords
+            return coords
+        # WICHTIG: Stoerungen (Zeitueberschreitung, Ratenbegrenzung, Netzfehler)
+        # NICHT im Cache festhalten. Der Cache ueberdauert die Laeufe - eine
+        # einzelne Stoerung wuerde die Adresse sonst fuer immer ausschliessen,
+        # und fuer Charlottenburg, Viktoria-Luise und das Spreeufer entscheidet
+        # allein die Geocodierung.
+        print(f"    Geocoding gestört für '{query}' ({e}) – wird beim nächsten "
+              f"Lauf erneut versucht.")
         return None
 
 
@@ -1522,19 +1575,42 @@ def update_app_data(new_matches, seen_keys_this_run=None, near_misses=None):
             "districts": ["Mitte", "Prenzlauer Berg", "Charlottenburg"],
         },
         "matches": deduped,
-        "near_misses": merge_near_misses(existing.get("near_misses", []), near_misses or []),
+        "near_misses": merge_near_misses(existing.get("near_misses", []),
+                                         near_misses or [], seen_keys_this_run),
         "time_online": compute_time_online_stats(deduped),
     }
     save_json(APP_DATA_FILE, payload)
 
 
-def merge_near_misses(existing, new_items):
-    """Knapp verfehlte Inserate sammeln, neueste zuerst, begrenzt."""
+def merge_near_misses(existing, new_items, seen_keys_this_run=None):
+    """Knapp verfehlte Inserate sammeln, neueste zuerst, begrenzt.
+
+    Wie bei den Treffern werden verschwundene Eintraege markiert - sonst
+    stehen laengst vergebene Wohnungen auf Dauer im Reiter. Nach
+    MAX_NEAR_MISS_GONE_DAYS fliegen sie ganz raus.
+    """
+    jetzt = datetime.now(timezone.utc).isoformat()
     keys = {m.get("key") for m in existing}
     for m in new_items:
         if m.get("key") not in keys:
             existing.append(m)
             keys.add(m.get("key"))
+
+    if seen_keys_this_run:
+        gefiltert = []
+        for m in existing:
+            if m.get("key") in seen_keys_this_run:
+                m["still_listed"] = True
+                m.pop("gone_since", None)
+            else:
+                if m.get("still_listed") is not False:
+                    m["still_listed"] = False
+                    m.setdefault("gone_since", jetzt)
+                if hours_since(m.get("gone_since")) > MAX_NEAR_MISS_GONE_DAYS * 24:
+                    continue
+            gefiltert.append(m)
+        existing = gefiltert
+
     existing.sort(key=lambda m: m.get("found_at", ""), reverse=True)
     return existing[:120]
 
@@ -1839,6 +1915,28 @@ def _run():
     for area_key in CRITERIA["areas"]:
         if area_key in cfg_criteria.get("areas", {}):
             CRITERIA["areas"][area_key] = bool(cfg_criteria["areas"][area_key])
+    # Feineinstellungen, die bisher nur im Code standen. Wer den Savignyplatz-
+    # Radius aendern will, muss jetzt nicht mehr den Code anfassen.
+    feinwerte = {
+        "charlottenburg_radius_km": "CHARLOTTENBURG_RADIUS_KM",
+        "viktoria_luise_radius_km": "VIKTORIA_LUISE_RADIUS_KM",
+        "spree_abstand_km": "SPREE_PROXIMITY_KM",
+        "mitte_radius_km": "MITTE_RADIUS_KM",
+        "prenzlauer_berg_radius_km": "PRENZLAUER_BERG_RADIUS_KM",
+        "knapp_groesse_toleranz": "NEAR_MISS_SIZE_TOLERANCE",
+        "knapp_miete_toleranz": "NEAR_MISS_RENT_TOLERANCE",
+    }
+    geaendert = []
+    for schluessel, konstante in feinwerte.items():
+        if schluessel in cfg_criteria:
+            try:
+                globals()[konstante] = float(cfg_criteria[schluessel])
+                geaendert.append(f"{schluessel}={cfg_criteria[schluessel]}")
+            except (TypeError, ValueError):
+                print(f"  Wert für {schluessel} unbrauchbar, Vorgabe bleibt.")
+    if geaendert:
+        print("Feineinstellungen: " + ", ".join(geaendert))
+
     for flag in ("allow_wbs", "allow_furnished", "allow_temporary", "allow_shared"):
         if flag in cfg_criteria:
             CRITERIA[flag] = bool(cfg_criteria[flag])
@@ -2040,7 +2138,11 @@ def _run():
             suggested_url=suggested_url, pages_checked=pages_checked,
         )
 
-        known = set(seen.get(url, []))
+        # Reihenfolge bewusst erhalten (Liste statt Menge): nur so laesst
+        # sich spaeter das Aelteste abschneiden. Das Set dient nur dem
+        # schnellen Nachschlagen.
+        bekannt_liste = list(seen.get(url, []))
+        known = set(bekannt_liste)
         new_on_this_site = 0
 
         for listing in listings:
@@ -2049,6 +2151,7 @@ def _run():
             total_listings_seen += 1
             if key not in known:
                 known.add(key)
+                bekannt_liste.append(key)
                 new_on_this_site += 1
 
             # WICHTIG: Die Kriterien werden auf JEDES erkannte Inserat
@@ -2078,7 +2181,12 @@ def _run():
         if new_on_this_site:
             print(f"  -> {new_on_this_site} davon neu seit letztem Lauf")
 
-        seen[url] = list(known)
+        # Aelteste Eintraege abschneiden. Ohne Begrenzung waechst die Datei
+        # mit jedem Lauf, wird jedes Mal gelesen, geschrieben und committet -
+        # und bremst den Lauf irgendwann spuerbar aus.
+        if len(bekannt_liste) > MAX_SEEN_PER_SITE:
+            bekannt_liste = bekannt_liste[-MAX_SEEN_PER_SITE:]
+        seen[url] = bekannt_liste
 
     save_json(SEEN_FILE, seen)
     save_json(HASH_FILE, hashes)

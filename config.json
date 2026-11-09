@@ -2,14 +2,15 @@
   "cooldown_enabled": false,
   "criteria": {
     "min_rooms": 3,
-    "min_size_qm": 90,
-    "min_rent": 1000,
-    "max_rent": 2500,
+    "min_size_qm": 80,
+    "min_rent": 1200,
+    "max_rent": 2100,
     "areas": {
       "mitte": true,
       "prenzlauer_berg": true,
       "charlottenburg": true,
-      "tiergarten_moabit_spree": true
+      "tiergarten_moabit_spree": true,
+      "viktoria_luise": true
     },
     "custom_area": {
       "enabled": false,
@@ -18,6 +19,13 @@
     "allow_wbs": false,
     "allow_furnished": false,
     "allow_temporary": false,
-    "allow_shared": false
+    "allow_shared": false,
+    "charlottenburg_radius_km": 1.2,
+    "viktoria_luise_radius_km": 1.0,
+    "spree_abstand_km": 0.25,
+    "mitte_radius_km": 1.8,
+    "prenzlauer_berg_radius_km": 1.8,
+    "knapp_groesse_toleranz": 0.12,
+    "knapp_miete_toleranz": 0.12
   }
 }

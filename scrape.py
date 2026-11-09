@@ -376,6 +376,10 @@ def close_playwright():
 def fetch_rendered_html(url):
     """Lädt eine Seite mit echtem (headless) Browser und gibt den nach
     JavaScript-Ausführung entstandenen HTML-Code zurück, oder None."""
+    # Playwright ist der teuerste Schritt. Laeuft die Zeit ab, gar nicht erst
+    # anfangen - sonst reisst eine einzelne Seite die Zeitgrenze um Minuten.
+    if budget_exceeded():
+        return None
     browser = _get_playwright_browser()
     if not browser:
         return None
@@ -2105,7 +2109,8 @@ def _run():
         extra_pages = 0
         seen_page_urls = {url, current_page_url}
         next_url = find_next_page_url(current_html, current_page_url) if listings else None
-        while next_url and extra_pages < MAX_EXTRA_PAGES and next_url not in seen_page_urls:
+        while (next_url and extra_pages < MAX_EXTRA_PAGES
+               and next_url not in seen_page_urls and not budget_exceeded()):
             seen_page_urls.add(next_url)
             time.sleep(SLEEP_BETWEEN_PAGES)
             page_html, page_err = fetch(next_url)

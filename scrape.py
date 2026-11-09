@@ -2,1429 +2,92 @@
 """
 Immo Watcher
 ------------
-Ruft eine Liste von Hausverwaltungs-/Makler-Webseiten ab, erkennt neue
-Wohnungsinserate per KI-Extraktion (Claude API), filtert sie nach den
-gewünschten Kriterien und schickt bei Treffern eine Push-Benachrichtigung
-ans Handy (via ntfy.sh).
+Ruft Hausverwaltungs-/Makler-Webseiten ab, erkennt Wohnungsinserate,
+filtert sie nach den Kriterien und meldet Treffer SOFORT per Push (ntfy).
 
-Speichert Status (bekannte Inserate + Seiten-Hashes) in data/, damit
-zwischen den Läufen (z.B. via GitHub Actions) nichts doppelt gemeldet wird.
+Aufbau:
+  scrape.py      Ablauf, Status, App-Daten, Benachrichtigungen (diese Datei)
+  abruf.py       HTTP (parallel), Browser-Rendering, Link-Navigation
+  extraktion.py  Strukturierte Daten, Feeds, Vorfilter, KI-Extraktion
+  kriterien.py   Suchkriterien, Lage, Geocoding
+  util.py        Dateien, Zeitbudget, Rate-Limiter
+
+Je Quelle wird gemerkt, WIE sie zuletzt erfolgreich ausgelesen wurde
+(direkt, Unterseite, Feed, Browser) und WAS dabei herauskam. Ist der
+Seitentext unveraendert, wird das Ergebnis wiederverwendet - ohne KI-Aufruf.
 """
 
 import os
 import re
-import json
-import time
-import hashlib
 import sys
-import math
-from datetime import datetime, timezone
+import time
 from urllib.parse import urlparse, urljoin
+from statistics import median
+from datetime import datetime
 
 import requests
-from bs4 import BeautifulSoup
+
+import abruf
+import extraktion
+import kriterien
+import util
+from util import load_json, save_json, now_iso, hours_since, budget_exceeded
 
 # ---------------------------------------------------------------------------
-# Konfiguration
+# Dateien und Grenzwerte
 # ---------------------------------------------------------------------------
-
 DATA_DIR = "data"
 SEEN_FILE = os.path.join(DATA_DIR, "seen_listings.json")
-HASH_FILE = os.path.join(DATA_DIR, "page_hashes.json")
+SITE_CACHE_FILE = os.path.join(DATA_DIR, "site_cache.json")   # Strategie + letztes Ergebnis je Quelle
+GEMELDET_FILE = os.path.join(DATA_DIR, "gemeldet.json")       # alle je gepushten Inserats-Schluessel
 ERROR_LOG = os.path.join(DATA_DIR, "last_errors.json")
-GEOCODE_CACHE_FILE = os.path.join(DATA_DIR, "geocode_cache.json")
 HEARTBEAT_FILE = os.path.join(DATA_DIR, "heartbeat.json")
-HEARTBEAT_DAYS = 7  # nach so vielen Tagen ohne Nachricht ein Lebenszeichen senden
-STATS_FILE = "run-stats.json"  # Verworfen-Statistik, wird von der App angezeigt
-# Welche Quellenliste geprueft wird. Der schnelle Zusatz-Workflow setzt
-# SITES_FILE=sites-fast.json und prueft nur die ertragreichsten Quellen -
-# noetig, weil Inserate im Median nur ca. 12 Stunden online stehen und ein
-# Lauf alle 6-18 Stunden die Haelfte davon verpasst.
-SITES_FILE = os.environ.get("SITES_FILE", "sites.json")
-
-# Dateien, die die Homescreen-App direkt anzeigt (liegen im Repo-Root,
-# neben index.html, damit GitHub Pages sie ausliefern kann)
+STATS_FILE = "run-stats.json"
 APP_DATA_FILE = "data.json"
 STATUS_FILE = "site-status.json"
-CONFIG_FILE = "config.json"  # steuerbare Einstellungen, auch von der App aus änderbar
-DEFAULT_COOLDOWN_ENABLED = False  # auf Wunsch aktuell deaktiviert: jede Seite wird jedes Mal voll geprüft
-MAX_MATCHES_KEPT = 300  # ältere Treffer werden aus der App-Ansicht ausgeblendet
-MAX_SEEN_PER_SITE = 400  # so viele bereits gesehene Inserate je Quelle merken
-PLAYWRIGHT_GIVE_UP_AFTER = 4   # nach so vielen vergeblichen Versuchen aussetzen
-PLAYWRIGHT_RETRY_EVERY = 10    # und nur noch jeden 10. Lauf erneut versuchen
-MAX_NEAR_MISS_GONE_DAYS = 14  # verschwundene Knapp-Treffer so lange behalten
+CONFIG_FILE = "config.json"
+SITES_FILE = os.environ.get("SITES_FILE", "sites.json")
 
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+HEARTBEAT_DAYS = 7
+DEFAULT_COOLDOWN_ENABLED = False
+MAX_MATCHES_KEPT = 300
+MAX_SEEN_PER_SITE = 400
+MAX_GEMELDET = 5000
+MAX_NEAR_MISS_GONE_DAYS = 14
+MAX_NEAR_MISSES = 120
+PLAYWRIGHT_GIVE_UP_AFTER = 4
+PLAYWRIGHT_RETRY_EVERY = 10
+HOPELESS_THRESHOLD = 5
+HOPELESS_RECHECK_HOURS = 24 * 21
+MAX_EXTRA_PAGES = 2
+SLEEP_BETWEEN_PAGES = 1.0
+# Wie lange ein Ergebnis bei unveraendertem Seitentext wiederverwendet wird.
+# Leere Ergebnisse kuerzer, weil JS-Seiten ihre Huelle nicht aendern, auch
+# wenn neue Inserate nachgeladen werden.
+KI_CACHE_STUNDEN = 24
+KI_CACHE_LEER_STUNDEN = 8
+
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC")
 NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh")
-
-# "anthropic" (paid, sehr günstig, Batch API) oder "gemini" (kostenloser Tarif,
-# dafür mit Rate-Limits statt Kosten). Umschaltbar über die Umgebungsvariable
-# AI_PROVIDER, z.B. im GitHub-Actions-Workflow gesetzt.
-AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic").strip().lower()
-
-# Diagnose: bei "1" wird fuer Seiten, die 0 Inserate liefern, ein Ausschnitt des
-# tatsaechlich extrahierten Textes ins Log geschrieben. Damit laesst sich
-# unterscheiden, ob die Seite blockt (Cookie-Banner/Fehlerseite im Text), ob
-# sie leer ist, oder ob die Extraktion den vorhandenen Inhalt nicht erkennt.
+APP_URL = os.environ.get("APP_URL")
 DEBUG_EMPTY = os.environ.get("DEBUG_EMPTY", "").strip() == "1"
 DEBUG_TEXT_CHARS = 1200
 
-MODEL = "claude-haiku-4-5-20251001"  # deutlich günstiger, für strukturierte Text-Extraktion ausreichend
-GEMINI_MODEL = "gemini-2.5-flash-lite"  # kostenloser Tarif, für diese Aufgabe ausreichend
-GEMINI_RATE_LIMIT_DELAY = 4.5        # Sekunden zwischen Gemini-Aufrufen, um im Free-Tier-RPM-Limit zu bleiben
-MAX_TEXT_CHARS = 12000   # Kompromiss: grosse Portale weitgehend abgedeckt, aber
-                         # vertraeglich mit dem kostenlosen Gemini-Kontingent
-                         # (30000 hatte das Tageslimit gesprengt)
-REQUEST_TIMEOUT = 25
-SLEEP_BETWEEN_SITES = 1.5  # kleine Pause, um nicht wie ein aggressiver Bot zu wirken
-SLEEP_BETWEEN_PAGES = 1.0  # Pause zwischen Folgeseiten derselben Website
-
-MAX_EXTRA_PAGES = 2       # zusätzlich zur ersten Seite max. 2 Folgeseiten laden.
-                          # Jede Folgeseite kostet einen KI-Aufruf samt Pause -
-                          # bei 143 Quellen summiert sich das auf Stunden.
-MAX_DISCOVERY_TRIES = 1   # wie viele vermutete Unterseiten bei 0 Treffern probiert werden
-
-# "Aussichtslos"-Erkennung: nach wie vielen aufeinanderfolgenden erfolglosen
-# Läufen (Fehler oder 0 Inserate) eine Seite als vermutlich dauerhaft tot
-# markiert wird, und wie selten sie danach noch (kostenpflichtig) neu geprüft wird.
-HOPELESS_THRESHOLD = 5
-HOPELESS_RECHECK_HOURS = 24 * 21  # ca. alle 3 Wochen erneut versuchen
-
-# Textfragmente, an denen "nächste Seite"-Links erkannt werden
-NEXT_PAGE_TEXTS = {"weiter", "nächste", "nächste seite", "next", "vor", "›", "»", ">"}
-
-# Schlüsselwörter, mit denen eine vermutete Angebots-Unterseite gesucht wird
-# (höherer Wert = wahrscheinlicher die richtige Seite)
-LISTING_LINK_KEYWORDS = [
-    ("mieten", 3), ("miete", 3), ("vermietung", 3), ("mietangebote", 3),
-    ("wohnungsangebote", 3), ("wohnungen", 2), ("angebote", 2),
-    ("objekte", 2), ("immobilien", 1),
-]
-
-CRITERIA = {
-    "min_rooms": 3,
-    "min_size_qm": 80,
-    "min_rent": 1200,
-    "max_rent": 2100,
-    # Freitext-Fragmente als Rückfalloption, falls keine PLZ erkannt wurde
-    # (Wortgrenzen-Suche, siehe matches_criteria)
-    "districts": ["mitte", "prenzlauer berg", "prenzlauer", "charlottenburg"],
-    # Kiez-, Platz- und Quartiersnamen. Berliner Inserate benennen die Lage
-    # fast nie nach dem Ortsteil ("Prenzlauer Berg"), sondern nach dem Kiez
-    # ("Winskiez", "Kollwitzplatz"). Ohne diese Liste fallen sie durchs Raster.
-    "kiez_hints": {
-        "mitte": [
-            "rosenthaler platz", "hackescher markt", "hackesche höfe",
-            "museumsinsel", "spandauer vorstadt", "scheunenviertel",
-            "nikolaiviertel", "alexanderplatz", "gendarmenmarkt",
-            "oranienburger", "torstraße", "torstrasse", "monbijou",
-            "chausseestraße", "chausseestrasse", "weinmeister",
-        ],
-        "prenzlauer_berg": [
-            "kollwitzkiez", "kollwitzplatz", "kollwitzstraße", "kollwitzstrasse",
-            "helmholtzplatz", "helmholtzkiez", "winskiez", "winsviertel",
-            "bötzowviertel", "boetzowviertel", "mauerpark", "kastanienallee",
-            "schönhauser allee", "schoenhauser allee", "rykestraße",
-            "rykestrasse", "arnimplatz", "thälmannpark", "thaelmannpark",
-            "gleimviertel", "falkplatz", "zionskirchplatz", "prenzlberg",
-            "prenzl'berg", "prenzl´berg",
-        ],
-        "charlottenburg": [
-            "savignyplatz", "savigny", "mommsenkiez", "mommsenstraße",
-            "mommsenstrasse", "stuttgarter platz", "stuttgarter-platz",
-            "kantstraße", "kantstrasse", "ludwigkirch", "richard-wagner-platz",
-        ],
-        "viktoria_luise": [
-            "viktoria-luise-platz", "viktoria luise", "viktoria-luise",
-            "bayerisches viertel", "bayerischen viertel", "bayerischer platz",
-            "bayerischen platz", "winterfeldtplatz",
-            "winterfeldtstraße", "winterfeldtstrasse", "nollendorfplatz",
-            "barbarossaplatz", "barbarossastraße", "barbarossastrasse",
-            "motzstraße", "motzstrasse", "regensburger straße",
-            "regensburger strasse", "münchener straße", "muenchener strasse",
-        ],
-        "tiergarten_moabit_spree": [
-            "europacity", "heidestraße", "heidestrasse", "nordhafen",
-            "spreebogen", "hauptbahnhof", "lehrter", "alt-moabit",
-            "stephankiez", "hansaviertel", "wasserstadt", "bellevue",
-        ],
-    },
-    # welche Gebiete aktuell aktiv sind - per config.json/App umschaltbar
-    "areas": {
-        "mitte": True,
-        "prenzlauer_berg": True,
-        "charlottenburg": True,
-        "tiergarten_moabit_spree": True,
-        "viktoria_luise": True,
-    },
-    # in der App auf der Karte gezeichnetes, zusätzliches Suchgebiet
-    "custom_area": {"enabled": False, "points": []},
-    # False = Wohnungen, die einen Wohnberechtigungsschein voraussetzen,
-    # werden ausgefiltert (ohne WBS ohnehin nicht anmietbar).
-    "allow_wbs": False,
-    # Moeblierte Wohnungen und Zeitmieten sind ein anderes Produkt als eine
-    # dauerhafte Wohnung - und pro qm deutlich teurer. WG-Zimmer ebenso.
-    "allow_furnished": False,
-    "allow_temporary": False,
-    "allow_shared": False,
-}
-
-# Präzise Standortfilterung über Postleitzahlen (zuverlässiger als Bezirks-
-# namen, die uneinheitlich benannt werden). Ortsteil-Zuordnung nach den
-# offiziellen Berliner PLZ-Grenzen:
-PLZ_MITTE = {"10115", "10117", "10119", "10178", "10179"}
-PLZ_PRENZLAUER_BERG = {"10405", "10407", "10409", "10435", "10437", "10439"}
-ALLOWED_PLZ = PLZ_MITTE | PLZ_PRENZLAUER_BERG
-
-# Charlottenburg wird NICHT über PLZ, sondern über einen echten Umkreis von
-# 1 km um den Savignyplatz gefiltert (PLZ-Gebiete sind dafür viel zu groß).
-# Nur PLZ, die überhaupt in Frage kommen, lösen den (kostenlosen, aber
-# ratenlimitierten) Geocoding-Aufruf aus - spart unnötige Anfragen.
-CHARLOTTENBURG_CANDIDATE_PLZ = {
-    "10585", "10587", "10589", "10623", "10625", "10627", "10629",
-    "10707", "10709",  # angrenzendes Wilmersdorf, falls Grenzfall
-}
-SAVIGNYPLATZ_COORDS = (52.5049, 13.3225)
-
-# Zentren und Radien für Mitte / Prenzlauer Berg. Nur als FALLBACK genutzt,
-# wenn ein Inserat eine Straße, aber keine PLZ nennt - dann wird die Adresse
-# geocodiert und gegen diese Umkreise geprüft, statt das Inserat zu verwerfen.
-MITTE_CENTER = (52.5200, 13.4000)
-MITTE_RADIUS_KM = 1.8
-PRENZLAUER_BERG_CENTER = (52.5390, 13.4245)
-PRENZLAUER_BERG_RADIUS_KM = 1.8
-CHARLOTTENBURG_RADIUS_KM = 1.2  # erweitert, damit der Olivaer Platz sicher drin liegt
-
-# Tiergarten/Moabit: nur Wohnungen unmittelbar an der Spree. Auch hier zu
-# grob für PLZ-Whitelisting - stattdessen Abstand zum Flusslauf berechnen.
-# Die Referenzpunkte sind eine grobe, von Hand geschätzte Näherung des
-# Spreeverlaufs durch diesen Abschnitt (keine vermessenen GIS-Daten) -
-# bei Bedarf gerne nachjustieren, falls Ergebnisse unplausibel wirken.
-TIERGARTEN_MOABIT_CANDIDATE_PLZ = {"10551", "10553", "10555", "10557", "10559", "10785"}
-SPREE_REFERENCE_POINTS = [
-    (52.5210, 13.3230),  # Grenze zu Charlottenburg (Schlossbrücke-Bereich)
-    (52.5250, 13.3350),  # Westhafen / Beusselstraße
-    (52.5290, 13.3450),  # Moabit, nördlicher Bogen
-    (52.5300, 13.3580),  # Sandkrugbrücke / Invalidenstraße
-    (52.5260, 13.3680),  # Höhe Hauptbahnhof
-    (52.5195, 13.3745),  # Spreebogen / Regierungsviertel
-    (52.5175, 13.3800),  # Richtung Reichstag / Übergang zu Mitte
-]
-SPREE_PROXIMITY_KM = 0.25  # "unmittelbar an der Spree"
-
-# Viktoria-Luise-Kiez in Schoeneberg. Wie bei Charlottenburg zaehlt der echte
-# Umkreis, nicht die Postleitzahl - "Schoeneberg" als Ortsteil waere viel zu
-# weit (reicht bis Tempelhof und Friedenau).
-VIKTORIA_LUISE_COORDS = (52.4958, 13.3415)
-VIKTORIA_LUISE_RADIUS_KM = 1.0
-VIKTORIA_LUISE_CANDIDATE_PLZ = {
-    "10777", "10779", "10781", "10783", "10825", "10827", "10789",
-}
-
-GEOCODE_RATE_LIMIT_SECONDS = 1.1
-GEOCODE_MISS_RETRY_DAYS = 30  # nicht auffindbare Adressen so lange nicht erneut anfragen  # Nominatim-Nutzungsregeln: max. 1 Anfrage/Sekunde
-_geocode_cache = {}
-
-# True = Inserate ganz ohne erkennbare PLZ/Bezirk werden ausgefiltert
-# (präziser, kann aber vereinzelt echte Treffer ohne erkannte Lage kosten).
-# False = solche Inserate werden durchgelassen (bisheriges, großzügigeres Verhalten).
-STRICT_LOCATION_FILTER = True
-
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/124.0 Safari/537.36 ImmoWatcher/1.0"
-    )
-}
-
-EXTRACTION_PROMPT = """Du bekommst den Textinhalt einer Immobilien-Angebotsseite (URL: {url}).
-
-Extrahiere ALLE einzelnen Mietwohnungsinserate, die auf dieser Seite sichtbar sind,
-als JSON-Array. Ignoriere Navigation, Footer, allgemeine Werbetexte und Angebote
-zum KAUF (nur Miete/Vermietung zählt).
-
-WICHTIG - nimm NUR aktuell verfügbare Angebote auf. Viele Hausverwaltungs-Seiten
-zeigen zusätzlich "Referenzobjekte" oder "Referenzen" - das sind Wohnungen, die
-bereits vermietet wurden und nur als Beispiel/Erfolgsgeschichte/Portfolio gezeigt
-werden. Diese NICHT aufnehmen. Erkennungsmerkmale für solche Nicht-Angebote:
-- Überschriften/Bereiche wie "Referenzen", "Referenzobjekte", "Erfolgreich
-  vermietet", "Unsere Projekte", "Portfolio", "Beispielobjekte"
-- Explizite Kennzeichnung als "vermietet", "reserviert", "nicht mehr verfügbar",
-  "bereits vergeben", "ausverkauft"
-- Fehlender Bezug zu einer aktuellen Bewerbung/Kontaktaufnahme (z.B. kein
-  "Jetzt bewerben"/"Kontakt aufnehmen"-Bezug, sondern reine Rückschau)
-
-Im Zweifel (nicht eindeutig erkennbar, ob aktuell verfügbar oder nur Referenz):
-trotzdem aufnehmen, aber "status" auf "unklar" setzen.
-
-Jedes Objekt im Array soll folgende Felder haben (wenn ein Wert nicht auf der
-Seite steht: null):
-- "title": kurze Bezeichnung / Adresse des Inserats
-- "rooms": Zimmeranzahl als Zahl
-- "size_qm": Wohnfläche in Quadratmetern als Zahl
-- "rent": KALTMIETE (Nettokaltmiete/Grundmiete) in Euro als Zahl, ohne Symbol.
-  WICHTIG: Nur die Kaltmiete hier eintragen. Steht auf der Seite ausschließlich
-  eine Warmmiete/Bruttomiete/Gesamtmiete, dann "rent" auf null setzen und den
-  Betrag stattdessen in "rent_warm" eintragen - niemals eine Warmmiete als
-  "rent" ausgeben.
-- "rent_warm": Warmmiete/Gesamtmiete in Euro als Zahl, falls angegeben (sonst null)
-- "district": Stadtteil/Bezirk, falls erkennbar
-- "plz": 5-stellige Postleitzahl, falls im Text erkennbar (sonst null)
-- "street": Straße und Hausnummer, falls im Text erkennbar (sonst null)
-- "url": Direktlink zum Inserat, falls vorhanden (sonst null)
-- "status": "verfuegbar" (aktuell zu vermieten), "vermietet" (bereits vergeben/
-  Referenz) oder "unklar"
-
-Antworte AUSSCHLIESSLICH mit dem JSON-Array. Kein einleitender Text, keine
-Markdown-Codeblöcke, keine Erklärung. Falls keine Inserate erkennbar sind,
-antworte mit einem leeren Array: []
-
-Seiteninhalt:
-{text}
-"""
-
-
-REFERENCE_KEYWORDS = [
-    "referenzobjekt", "referenzobjekte", "referenz ", "referenzen",
-    "erfolgreich vermietet", "bereits vermietet", "bereits vergeben",
-    "vermietet zum", "unsere projekte", "portfolio", "beispielobjekt",
-    "erfolgsgeschichte", "abgeschlossenes projekt", "nicht mehr verfügbar",
-    "ausverkauft",
-]
-
-
-def looks_like_reference(listing):
-    """Sicherheitsnetz zusätzlich zum Prompt: erkennt Referenz-/Vermietet-Objekte
-    anhand von Status-Feld und Schlüsselwörtern in Titel/Bezirk."""
-    status = (listing.get("status") or "").lower()
-    if "vermietet" in status:
-        return True
-    haystack = f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
-    return any(kw in haystack for kw in REFERENCE_KEYWORDS)
+# Laufzustand (wird in _run befuellt)
+S = {}
 
 
 # ---------------------------------------------------------------------------
-# Hilfsfunktionen
+# Schluessel, Datensaetze
 # ---------------------------------------------------------------------------
-
-def load_json(path, default):
-    if os.path.exists(path):
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            return default
-    return default
-
-
-def save_json(path, data):
-    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-
-def fetch(url):
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
-        r.raise_for_status()
-        return r.text, None
-    except Exception as e:
-        return None, str(e)
-
-
-# ---------------------------------------------------------------------------
-# Playwright-Fallback: für Seiten, die ihre Inserate per JavaScript nachladen
-# und daher mit einem einfachen HTTP-Abruf leer erscheinen. Wird EIN Browser
-# für den ganzen Lauf offengehalten (Startkosten nur einmal), nicht pro Seite.
-# ---------------------------------------------------------------------------
-_playwright_ctx = None  # (playwright_instance, browser)
-PLAYWRIGHT_WAIT_MS = 2500  # kurze Wartezeit nach dem Laden, falls Inhalte nachgeladen werden
-
-
-def _get_playwright_browser():
-    global _playwright_ctx
-    if _playwright_ctx is not None:
-        return _playwright_ctx[1]
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        print("  Playwright nicht installiert, JS-Fallback nicht verfügbar.")
-        return None
-    try:
-        p = sync_playwright().start()
-        browser = p.chromium.launch(headless=True)
-        _playwright_ctx = (p, browser)
-        return browser
-    except Exception as e:
-        print(f"  Playwright-Browser konnte nicht gestartet werden: {e}")
-        return None
-
-
-def close_playwright():
-    global _playwright_ctx
-    if _playwright_ctx is not None:
-        p, browser = _playwright_ctx
-        try:
-            browser.close()
-        except Exception:
-            pass
-        try:
-            p.stop()
-        except Exception:
-            pass
-        _playwright_ctx = None
-
-
-def fetch_rendered_html(url):
-    """Lädt eine Seite mit echtem (headless) Browser und gibt den nach
-    JavaScript-Ausführung entstandenen HTML-Code zurück, oder None."""
-    # Playwright ist der teuerste Schritt. Laeuft die Zeit ab, gar nicht erst
-    # anfangen - sonst reisst eine einzelne Seite die Zeitgrenze um Minuten.
-    if budget_exceeded():
-        return None
-    browser = _get_playwright_browser()
-    if not browser:
-        return None
-    try:
-        page = browser.new_page(user_agent=HEADERS["User-Agent"])
-        # "networkidle" wartet, bis gar keine Netzwerkaktivitaet mehr laeuft.
-        # Seiten mit Tracking, Chat-Widgets oder offenen Verbindungen erreichen
-        # das nie und laufen in den Timeout - obwohl die Inserate laengst da
-        # sind. Deshalb nur bis "domcontentloaded" warten und danach dem
-        # Nachladen eine feste Frist geben.
-        page.goto(url, timeout=25000, wait_until="domcontentloaded")
-        try:
-            # Kurz auf Ruhe hoffen, aber nicht darauf bestehen.
-            page.wait_for_load_state("networkidle", timeout=4000)
-        except Exception:
-            pass
-        page.wait_for_timeout(PLAYWRIGHT_WAIT_MS)
-        html = page.content()
-
-        # Viele Makler binden ihre Angebotsliste als eingebettetes Widget in
-        # einem iframe ein (immobilie1, onOffice, immosolve). page.content()
-        # liefert nur das aeussere Dokument - der eigentliche Inhalt steckt in
-        # den Unterrahmen. Die haengen wir hier an.
-        for frame in page.frames:
-            if frame == page.main_frame:
-                continue
-            try:
-                inner = frame.content()
-            except Exception:
-                continue
-            if inner and len(inner) > 500:
-                html += "\n<!-- eingebetteter Rahmen -->\n" + inner
-
-        page.close()
-        return html
-    except Exception as e:
-        print(f"    Playwright-Rendering fehlgeschlagen für {url}: {e}")
-        return None
-
-
-# Elemente, deren class/id auf Navigation, Cookie-Banner, Fuss- oder Kopfzeile
-# hindeutet. Die fressen sonst das Zeichenbudget auf, bevor die Inserate kommen -
-# im Diagnoselauf endeten 8 Seiten exakt bei 12.000 Zeichen, mitten im Menue.
-# Bewusst eng gehalten: Muster wie "modal", "overlay" oder "header" kommen
-# auch in Inseratskarten vor (Bildergalerie, Kartenkopf) - sie wuerden echte
-# Treffer mitreissen.
-_NOISE_ATTR = re.compile(
-    r"(cookie|consent|gdpr|datenschutzhinweis|cmp-|navbar|main-?navigation|"
-    r"mainmenu|hauptmenu|megamenu|breadcrumb|skip-link|social-|newsletter|"
-    r"site-footer|page-footer|site-header|topbar)"
-)
-
-
-# ---------------------------------------------------------------------------
-# Strukturierte Daten (schema.org / JSON-LD)
-#
-# Rund 15 Quellen liefern ihre Inserate bereits maschinenlesbar mit - die
-# Auszeichnung, die Google fuer seine Suchergebnisse braucht. Sie auszulesen
-# ist kostenlos, exakt (Zahlen statt geschaetzter Werte aus Fliesstext) und
-# kennt kein Kontingent. Besonders wertvoll: Darunter sind die groessten
-# Portale, deren Seiten bis zu 1,6 Mio. Zeichen haben und beim Kuerzen auf
-# unter zwei Prozent zusammenschrumpfen wuerden.
-# ---------------------------------------------------------------------------
-
-_LD_IMMO_TYPEN = {
-    "realestatelisting", "apartment", "house", "singlefamilyresidence",
-    "residence", "accommodation", "suite", "apartmentcomplex",
-}
-
-
-def _ld_zahl(wert):
-    """Holt eine Zahl aus den unterschiedlichen schema.org-Schreibweisen."""
-    if isinstance(wert, (int, float)):
-        return float(wert)
-    if isinstance(wert, dict):
-        for k in ("value", "minValue", "price"):
-            if k in wert:
-                return _ld_zahl(wert[k])
-        return None
-    if isinstance(wert, str):
-        return _zahl_aus_text(wert)
-    return None
-
-
-def _zahl_aus_text(s):
-    """Liest eine Zahl aus Text und erkennt dabei beide Schreibweisen.
-
-    schema.org schreibt Preise meist englisch ("1890.00"), deutsche Seiten
-    dagegen "1.890,00". Ein Punkt kann also Dezimal- ODER Tausendertrenner
-    sein - wer das verwechselt, macht aus 1.890 € schnell 189.000 €.
-    """
-    m = re.search(r"-?\d[\d.,]*", s or "")
-    if not m:
-        return None
-    roh = m.group(0)
-
-    hat_punkt, hat_komma = "." in roh, "," in roh
-    if hat_punkt and hat_komma:
-        # "1.890,00" -> deutsch; "1,890.00" -> englisch: das hintere gewinnt
-        if roh.rfind(",") > roh.rfind("."):
-            roh = roh.replace(".", "").replace(",", ".")
-        else:
-            roh = roh.replace(",", "")
-    elif hat_komma:
-        # einziges Komma: Dezimaltrenner, wenn danach 1-2 Stellen folgen
-        roh = roh.replace(",", "." if re.search(r",\d{1,2}$", roh) else "")
-    elif hat_punkt:
-        # einziger Punkt: Tausendertrenner nur bei genau 3 Stellen danach
-        if re.search(r"\.\d{3}$", roh) and len(roh.split(".")[0]) <= 3:
-            roh = roh.replace(".", "")
-    try:
-        return float(roh)
-    except ValueError:
-        return None
-
-
-def _ld_objekte(daten):
-    """Laeuft durch verschachteltes JSON-LD und gibt alle Objekte zurueck."""
-    stapel, raus = [daten], []
-    while stapel:
-        d = stapel.pop()
-        if isinstance(d, list):
-            stapel.extend(d)
-        elif isinstance(d, dict):
-            raus.append(d)
-            stapel.extend(v for v in d.values() if isinstance(v, (dict, list)))
-    return raus
-
-
-def _ld_typen(d):
-    t = d.get("@type")
-    if isinstance(t, str):
-        return {t.lower()}
-    if isinstance(t, list):
-        return {x.lower() for x in t if isinstance(x, str)}
-    return set()
-
-
-def extract_jsonld_listings(html, basis_url):
-    """Liest Inserate aus schema.org-Auszeichnung. Gibt dieselbe Struktur
-    zurueck wie die KI-Extraktion - oder eine leere Liste."""
-    try:
-        soup = BeautifulSoup(html, "html.parser")
-    except Exception:
-        return []
-
-    kandidaten = []
-    for tag in soup.find_all("script", attrs={"type": "application/ld+json"}):
-        roh = tag.string or tag.get_text() or ""
-        try:
-            kandidaten.extend(_ld_objekte(json.loads(roh)))
-        except Exception:
-            continue
-
-    inserate = []
-    for d in kandidaten:
-        typen = _ld_typen(d)
-        angebot = d if "offer" in typen else (d.get("offers") or {})
-        if isinstance(angebot, list):
-            angebot = angebot[0] if angebot else {}
-        if not isinstance(angebot, dict):
-            angebot = {}
-
-        # Ein Eintrag zaehlt, wenn er eine Immobilie beschreibt ODER ein
-        # Angebot mit Wohnungsmerkmalen ist.
-        ist_immo = bool(typen & _LD_IMMO_TYPEN)
-        hat_merkmale = any(k in d for k in
-                           ("numberOfRooms", "floorSize", "numberOfBedrooms"))
-        if not (ist_immo or hat_merkmale):
-            continue
-
-        adresse = d.get("address") or {}
-        if isinstance(adresse, list):
-            adresse = adresse[0] if adresse else {}
-        if not isinstance(adresse, dict):
-            adresse = {}
-
-        preis = _ld_zahl(angebot.get("price")) or _ld_zahl(d.get("price"))
-        name = d.get("name") or angebot.get("name")
-
-        eintrag = {
-            "title": name if isinstance(name, str) else None,
-            "rooms": _ld_zahl(d.get("numberOfRooms")) or _ld_zahl(d.get("numberOfBedrooms")),
-            "size_qm": _ld_zahl(d.get("floorSize")),
-            "rent": preis,
-            "plz": str(adresse.get("postalCode") or "").strip() or None,
-            "district": adresse.get("addressLocality") or adresse.get("addressRegion"),
-            "street": adresse.get("streetAddress"),
-            "url": d.get("url") or angebot.get("url") or basis_url,
-            "status": "verfuegbar",
-        }
-        # Ohne jede Kenngroesse ist der Eintrag wertlos (oft nur die Firma)
-        if eintrag["rooms"] or eintrag["size_qm"] or eintrag["rent"]:
-            inserate.append(eintrag)
-
-    # Dubletten innerhalb derselben Seite entfernen
-    gesehen, sauber = set(), []
-    for e in inserate:
-        kennung = (e.get("title"), e.get("rooms"), e.get("size_qm"), e.get("rent"))
-        if kennung not in gesehen:
-            gesehen.add(kennung)
-            sauber.append(e)
-    return sauber
-
-
-def extract_text(html):
-    soup = BeautifulSoup(html, "html.parser")
-    # ACHTUNG: "form" und "iframe" bewusst NICHT entfernen. Eingebettete
-    # Makler-Widgets (immobilie1, onOffice, immosolve) liefern ihre Inserate
-    # haeufig genau darin - sie wegzuwerfen kostet echte Treffer.
-    for tag in soup(["script", "style", "nav", "footer", "svg", "noscript",
-                     "template"]):
-        tag.decompose()
-    # zusaetzlich alles wegwerfen, was sich per class/id als Beiwerk ausweist
-    for tag in soup.find_all(attrs={"class": _NOISE_ATTR}):
-        tag.decompose()
-    for tag in soup.find_all(attrs={"id": _NOISE_ATTR}):
-        tag.decompose()
-
-    text = soup.get_text(separator=" ", strip=True)
-    text = re.sub(r"\s+", " ", text)
-    return kuerze_auf_inserate(text)
-
-
-# Merkmale, an denen ein Inseratsbereich zu erkennen ist
-_INSERAT_SIGNAL = re.compile(r"(€|EUR\b|m²|\bqm\b|\bZimmer\b|\bZi\.|Kaltmiete|Wohnfläche)",
-                             re.IGNORECASE)
-_FENSTER = 2000   # Schrittweite, in der der Text abgetastet wird
-
-
-def kuerze_auf_inserate(text):
-    """Schneidet ueberlange Seiten nicht stumpf vorne ab, sondern waehlt den
-    Abschnitt mit der hoechsten Dichte an Inseratsmerkmalen.
-
-    Hintergrund: Mehrere Quellen liefern Seiten mit bis zu 1,6 Mio. Zeichen.
-    Bei einem harten Schnitt nach 12.000 Zeichen sahen wir davon unter zwei
-    Prozent - meist nur Navigation und Kopfbereich. Die Inserate stehen aber
-    weiter unten. Deshalb hier: in Fenstern abtasten, zaehlen wo Preise,
-    Quadratmeter und Zimmerangaben haeufen, und diesen Bereich nehmen.
-    """
-    if len(text) <= MAX_TEXT_CHARS:
-        return text
-
-    # Dichte je Fenster bestimmen
-    dichten = []
-    for start in range(0, len(text), _FENSTER):
-        ausschnitt = text[start:start + _FENSTER]
-        dichten.append(len(_INSERAT_SIGNAL.findall(ausschnitt)))
-
-    if not any(dichten):
-        return text[:MAX_TEXT_CHARS]          # nichts gefunden -> wie bisher
-
-    # zusammenhaengenden Block von MAX_TEXT_CHARS mit der groessten Summe suchen
-    breite = max(1, MAX_TEXT_CHARS // _FENSTER)
-    beste_summe, bester_start = -1, 0
-    for i in range(max(1, len(dichten) - breite + 1)):
-        summe = sum(dichten[i:i + breite])
-        if summe > beste_summe:
-            beste_summe, bester_start = summe, i
-
-    anfang = bester_start * _FENSTER
-    return text[anfang:anfang + MAX_TEXT_CHARS]
-
-
-def call_claude_extract(url, text):
-    if not text or len(text) < 50:
-        return []
-
-    prompt = EXTRACTION_PROMPT.format(url=url, text=text)
-    resp = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": MODEL,
-            "max_tokens": 2500,
-            "messages": [{"role": "user", "content": prompt}],
-        },
-        timeout=60,
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    raw = "".join(
-        block.get("text", "") for block in data.get("content", []) if block.get("type") == "text"
-    ).strip()
-    raw = re.sub(r"^```(json)?", "", raw).strip()
-    raw = re.sub(r"```$", "", raw).strip()
-
-    try:
-        listings = json.loads(raw)
-        if isinstance(listings, list):
-            return listings
-        return []
-    except Exception:
-        return []
-
-
-_resolved_gemini_model = None  # wird bei Bedarf einmal pro Lauf ermittelt und gecacht
-
-
-def resolve_gemini_model():
-    """Fragt bei Google die aktuell verfügbaren Modelle ab und wählt ein
-    passendes 'flash'-Modell, das generateContent unterstützt. Wird nur
-    aufgerufen, wenn das fest hinterlegte Modell (404) nicht mehr existiert -
-    macht das Skript robust gegen Google-seitige Modell-Umbenennungen."""
-    global _resolved_gemini_model
-    if _resolved_gemini_model:
-        return _resolved_gemini_model
-
-    print("  Gemini-Modell nicht gefunden, frage aktuell verfügbare Modelle ab …")
-    resp = requests.get(
-        "https://generativelanguage.googleapis.com/v1beta/models",
-        params={"key": GEMINI_API_KEY},
-        timeout=30,
-    )
-    resp.raise_for_status()
-    models = resp.json().get("models", [])
-
-    candidates = [
-        m["name"].split("/")[-1] for m in models
-        if "generateContent" in m.get("supportedGenerationMethods", [])
-    ]
-    # "flash-lite" bevorzugen (schnell, für unsere einfache Extraktion
-    # ausreichend, meist großzügigster Free-Tier), sonst irgendein "flash"
-    pick = next((c for c in candidates if "flash-lite" in c), None) \
-        or next((c for c in candidates if "flash" in c), None) \
-        or (candidates[0] if candidates else None)
-
-    if not pick:
-        raise RuntimeError("Kein nutzbares Gemini-Modell mit generateContent gefunden.")
-
-    print(f"  -> verwende stattdessen: {pick}")
-    _resolved_gemini_model = pick
-    return pick
-
-
-GEMINI_TIMEOUT = 90
-GEMINI_MAX_TIMEOUT_RETRIES = 2
-# Nach so vielen Seiten in Folge, die am Rate-Limit scheitern, gilt das
-# Tageskontingent als erschoepft. Dann bringt Weiterprobieren nichts mehr -
-# jede weitere Seite kostet nur 100 Sekunden Wartezeit. Ohne diese Bremse
-# laeuft ein Lauf stundenlang ins Leere.
-QUOTA_EXHAUSTED_AFTER = 5
-# Harte Zeitgrenze. GitHub bricht Jobs nach 6 Stunden ersatzlos ab - dann waere
-# alles verloren. Wir hoeren vorher freiwillig auf und sichern das Erreichte.
-try:
-    RUN_BUDGET_MINUTES = float(os.environ.get("RUN_BUDGET_MINUTES", "150"))
-except ValueError:
-    print("RUN_BUDGET_MINUTES unbrauchbar, nutze 150 Minuten.")
-    RUN_BUDGET_MINUTES = 150.0
-_run_started = time.time()
-
-
-def budget_exceeded():
-    return (time.time() - _run_started) / 60 >= RUN_BUDGET_MINUTES
-_quota_exhausted = False
-_consecutive_rate_limited = 0
-
-
-def call_gemini_extract(url, text, _retry=0, _model=None, _timeout_retry=0):
-    """Extraktion über die kostenlose Gemini API (statt Anthropic)."""
-    if not text or len(text) < 50:
-        return []
-
-    global _consecutive_rate_limited, _quota_exhausted
-
-    if _quota_exhausted:
-        return []
-
-    model = _model or GEMINI_MODEL
-    prompt = EXTRACTION_PROMPT.format(url=url, text=text)
-
-    try:
-        resp = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-            headers={"content-type": "application/json"},
-            params={"key": GEMINI_API_KEY},
-            json={
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {"temperature": 0, "maxOutputTokens": 2500},
-            },
-            timeout=GEMINI_TIMEOUT,
-        )
-    except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
-        # Netzwerkproblem/Timeout: nicht den ganzen Lauf abbrechen lassen,
-        # sondern begrenzt erneut versuchen und danach diese eine Seite
-        # als fehlgeschlagen überspringen.
-        if _timeout_retry < GEMINI_MAX_TIMEOUT_RETRIES:
-            wait = 10 * (_timeout_retry + 1)
-            print(f"    Gemini-Anfrage fehlgeschlagen ({e.__class__.__name__}), warte {wait}s und versuche erneut …")
-            time.sleep(wait)
-            return call_gemini_extract(url, text, _retry=_retry, _model=model, _timeout_retry=_timeout_retry + 1)
-        print(f"    Gemini-Anfrage endgültig fehlgeschlagen für {url}: {e}")
-        return []
-
-    # Modell existiert nicht (mehr) -> aktuell verfügbares Modell ermitteln und erneut versuchen
-    if resp.status_code == 404 and _retry < 1:
-        new_model = resolve_gemini_model()
-        return call_gemini_extract(url, text, _retry=_retry + 1, _model=new_model)
-
-    # Rate-Limit (429). Zwei Faelle unterscheiden:
-    #  - kurzzeitig zu schnell -> kurz warten hilft
-    #  - Tageskontingent erschoepft -> Warten hilft nicht mehr, nur Abbruch
-    if resp.status_code == 429:
-        if _retry < 2:
-            wait = 20 * (_retry + 1)
-            print(f"    Gemini Rate-Limit erreicht, warte {wait}s …")
-            time.sleep(wait)
-            return call_gemini_extract(url, text, _retry=_retry + 1, _model=model)
-
-        _consecutive_rate_limited += 1
-        if _consecutive_rate_limited >= QUOTA_EXHAUSTED_AFTER:
-            _quota_exhausted = True
-            print("    Kontingent offenbar erschöpft – weitere Extraktionen "
-                  "werden für diesen Lauf übersprungen.")
-        return []
-
-    try:
-        resp.raise_for_status()
-    except requests.exceptions.HTTPError as e:
-        # Sonstiger Serverfehler (5xx etc.): diese eine Seite überspringen
-        # statt den kompletten Lauf abzubrechen.
-        print(f"    Gemini-Anfrage fehlgeschlagen für {url}: {e}")
-        return []
-
-    data = resp.json()
-    try:
-        candidates = data.get("candidates", [])
-        raw = "".join(
-            p.get("text", "") for p in candidates[0]["content"]["parts"]
-        ) if candidates else ""
-    except (KeyError, IndexError):
-        raw = ""
-
-    _consecutive_rate_limited = 0
-    return _parse_extraction_text(raw)
-
-
-def extract_listings(url, text):
-    """Einheitlicher Einstiegspunkt für die Extraktion, unabhängig vom
-    gewählten Anbieter (AI_PROVIDER: 'anthropic' oder 'gemini')."""
-    if AI_PROVIDER == "gemini":
-        listings = call_gemini_extract(url, text)
-        time.sleep(GEMINI_RATE_LIMIT_DELAY)  # Free-Tier-RPM-Limit einhalten
-        return listings
-    return call_claude_extract(url, text)
-
-
-def find_next_page_url(html, current_url):
-    """Sucht einen 'nächste Seite'-Link auf der aktuellen Seite."""
-    soup = BeautifulSoup(html, "html.parser")
-    base_host = urlparse(current_url).netloc
-
-    # 1) rel="next" ist der eindeutigste Fall
-    rel_next = soup.find("a", rel=lambda v: v and "next" in v)
-    if rel_next and rel_next.get("href"):
-        candidate = urljoin(current_url, rel_next["href"])
-        if urlparse(candidate).netloc == base_host and candidate != current_url:
-            return candidate
-
-    # 2) Linktext, der auf "weiter/nächste Seite" hindeutet
-    for a in soup.find_all("a", href=True):
-        text = a.get_text(strip=True).lower()
-        classes = " ".join(a.get("class", [])).lower()
-        aria = (a.get("aria-label") or "").lower()
-        if text in NEXT_PAGE_TEXTS or "next" in classes or "next" in aria:
-            candidate = urljoin(current_url, a["href"])
-            if urlparse(candidate).netloc == base_host and candidate != current_url:
-                return candidate
-
-    return None
-
-
-def find_listing_subpage(html, current_url):
-    """Sucht bei 0 erkannten Inseraten eine vermutete Angebots-Unterseite."""
-    soup = BeautifulSoup(html, "html.parser")
-    base_host = urlparse(current_url).netloc
-
-    best_url, best_score = None, 0
-    seen_candidates = set()
-
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if href.startswith("#") or href.lower().startswith("mailto:") or href.lower().startswith("tel:"):
-            continue
-        candidate = urljoin(current_url, href)
-        parsed = urlparse(candidate)
-        if parsed.netloc != base_host or candidate == current_url:
-            continue
-        if candidate in seen_candidates:
-            continue
-        seen_candidates.add(candidate)
-
-        text = a.get_text(strip=True).lower()
-        haystack = f"{text} {candidate.lower()}"
-        score = sum(weight for kw, weight in LISTING_LINK_KEYWORDS if kw in haystack)
-
-        # --- Detailseiten aussortieren ------------------------------------
-        # Ziel ist die UEBERSICHT, nicht ein einzelnes Objekt. Detailseiten
-        # erkennt man an tiefen Pfaden, langen ID-Segmenten und daran, dass
-        # der Linktext eine konkrete Wohnung beschreibt. Ohne diese Abwertung
-        # landet der Sucher z.B. bei einer einzelnen Wohnung statt bei der
-        # Angebotsliste - und findet dann nur dieses eine Inserat.
-        path = parsed.path.rstrip("/")
-        segments = [s for s in path.split("/") if s]
-
-        # lange Ziffern-/ID-Segmente sprechen stark fuer eine Detailseite
-        if any(re.fullmatch(r"[\d_\-]{5,}", s) for s in segments):
-            score -= 5
-        # sehr lange, beschreibende Segmente ("3-zimmer-wohnung-mit-balkon-in-...")
-        if any(len(s) > 40 for s in segments):
-            score -= 4
-        # Linktext, der eine einzelne Wohnung beschreibt
-        if re.search(r"\d+[\.,]?\d*\s*(zimmer|zi\.|m²|qm)", text):
-            score -= 4
-        # Hinweise auf Gewerbe statt Wohnen
-        if re.search(r"\b(b(ue|ü)ro|gewerbe|praxis|laden|halle|stellplatz|garage)\b", haystack):
-            score -= 5
-
-        # flache Pfade bevorzugen (Uebersichtsseiten liegen meist weit oben)
-        score -= max(0, len(segments) - 1) * 0.6
-
-        if score > best_score:
-            best_score, best_url = score, candidate
-
-    return best_url if best_score > 0 else None
-
-
-def hours_since(iso_timestamp):
-    if not iso_timestamp:
-        return 999999
-    try:
-        then = datetime.fromisoformat(iso_timestamp)
-        return (datetime.now(timezone.utc) - then).total_seconds() / 3600
-    except Exception:
-        return 999999
-
-
-def haversine_km(lat1, lon1, lat2, lon2):
-    r = 6371.0
-    p1, p2 = math.radians(lat1), math.radians(lat2)
-    dphi = math.radians(lat2 - lat1)
-    dlmb = math.radians(lon2 - lon1)
-    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dlmb / 2) ** 2
-    return 2 * r * math.asin(math.sqrt(a))
-
-
-def load_geocode_cache():
-    """Lädt den über Läufe hinweg gespeicherten Geocoding-Cache. Spart bei
-    jedem Lauf viele (auf 1/Sekunde gedrosselte) Nominatim-Anfragen."""
-    global _geocode_cache
-    raw = load_json(GEOCODE_CACHE_FILE, {})
-    _geocode_cache = {}
-    abgelaufen = 0
-    for k, v in raw.items():
-        if isinstance(v, list):                       # Treffer
-            _geocode_cache[k] = tuple(v)
-        elif isinstance(v, dict) and "miss_at" in v:  # Fehlanzeige mit Datum
-            if hours_since(v["miss_at"]) < GEOCODE_MISS_RETRY_DAYS * 24:
-                _geocode_cache[k] = v
-            else:
-                abgelaufen += 1                       # erneut versuchen
-        # altes Format (None) bewusst verwerfen: darunter sind Adressen, die
-        # nur wegen einer Stoerung als unauffindbar galten
-    treffer = sum(1 for v in _geocode_cache.values() if isinstance(v, tuple))
-    print(f"Geocoding-Cache: {treffer} Adresse(n), "
-          f"{len(_geocode_cache) - treffer} Fehlanzeige(n)"
-          + (f", {abgelaufen} erneut zu prüfen" if abgelaufen else ""))
-
-
-def save_geocode_cache():
-    save_json(GEOCODE_CACHE_FILE, {
-        k: (list(v) if isinstance(v, tuple) else v)
-        for k, v in _geocode_cache.items()
-    })
-
-
-def geocode_photon(query):
-    """Rueckfall-Geocoder (Photon, ebenfalls auf OpenStreetMap-Basis)."""
-    try:
-        resp = requests.get(
-            "https://photon.komoot.io/api/",
-            params={"q": query, "limit": 1, "lang": "de"},
-            headers={"User-Agent": "ImmoWatcher/1.0 (privates Wohnungssuche-Tool)"},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        treffer = (resp.json() or {}).get("features") or []
-        if not treffer:
-            return None
-        lon, lat = treffer[0]["geometry"]["coordinates"][:2]
-        print(f"    (über Zweitdienst geocodiert: '{query}')")
-        return (float(lat), float(lon))
-    except Exception as e2:
-        print(f"    Auch Zweitdienst gestört für '{query}': {e2}")
-        return None
-
-
-def geocode_address(query):
-    """Kostenloses Geocoding über OpenStreetMap/Nominatim. Gibt (lat, lon)
-    oder None zurück. Ergebnisse werden über Läufe hinweg gecacht, Anfragen
-    gemäß Nominatim-Nutzungsregeln auf max. 1/Sekunde gedrosselt."""
-    if not query:
-        return None
-    if query in _geocode_cache:
-        treffer = _geocode_cache[query]
-        return treffer if isinstance(treffer, tuple) else None
-
-    time.sleep(GEOCODE_RATE_LIMIT_SECONDS)
-    try:
-        resp = requests.get(
-            "https://nominatim.openstreetmap.org/search",
-            params={"q": query, "format": "json", "limit": 1, "countrycodes": "de"},
-            headers={"User-Agent": "ImmoWatcher/1.0 (privates Wohnungssuche-Tool)"},
-            timeout=15,
-        )
-        resp.raise_for_status()
-        results = resp.json()
-        if not results:
-            # Sauber beantwortet, aber nichts gefunden: als Fehlanzeige mit
-            # Datum merken und nach GEOCODE_MISS_RETRY_DAYS erneut versuchen -
-            # Adressen koennen auch spaeter noch in OpenStreetMap landen.
-            _geocode_cache[query] = {"miss_at": datetime.now(timezone.utc).isoformat()}
-            return None
-        coords = (float(results[0]["lat"]), float(results[0]["lon"]))
-        _geocode_cache[query] = coords
-        return coords
-    except Exception as e:
-        # Zweiter Dienst als Rueckfall. Photon laeuft ebenfalls auf
-        # OpenStreetMap-Daten, wird aber getrennt betrieben - faellt einer
-        # aus, springt der andere ein. Ohne das bleiben Charlottenburg,
-        # Viktoria-Luise und das Spreeufer bei jeder Stoerung blind.
-        coords = geocode_photon(query)
-        if coords:
-            _geocode_cache[query] = coords
-            return coords
-        # WICHTIG: Stoerungen (Zeitueberschreitung, Ratenbegrenzung, Netzfehler)
-        # NICHT im Cache festhalten. Der Cache ueberdauert die Laeufe - eine
-        # einzelne Stoerung wuerde die Adresse sonst fuer immer ausschliessen,
-        # und fuer Charlottenburg, Viktoria-Luise und das Spreeufer entscheidet
-        # allein die Geocodierung.
-        print(f"    Geocoding gestört für '{query}' ({e}) – wird beim nächsten "
-              f"Lauf erneut versucht.")
-        return None
-
-
-def _geocode_query_for_listing(listing):
-    street = (listing.get("street") or "").strip()
-    title = (listing.get("title") or "").strip()
-    plz = str(listing.get("plz") or "").strip()
-    parts = [street or title, plz, "Berlin", "Germany"]
-    return ", ".join(p for p in parts if p)
-
-
-def is_within_charlottenburg_radius(listing):
-    """Prüft per Geocoding, ob ein Inserat innerhalb von
-    CHARLOTTENBURG_RADIUS_KM um den Savignyplatz liegt."""
-    coords = geocode_address(_geocode_query_for_listing(listing))
-    if not coords:
-        return False  # nicht auffindbar -> im Zweifel nicht aufnehmen (präzise statt großzügig)
-
-    distance = haversine_km(*coords, *SAVIGNYPLATZ_COORDS)
-    return distance <= CHARLOTTENBURG_RADIUS_KM
-
-
-def is_within_viktoria_luise_radius(listing):
-    """Prueft per Geocoding, ob ein Inserat innerhalb von
-    VIKTORIA_LUISE_RADIUS_KM um den Viktoria-Luise-Platz liegt."""
-    coords = geocode_address(_geocode_query_for_listing(listing))
-    if not coords:
-        return False
-    return haversine_km(*coords, *VIKTORIA_LUISE_COORDS) <= VIKTORIA_LUISE_RADIUS_KM
-
-
-def distance_to_spree_km(lat, lon):
-    """Kürzester Abstand eines Punkts zum (grob angenäherten) Spreeverlauf,
-    berechnet über Punkt-zu-Strecke-Distanz auf einer lokalen, ebenen
-    Projektion (für Stadt-Maßstab genau genug)."""
-    ref_lat = 52.52
-
-    def to_xy(la, lo):
-        x = math.radians(lo) * 6371000.0 * math.cos(math.radians(ref_lat))
-        y = math.radians(la) * 6371000.0
-        return x, y
-
-    def point_segment_distance_m(px, py, ax, ay, bx, by):
-        abx, aby = bx - ax, by - ay
-        ab_len2 = abx * abx + aby * aby
-        if ab_len2 == 0:
-            return math.hypot(px - ax, py - ay)
-        t = max(0, min(1, ((px - ax) * abx + (py - ay) * aby) / ab_len2))
-        cx, cy = ax + t * abx, ay + t * aby
-        return math.hypot(px - cx, py - cy)
-
-    px, py = to_xy(lat, lon)
-    pts_xy = [to_xy(la, lo) for la, lo in SPREE_REFERENCE_POINTS]
-    best_m = min(
-        point_segment_distance_m(px, py, pts_xy[i][0], pts_xy[i][1], pts_xy[i + 1][0], pts_xy[i + 1][1])
-        for i in range(len(pts_xy) - 1)
-    )
-    return best_m / 1000.0
-
-
-def is_within_spree_proximity(listing):
-    """Prüft per Geocoding, ob ein Inserat in Tiergarten/Moabit unmittelbar
-    (< SPREE_PROXIMITY_KM) an der Spree liegt."""
-    coords = geocode_address(_geocode_query_for_listing(listing))
-    if not coords:
-        return False
-
-    return distance_to_spree_km(*coords) <= SPREE_PROXIMITY_KM
-
-
-def point_in_polygon(lat, lon, polygon_points):
-    """Ray-Casting-Algorithmus: prüft, ob (lat, lon) innerhalb des in der App
-    gezeichneten Polygons liegt. polygon_points: Liste von [lat, lon]-Paaren."""
-    if len(polygon_points) < 3:
-        return False
-    inside = False
-    n = len(polygon_points)
-    j = n - 1
-    for i in range(n):
-        lat_i, lon_i = polygon_points[i]
-        lat_j, lon_j = polygon_points[j]
-        if ((lon_i > lon) != (lon_j > lon)) and \
-                (lat < (lat_j - lat_i) * (lon - lon_i) / (lon_j - lon_i + 1e-15) + lat_i):
-            inside = not inside
-        j = i
-    return inside
-
-
-def is_within_custom_area(listing):
-    """Prüft per Geocoding, ob ein Inserat innerhalb des in der App
-    gezeichneten, benutzerdefinierten Gebiets liegt."""
-    custom_area = CRITERIA.get("custom_area") or {}
-    points = custom_area.get("points") or []
-    if not custom_area.get("enabled") or len(points) < 3:
-        return False
-
-    coords = geocode_address(_geocode_query_for_listing(listing))
-    if not coords:
-        return False
-
-    return point_in_polygon(coords[0], coords[1], points)
-
-
-# Wie knapp ein Kriterium verfehlt sein darf, damit ein Inserat als
-# "knapp verfehlt" in einen eigenen Reiter wandert statt still zu verschwinden.
-NEAR_MISS_SIZE_TOLERANCE = 0.12   # bis 12 % unter der Mindestgroesse
-NEAR_MISS_RENT_TOLERANCE = 0.12   # bis 12 % ueber der Maximalmiete
-NEAR_MISS_ROOMS_TOLERANCE = 0.5   # eine halbe Zimmerstufe darunter
-
-
-def is_near_miss(listing, gruende):
-    """True, wenn das Inserat an GENAU EINEM Kriterium scheitert und das auch
-    nur knapp. Lage und Referenzobjekt-Ausschluss sind nie 'knapp' - eine
-    Wohnung liegt entweder im Suchgebiet oder nicht."""
-    if len(gruende) != 1:
-        return False
-    grund = gruende[0]
-
-    if grund == "groesse":
-        size = listing.get("size_qm")
-        return (isinstance(size, (int, float))
-                and size >= CRITERIA["min_size_qm"] * (1 - NEAR_MISS_SIZE_TOLERANCE))
-    if grund == "miete":
-        rent = listing.get("rent")
-        return (isinstance(rent, (int, float))
-                and CRITERIA["max_rent"] < rent
-                <= CRITERIA["max_rent"] * (1 + NEAR_MISS_RENT_TOLERANCE))
-    if grund == "zimmer":
-        rooms = listing.get("rooms")
-        return (isinstance(rooms, (int, float))
-                and rooms >= CRITERIA["min_rooms"] - NEAR_MISS_ROOMS_TOLERANCE)
-    return False
-
-
-# "Mitte" ist mehrdeutig: fast jeder Berliner Bezirk hat ein Ortszentrum, das
-# "<Bezirk>-Mitte" heisst (Zehlendorf-Mitte, Steglitz Mitte, Spandau-Mitte).
-# Da der Bindestrich in einer Wortgrenzen-Suche zaehlt, wuerde die einfache
-# Suche nach "mitte" auf all das anspringen.
-_NOT_MITTE = re.compile(
-    r"\b(zehlendorf|steglitz|spandau|pankow|neukölln|neukoelln|köpenick|koepenick|"
-    r"lichtenberg|reinickendorf|tempelhof|schöneberg|schoeneberg|marzahn|hellersdorf|"
-    r"wilmersdorf|friedrichshain|kreuzberg|treptow|weißensee|weissensee|buch|"
-    r"hohenschönhausen|hohenschoenhausen|stadt)[\s\-]?mitte\b"
-)
-
-
-def kiez_hint_matches(area_key, haystack):
-    """True, wenn ein Kiez-/Platzname des Gebiets im Text vorkommt."""
-    for hint in CRITERIA.get("kiez_hints", {}).get(area_key, []):
-        if hint in haystack:
-            return True
-    return False
-
-
-def mentions_area(area_key, haystack):
-    """Erkennt ein Gebiet an Ortsteilnamen ODER Kiezbezeichnungen."""
-    if kiez_hint_matches(area_key, haystack):
-        return True
-    if area_key == "mitte":
-        # "Berlin-Mitte" ja, "Zehlendorf-Mitte" nein
-        if _NOT_MITTE.search(haystack):
-            return False
-        return bool(re.search(r"\bmitte\b", haystack))
-    if area_key == "prenzlauer_berg":
-        return bool(re.search(r"\bprenzlauer\b", haystack))
-    if area_key == "charlottenburg":
-        return bool(re.search(r"\bcharlottenburg\b", haystack))
-    if area_key == "tiergarten_moabit_spree":
-        return bool(re.search(r"\b(tiergarten|moabit)\b", haystack))
-    if area_key == "viktoria_luise":
-        # bewusst KEIN generisches "schoeneberg" - der Ortsteil ist zu gross.
-        # Es zaehlen nur die Kiez- und Platznamen oben.
-        return False
-    return False
-
-
-# Gewerbe ist keine Wohnung. Ohne diese Sperre landen Buero-, Laden- und
-# Praxisflaechen im Feed - in den echten Daten z.B. "Grosse Gewerbeeinheit im
-# Prenzlauer Berg" und "Buero-/Ladenflaeche in Neukoelln".
-_COMMERCIAL = re.compile(
-    r"\b(gewerbe|gewerbeeinheit|gewerbefl(ä|ae)che|b(ü|ue)ro|b(ü|ue)rofl(ä|ae)che|"
-    r"praxis|praxisfl(ä|ae)che|ladenfl(ä|ae)che|ladengesch(ä|ae)ft|laden|halle|"
-    r"lagerfl(ä|ae)che|atelierfl(ä|ae)che|stellplatz|tiefgarage|garage|"
-    r"duplex[- ]?stellplatz|tiefgaragenstellplatz|garagenstellplatz|"
-    r"pkw[- ]?stellplatz)\b"
-)
-
-
-_FURNISHED = re.compile(r"\b(m(ö|oe)bliert|vollm(ö|oe)bliert|teilm(ö|oe)bliert|furnished|"
-                        r"all[- ]inclusive|serviced apartment)\b")
-# ACHTUNG beim Wort "befristet": ohne Wortgrenze davor matcht es auch in
-# "UNbefristet" - also genau im Gegenteil dessen, was gemeint ist.
-_TEMPORARY = re.compile(r"(wohnen auf zeit|auf zeit\b|zwischenmiete|zwischenvermietung|"
-                        r"\bbefristet|\bzeitmietvertrag|max\.? \d+ monate|"
-                        r"f(ü|ue)r \d+ monate\b|temporary rental|short[- ]?term)")
-_SHARED = re.compile(r"\b(wg[- ]zimmer|wg zimmer|zimmer in (einer |der )?wg|"
-                     r"shared (apartment|flat)|wohngemeinschaft|room in)\b")
-
-
-def _hay(listing):
-    return f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
-
-
-def looks_furnished(listing):
-    return bool(_FURNISHED.search(_hay(listing)))
-
-
-def looks_temporary(listing):
-    return bool(_TEMPORARY.search(_hay(listing)))
-
-
-def looks_shared(listing):
-    return bool(_SHARED.search(_hay(listing)))
-
-
-# Begriffe, die das Objekt eindeutig als Wohnung ausweisen. Liegt einer davon
-# vor, darf ein beilaeufig erwaehnter Stellplatz oder eine Garage NICHT dazu
-# fuehren, dass die Wohnung als Gewerbe aussortiert wird.
-# Deutsche Komposita: "Wohlfuehlwohnung", "Dachgeschosswohnung", "Familienwohnung"
-# enden auf "wohnung", beginnen aber nicht damit - eine Wortgrenze davor
-# wuerde sie verfehlen. Deshalb hier bewusst ohne fuehrendes \b.
-_RESIDENTIAL = re.compile(
-    r"(wohnung|wohnungen|zimmer\b|\bzi\.|\bwhg\b|maisonette|penthouse|"
-    r"apartment|appartement|wohntraum|townhouse|haus\b|reihenhaus|"
-    r"\bwohnen\b|dachgeschoss|altbau|neubau|loft\b)"
-)
-# Nur diese Begriffe sind fuer sich allein noch kein Gewerbe-Beweis - sie
-# tauchen staendig als Zusatzausstattung in Wohnungsinseraten auf.
-_NEBENSACHE = re.compile(r"\b(stellplatz|tiefgarage|garage|duplex[- ]?stellplatz)\b")
-
-
-def looks_commercial(listing):
-    hay = f"{listing.get('title') or ''} {listing.get('district') or ''}".lower()
-    if not _COMMERCIAL.search(hay):
-        return False
-    # Wenn der Gewerbe-Verdacht NUR auf Stellplatz/Garage beruht und das Objekt
-    # sich zugleich als Wohnung ausweist, ist es keine Gewerbeflaeche.
-    ohne_nebensache = _NEBENSACHE.sub(" ", hay)
-    if not _COMMERCIAL.search(ohne_nebensache) and _RESIDENTIAL.search(hay):
-        return False
-    return True
-
-
-def has_enough_data(listing):
-    """Ein Inserat ohne jede Kenngroesse ist nicht bewertbar. Mindestens
-    Zimmerzahl ODER Wohnflaeche muss vorliegen - sonst rutscht alles durch,
-    weil die Einzelpruefungen fehlende Werte bewusst durchlassen."""
-    return isinstance(listing.get("rooms"), (int, float)) \
-        or isinstance(listing.get("size_qm"), (int, float))
-
-
-def matches_criteria(listing):
-    """Gibt (passt: bool, gruende: list[str]) zurueck. ALLE verletzten
-    Kriterien werden gesammelt, nicht nur das erste - sonst verdeckt das
-    zuerst gepruefte Kriterium (Zimmer) alle anderen in der Statistik."""
-    gruende = []
-
-    if looks_like_reference(listing):
-        # Referenzobjekt ist ein Ausschluss eigener Art: hier lohnt keine
-        # weitere Pruefung, die Wohnung ist ohnehin nicht zu haben.
-        return False, ["referenzobjekt"]
-
-    if looks_commercial(listing):
-        return False, ["gewerbe"]
-
-    if not has_enough_data(listing):
-        return False, ["keine_daten"]
-
-    if looks_shared(listing) and not CRITERIA.get("allow_shared", False):
-        return False, ["wg_zimmer"]
-    if looks_furnished(listing) and not CRITERIA.get("allow_furnished", False):
-        return False, ["moebliert"]
-    if looks_temporary(listing) and not CRITERIA.get("allow_temporary", False):
-        return False, ["zeitmiete"]
-
-    if listing.get("wbs_required") and not CRITERIA.get("allow_wbs", False):
-        return False, ["wbs"]
-
-    rooms = listing.get("rooms")
-    size = listing.get("size_qm")
-    rent = listing.get("rent")
-
-    if isinstance(rooms, (int, float)) and rooms < CRITERIA["min_rooms"]:
-        gruende.append("zimmer")
-    if isinstance(size, (int, float)) and size < CRITERIA["min_size_qm"]:
-        gruende.append("groesse")
-    if isinstance(rent, (int, float)):
-        if not (CRITERIA["min_rent"] <= rent <= CRITERIA["max_rent"]):
-            gruende.append("miete")
-
-    # Standort: PLZ ist das präzise Signal, wenn vorhanden. Nur als Fallback
-    # (keine PLZ erkannt) wird auf den Bezirksnamen ausgewichen - mit
-    # Wortgrenzen statt reiner Teilstring-Suche, um Fehltreffer wie "Mitte"
-    # in unpassendem Kontext zu vermeiden.
-    plz = str(listing.get("plz") or "").strip()
-    district = (listing.get("district") or "").lower()
-    title_lower = (listing.get("title") or "").lower()
-    haystack = f"{district} {title_lower}"
-    areas = CRITERIA.get("areas", {})
-
-    looks_like_charlottenburg = areas.get("charlottenburg", True) and (
-        plz in CHARLOTTENBURG_CANDIDATE_PLZ or mentions_area("charlottenburg", haystack)
-    )
-    looks_like_tiergarten_moabit = areas.get("tiergarten_moabit_spree", True) and (
-        plz in TIERGARTEN_MOABIT_CANDIDATE_PLZ or mentions_area("tiergarten_moabit_spree", haystack)
-    )
-    looks_like_viktoria_luise = areas.get("viktoria_luise", True) and (
-        plz in VIKTORIA_LUISE_CANDIDATE_PLZ or mentions_area("viktoria_luise", haystack)
-    )
-    allowed_plz_now = set()
-    if areas.get("mitte", True):
-        allowed_plz_now |= PLZ_MITTE
-    if areas.get("prenzlauer_berg", True):
-        allowed_plz_now |= PLZ_PRENZLAUER_BERG
-    active_district_names = [
-        d for d in CRITERIA["districts"]
-        if not (d in ("mitte",) and not areas.get("mitte", True))
-        and not (d in ("prenzlauer berg", "prenzlauer") and not areas.get("prenzlauer_berg", True))
-        and not (d == "charlottenburg" and not areas.get("charlottenburg", True))
-    ]
-
-    location_ok = False
-
-    if looks_like_charlottenburg:
-        # Charlottenburg: nicht per PLZ, sondern per echtem 1km-Umkreis um
-        # den Savignyplatz prüfen (PLZ-Gebiete sind dafür zu groß)
-        location_ok = is_within_charlottenburg_radius(listing)
-    elif looks_like_tiergarten_moabit:
-        # Tiergarten/Moabit: nur zulassen, wenn unmittelbar an der Spree
-        location_ok = is_within_spree_proximity(listing)
-    elif looks_like_viktoria_luise:
-        # Schoeneberg: nur der Kiez um den Viktoria-Luise-Platz
-        location_ok = is_within_viktoria_luise_radius(listing)
-    elif plz:
-        location_ok = plz in allowed_plz_now
-    else:
-        district_match = any(
-            mentions_area(a, haystack)
-            for a in ("mitte", "prenzlauer_berg")
-            if areas.get(a, True)
-        )
-        location_ok = district_match
-
-        # Kein Bezirksname im Text, aber eine Straße vorhanden? Dann nicht
-        # blind verwerfen, sondern geocodieren und gegen die aktiven Gebiete
-        # prüfen. Ohne diesen Schritt fallen viele Inserate durchs Raster, die
-        # nur "3-Zimmer-Altbau, Zehdenicker Straße" o.ä. angeben.
-        if not location_ok and listing.get("street"):
-            coords = geocode_address(_geocode_query_for_listing(listing))
-            if coords:
-                if areas.get("mitte", True) and \
-                        haversine_km(*coords, *MITTE_CENTER) <= MITTE_RADIUS_KM:
-                    location_ok = True
-                elif areas.get("prenzlauer_berg", True) and \
-                        haversine_km(*coords, *PRENZLAUER_BERG_CENTER) <= PRENZLAUER_BERG_RADIUS_KM:
-                    location_ok = True
-                elif areas.get("charlottenburg", True) and \
-                        haversine_km(*coords, *SAVIGNYPLATZ_COORDS) <= CHARLOTTENBURG_RADIUS_KM:
-                    location_ok = True
-                elif areas.get("tiergarten_moabit_spree", True) and \
-                        distance_to_spree_km(*coords) <= SPREE_PROXIMITY_KM:
-                    location_ok = True
-                elif areas.get("viktoria_luise", True) and \
-                        haversine_km(*coords, *VIKTORIA_LUISE_COORDS) <= VIKTORIA_LUISE_RADIUS_KM:
-                    location_ok = True
-
-        if not location_ok and not STRICT_LOCATION_FILTER:
-            location_ok = True
-
-    # Letzter Fallback: liegt die Adresse im in der App gezeichneten,
-    # benutzerdefinierten Gebiet? Nur geprüft, wenn sonst kein Treffer und
-    # überhaupt ein Gebiet gespeichert/aktiviert wurde (kein Zusatzaufwand,
-    # wenn diese Funktion nicht genutzt wird).
-    if not location_ok and (CRITERIA.get("custom_area") or {}).get("enabled"):
-        location_ok = is_within_custom_area(listing)
-
-    if not location_ok:
-        gruende.append("lage")
-
-    return (len(gruende) == 0), gruende
-
 
 def _normalize_key_part(v):
-    """Vereinheitlicht einen Schluesselbestandteil. Zahlen werden auf eine
-    feste Darstellung gebracht, damit '54', '54.0' und '54,0' denselben
-    Schluessel ergeben - sonst gilt dieselbe Wohnung bei jedem Lauf als neu,
-    weil die KI Zahlen mal mit und mal ohne Nachkommastelle ausgibt."""
     if v is None:
         return ""
     s = re.sub(r"\s+", " ", str(v).strip().lower())
-    # reine Zahl (auch mit Komma als Dezimaltrennzeichen)?
     if re.fullmatch(r"-?\d+(?:[.,]\d+)?", s):
         try:
             f = float(s.replace(",", "."))
-            # ganzzahlig -> ohne Nachkommastelle, sonst eine Nachkommastelle
             return str(int(f)) if f == int(f) else f"{f:.1f}"
         except ValueError:
             pass
@@ -1432,389 +95,218 @@ def _normalize_key_part(v):
 
 
 def listing_key(listing, site_url):
-    """Eindeutiger, möglichst stabiler Schlüssel, um ein Inserat über mehrere
-    Läufe hinweg wiederzuerkennen (wichtig für 'gesehen'-Tracking und für
-    dauerhaftes Ausblenden in der App)."""
+    """Stabiler Schluessel je Inserat (unveraendert gegenueber der alten
+    Version, damit bereits Gemeldetes nicht erneut gemeldet wird)."""
     url = listing.get("url")
     if url:
         return f"{site_url}::{_normalize_key_part(url)}"
-
-    # Kein Direktlink vorhanden: aus strukturierten, stabilen Feldern einen
-    # Schlüssel bauen statt aus dem freien Titel-Text - der wird von der KI
-    # bei jedem Lauf leicht unterschiedlich formuliert und würde sonst bei
-    # jedem Lauf einen neuen Schlüssel erzeugen (Inserat gilt fälschlich als
-    # "neu", Ausblenden greift nicht mehr).
-    structured_parts = [
+    teile = [
         _normalize_key_part(listing.get("rooms")),
         _normalize_key_part(listing.get("size_qm")),
         _normalize_key_part(listing.get("rent")),
         _normalize_key_part(listing.get("plz") or listing.get("district")),
     ]
-    if any(structured_parts):
-        return f"{site_url}::{'|'.join(structured_parts)}"
-
-    # Letzter Fallback: normalisierter Titel (zumindest Groß/Kleinschreibung
-    # und doppelte Leerzeichen werden ausgeglichen)
+    if any(teile):
+        return f"{site_url}::{'|'.join(teile)}"
     return f"{site_url}::{_normalize_key_part(listing.get('title'))}"
 
 
 def source_name(site_url):
-    host = urlparse(site_url).netloc
-    host = re.sub(r"^(www\.|portal\.)", "", host)
-    return host
+    return re.sub(r"^(www\.|portal\.)", "", urlparse(site_url).netloc)
 
 
-def build_match_record(key, listing, url):
-    """Baut den Datensatz, den die App anzeigt - fuer Treffer wie fuer
-    knapp verfehlte Inserate."""
+def build_match_record(key, listing, site_url):
     size_v = listing.get("size_qm")
     rent_v = listing.get("rent")
-    price_per_sqm = (
-        round(rent_v / size_v, 1)
-        if isinstance(rent_v, (int, float)) and isinstance(size_v, (int, float)) and size_v > 0
-        else None
-    )
-    return {
+    kalt, geschaetzt = kriterien.effektive_kaltmiete(listing)
+    ppsqm_basis = rent_v or (kalt if geschaetzt else None)
+    rec = {
         "key": key,
         "title": listing.get("title"),
         "rooms": listing.get("rooms"),
         "size_qm": size_v,
         "rent": rent_v,
-        "price_per_sqm": price_per_sqm,
+        "price_per_sqm": round(ppsqm_basis / size_v, 1) if ppsqm_basis and size_v else None,
         "district": listing.get("district"),
         "plz": listing.get("plz"),
         "street": listing.get("street"),
-        "url": listing.get("url") or url,
-        "site_url": url,
-        "source_name": source_name(url),
-        "found_at": datetime.now(timezone.utc).isoformat(),
+        "url": urljoin(site_url, listing["url"]) if listing.get("url") else site_url,
+        "site_url": site_url,
+        "source_name": source_name(site_url),
+        "found_at": now_iso(),
     }
+    if listing.get("rent_warm"):
+        rec["rent_warm"] = listing["rent_warm"]
+    if geschaetzt:
+        rec["rent_kalt_geschaetzt"] = kalt
+    if listing.get("frei_ab"):
+        rec["frei_ab"] = listing["frei_ab"]
+    return rec
 
 
 def duplicate_signature(m):
-    """Signatur zum Erkennen derselben Wohnung auf mehreren Portalen:
-    gerundete Miete + gerundete Groesse + PLZ. Bewusst grob, weil Anbieter
-    leicht unterschiedliche Werte angeben."""
-    rent = m.get("rent")
+    rent = m.get("rent") or m.get("rent_kalt_geschaetzt")
     size = m.get("size_qm")
     plz = str(m.get("plz") or "").strip()
-    if not isinstance(rent, (int, float)) or not isinstance(size, (int, float)):
-        return None
-    if not plz:
+    if not isinstance(rent, (int, float)) or not isinstance(size, (int, float)) or not plz:
         return None
     return f"{round(rent / 25) * 25}|{round(size / 5) * 5}|{plz}"
 
 
+def _alle_keys(m):
+    return [m.get("key")] + list(m.get("alias_keys") or [])
+
+
+# ---------------------------------------------------------------------------
+# App-Daten (data.json)
+# ---------------------------------------------------------------------------
+
 def compute_time_online_stats(matches):
-    """Median-Verweildauer je Quelle: wie lange bleibt ein Inserat online?
-    Basis sind Treffer, die inzwischen verschwunden sind (found_at/gone_since).
-    Damit laesst sich datengestuetzt entscheiden, welche Quellen in die
-    stuendliche Schnell-Liste gehoeren."""
-    from statistics import median
     per_source = {}
     for m in matches:
         if m.get("still_listed") is not False:
             continue
         f, g = m.get("found_at"), m.get("gone_since")
-        if not f or not g:
-            continue
         try:
             hours = (datetime.fromisoformat(g) - datetime.fromisoformat(f)).total_seconds() / 3600
         except Exception:
             continue
-        if hours <= 0:
-            continue
-        per_source.setdefault(m.get("source_name") or "?", []).append(hours)
+        if hours > 0:
+            per_source.setdefault(m.get("source_name") or "?", []).append(hours)
+    return {s: {"median_hours": round(median(v), 1), "samples": len(v)}
+            for s, v in per_source.items() if len(v) >= 2}
 
-    return {
-        src_name: {"median_hours": round(median(v), 1), "samples": len(v)}
-        for src_name, v in per_source.items() if len(v) >= 2
-    }
+
+def _markiere_gelistet(eintraege, seen_keys):
+    jetzt = now_iso()
+    for m in eintraege:
+        if any(k in seen_keys for k in _alle_keys(m)):
+            m["still_listed"] = True
+            m.pop("gone_since", None)
+        elif m.get("still_listed") is not False:
+            m["still_listed"] = False
+            m.setdefault("gone_since", jetzt)
 
 
 def update_app_data(new_matches, seen_keys_this_run=None, near_misses=None):
-    """Schreibt die aktuellen Treffer in data.json, das die Homescreen-App anzeigt.
-    Markiert zusaetzlich Inserate, die beim aktuellen Lauf nicht mehr auf der
-    Anbieterseite auftauchten, und fuehrt Duplikate ueber Quellen hinweg zusammen."""
+    """Fuegt Treffer hinzu, markiert Verschwundenes (nur Volllauf) und
+    fuehrt Dubletten ueber Quellen zusammen. Wird nach JEDER Quelle mit
+    Treffern aufgerufen, damit ein Abbruch nichts doppelt meldet."""
     existing = load_json(APP_DATA_FILE, {"matches": []})
-    existing_matches = existing.get("matches", [])
-    existing_keys = {m.get("key") for m in existing_matches}
-
-    now_iso = datetime.now(timezone.utc).isoformat()
-
+    matches = existing.get("matches", [])
+    keys = {k for m in matches for k in _alle_keys(m)}
     for m in new_matches:
-        if m["key"] not in existing_keys:
-            existing_matches.append(m)
-            existing_keys.add(m["key"])
+        if m["key"] not in keys:
+            matches.append(m)
+            keys.add(m["key"])
 
-    # --- "nicht mehr gelistet" markieren -------------------------------------
-    # Nur wenn der Lauf ueberhaupt Inserate gesehen hat (sonst wuerde ein
-    # kompletter Fehllauf faelschlich alles als verschwunden markieren).
     if seen_keys_this_run:
-        for m in existing_matches:
-            if m.get("key") in seen_keys_this_run:
-                m["still_listed"] = True
-                m.pop("gone_since", None)
-            elif m.get("still_listed") is not False:
-                m["still_listed"] = False
-                m.setdefault("gone_since", now_iso)
+        _markiere_gelistet(matches, seen_keys_this_run)
 
-    # --- Duplikate ueber Quellen hinweg zusammenfuehren -----------------------
-    by_signature = {}
-    deduped = []
-    for m in sorted(existing_matches, key=lambda x: x.get("found_at", ""), reverse=True):
+    # Dubletten: Schluessel des Duplikats als alias_keys am Haupteintrag
+    # merken. Frueher fiel das Duplikat ganz heraus - sein Schluessel galt
+    # beim naechsten Lauf als ungemeldet, und dieselbe Wohnung wurde im
+    # Wechsel immer wieder als "neu" gepusht.
+    by_sig, deduped = {}, []
+    for m in sorted(matches, key=lambda x: x.get("found_at", ""), reverse=True):
         sig = duplicate_signature(m)
-        if sig and sig in by_signature:
-            primary = by_signature[sig]
-            others = primary.setdefault("also_on", [])
+        if sig and sig in by_sig:
+            p = by_sig[sig]
             name = m.get("source_name")
-            if name and name != primary.get("source_name") and name not in others:
-                others.append(name)
+            if name and name != p.get("source_name") and name not in p.setdefault("also_on", []):
+                p["also_on"].append(name)
+            for k in _alle_keys(m):
+                if k and k != p["key"] and k not in p.setdefault("alias_keys", []):
+                    p["alias_keys"].append(k)
+            if m.get("still_listed") is True:
+                p["still_listed"] = True
+                p.pop("gone_since", None)
             continue
         if sig:
-            by_signature[sig] = m
+            by_sig[sig] = m
         deduped.append(m)
 
-    deduped = deduped[:MAX_MATCHES_KEPT]
+    near = existing.get("near_misses", [])
+    if near_misses is not None or seen_keys_this_run:
+        near = merge_near_misses(near, near_misses or [], seen_keys_this_run)
 
-    payload = {
-        "generated_at": now_iso,
+    save_json(APP_DATA_FILE, {
+        "generated_at": now_iso(),
         "criteria": {
-            "min_rooms": CRITERIA["min_rooms"],
-            "min_size_qm": CRITERIA["min_size_qm"],
-            "min_rent": CRITERIA["min_rent"],
-            "max_rent": CRITERIA["max_rent"],
-            "districts": ["Mitte", "Prenzlauer Berg", "Charlottenburg"],
+            "min_rooms": kriterien.CRITERIA["min_rooms"],
+            "min_size_qm": kriterien.CRITERIA["min_size_qm"],
+            "min_rent": kriterien.CRITERIA["min_rent"],
+            "max_rent": kriterien.CRITERIA["max_rent"],
+            "areas": [a for a, an in kriterien.CRITERIA["areas"].items() if an],
         },
-        "matches": deduped,
-        "near_misses": merge_near_misses(existing.get("near_misses", []),
-                                         near_misses or [], seen_keys_this_run),
+        "matches": deduped[:MAX_MATCHES_KEPT],
+        "near_misses": near,
         "time_online": compute_time_online_stats(deduped),
-    }
-    save_json(APP_DATA_FILE, payload)
+    })
 
 
 def merge_near_misses(existing, new_items, seen_keys_this_run=None):
-    """Knapp verfehlte Inserate sammeln, neueste zuerst, begrenzt.
-
-    Wie bei den Treffern werden verschwundene Eintraege markiert - sonst
-    stehen laengst vergebene Wohnungen auf Dauer im Reiter. Nach
-    MAX_NEAR_MISS_GONE_DAYS fliegen sie ganz raus.
-    """
-    jetzt = datetime.now(timezone.utc).isoformat()
     keys = {m.get("key") for m in existing}
     for m in new_items:
         if m.get("key") not in keys:
             existing.append(m)
             keys.add(m.get("key"))
-
     if seen_keys_this_run:
-        gefiltert = []
-        for m in existing:
-            if m.get("key") in seen_keys_this_run:
-                m["still_listed"] = True
-                m.pop("gone_since", None)
-            else:
-                if m.get("still_listed") is not False:
-                    m["still_listed"] = False
-                    m.setdefault("gone_since", jetzt)
-                if hours_since(m.get("gone_since")) > MAX_NEAR_MISS_GONE_DAYS * 24:
-                    continue
-            gefiltert.append(m)
-        existing = gefiltert
-
+        _markiere_gelistet(existing, seen_keys_this_run)
+        existing = [m for m in existing if m.get("still_listed") is not False
+                    or hours_since(m.get("gone_since")) <= MAX_NEAR_MISS_GONE_DAYS * 24]
     existing.sort(key=lambda m: m.get("found_at", ""), reverse=True)
-    return existing[:120]
+    return existing[:MAX_NEAR_MISSES]
 
 
-def update_site_status(status, url, ok, error=None, listing_count=None, suggested_url=None, pages_checked=None, skipped=False):
-    now_iso = datetime.now(timezone.utc).isoformat()
+# ---------------------------------------------------------------------------
+# Status je Quelle
+# ---------------------------------------------------------------------------
+
+def update_site_status(status, url, ok, error=None, listing_count=None, suggested_url=None,
+                       pages_checked=None, skipped=False, extra=None):
+    now = now_iso()
     entry = status.get(url, {})
-
+    entry["source_name"] = source_name(url)
+    entry["last_checked"] = now
     if skipped:
-        # Aussichtslose Seite im Cooldown: nur Zeitstempel touchen, keine
-        # Zähler verändern, keine API-Kosten verursacht.
-        entry["source_name"] = source_name(url)
-        entry["last_checked"] = now_iso
         status[url] = entry
         return
-
-    entry["source_name"] = source_name(url)
-    entry["last_checked"] = now_iso
     if ok:
-        entry["status"] = "ok"
-        entry["error"] = None
-        entry["last_success"] = now_iso
+        entry.update(status="ok", error=None, last_success=now)
+        entry["consecutive_bad_runs"] = 0
+        entry["hopeless"] = False
     else:
-        entry["status"] = "error"
-        entry["error"] = error
+        entry.update(status="error", error=error)
         entry.setdefault("last_success", None)
+        entry["consecutive_bad_runs"] = entry.get("consecutive_bad_runs", 0) + 1
+        entry["hopeless"] = entry["consecutive_bad_runs"] >= HOPELESS_THRESHOLD
     if listing_count is not None:
         entry["last_listing_count"] = listing_count
-        entry["last_listing_count_at"] = now_iso
+        entry["last_listing_count_at"] = now
     entry.setdefault("last_listing_count", None)
     if suggested_url is not None:
         entry["suggested_url"] = suggested_url
     if pages_checked is not None:
         entry["pages_checked"] = pages_checked
-
-    # "Aussichtslos" darf NUR bei echten technischen Fehlern greifen (Seite
-    # nicht erreichbar, DNS tot, 404 …). Eine erreichbare Seite mit 0 Inseraten
-    # ist völlig normal - kleine Hausverwaltungen haben oft wochenlang nichts
-    # frei. Diese Seiten weiterhin als "verdächtig" anzeigen, aber nicht
-    # abschalten.
-    if ok:
-        entry["consecutive_bad_runs"] = 0
-        entry["hopeless"] = False
-    else:
-        entry["consecutive_bad_runs"] = entry.get("consecutive_bad_runs", 0) + 1
-        entry["hopeless"] = entry["consecutive_bad_runs"] >= HOPELESS_THRESHOLD
-
+    if extra:
+        entry.update(extra)
     status[url] = entry
 
 
-BATCH_POLL_INTERVAL = 15        # Sekunden zwischen Status-Abfragen
-BATCH_MAX_WAIT_SECONDS = 20 * 60  # maximal 20 Minuten auf den Batch warten
+# ---------------------------------------------------------------------------
+# Benachrichtigungen
+# ---------------------------------------------------------------------------
 
-
-def _parse_extraction_text(raw):
-    raw = (raw or "").strip()
-    raw = re.sub(r"^```(json)?", "", raw).strip()
-    raw = re.sub(r"```$", "", raw).strip()
-    try:
-        listings = json.loads(raw)
-        return listings if isinstance(listings, list) else []
-    except Exception:
-        return []
-
-
-def submit_batch(items):
-    """items: Liste von (custom_id, url, text). Reicht einen Message-Batch ein
-    und gibt die Batch-ID zurück (50% günstiger als einzelne Aufrufe)."""
-    requests_payload = [
-        {
-            "custom_id": cid,
-            "params": {
-                "model": MODEL,
-                "max_tokens": 2500,
-                "messages": [{"role": "user", "content": EXTRACTION_PROMPT.format(url=url, text=text)}],
-            },
-        }
-        for cid, url, text in items
-    ]
-    resp = requests.post(
-        "https://api.anthropic.com/v1/messages/batches",
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={"requests": requests_payload},
-        timeout=60,
-    )
-    resp.raise_for_status()
-    return resp.json()["id"]
-
-
-def wait_for_batch(batch_id):
-    """Pollt den Batch-Status bis 'ended' oder Timeout. Gibt results_url oder None zurück."""
-    waited = 0
-    while waited < BATCH_MAX_WAIT_SECONDS:
-        resp = requests.get(
-            f"https://api.anthropic.com/v1/messages/batches/{batch_id}",
-            headers={"x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01"},
-            timeout=30,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        status_str = data.get("processing_status")
-        print(f"  Batch-Status: {status_str} (nach {waited}s)")
-        if status_str == "ended":
-            return data.get("results_url")
-        time.sleep(BATCH_POLL_INTERVAL)
-        waited += BATCH_POLL_INTERVAL
-    return None
-
-
-def fetch_batch_results(results_url):
-    """Lädt die JSONL-Ergebnisse eines fertigen Batches.
-    Gibt {custom_id: listings-Liste oder None (=Fehler)} zurück."""
-    resp = requests.get(
-        results_url,
-        headers={"x-api-key": ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01"},
-        timeout=120,
-    )
-    resp.raise_for_status()
-    out = {}
-    for line in resp.text.strip().split("\n"):
-        if not line.strip():
-            continue
-        row = json.loads(line)
-        cid = row.get("custom_id")
-        result = row.get("result", {})
-        if result.get("type") == "succeeded":
-            message = result.get("message", {})
-            raw = "".join(
-                b.get("text", "") for b in message.get("content", []) if b.get("type") == "text"
-            )
-            out[cid] = _parse_extraction_text(raw)
-        else:
-            out[cid] = None
-    return out
-
-
-def run_batch_extraction(items):
-    """items: Liste von (custom_id, url, text). Führt die Extraktion per Batch API
-    durch (50% günstiger). Fällt bei Problemen automatisch auf einzelne,
-    synchrone Aufrufe zurück, damit ein Lauf nie komplett scheitert."""
-    if not items:
-        return {}
-
-    try:
-        print(f"Reiche Batch mit {len(items)} Anfrage(n) ein …")
-        batch_id = submit_batch(items)
-        results_url = wait_for_batch(batch_id)
-        if results_url:
-            results = fetch_batch_results(results_url)
-            # Für alle, die im Batch fehlgeschlagen sind, synchron nachholen
-            missing = [(cid, u, t) for cid, u, t in items if results.get(cid) is None]
-            if missing:
-                print(f"  {len(missing)} Batch-Eintrag/Einträge fehlgeschlagen, hole einzeln nach …")
-                for cid, u, t in missing:
-                    try:
-                        results[cid] = call_claude_extract(u, t)
-                    except Exception as e:
-                        print(f"    -> weiterhin fehlgeschlagen ({u}): {e}")
-                        results[cid] = []
-            return results
-        else:
-            print("  Batch-Timeout erreicht, hole alle Einträge stattdessen einzeln ab …")
-    except Exception as e:
-        print(f"  Batch-Verarbeitung fehlgeschlagen ({e}), hole alle Einträge stattdessen einzeln ab …")
-
-    # Fallback: klassische synchrone Einzelaufrufe (voller Preis, aber zuverlässig)
-    results = {}
-    for cid, u, t in items:
-        try:
-            results[cid] = call_claude_extract(u, t)
-        except Exception as e:
-            print(f"    -> Extraktion fehlgeschlagen ({u}): {e}")
-            results[cid] = []
-    return results
-
-
-APP_URL = os.environ.get("APP_URL")  # optional: URL der Homescreen-App, für den "Öffnen"-Link in der Push
-
-
-def push(title, body, priority="default", tags="house", click=None):
-    """Sendet eine Push-Nachricht ueber ntfy. Zentrale Stelle, damit auch
-    Fehler- und Lebenszeichen-Meldungen denselben Weg nehmen."""
+def push(title, body, priority="default", tags="house", click=None, app_button=False):
     if not NTFY_TOPIC:
         print("NTFY_TOPIC nicht gesetzt, überspringe Benachrichtigung.")
         return False
     headers = {"Title": title.encode("utf-8"), "Priority": priority, "Tags": tags}
     if click or APP_URL:
         headers["Click"] = click or APP_URL
+    if app_button and APP_URL:
+        headers["Actions"] = f"view, In App ansehen, {APP_URL}"
     try:
         requests.post(f"{NTFY_SERVER}/{NTFY_TOPIC}", data=body.encode("utf-8"),
                       headers=headers, timeout=15)
@@ -1824,463 +316,500 @@ def push(title, body, priority="default", tags="house", click=None):
         return False
 
 
+def _kurzinfo(m):
+    teile = []
+    if m.get("rooms"):
+        teile.append(f"{m['rooms']} Zi.")
+    if m.get("size_qm"):
+        teile.append(f"{m['size_qm']} m²")
+    if m.get("rent"):
+        teile.append(f"{m['rent']:,.0f} €".replace(",", "."))
+    elif m.get("rent_warm"):
+        teile.append(f"{m['rent_warm']:,.0f} € warm".replace(",", "."))
+    return ", ".join(teile)
+
+
+def melde_sofort(treffer):
+    """Push direkt nach der Quelle, nicht erst am Laufende. Inserate stehen
+    oft nur wenige Stunden online - jede Minute zaehlt."""
+    if not treffer:
+        return False
+    if len(treffer) == 1:
+        m = treffer[0]
+        title = f"Neue Wohnung: {_kurzinfo(m)}" if _kurzinfo(m) else "Neue Wohnung"
+        body = f"{m.get('title') or 'Wohnungsinserat'}\n{m.get('district') or m.get('plz') or ''}" \
+               f" · {m.get('source_name')}"
+        if m.get("frei_ab"):
+            body += f"\nfrei ab {m['frei_ab']}"
+        ok = push(title, body.strip(), priority="high", click=m.get("url"), app_button=True)
+    else:
+        title = f"{len(treffer)} neue Wohnungen bei {treffer[0].get('source_name')}"
+        body = "\n".join(f"{m.get('title') or 'Inserat'} – {_kurzinfo(m)}" for m in treffer[:6])
+        if len(treffer) > 6:
+            body += f"\n… und {len(treffer) - 6} weitere"
+        ok = push(title, body, priority="high")
+    if ok:
+        save_json(HEARTBEAT_FILE, {"last_notification_at": now_iso()})
+    return ok
+
+
 def maybe_send_heartbeat(stats):
-    """Sendet ein Lebenszeichen, wenn seit HEARTBEAT_DAYS Tagen keine
-    Nachricht rausging. Ohne das ist ein stiller Totalausfall (abgelaufener
-    Token, API-Limit, kaputtes Playwright) nicht von 'gerade nichts Passendes'
-    zu unterscheiden."""
     hb = load_json(HEARTBEAT_FILE, {})
-    last = hb.get("last_notification_at")
-    if hours_since(last) < HEARTBEAT_DAYS * 24:
+    if hours_since(hb.get("last_notification_at")) < HEARTBEAT_DAYS * 24:
         return
-
-    body = (
-        f"Der Bot läuft.\n"
-        f"{stats['sites_total']} Quellen geprüft, "
-        f"{stats['listings_seen']} Inserate gesehen, "
-        f"{stats['rejected_total']} verworfen.\n"
-        f"Seit {HEARTBEAT_DAYS} Tagen kein passender Treffer."
-    )
+    body = (f"Der Bot läuft.\n{stats['sites_total']} Quellen geprüft, "
+            f"{stats['listings_seen']} Inserate gesehen.\n"
+            f"Seit {HEARTBEAT_DAYS} Tagen kein passender Treffer.")
     if push("Wohnungssuche: Lebenszeichen", body, priority="low", tags="heartbeat"):
-        save_json(HEARTBEAT_FILE, {"last_notification_at": datetime.now(timezone.utc).isoformat()})
+        save_json(HEARTBEAT_FILE, {"last_notification_at": now_iso()})
 
 
-def send_digest_notification(new_matches):
-    """Schickt EINE zusammenfassende Push-Nachricht für alle in diesem Lauf
-    neu gefundenen Treffer, statt einer Einzel-Nachricht pro Inserat."""
-    if not NTFY_TOPIC:
-        print("NTFY_TOPIC nicht gesetzt, überspringe Benachrichtigung.")
-        return
-    if not new_matches:
-        return
+# ---------------------------------------------------------------------------
+# Auswertung einer Quelle
+# ---------------------------------------------------------------------------
 
-    count = len(new_matches)
-    title = f"{count} neue Wohnung{'en' if count != 1 else ''} gefunden"
+def _neu(site, page_url, html, strategie, ziel_url=None, xhr=None, gerendert=False):
+    return {"site": site, "page_url": page_url, "html": html, "strategie": strategie,
+            "ziel_url": ziel_url, "xhr": xhr or [], "gerendert": gerendert,
+            "listings": None, "quelle": None, "hash": None, "text": None, "seiten": 1}
 
-    lines = []
-    for m in new_matches[:6]:
-        parts = []
-        if m.get("rooms"):
-            parts.append(f"{m['rooms']} Zi.")
-        if m.get("size_qm"):
-            parts.append(f"{m['size_qm']} qm")
-        if m.get("rent"):
-            parts.append(f"{m['rent']} €")
-        if m.get("price_per_sqm"):
-            parts.append(f"{m['price_per_sqm']} €/qm")
-        detail = ", ".join(str(p) for p in parts)
-        line = m.get("title") or "Wohnungsinserat"
-        if detail:
-            line += f" – {detail}"
-        lines.append(line)
 
-    if count > 6:
-        lines.append(f"… und {count - 6} weitere")
+def auswerten(r, mit_cache=True, batch_erlaubt=False):
+    """Eine Seite auswerten: strukturiert -> Feed -> Cache -> Vorfilter -> KI."""
+    gefunden, art = extraktion.strukturierte_inserate(r["html"], r["page_url"], r["xhr"])
+    if gefunden:
+        r.update(listings=gefunden, quelle=art)
+        return r
 
-    body = "\n".join(lines)
+    if r["strategie"] == "direkt" and not r["gerendert"]:
+        for feed_url in extraktion.finde_inserats_feeds(r["html"], r["page_url"])[:2]:
+            xml, _ = abruf.fetch(feed_url)
+            items = extraktion.inserate_aus_feed(xml, feed_url) if xml else []
+            if items:
+                r.update(listings=items, quelle="feed", strategie="feed", ziel_url=feed_url)
+                return r
 
-    if push(title, body, priority="high", tags="house"):
-        # Zeitpunkt merken, damit das Lebenszeichen nur bei echter Stille kommt
-        save_json(HEARTBEAT_FILE, {"last_notification_at": datetime.now(timezone.utc).isoformat()})
+    text = extraktion.extract_text(r["html"])
+    r["text"], r["hash"] = text, extraktion.text_hash(text)
+
+    c = S["cache"].get(r["site"]) or {}
+    if mit_cache and S["ki_cache"] and c.get("hash") == r["hash"] \
+            and c.get("page_url") == r["page_url"] and isinstance(c.get("inserate"), list):
+        grenze = S["cache_h"] if c["inserate"] else S["cache_leer_h"]
+        if hours_since(c.get("at")) < grenze:
+            r.update(listings=c["inserate"], quelle="cache", seiten=c.get("seiten", 1),
+                     aus_cache=True, strategie=c.get("strategie", r["strategie"]),
+                     ziel_url=c.get("ziel_url"))
+            return r
+
+    if extraktion.sieht_leer_aus(text):
+        r.update(listings=[], quelle="vorfilter")
+        return r
+
+    if batch_erlaubt and extraktion.AI_PROVIDER == "anthropic":
+        r["ki_offen"] = True
+        return r
+    r.update(listings=extraktion.extract_listings(r["page_url"], text), quelle="ki")
+    return r
+
+
+def stufe1(site, abruf_url, html):
+    """Primaerseite nach gemerkter Strategie auswerten."""
+    c = S["cache"].get(site) or {}
+    strategie = c.get("strategie", "direkt")
+    ziel = c.get("ziel_url")
+    if abruf_url != site and strategie in ("feed", "unterseite"):
+        if strategie == "feed":
+            items = extraktion.inserate_aus_feed(html, abruf_url)
+            r = _neu(site, abruf_url, html, "feed", ziel)
+            if items:
+                r.update(listings=items, quelle="feed")
+                return r
+            html, _ = abruf.fetch(site)  # Feed leer -> normale Seite
+            if not html:
+                r.update(listings=[], quelle="fehler")
+                return r
+            return auswerten(_neu(site, site, html, "direkt"), batch_erlaubt=True)
+        return auswerten(_neu(site, abruf_url, html, "unterseite", ziel), batch_erlaubt=True)
+
+    if strategie == "browser":
+        ziel_url = ziel or site
+        gerendert, xhr = abruf.fetch_rendered(ziel_url)
+        if gerendert:
+            r = _neu(site, ziel_url, gerendert, "browser", ziel, xhr=xhr, gerendert=True)
+            r["seiten"] = 2
+            return auswerten(r, batch_erlaubt=False)
+    return auswerten(_neu(site, site, html, "direkt"), batch_erlaubt=True)
+
+
+def kaskade(r):
+    """Primaerseite lieferte nichts: Direktseite -> Unterseite -> Browser.
+    Nur hier entstehen Zusatzkosten; was klappt, wird als Strategie gemerkt."""
+    site = r["site"]
+    seiten = r["seiten"]
+    leer_ref = r  # wessen Hash bei leerem Ergebnis gespeichert wird
+    prev = S["status"].get(site) or {}
+
+    if r["page_url"] != site or r["strategie"] not in ("direkt",):
+        html, _ = abruf.fetch(site)
+        seiten += 1
+        if html:
+            t = auswerten(_neu(site, site, html, "direkt"), mit_cache=False)
+            leer_ref = t
+            if t["listings"]:
+                t["seiten"] = seiten
+                return t, None
+        direkt_html = html
+    else:
+        direkt_html = r["html"]
+
+    if direkt_html:
+        kandidat = abruf.find_listing_subpage(direkt_html, site)
+        if kandidat and kandidat != r["page_url"]:
+            time.sleep(SLEEP_BETWEEN_PAGES)
+            html, _ = abruf.fetch(kandidat)
+            seiten += 1
+            if html:
+                t = auswerten(_neu(site, kandidat, html, "unterseite", kandidat), mit_cache=False)
+                if t["listings"]:
+                    print(f"  -> Unterseite mit Inseraten: {kandidat}")
+                    t["seiten"] = seiten
+                    return t, None
+
+    # Browser: teuerster Schritt. Quellen, bei denen er wiederholt nichts
+    # brachte, nur noch jeden PLAYWRIGHT_RETRY_EVERY-ten Lauf.
+    # (Frueher wurde hier versehentlich der Zaehler einer ANDEREN Quelle gelesen.)
+    pw_fehl = prev.get("playwright_vergeblich", 0)
+    pw_versuch = not r["gerendert"] and (
+        pw_fehl < PLAYWRIGHT_GIVE_UP_AFTER or pw_fehl % PLAYWRIGHT_RETRY_EVERY == 0)
+    pw_ergebnis = None
+    if pw_versuch and not budget_exceeded():
+        gerendert, xhr = abruf.fetch_rendered(site)
+        if gerendert:
+            seiten += 1
+            t = auswerten(_neu(site, site, gerendert, "browser", xhr=xhr, gerendert=True),
+                          mit_cache=False)
+            if t["listings"]:
+                print(f"  -> per Browser gefunden ({t['quelle']}): {len(t['listings'])} Inserat(e)")
+                t["seiten"] = seiten
+                return t, 0
+        pw_ergebnis = pw_fehl + 1
+    elif not r["gerendert"]:
+        S["zaehler"]["browser_uebersprungen"] += 1
+
+    leer_ref = dict(leer_ref, listings=[], strategie="direkt", ziel_url=None, seiten=seiten)
+    return leer_ref, pw_ergebnis
+
+
+def folgeseiten(r):
+    """'Weiter'-Links verfolgen (nur bei normal abgerufenen HTML-Seiten)."""
+    if not r["listings"] or r.get("aus_cache") or r["quelle"] == "feed" or r["gerendert"]:
+        return r
+    listings = list(r["listings"])
+    gesehen = {r["site"], r["page_url"]}
+    html, url = r["html"], r["page_url"]
+    for _ in range(MAX_EXTRA_PAGES):
+        next_url = abruf.find_next_page_url(html, url)
+        if not next_url or next_url in gesehen or budget_exceeded():
+            break
+        gesehen.add(next_url)
+        time.sleep(SLEEP_BETWEEN_PAGES)
+        page_html, _ = abruf.fetch(next_url)
+        if not page_html:
+            break
+        r["seiten"] += 1
+        t = auswerten(_neu(r["site"], next_url, page_html, r["strategie"]), mit_cache=False)
+        if not t["listings"]:
+            break
+        print(f"  -> Folgeseite: {len(t['listings'])} weitere Inserat(e)")
+        listings += t["listings"]
+        html, url = page_html, next_url
+    r["listings"] = listings
+    return r
+
+
+def abschliessen(r):
+    """Kaskade, Folgeseiten, Cache, Kriterien, Sofort-Push, Status."""
+    site = r["site"]
+    pw_neu = None
+    if not r["listings"] and not r.get("aus_cache") and r["quelle"] != "fehler":
+        r, pw_neu = kaskade(r)
+    r = folgeseiten(r)
+
+    listings = [l for l in (extraktion.normalisiere_inserat(x) for x in (r["listings"] or [])) if l]
+    S["zaehler"][r["quelle"] or "?"] += 1
+    print(f"  -> {len(listings)} Inserat(e) [{r['quelle']}, {r['strategie']}, {r['seiten']} Seite(n)]")
+
+    if DEBUG_EMPTY and not listings and r.get("text"):
+        print(f"  [DEBUG] Text ({len(r['text'])} Zeichen) von {r['page_url']}:")
+        print("  [DEBUG] " + (r["text"][:DEBUG_TEXT_CHARS] or "(LEER)"))
+
+    alt = S["cache"].get(site) or {}
+    S["cache"][site] = {
+        "strategie": r["strategie"],
+        "ziel_url": r.get("ziel_url"),
+        "page_url": r["page_url"],
+        "hash": r.get("hash"),
+        "inserate": listings,
+        "seiten": r["seiten"],
+        "quelle": r["quelle"],
+        # bei Wiederverwendung das urspruengliche Datum behalten, sonst
+        # wuerde die Hoechstdauer nie ablaufen
+        "at": alt.get("at") if r.get("aus_cache") else now_iso(),
+    }
+
+    extra = {"strategie": r["strategie"], "quelle": r["quelle"]}
+    pw_alt = (S["status"].get(site) or {}).get("playwright_vergeblich", 0)
+    if r["strategie"] == "browser" and listings:
+        extra["playwright_vergeblich"] = 0
+    elif pw_neu is not None:
+        extra["playwright_vergeblich"] = pw_neu
+    elif pw_alt:
+        extra["playwright_vergeblich"] = pw_alt
+    update_site_status(S["status"], site, ok=True, listing_count=len(listings),
+                       suggested_url=r.get("ziel_url") if r["strategie"] == "unterseite" else None,
+                       pages_checked=r["seiten"], extra=extra)
+
+    pruefe_inserate(site, listings)
+
+
+def pruefe_inserate(site, listings):
+    bekannt_liste = list(S["seen"].get(site, []))
+    known = set(bekannt_liste)
+    neu_hier = []
+    for listing in listings:
+        key = listing_key(listing, site)
+        S["seen_keys"].add(key)
+        S["listings_seen"] += 1
+        if key not in known:
+            known.add(key)
+            bekannt_liste.append(key)
+
+        # Kriterien auf JEDES Inserat (nicht nur neue) - sonst greift eine
+        # Lockerung der Kriterien nie fuer laengst bekannte Wohnungen.
+        passt, gruende = kriterien.matches_criteria(listing)
+        if not passt:
+            for g in gruende:
+                if g != "lage_ungeprueft":
+                    S["rejected"][g] = S["rejected"].get(g, 0) + 1
+            if kriterien.is_near_miss(listing, gruende):
+                rec = build_match_record(key, listing, site)
+                rec["miss_reason"] = gruende[0]
+                S["near"].append(rec)
+            continue
+        if key not in S["gemeldet"]:
+            print(f"     TREFFER: {listing.get('title')}")
+            neu_hier.append(build_match_record(key, listing, site))
+
+    S["seen"][site] = bekannt_liste[-MAX_SEEN_PER_SITE:]
+
+    if neu_hier:
+        # Erst speichern, dann pushen waere sicherer gegen Doppelmeldungen,
+        # aber ein verpasster Push ist schlimmer als ein doppelter.
+        melde_sofort(neu_hier)
+        for m in neu_hier:
+            S["gemeldet"][m["key"]] = m["found_at"]
+        S["treffer"].extend(neu_hier)
+        update_app_data(neu_hier)
+        _speichere_gemeldet()
+
+
+def _speichere_gemeldet():
+    eintraege = sorted(S["gemeldet"].items(), key=lambda kv: kv[1] or "")[-MAX_GEMELDET:]
+    save_json(GEMELDET_FILE, dict(eintraege), kompakt=True)
+
+
+def _lade_gemeldet():
+    g = load_json(GEMELDET_FILE, None)
+    if isinstance(g, dict):
+        return g
+    # Erster Lauf mit der neuen Version: aus data.json uebernehmen
+    app = load_json(APP_DATA_FILE, {})
+    g = {}
+    for m in app.get("matches", []):
+        for k in _alle_keys(m):
+            if k:
+                g[k] = m.get("found_at")
+    return g
 
 
 # ---------------------------------------------------------------------------
 # Hauptlauf
 # ---------------------------------------------------------------------------
 
+def _lade_config():
+    config = load_json(CONFIG_FILE, {})
+    cfg = config.get("criteria", {})
+    geaendert = kriterien.wende_config_an(cfg)
+    if geaendert:
+        print("Feineinstellungen: " + ", ".join(geaendert))
+    c = kriterien.CRITERIA
+    print(f"Aktive Kriterien: {c['min_rooms']}+ Zimmer, {c['min_size_qm']}+ qm, "
+          f"{c['min_rent']}-{c['max_rent']} €, Gebiete: "
+          f"{[a for a, an in c['areas'].items() if an]}")
+    S["cooldown"] = bool(config.get("cooldown_enabled", DEFAULT_COOLDOWN_ENABLED))
+    S["ki_cache"] = bool(config.get("ki_cache", True))
+    S["cache_h"] = float(config.get("ki_cache_stunden", KI_CACHE_STUNDEN))
+    S["cache_leer_h"] = float(config.get("ki_cache_leer_stunden", KI_CACHE_LEER_STUNDEN))
+    print(f"Aussichtslos-Pause: {'AN' if S['cooldown'] else 'AUS'} · "
+          f"Ergebnis-Cache: {'AN' if S['ki_cache'] else 'AUS'} "
+          f"({S['cache_h']:.0f} h / leer {S['cache_leer_h']:.0f} h)")
+
+
 def main():
     try:
         _run()
     finally:
-        close_playwright()
+        abruf.close_playwright()
 
 
 def _run():
-    if AI_PROVIDER == "gemini":
-        if not GEMINI_API_KEY:
-            print("FEHLER: AI_PROVIDER=gemini, aber GEMINI_API_KEY ist nicht gesetzt.", file=sys.stderr)
-            sys.exit(1)
-    else:
-        if not ANTHROPIC_API_KEY:
-            print("FEHLER: ANTHROPIC_API_KEY ist nicht gesetzt.", file=sys.stderr)
-            sys.exit(1)
+    from collections import Counter
+    p = extraktion.AI_PROVIDER
+    if p == "gemini" and not extraktion.GEMINI_API_KEY:
+        sys.exit("FEHLER: AI_PROVIDER=gemini, aber GEMINI_API_KEY fehlt.")
+    if p == "anthropic" and not extraktion.ANTHROPIC_API_KEY:
+        sys.exit("FEHLER: ANTHROPIC_API_KEY fehlt.")
+    if p == "none":
+        print("TROCKENLAUF: keine KI-Aufrufe (AI_PROVIDER=none).")
 
     sites = load_json(SITES_FILE, [])
-    seen = load_json(SEEN_FILE, {})       # {site_url: [listing_key, ...]}
-    hashes = load_json(HASH_FILE, {})     # {site_url: content_hash}
-    status = load_json(STATUS_FILE, {})   # {site_url: {status, error, last_checked, last_success}}
-    # Nur der vollstaendige Lauf darf entfernte URLs aus dem Status werfen.
-    # Der Schnell-Lauf kennt nur 15 Quellen und wuerde sonst den Status der
-    # uebrigen ~98 loeschen.
+    status = load_json(STATUS_FILE, {})
     if SITES_FILE == "sites.json":
         status = {u: status[u] for u in sites if u in status}
+    S.update(
+        seen=load_json(SEEN_FILE, {}), status=status, cache=load_json(SITE_CACHE_FILE, {}),
+        gemeldet=_lade_gemeldet(), seen_keys=set(), listings_seen=0, rejected={},
+        near=[], treffer=[], zaehler=Counter(),
+    )
     errors = {}
+    kriterien.load_geocode_cache()
+    _lade_config()
+    print(f"Bereits gemeldete Inserate: {len(S['gemeldet'])}")
 
-    load_geocode_cache()
-    config = load_json(CONFIG_FILE, {"cooldown_enabled": DEFAULT_COOLDOWN_ENABLED})
-    cooldown_enabled = bool(config.get("cooldown_enabled", DEFAULT_COOLDOWN_ENABLED))
+    # Aussichtslose Quellen gar nicht erst abrufen (nur mit Cooldown)
+    auftraege, uebersprungen = [], 0
+    for site in sites:
+        st = status.get(site, {})
+        if S["cooldown"] and st.get("hopeless") and \
+                hours_since(st.get("last_checked")) < HOPELESS_RECHECK_HOURS:
+            update_site_status(status, site, ok=False, skipped=True)
+            S["seen_keys"].update(listing_key(l, site) for l in
+                                  (S["cache"].get(site) or {}).get("inserate", []))
+            uebersprungen += 1
+            continue
+        c = S["cache"].get(site) or {}
+        abruf_url = c.get("ziel_url") if c.get("strategie") in ("feed", "unterseite") \
+            and c.get("ziel_url") else site
+        auftraege.append((site, abruf_url))
+    if uebersprungen:
+        print(f"{uebersprungen} aussichtslose Quelle(n) pausiert.")
 
-    cfg_criteria = config.get("criteria", {})
-    for key in ("min_rooms", "min_size_qm", "min_rent", "max_rent"):
-        if key in cfg_criteria:
-            CRITERIA[key] = cfg_criteria[key]
-    for area_key in CRITERIA["areas"]:
-        if area_key in cfg_criteria.get("areas", {}):
-            CRITERIA["areas"][area_key] = bool(cfg_criteria["areas"][area_key])
-    # Feineinstellungen, die bisher nur im Code standen. Wer den Savignyplatz-
-    # Radius aendern will, muss jetzt nicht mehr den Code anfassen.
-    feinwerte = {
-        "charlottenburg_radius_km": "CHARLOTTENBURG_RADIUS_KM",
-        "viktoria_luise_radius_km": "VIKTORIA_LUISE_RADIUS_KM",
-        "spree_abstand_km": "SPREE_PROXIMITY_KM",
-        "mitte_radius_km": "MITTE_RADIUS_KM",
-        "prenzlauer_berg_radius_km": "PRENZLAUER_BERG_RADIUS_KM",
-        "knapp_groesse_toleranz": "NEAR_MISS_SIZE_TOLERANCE",
-        "knapp_miete_toleranz": "NEAR_MISS_RENT_TOLERANCE",
-    }
-    geaendert = []
-    for schluessel, konstante in feinwerte.items():
-        if schluessel in cfg_criteria:
-            try:
-                globals()[konstante] = float(cfg_criteria[schluessel])
-                geaendert.append(f"{schluessel}={cfg_criteria[schluessel]}")
-            except (TypeError, ValueError):
-                print(f"  Wert für {schluessel} unbrauchbar, Vorgabe bleibt.")
-    if geaendert:
-        print("Feineinstellungen: " + ", ".join(geaendert))
-
-    for flag in ("allow_wbs", "allow_furnished", "allow_temporary", "allow_shared"):
-        if flag in cfg_criteria:
-            CRITERIA[flag] = bool(cfg_criteria[flag])
-    if "custom_area" in cfg_criteria:
-        CRITERIA["custom_area"] = cfg_criteria["custom_area"]
-        n_points = len(CRITERIA["custom_area"].get("points") or [])
-        if CRITERIA["custom_area"].get("enabled") and n_points >= 3:
-            print(f"Benutzerdefiniertes Gebiet aktiv ({n_points} Punkte)")
-    print(f"Aktive Kriterien: {CRITERIA['min_rooms']}+ Zimmer, {CRITERIA['min_size_qm']}+ qm, "
-          f"{CRITERIA['min_rent']}-{CRITERIA['max_rent']} €, Gebiete: {CRITERIA['areas']}")
-    print(f"Cooldown (Aussichtslos-Pause + Unverändert-Überspringen): {'AN' if cooldown_enabled else 'AUS'}")
-    if not cooldown_enabled:
-        print("  -> Alle Seiten werden bei diesem Lauf vollständig extrahiert, unabhängig von Vorlauf-Ergebnissen.")
-
-    total_new_matches = 0
-    app_matches = []  # Treffer für die Homescreen-App (docs/data.json)
-    rejection_stats = {}   # {grund: anzahl} - wie viele Inserate woran scheiterten
-    app_near_misses = []   # scheitern an genau einem Kriterium, und das knapp
-    # Schluessel der bereits in data.json gemeldeten Treffer. Verhindert
-    # Doppelmeldungen, OHNE die Kriterienpruefung selbst zu ueberspringen.
-    already_reported = {
-        m.get("key") for m in load_json(APP_DATA_FILE, {}).get("matches", [])
-    }
-    print(f"Bereits gemeldete Treffer: {len(already_reported)}")
-    total_listings_seen = 0  # wie viele Inserate insgesamt erkannt wurden
-    seen_keys_this_run = set()  # für die "nicht mehr gelistet"-Erkennung
-
-    # ---- Hauptdurchgang: jede Seite abrufen, pruefen ob eine Extraktion
-    # noetig ist (Cooldown, unveraenderter Inhalt), und sie bei Gemini sofort
-    # auswerten. Nur bei Anthropic werden die Texte gesammelt und als Batch
-    # verschickt, weil das dort die Haelfte kostet. ----
-    pending = {}        # url -> {"html": ..., "prev_entry": ...}
-    batch_items = []    # nur fuer Anthropic: (custom_id, url, text)
-    batch_results = {}  # url -> Liste erkannter Inserate
-    jsonld_treffer = 0  # Seiten, die ohne KI auskamen
-
-    # Die Zweiteilung "erst alles abrufen, dann alles extrahieren" existierte
-    # nur fuer die Anthropic Batch API (ein Sammelauftrag, 50 % guenstiger).
-    # Gemini kennt keinen Batch - dort ist die Trennung reine Altlast: sie
-    # haelt alle Seiten gleichzeitig im Speicher, verdoppelt die Log-Ausgabe
-    # und laesst die Zeitgrenze erst spaet greifen. Deshalb bei Gemini ein
-    # einziger Durchgang pro Seite.
-    einzeldurchgang = AI_PROVIDER == "gemini"
-
-    print("Seiten abrufen" + (" und auswerten …" if einzeldurchgang
-                              else " (Phase 1/2) …"))
-    for i, url in enumerate(sites, 1):
+    batch = []
+    verarbeitet = 0
+    print(f"Rufe {len(auftraege)} Quelle(n) ab ({abruf.PARALLEL_ABRUFE} parallel) …")
+    for i, (site, abruf_url, html, err) in enumerate(abruf.abruf_parallel(auftraege), 1):
         if budget_exceeded():
-            print(f"ZEITGRENZE nach {RUN_BUDGET_MINUTES} Min erreicht - "
-                  f"{len(sites) - i + 1} Seite(n) werden diesmal nicht abgerufen.")
+            print(f"ZEITGRENZE nach {util.RUN_BUDGET_MINUTES:.0f} Min erreicht - "
+                  f"{len(auftraege) - i + 1} Quelle(n) bleiben diesmal offen.")
             break
-        print(f"[{i}/{len(sites)}] {url}")
-        html, err = fetch(url)
-
+        verarbeitet += 1
+        print(f"[{i}/{len(auftraege)}] {site}")
+        if err and abruf_url != site:
+            # gemerkte Unterseite/Feed tot -> normale Seite versuchen
+            html, err = abruf.fetch(site)
+            abruf_url = site
+            S["cache"].pop(site, None)
         if err:
             print(f"  -> Fehler beim Abrufen: {err}")
-            errors[url] = err
-            prev_entry = status.get(url, {})
-            if cooldown_enabled and prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
-                update_site_status(status, url, ok=False, skipped=True)
-            else:
-                update_site_status(status, url, ok=False, error=err)
+            errors[site] = err
+            update_site_status(status, site, ok=False, error=err)
+            # Voruebergehende Stoerung: zuletzt bekannte Inserate gelten als
+            # weiterhin gelistet - sonst erscheinen sie in der App als "weg".
+            S["seen_keys"].update(listing_key(l, site) for l in
+                                  (S["cache"].get(site) or {}).get("inserate", []))
             continue
-
-        prev_entry = status.get(url, {})
-        if cooldown_enabled and prev_entry.get("hopeless") and hours_since(prev_entry.get("last_checked")) < HOPELESS_RECHECK_HOURS:
-            print("  -> als aussichtslos markiert, überspringe (Cooldown aktiv, keine API-Kosten).")
-            update_site_status(status, url, ok=True, skipped=True)
-            continue
-
-        content_hash = hashlib.sha256(html.encode("utf-8", "ignore")).hexdigest()
-        prev_count = prev_entry.get("last_listing_count")
-        if cooldown_enabled and hashes.get(url) == content_hash and prev_count:
-            print("  -> keine Änderung seit letztem Lauf, überspringe.")
-            update_site_status(status, url, ok=True, skipped=True)
-            continue
-
-        hashes[url] = content_hash
-        pending[url] = {"html": html, "prev_entry": prev_entry}
-
-        # Zuerst strukturierte Daten versuchen: kostenlos, exakt und
-        # unabhaengig davon, wie gross die Seite ist. Erst wenn das nichts
-        # ergibt, die KI bemuehen.
-        strukturiert = extract_jsonld_listings(html, url)
-        if strukturiert:
-            print(f"  -> {len(strukturiert)} Inserat(e) aus strukturierten Daten "
-                  f"(ohne KI-Aufruf)")
-            batch_results[url] = strukturiert
-            jsonld_treffer += 1
-            continue
-
-        text = extract_text(html)
-
-        if einzeldurchgang:
-            try:
-                batch_results[url] = call_gemini_extract(url, text)
-            except Exception as e:
-                print(f"  -> Unerwarteter Fehler bei der Auswertung, übersprungen: {e}")
-                batch_results[url] = []
-            time.sleep(GEMINI_RATE_LIMIT_DELAY)
-        else:
-            batch_items.append((url, url, text))
-
-    # ---- Anthropic: gesammelte Extraktionen als EIN Batch (50 % guenstiger) ----
-    if not einzeldurchgang:
-        print(f"\nPhase 2/2: {len(batch_items)} Seite(n) extrahieren (Anbieter: {AI_PROVIDER}) …")
-        batch_results = run_batch_extraction(batch_items)
-
-    verarbeitet_bis = 0
-    for i, (url, info) in enumerate(pending.items(), 1):
-        if budget_exceeded():
-            print(f"ZEITGRENZE nach {RUN_BUDGET_MINUTES} Min erreicht - "
-                  f"{len(pending) - i + 1} Ergebnis(se) bleiben unverarbeitet. "
-                  f"Das bisher Gefundene wird gespeichert.")
-            break
-        verarbeitet_bis = i
-        print(f"[{i}/{len(pending)}] Treffer prüfen: {url}")
-        html = info["html"]
-        listings = batch_results.get(url) or []
-
-        pages_checked = 1
-        suggested_url = info["prev_entry"].get("suggested_url")
-        current_html, current_page_url = html, url
-
-        # Unterseiten-Suche: nichts gefunden -> vermutete richtige Seite ausprobieren
-        # (einzelner Aufruf, da abhängig vom Batch-Ergebnis - betrifft nur einen
-        # kleinen Teil der Seiten und lohnt daher keinen eigenen Batch-Umweg)
-        if not listings:
-            candidate = find_listing_subpage(html, url)
-            if candidate:
-                sub_html, sub_err = fetch(candidate)
-                pages_checked += 1
-                if sub_html:
-                    sub_listings = []
-                    try:
-                        sub_listings = extract_listings(candidate, extract_text(sub_html))
-                    except Exception as e:
-                        print(f"  -> Extraktion der Unterseite fehlgeschlagen: {e}")
-                    if sub_listings:
-                        print(f"  -> Unterseite gefunden mit Inseraten: {candidate}")
-                        listings = sub_listings
-                        suggested_url = candidate
-                        current_html, current_page_url = sub_html, candidate
-                time.sleep(SLEEP_BETWEEN_PAGES)
-
-        # Playwright-Fallback: liefert die normale (Unter-)Seite immer noch
-        # 0 Inserate, könnte die Seite ihre Angebote per JavaScript nachladen.
-        # Letzter, teurerer Versuch mit echtem Browser statt reinem HTTP-Abruf.
-        used_playwright = False
-        # Playwright ist der teuerste Schritt. Quellen, bei denen er schon
-        # mehrfach nichts gebracht hat, nicht jedes Mal erneut damit belasten -
-        # alle PLAYWRIGHT_RETRY_EVERY Laeufe genuegt ein neuer Versuch.
-        pw_fehl = (prev_entry or {}).get("playwright_vergeblich", 0)
-        pw_versuchen = pw_fehl < PLAYWRIGHT_GIVE_UP_AFTER or \
-            (pw_fehl % PLAYWRIGHT_RETRY_EVERY == 0)
-        if not listings and not pw_versuchen:
-            print(f"  -> Browser-Rendering übersprungen "
-                  f"({pw_fehl}x ohne Ergebnis)")
-        if not listings and pw_versuchen:
-            rendered_html = fetch_rendered_html(current_page_url)
-            if rendered_html:
-                pages_checked += 1
-                try:
-                    rendered_listings = extract_listings(current_page_url, extract_text(rendered_html))
-                except Exception as e:
-                    rendered_listings = []
-                    print(f"  -> Extraktion nach Playwright-Rendering fehlgeschlagen: {e}")
-                if rendered_listings:
-                    print(f"  -> JavaScript-gerendert (Playwright) gefunden: {len(rendered_listings)} Inserat(e)")
-                    listings = rendered_listings
-                    current_html = rendered_html
-                    used_playwright = True
-
-        # Folgeseiten: solange ein "weiter"-Link existiert und noch Inserate kommen
-        extra_pages = 0
-        seen_page_urls = {url, current_page_url}
-        next_url = find_next_page_url(current_html, current_page_url) if listings else None
-        while (next_url and extra_pages < MAX_EXTRA_PAGES
-               and next_url not in seen_page_urls and not budget_exceeded()):
-            seen_page_urls.add(next_url)
-            time.sleep(SLEEP_BETWEEN_PAGES)
-            page_html, page_err = fetch(next_url)
-            if not page_html:
-                break
-            pages_checked += 1
-            extra_pages += 1
-            try:
-                page_listings = extract_listings(next_url, extract_text(page_html))
-            except Exception as e:
-                print(f"  -> Extraktion der Folgeseite fehlgeschlagen: {e}")
-                break
-            if not page_listings:
-                break  # vermutlich Ende der Liste erreicht
-            print(f"  -> Folgeseite {extra_pages} geladen: {len(page_listings)} weitere Inserat(e)")
-            listings = listings + page_listings
-            current_html = page_html
-            next_url = find_next_page_url(page_html, next_url)
-
-        print(f"  -> {len(listings)} Inserat(e) erkannt (über {pages_checked} Seite(n)"
-              f"{', per Browser gerendert' if used_playwright else ''})")
-
-        if DEBUG_EMPTY and not listings:
-            dbg = extract_text(current_html)
-            print(f"  [DEBUG] extrahierter Text ({len(dbg)} Zeichen) von {current_page_url}:")
-            print("  [DEBUG] " + (dbg[:DEBUG_TEXT_CHARS].replace("\n", " ") or "(LEER)"))
-            print("  [DEBUG] ---")
-        update_site_status(
-            status, url, ok=True, listing_count=len(listings),
-            suggested_url=suggested_url, pages_checked=pages_checked,
-        )
-        # Zaehler fuer vergebliche Browser-Versuche pflegen
-        if used_playwright and listings:
-            status[url]["playwright_vergeblich"] = 0
-        elif pw_versuchen and not listings:
-            status[url]["playwright_vergeblich"] = pw_fehl + 1
-        elif pw_fehl:
-            status[url]["playwright_vergeblich"] = pw_fehl
-
-        # Reihenfolge bewusst erhalten (Liste statt Menge): nur so laesst
-        # sich spaeter das Aelteste abschneiden. Das Set dient nur dem
-        # schnellen Nachschlagen.
-        bekannt_liste = list(seen.get(url, []))
-        known = set(bekannt_liste)
-        new_on_this_site = 0
-
-        for listing in listings:
-            key = listing_key(listing, url)
-            seen_keys_this_run.add(key)   # für "nicht mehr gelistet"-Erkennung
-            total_listings_seen += 1
-            if key not in known:
-                known.add(key)
-                bekannt_liste.append(key)
-                new_on_this_site += 1
-
-            # WICHTIG: Die Kriterien werden auf JEDES erkannte Inserat
-            # angewandt, nicht nur auf neue. Sonst wuerde eine Lockerung der
-            # Kriterien (z.B. niedrigere Mindestmiete) laengst bekannte, aber
-            # nun passende Wohnungen nie erfassen. Ob gemeldet wird, entscheidet
-            # allein, ob der Treffer schon in data.json steht.
-            passt, gruende = matches_criteria(listing)
-            if not passt:
-                for g in gruende:
-                    rejection_stats[g] = rejection_stats.get(g, 0) + 1
-                # Knapp verfehlt? Dann nicht verwerfen, sondern in einen
-                # eigenen Bereich der App legen - die Entscheidung, ob 79 statt
-                # 80 qm noch passt, trifft besser der Mensch als der Filter.
-                if is_near_miss(listing, gruende):
-                    rec = build_match_record(key, listing, url)
-                    rec["miss_reason"] = gruende[0]
-                    app_near_misses.append(rec)
+        try:
+            r = stufe1(site, abruf_url, html)
+            if r.get("ki_offen"):
+                batch.append(r)
                 continue
+            abschliessen(r)
+        except Exception as e:  # eine kaputte Quelle darf den Lauf nicht beenden
+            print(f"  -> Unerwarteter Fehler, Quelle übersprungen: {e!r}")
+            errors[site] = f"intern: {e!r}"
 
-            if key not in already_reported:
-                already_reported.add(key)
-                print(f"     TREFFER: {listing.get('title')}")
-                app_matches.append(build_match_record(key, listing, url))
-                total_new_matches += 1
+    if batch:
+        print(f"\nAnthropic-Batch: {len(batch)} Seite(n) …")
+        ergebnisse = extraktion.run_batch_extraction(
+            [(str(n), r["page_url"], r["text"]) for n, r in enumerate(batch)])
+        for n, r in enumerate(batch):
+            if budget_exceeded():
+                break
+            r.update(listings=ergebnisse.get(str(n)) or [], quelle="ki")
+            print(f"Batch-Ergebnis: {r['site']}")
+            try:
+                abschliessen(r)
+            except Exception as e:
+                print(f"  -> Unerwarteter Fehler: {e!r}")
 
-        if new_on_this_site:
-            print(f"  -> {new_on_this_site} davon neu seit letztem Lauf")
-
-        # Aelteste Eintraege abschneiden. Ohne Begrenzung waechst die Datei
-        # mit jedem Lauf, wird jedes Mal gelesen, geschrieben und committet -
-        # und bremst den Lauf irgendwann spuerbar aus.
-        if len(bekannt_liste) > MAX_SEEN_PER_SITE:
-            bekannt_liste = bekannt_liste[-MAX_SEEN_PER_SITE:]
-        seen[url] = bekannt_liste
-
-    save_json(SEEN_FILE, seen)
-    save_json(HASH_FILE, hashes)
+    save_json(SEEN_FILE, S["seen"])
+    save_json(SITE_CACHE_FILE, S["cache"], kompakt=True)
     save_json(ERROR_LOG, errors)
     save_json(STATUS_FILE, status)
-    save_geocode_cache()
+    _speichere_gemeldet()
+    kriterien.save_geocode_cache()
 
-    # "Nicht mehr gelistet" darf nur der vollstaendige Lauf bewerten. Der
-    # schnelle Lauf sieht nur einen Bruchteil der Quellen und wuerde sonst
-    # alle uebrigen Treffer faelschlich als verschwunden markieren.
-    vollstaendig_durchgelaufen = not budget_exceeded()
-    is_full_run = SITES_FILE == "sites.json" and vollstaendig_durchgelaufen
-    if not vollstaendig_durchgelaufen:
-        print("Hinweis: Lauf wurde durch die Zeitgrenze beendet - die "
-              "'nicht mehr gelistet'-Erkennung bleibt deshalb aus.")
-    update_app_data(app_matches, seen_keys_this_run if is_full_run else None, app_near_misses)
-    send_digest_notification(app_matches)
+    vollstaendig = verarbeitet == len(auftraege) and not budget_exceeded()
+    is_full_run = SITES_FILE == "sites.json" and vollstaendig
+    if not vollstaendig:
+        print("Hinweis: Lauf unvollständig - 'nicht mehr gelistet' wird nicht bewertet.")
+    update_app_data(S["treffer"], S["seen_keys"] if is_full_run else None, S["near"])
 
-    # Verworfen-Statistik für den Status-Tab: zeigt, woran Inserate scheitern
-    stats_payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "listings_seen": total_listings_seen,
-        "matches": len(app_matches),
-        "rejected": rejection_stats,
-        "rejected_total": sum(rejection_stats.values()),
+    z = S["zaehler"]
+    stats = {
+        "generated_at": now_iso(),
+        "listings_seen": S["listings_seen"],
+        "matches": len(S["treffer"]),
+        "rejected": S["rejected"],
+        "rejected_total": sum(S["rejected"].values()),
         "sites_total": len(sites),
         "sites_with_errors": len(errors),
+        "ohne_ki": sum(z[k] for k in ("json-ld", "microdata", "eingebettetes json",
+                                      "xhr-json", "feed")),
+        "aus_cache": z["cache"],
+        "vorfilter": z["vorfilter"],
+        "ki_aufrufe": extraktion.ki_aufrufe,
+        "ki_abgeschnitten": extraktion.ki_abgeschnitten,
+        "quellen_nach_art": dict(z),
+        "near_misses": len(S["near"]),
+        "quota_exhausted": extraktion.quota_exhausted,
+        "laufzeit_min": round(util.minuten_seit_start(), 1),
+        "run_type": "voll" if is_full_run else "schnell",
     }
-    stats_payload["ohne_ki"] = jsonld_treffer
-    stats_payload["near_misses"] = len(app_near_misses)
-    stats_payload["quota_exhausted"] = _quota_exhausted
-    stats_payload["run_type"] = "voll" if is_full_run else "schnell"
-
-    # Beide Lauf-Arten schrieben bisher in dieselbe Datei - der kurze Lauf
-    # (17 Quellen) ueberschrieb damit die Auswertung des langen (139 Quellen).
-    # Jetzt behaelt jede Art ihren eigenen Eintrag.
     stats_all = load_json(STATS_FILE, {})
-    if "listings_seen" in stats_all:        # altes Format einmalig uebernehmen
+    if "listings_seen" in stats_all:
         stats_all = {"voll": stats_all}
-    stats_all[stats_payload["run_type"]] = stats_payload
+    stats_all[stats["run_type"]] = stats
     save_json(STATS_FILE, stats_all)
 
-    if _quota_exhausted:
-        # Wichtig zu wissen: dieser Lauf war unvollstaendig. Sonst sieht ein
-        # ausgeschoepftes Kontingent aus wie "es gab nichts Passendes".
-        print("WARNUNG: Gemini-Kontingent war erschöpft – dieser Lauf hat "
-              "nicht alle Seiten ausgewertet.")
+    if extraktion.quota_exhausted:
         push("Wohnungssuche: Lauf unvollständig",
-             "Das Gemini-Tageskontingent war erschöpft. Nicht alle Quellen "
-             "wurden ausgewertet. Prüfe die Lauf-Frequenz.",
-             priority="high", tags="warning")
+             "Das Gemini-Tageskontingent war erschöpft. Nicht alle Quellen wurden "
+             "ausgewertet.", priority="high", tags="warning")
     else:
-        maybe_send_heartbeat(stats_payload)
+        maybe_send_heartbeat(stats)
 
     print()
-    print(f"Fertig. {total_new_matches} neue(s) passende(s) Inserat(e) gemeldet.")
-    print(f"{jsonld_treffer} Seite(n) kamen ohne KI-Aufruf aus "
-          f"(strukturierte Daten).")
-    print(f"Insgesamt {total_listings_seen} Inserat(e) erkannt. "
-          f"Verworfen nach Grund (ein Inserat kann an mehreren scheitern, "
-          f"die Summe liegt daher ueber der Zahl der Inserate):")
-    for grund, anzahl in sorted(rejection_stats.items(), key=lambda x: -x[1]):
-        print(f"   {grund}: {anzahl}")
+    print(f"Fertig in {stats['laufzeit_min']} Min. {len(S['treffer'])} neue(r) Treffer gemeldet.")
+    print(f"KI-Aufrufe: {extraktion.ki_aufrufe} · aus Cache: {z['cache']} · "
+          f"Vorfilter: {z['vorfilter']} · ohne KI: {stats['ohne_ki']}"
+          + (f" · abgeschnitten: {extraktion.ki_abgeschnitten}" if extraktion.ki_abgeschnitten else ""))
+    print(f"{S['listings_seen']} Inserat(e) erkannt. Verworfen nach Grund:")
+    for g, n in sorted(S["rejected"].items(), key=lambda x: -x[1]):
+        print(f"   {g}: {n}")
     if errors:
-        print(f"{len(errors)} Seite(n) konnten nicht abgerufen werden (siehe {ERROR_LOG}).")
+        print(f"{len(errors)} Quelle(n) mit Fehlern (siehe {ERROR_LOG}).")
 
 
 if __name__ == "__main__":

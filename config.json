@@ -1,5 +1,8 @@
 {
   "cooldown_enabled": false,
+  "ki_cache": true,
+  "ki_cache_stunden": 24,
+  "ki_cache_leer_stunden": 8,
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -26,6 +29,7 @@
     "mitte_radius_km": 1.8,
     "prenzlauer_berg_radius_km": 1.8,
     "knapp_groesse_toleranz": 0.12,
-    "knapp_miete_toleranz": 0.12
+    "knapp_miete_toleranz": 0.12,
+    "nebenkosten_pro_qm": 3.0
   }
 }

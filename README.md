@@ -4,11 +4,9 @@
 Mietwohnungsinserate und schickt bei Treffern eine Push-Benachrichtigung ans
 iPhone.
 
-**Aktuelle Suchkriterien** (in `scrape.py`, ganz oben im Abschnitt `CRITERIA`):
-- Ab 3 Zimmer
-- Ab 85 qm
-- Kaltmiete zwischen 1.500 € und 2.300 €
-- Bezirk: Mitte, Prenzlauer Berg, Charlottenburg
+**Suchkriterien** stehen in `config.json` und lassen sich auch in der App
+ändern (Zimmer, Fläche, Kaltmiete, Gebiete, eigenes Gebiet auf der Karte).
+Vorgaben und Kiez-Listen stehen in `kriterien.py`.
 
 Das Skript läuft nicht auf deinem iPhone (das lässt iOS technisch nicht zu),
 sondern automatisch in der Cloud (kostenlos über GitHub Actions) und schickt
@@ -36,20 +34,19 @@ dir eine Push-Nachricht, sobald etwas Passendes gefunden wurde.
 3. Diesen Topic-Namen brauchst du gleich in Schritt 3.
 
 ### Schritt 3: API-Key & Secrets hinterlegen
-1. Einen Anthropic-API-Key erstellen: [console.anthropic.com](https://console.anthropic.com)
-   → "API Keys" → neuen Key erstellen. (Für die Größenordnung von ~120
-   Seiten, 3x täglich geprüft, liegen die Kosten typischerweise im
-   niedrigen einstelligen Euro-Bereich pro Monat, da dank Change-Detection
-   nur bei tatsächlichen Seitenänderungen ein API-Aufruf erfolgt.)
+1. Einen kostenlosen Gemini-API-Key erstellen
+   ([aistudio.google.com](https://aistudio.google.com) → "Get API key").
+   Alternativ Anthropic ([console.anthropic.com](https://console.anthropic.com));
+   dann in den Workflows `AI_PROVIDER: "anthropic"` setzen.
 2. Im GitHub-Repository: **Settings → Secrets and variables → Actions →
    New repository secret**
 3. Zwei Secrets anlegen:
-   - `ANTHROPIC_API_KEY` → dein API-Key aus Schritt 1
+   - `GEMINI_API_KEY` (oder `ANTHROPIC_API_KEY`) → dein API-Key aus Schritt 1
    - `NTFY_TOPIC` → dein Topic-Name aus Schritt 2 (z. B. `immo-berlin-x7f2k9`)
 
 ### Schritt 4: Die App auf deinem iPhone einrichten
 1. Im Repository: **Settings → Pages** → unter "Build and deployment" als
-   Quelle **"Deploy from a branch"** wählen, Branch `main`, Ordner `/docs` →
+   Quelle **"Deploy from a branch"** wählen, Branch `main`, Ordner `/ (root)` →
    Speichern.
 2. GitHub zeigt dir nach kurzer Zeit eine URL wie
    `https://DEIN-NAME.github.io/immo-watcher/`. Diese im Safari auf dem
@@ -60,7 +57,7 @@ dir eine Push-Nachricht, sobald etwas Passendes gefunden wurde.
    alle bisher gefundenen, passenden Inserate.
 
 > Hinweis: GitHub Pages ist bei kostenlosen Accounts nur für **öffentliche**
-> Repositories automatisch nutzbar. Da in `docs/data.json` nur Wohnungsdaten
+> Repositories automatisch nutzbar. Da in `data.json` nur Wohnungsdaten
 > (keine persönlichen Daten von dir) stehen, ist ein öffentliches Repository
 > hierfür unproblematisch. Falls dir das trotzdem unangenehm ist, sag
 > Bescheid – dann richten wir es alternativ über ein privates Repo mit
@@ -70,8 +67,9 @@ dir eine Push-Nachricht, sobald etwas Passendes gefunden wurde.
 ### Schritt 5: Workflow aktivieren
 1. Im Repository auf den Tab **"Actions"** klicken.
 2. Falls gefragt: Workflows aktivieren.
-3. Der Workflow "Wohnungssuche Berlin" läuft ab jetzt automatisch 3x täglich (siehe
-   Zeiten in `.github/workflows/check.yml`). Du kannst ihn zusätzlich
+3. Ab jetzt laufen automatisch: der volle Lauf (alle Quellen, 2× täglich,
+   `.github/workflows/check.yml`) und der Schnell-Lauf (ertragreichste
+   Quellen, alle 2 Stunden, `.github/workflows/check-fast.yaml`). Du kannst ihn zusätzlich
    jederzeit manuell anstoßen: Actions → "Wohnungssuche Berlin" → "Run workflow".
 
 Das war's – ab jetzt bekommst du automatisch eine Push-Nachricht, sobald ein
@@ -81,59 +79,73 @@ neues, passendes Inserat gefunden wird.
 
 ## 2. Wie es funktioniert
 
-1. Für jede der 123 URLs wird die Seite abgerufen.
-2. Hat sich der Seiteninhalt seit dem letzten Lauf **nicht** verändert, wird
-   die Seite übersprungen (spart API-Kosten und Zeit).
-3. Bei Änderungen wird der Text an die Claude API geschickt, die daraus die
-   einzelnen Inserate (Adresse, Zimmer, Fläche, Miete, Bezirk) strukturiert
-   herausliest – das funktioniert unabhängig davon, wie unterschiedlich die
-   Webseiten aufgebaut sind.
-4. Jedes Inserat wird mit bereits bekannten Inseraten abgeglichen (Datei
-   `data/seen_listings.json`), damit nichts doppelt gemeldet wird.
-5. Neue Inserate werden gegen deine Kriterien geprüft. Bei Treffer: Push
-   über ntfy **und** ein neuer Eintrag in der Homescreen-App (`docs/data.json`),
-   die du jederzeit öffnen kannst, um alle bisherigen Treffer zu sehen.
+1. Alle Quellen werden **parallel** abgerufen (8 gleichzeitig). Die
+   Auswertung beginnt, sobald die erste Seite da ist.
+2. Je Quelle wird gemerkt, **wie** sie zuletzt erfolgreich ausgelesen wurde
+   (`data/site_cache.json`): direkt, über eine Unterseite, über einen Feed
+   oder per Browser. Der nächste Lauf geht direkt dorthin.
+3. Auswertung, billig vor teuer:
+   1. **Strukturierte Daten** in der Seite (schema.org JSON-LD/Microdata,
+      eingebettetes JSON) – kostenlos und exakt.
+   2. **Inserats-Feeds** (RSS/Atom), nur wenn die Einträge Zimmer/Fläche
+      enthalten. Blog- und Kommentar-Feeds werden ignoriert.
+   3. **Ergebnis-Cache**: Ist der Seitentext unverändert, wird das letzte
+      Ergebnis wiederverwendet (max. 24 h, leere Ergebnisse max. 8 h).
+   4. **Vorfilter**: Seiten ohne Preis-/Flächenangaben brauchen keine KI.
+   5. **KI-Extraktion** (Gemini mit festem JSON-Schema). Abgeschnittene
+      Antworten werden teilweise gerettet statt verworfen.
+4. Liefert die Seite nichts: vermutete Angebots-Unterseite, dann echter
+   Browser (Playwright). Im Browser werden die JSON-Daten mitgelesen, die
+   Makler-Widgets nachladen – oft ohne KI auswertbar.
+5. Jedes Inserat wird gegen die Kriterien geprüft. Ein Treffer wird
+   **sofort** gepusht (bei einem einzelnen Treffer öffnet der Tap direkt
+   das Inserat), nicht erst am Ende des Laufs.
+6. Knapp verfehlte Inserate (ein Kriterium knapp daneben, oder Lage ohne
+   Adresse nicht prüfbar) landen im Reiter "Knapp verfehlt".
 
-Der Status (bekannte Inserate, Seiten-Hashes) wird nach jedem Lauf automatisch
-zurück ins Repository committet, damit der nächste Lauf darauf aufbauen kann.
+Bereits gemeldete Inserate stehen in `data/gemeldet.json` – auch
+Dubletten über mehrere Portale werden so nicht erneut gemeldet.
 
----
+## 3. Einstellungen in `config.json`
 
-## 3. Bekannte Einschränkungen
+| Schlüssel | Bedeutung |
+|---|---|
+| `criteria.*` | Zimmer, Fläche, Miete, Gebiete, Radien, Toleranzen (auch per App) |
+| `criteria.nebenkosten_pro_qm` | Für Inserate mit nur Warmmiete: geschätzte Nebenkosten (Vorgabe 3,00 €/m²) |
+| `ki_cache` | Ergebnis-Cache an/aus (Vorgabe: an) |
+| `ki_cache_stunden` / `ki_cache_leer_stunden` | Höchstalter des Caches (24 / 8 h) |
+| `cooldown_enabled` | Dauerhaft fehlerhafte Quellen nur alle 3 Wochen prüfen |
 
-- **JavaScript-lastige Seiten**: Einige Websites bauen ihre Angebotsliste
-  erst per JavaScript im Browser auf (z. B. Seiten mit `#/list1` in der
-  URL). Diese liefern dem Skript unter Umständen eine leere Hülle statt der
-  echten Inserate. Falls du bei bestimmten Seiten merkst, dass nie etwas
-  gemeldet wird, sag mir Bescheid – für diese Fälle kann man auf einen
-  "echten Browser" (Playwright) umsteigen, das ist aufwändiger, aber lösbar.
-- **ImmoScout24-Links ausgeschlossen**: Die beiden Links der Form
-  `portal.immobilienscout24.de/ergebnisliste/...?sid=...` aus deiner Liste
-  wurden nicht aufgenommen, da es sich um an deinen persönlichen Login
-  gebundene, ablaufende Session-Links handelt, die ein Skript ohne dein
-  Passwort nicht abrufen kann. Für ImmoScout24 empfiehlt sich stattdessen
-  der **native E-Mail-Alarm von ImmoScout24 selbst** (eigene gespeicherte
-  Suche mit Benachrichtigung) – der öffentliche Anbieter-Profil-Link
-  (`leible-und-cie`) ist dagegen enthalten.
-- **Kauf-Angebote ausgeschlossen**: Zwei Links, die erkennbar nur
-  Kaufangebote zeigten, wurden nicht aufgenommen.
-- Die Bezirks-Erkennung ist Best-Effort: Wenn auf einer Seite kein Bezirk
-  erkennbar ist, wird das Inserat trotzdem gemeldet (lieber ein
-  Fehlalarm als ein verpasstes Angebot) – du kannst das bei Bedarf strenger
-  einstellen.
+## 4. Bekannte Einschränkungen
 
-## 4. Kriterien oder URL-Liste anpassen
+- **ImmoScout24-Suchlinks** sind an einen Login gebunden und nicht abrufbar.
+  Dafür besser den E-Mail-Alarm von ImmoScout24 selbst nutzen.
+- **Lage in Charlottenburg, Viktoria-Luise und am Spreeufer** lässt sich nur
+  mit Straßenangabe prüfen. Ohne Adresse landet ein sonst passendes Inserat
+  unter "Knapp verfehlt" (Grund: Lage prüfen).
+- Die Warmmiete-Schätzung ist grob. Solche Inserate zeigt die App mit
+  "€ warm" und "kalt ca.".
 
-- **Kriterien ändern**: `scrape.py` öffnen, den Block `CRITERIA` oben
-  anpassen (Zimmer, Fläche, Miete, Bezirke), Datei committen – fertig.
-- **URLs hinzufügen/entfernen**: `sites.json` bearbeiten (einfaches
-  JSON-Array mit URLs).
-
-## 5. Lokal testen (optional, für technisch Interessierte)
+## 5. Lokal testen
 
 ```bash
-pip install -r requirements.txt
-export ANTHROPIC_API_KEY="dein-key"
-export NTFY_TOPIC="dein-topic"
+pip install -r requirements-dev.txt
+python -m pytest -q tests                 # Filter und Parser, ohne Netz
+
+export GEMINI_API_KEY="dein-key" AI_PROVIDER=gemini NTFY_TOPIC="dein-topic"
 python scrape.py
+
+AI_PROVIDER=none python scrape.py         # Trockenlauf ohne KI
+DEBUG_EMPTY=1 python scrape.py            # Text leerer Quellen ins Log
 ```
+
+## 6. Dateien
+
+| Datei | Inhalt |
+|---|---|
+| `scrape.py` | Ablauf, Status, App-Daten, Benachrichtigungen |
+| `abruf.py` | HTTP (parallel), Browser, Link-Navigation |
+| `extraktion.py` | Strukturierte Daten, Feeds, Vorfilter, KI |
+| `kriterien.py` | Kriterien, Lage, Geocoding |
+| `util.py` | Dateien, Zeitbudget, Rate-Limiter |
+| `tests/` | Tests (laufen automatisch bei Code-Änderungen) |

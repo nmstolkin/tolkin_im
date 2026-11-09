@@ -761,6 +761,7 @@ function cardHTML(m, opts){
   if(m.size_qm) tags.push(`<span class="tag">${m.size_qm} m²</span>`);
   if(m.district) tags.push(`<span class="tag">${m.district}${m.plz ? ' ' + m.plz : ''}</span>`);
   else if(m.plz) tags.push(`<span class="tag">${m.plz}</span>`);
+  if(m.frei_ab) tags.push(`<span class="tag">frei ab ${m.frei_ab}</span>`);
 
   const isFav = favorites.has(m.key);
   const link = m.url || m.site_url || '#';
@@ -771,6 +772,11 @@ function cardHTML(m, opts){
     ? `<div style="text-align:right;">
          <div class="rent-figure">${Number(m.rent).toLocaleString('de-DE')}<span class="unit">€</span></div>
          ${m.price_per_sqm ? `<div class="rent-sub">${String(m.price_per_sqm).replace('.', ',')} €/m²</div>` : ''}
+       </div>`
+    : m.rent_warm
+    ? `<div style="text-align:right;">
+         <div class="rent-figure">${Number(m.rent_warm).toLocaleString('de-DE')}<span class="unit">€ warm</span></div>
+         ${m.rent_kalt_geschaetzt ? `<div class="rent-sub">kalt ca. ${Number(m.rent_kalt_geschaetzt).toLocaleString('de-DE')} €</div>` : ''}
        </div>`
     : `<div class="rent-sub">Miete auf Anfrage</div>`;
 
@@ -849,6 +855,17 @@ function renderFavorites(){
   list.innerHTML = sorted.map(m => cardHTML(m, {showHide:false})).join('');
 }
 
+function laufEffizienz(s){
+  if(s.ki_aufrufe === undefined) return '';
+  return `<p class="help" style="margin:6px 0 10px;">
+      ${s.laufzeit_min !== undefined ? `<strong>${String(s.laufzeit_min).replace('.', ',')}</strong> Min · ` : ''}
+      <strong>${s.ki_aufrufe}</strong> KI-Aufrufe ·
+      <strong>${s.aus_cache || 0}</strong> Quellen aus Cache ·
+      <strong>${s.ohne_ki || 0}</strong> ohne KI ausgelesen
+      ${s.ki_abgeschnitten ? ` · <span style="color:var(--alert);">${s.ki_abgeschnitten} KI-Antwort(en) abgeschnitten</span>` : ''}
+    </p>`;
+}
+
 function renderFastStats(){
   const s = runStatsFast;
   if(!s) return '';
@@ -861,6 +878,7 @@ function renderFastStats(){
         <strong>${s.matches || 0}</strong> passend
         ${s.quota_exhausted ? ' · <span style="color:var(--alert);">Kontingent war erschöpft</span>' : ''}
       </p>
+      ${laufEffizienz(s)}
     </div>`;
 }
 
@@ -890,6 +908,7 @@ function renderRunStats(){
 
   const labels = {
     lage: 'Lage außerhalb der Gebiete',
+    lage_unklar: 'Lage ohne Adresse nicht prüfbar',
     miete: 'Miete außerhalb der Spanne',
     groesse: 'zu klein',
     zimmer: 'zu wenige Zimmer',
@@ -917,6 +936,7 @@ function renderRunStats(){
         <strong>${runStats.matches || 0}</strong> davon passend ·
         <strong>${runStats.rejected_total || 0}</strong> verworfen
       </p>
+      ${laufEffizienz(runStats)}
       ${rows || '<p class="help" style="margin:0;">Keine Verwerfungen erfasst.</p>'}
     </div>
     ${renderFastStats()}
@@ -978,7 +998,7 @@ function renderStatus(){
 }
 
 function renderNearMisses(){
-  const labels = {groesse:'zu klein', miete:'zu teuer', zimmer:'zu wenige Zimmer'};
+  const labels = {groesse:'zu klein', miete:'zu teuer', zimmer:'zu wenige Zimmer', lage_unklar:'Lage prüfen (ohne Adresse)'};
   const list = document.getElementById('nearList');
   setNavBadge('nearTabCount', allNearMisses.length);
   document.getElementById('nearCountLabel').innerHTML = allNearMisses.length
@@ -1174,6 +1194,7 @@ function renderMap(){
     if(m.rooms) tags.push(`${m.rooms} Zi.`);
     if(m.size_qm) tags.push(`${m.size_qm} qm`);
     if(m.rent) tags.push(`${m.rent} €`);
+    else if(m.rent_warm) tags.push(`${m.rent_warm} € warm`);
     if(m.price_per_sqm) tags.push(`${m.price_per_sqm} €/qm`);
 
     const popupHtml = `

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T15:55:11.683165+00:00",
+  "generated_at": "2026-11-09T23:52:46.300448+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -695,6 +695,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|118|1890|10551",
+      "title": "Etagenwohnung Typ Stuckaltbau im Wiclefkiez, Sonnenbalkon, grün, ruhig, hohe Decken",
+      "rooms": 4,
+      "size_qm": 118,
+      "rent": 1890,
+      "price_per_sqm": 16.0,
+      "district": "Wiclefkiez",
+      "plz": "10551",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-11-09T23:49:44.323329+00:00",
+      "miss_reason": "lage_unklar"
+    },
     {
       "key": "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108418/",
       "title": "4 Zimmer Wohnung mit Balkon in Charlottenburg",

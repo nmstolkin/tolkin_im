@@ -555,5 +555,8 @@
   "Prinzenallee 21, Berlin, Berlin, Germany": [
     52.5554978,
     13.3842423
-  ]
+  ],
+  "Turnerstraße 11, Berlin, Germany": {
+    "miss_at": "2026-11-09T15:18:43.068141+00:00"
+  }
 }

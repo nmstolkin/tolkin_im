@@ -191,7 +191,10 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|40|1100|10115",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|52|1400|10439",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|30|900|10997",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::3|104|2124|10247"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|104|2124|10247",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|52|515|13581",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|65|1590|12169",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|60|1109|12555"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -677,7 +680,8 @@
     "https://inberlinwohnen.de/wohnungsfinder/::3|76.4|538.3|10315",
     "https://inberlinwohnen.de/wohnungsfinder/::3|74.7|496.4|12619",
     "https://inberlinwohnen.de/wohnungsfinder/::2|56.9|889.9|12439",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|65.9|803.5|12587"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|65.9|803.5|12587",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|49|347.9|13053"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -916,7 +920,13 @@
     "https://imms-immobilien.de/mietobjekte/::2|53||13086",
     "https://imms-immobilien.de/mietobjekte/::1|41||neukölln",
     "https://imms-immobilien.de/mietobjekte/::1|32||schöneberg",
-    "https://imms-immobilien.de/mietobjekte/::1|40||12559"
+    "https://imms-immobilien.de/mietobjekte/::1|40||12559",
+    "https://imms-immobilien.de/mietobjekte/::https://imms-immobilien.de/miete/berlin-steglitz-2-zimmer-altbau-wohnung-ca-78-m%c2%b2/",
+    "https://imms-immobilien.de/mietobjekte/::https://imms-immobilien.de/miete/berlin-pankow-2-zimmer-neubau-wohnung-ca-65-m%c2%b2/",
+    "https://imms-immobilien.de/mietobjekte/::https://imms-immobilien.de/miete/berlin-charlottenburg-2-zimmer-wohnung-ca-50-m%c2%b2/",
+    "https://imms-immobilien.de/mietobjekte/::https://imms-immobilien.de/miete/berlin-prenzlauer-berg-3-zimmer-dachgeschoss-wohnung-ca-165-m%c2%b2/",
+    "https://imms-immobilien.de/mietobjekte/::https://imms-immobilien.de/miete/berlin-weissensee-2-3-zimmer-dachgeschoss-wohnungen-von-53-bis-88-m%c2%b2/",
+    "https://imms-immobilien.de/mietobjekte/::https://imms-immobilien.de/miete/berlin-koepenick-premium-penthouse-vollstaendig-moebliert-ca-119-m%c2%b2/"
   ],
   "https://www.kfh-hv.de/mieten/wohnen/": [],
   "https://www.goodlifeimmobilien.de/wohnungsangebote": [],
@@ -945,9 +955,40 @@
     "https://apartberlin.de/unsere-objekte/::|||10555",
     "https://apartberlin.de/unsere-objekte/::|||12159"
   ],
-  "https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=Berlin&immoType=wohnung": [],
+  "https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=Berlin&immoType=wohnung": [
+    "https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=Berlin&immoType=wohnung::https://www.vonovia.de/zuhause-finden/immobilien?renttype=miete&city=berlin&immotype=wohnung"
+  ],
   "https://progenea-berlin.de/immobilien-mieten/": [],
-  "https://www.livinginberlin.de/angebote/mieten": [],
+  "https://www.livinginberlin.de/angebote/mieten": [
+    "https://www.livinginberlin.de/angebote/mieten::3|81.1|974.3|rummelsburg",
+    "https://www.livinginberlin.de/angebote/mieten::2|46.3|675|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::1|36.3|550|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::1|53.7|750|tempelhof",
+    "https://www.livinginberlin.de/angebote/mieten::3|62.4|875|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::2|49.3|725|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::2|55.7|800|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::2|54.9|750|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::3|81.5|652.8|spandau",
+    "https://www.livinginberlin.de/angebote/mieten::2|58.2|757|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::4|105|1049|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::1.5|49.0|489.9|lichtenrade",
+    "https://www.livinginberlin.de/angebote/mieten::3|62.2|777.5|schönefeld",
+    "https://www.livinginberlin.de/angebote/mieten::3|65.9|823.5|schönefeld",
+    "https://www.livinginberlin.de/angebote/mieten::4|84.9|1018.6|schönefeld",
+    "https://www.livinginberlin.de/angebote/mieten::1.5|60.0|750|spandau",
+    "https://www.livinginberlin.de/angebote/mieten::2|59.5|865|französisch buchholz",
+    "https://www.livinginberlin.de/angebote/mieten::3|85|1099|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::2|73.5|571.0|wilmersdorf",
+    "https://www.livinginberlin.de/angebote/mieten::3|94.7|1200|reinickendorf",
+    "https://www.livinginberlin.de/angebote/mieten::3|56.5|800|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::3|92.3|1250|wedding",
+    "https://www.livinginberlin.de/angebote/mieten::2|58.1|899|wedding",
+    "https://www.livinginberlin.de/angebote/mieten::2|44.4|625|weißensee",
+    "https://www.livinginberlin.de/angebote/mieten::3|73.4|1499|alt-hohenschönhausen",
+    "https://www.livinginberlin.de/angebote/mieten::3|86.6|1327.0|kaulsdorf",
+    "https://www.livinginberlin.de/angebote/mieten::3|79.1|656.9|lichtenrade",
+    "https://www.livinginberlin.de/angebote/mieten::2|126|2142|niederschöneweide"
+  ],
   "https://www.degewo.de/immosuche": [
     "https://www.degewo.de/immosuche::1|45.5||köpenick",
     "https://www.degewo.de/immosuche::2|59.6||joachim-ringelnatz-siedlung",
@@ -1052,7 +1093,9 @@
     "https://deinhart-immobilien.de/immobilien-fenster/::1.5|61|644.9|14476"
   ],
   "https://www.kwco.de/de": [],
-  "https://www.dydo.de/": [],
+  "https://www.dydo.de/": [
+    "https://www.dydo.de/::https://www.dydo.de/immobilien#angebote"
+  ],
   "https://www.zachger.de/immobilienangebote/": [],
   "https://www.harke-vonbismarck.de/immobilien/mietobjekte": [],
   "https://www.ruedrich-immobilien.de/immobilie-mieten-berlin/": [
@@ -1061,7 +1104,18 @@
   ],
   "https://krossa-co.de/": [],
   "https://www.schacher-immobilien.de/angebote/wohnungen/?pageIdc99d0251=2#list_c99d0251": [],
-  "https://www.agas-immobilien.de/immobilien/": [],
+  "https://www.agas-immobilien.de/immobilien/": [
+    "https://www.agas-immobilien.de/immobilien/::|70|1390|mitte",
+    "https://www.agas-immobilien.de/immobilien/::2|78|1800|",
+    "https://www.agas-immobilien.de/immobilien/::2|67|1900|",
+    "https://www.agas-immobilien.de/immobilien/::3|88|2240|",
+    "https://www.agas-immobilien.de/immobilien/::2|54|1490|",
+    "https://www.agas-immobilien.de/immobilien/::2|71|1695|",
+    "https://www.agas-immobilien.de/immobilien/::4|141|3600|",
+    "https://www.agas-immobilien.de/immobilien/::5|250|5350|",
+    "https://www.agas-immobilien.de/immobilien/::2|53|1500|friedrichshain / stralau",
+    "https://www.agas-immobilien.de/immobilien/::|75|1380|friedrichshain"
+  ],
   "https://immodo-berlin.de/immobilien/": [],
   "https://www.beckerundkries.de/mietende/angebote-wohnen/": [
     "https://www.beckerundkries.de/mietende/angebote-wohnen/::2|58.0|1319|14197",
@@ -1092,11 +1146,14 @@
     "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::3|||12355",
     "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::3|||10315",
     "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::2|||13127",
-    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::1.5|||12439"
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::1.5|||12439",
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::3|||12619",
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::4|||12629"
   ],
   "https://imw-wus.de/": [
     "https://imw-wus.de/::4|121|2900|10707",
-    "https://imw-wus.de/::||75|12353"
+    "https://imw-wus.de/::||75|12353",
+    "https://imw-wus.de/::https://imw-wus.de/"
   ],
   "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung": [
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|68.2||13355",
@@ -1182,7 +1239,9 @@
   ],
   "https://www.mj-immobilien.de/mietangebote-in-berlin.html": [],
   "https://www.gottschau-immobilien.de/miete.xhtml": [],
-  "https://guthmann.estate/de/immobilien/": [],
+  "https://guthmann.estate/de/immobilien/": [
+    "https://guthmann.estate/de/immobilien/::https://guthmann.estate/de/immobilien/projekte/sophie-charlotten-strasse-22a/"
+  ],
   "https://www.hancock-ag.de/wohnungsangebote/": [],
   "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0": [
     "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0::4|118.3|2949|12051",
@@ -1231,7 +1290,15 @@
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3|||letter"
   ],
-  "https://www.kurtzke-immobilien.de/objektstatus/miete/": [],
+  "https://www.kurtzke-immobilien.de/objektstatus/miete/": [
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/helle-modernisierte-bueroflaeche-sehr-zentral-am-spittelmarkt-gelegen-erdgeschoss/",
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/buero-praxisflaeche-nahe-hamburger-platz-provisionsfrei/",
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/buero-praxisflaeche-nahe-hamburger-platz-frisch-renoviert-provisionsfrei-2/",
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/ladenraeume-direkt-am-hamburger-platz-nahe-brotfabrik-spitze-prenzlauer-berg-provisionsfrei-2/",
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/ihr-eigenes-buero-im-officecenter-wig23-inkl-modernem-konferenzraum-loungebereich-und-kueche-nahe-hamburger-platz-provisionsfrei/",
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/buero-praxisflaeche-nahe-hamburger-platz-frisch-renoviert-provisionsfrei/",
+    "https://www.kurtzke-immobilien.de/objektstatus/miete/::https://www.kurtzke-immobilien.de/immobilien/ecklage-ladenraeume-in-beliebter-kiezlage-von-lichtenberg-provisionsfrei/"
+  ],
   "https://artvivendi-immobilien.de/aktuele-angebote.html": [],
   "https://www.werz-werz.de/werzimmobilien/": [
     "https://www.werz-werz.de/werzimmobilien/::https://www.werz-werz.de/immobilien/4037/"
@@ -1330,7 +1397,17 @@
     "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::1.5|32||kreuzberg",
     "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::1|36||friedrichshain",
     "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::2|50||kreuzberg",
-    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::1|35||schöneberg"
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::1|35||schöneberg",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-576/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-576",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-141/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-141",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-28/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-28",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-15/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-15",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-1120/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-1120",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-1093/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-1093",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-1030/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-1030",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-1004/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-1004",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-913/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-913",
+    "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::https://www.caseaberlino.com/immobilien/wohnung-etagenwohnung-in-berlin-mieten-cab-911/?utm_source=rss&utm_medium=rss&utm_campaign=wohnung-etagenwohnung-in-berlin-mieten-cab-911"
   ],
   "https://schick-24.everreal.co/candidates/public/listings": [],
   "https://famoza.de/ff/immobilien/?schema=flat_rent&price=&ffpage=1&sort=date": [],
@@ -1359,7 +1436,18 @@
   "https://tki.berlin/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id#038;vermarktungsart=miete&nutzungsart=wohnen&typ&ort=berlin&objekt-id": [],
   "https://akzent-info.de/angebote_2/": [],
   "https://howe-immo.de/immobilien/": [],
-  "https://www.acb-immobilien.de/angebote/": [],
+  "https://www.acb-immobilien.de/angebote/": [
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/hausverwaltung-vs-selbstverwaltung-was-lohnt-sich-fuer-vermieter/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/immobilienmarkt-berlin-2026-lohnt-sich-ein-verkauf-jetzt/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/warum-lohnt-sich-der-immobilienkauf-in-berlin/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/haus-bauen-oder-kaufen/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/wie-laeuft-der-immobilienkauf-ab/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/5-gruende-warum-sich-eine-immobilienmaklerin-lohnt/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/maklercourtage-wie-hoch-ist-sie-und-wer-zahlt-sie/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/4-dinge-die-sie-beim-kaufvertrag-beachten-sollten/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/wie-viel-eigenheim-kann-ich-mir-leisten/",
+    "https://www.acb-immobilien.de/angebote/::https://www.acb-immobilien.de/wann-ist-es-ratsam-eine-immobilie-zu-kaufen/"
+  ],
   "https://immodo-berlin.de/angebote/": [],
   "https://www.ivf-immobilien.com/immobilien/mieten/": [
     "https://www.ivf-immobilien.com/immobilien/mieten/::|||babelsberg",
@@ -1451,7 +1539,9 @@
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::1|30|600|friedrichshain",
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::2|56|1068|10409"
   ],
-  "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung": [],
+  "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung": [
+    "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung::https://www.deutsche-wohnen.com/mieten/mietangebote?renttype=miete&city=berlin&immotype=wohnung"
+  ],
   "https://heimstaden.de/": [],
   "https://www.covivio.immo/wohnen/immobilie-finden/": [
     "https://www.covivio.immo/wohnen/immobilie-finden/::2|67.5|713.9|12249",
@@ -1647,7 +1737,16 @@
     "https://fineandmine.de/immobilien/::3|69||12105",
     "https://fineandmine.de/immobilien/::2|56|851|13156",
     "https://fineandmine.de/immobilien/::1|51.7||10961",
-    "https://fineandmine.de/immobilien/::1|37||13353"
+    "https://fineandmine.de/immobilien/::1|37||13353",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108424/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-105466/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108380/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108418/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108382/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108400/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-106548/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108415/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108387/"
   ],
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte": [
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::2|107||mitte",
@@ -1733,7 +1832,18 @@
   "https://moellerherm-immobilien.de/aktuelle-angebote-wohnen/": [],
   "https://www.poeppel-immobilien.de/aktuelle-immobilien/": [],
   "https://www.saxowert.de/berlin/vermietung/wohnungen": [],
-  "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/": [],
+  "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/": [
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://www.sawall-immobilien.de/expose/grosszuegige-dreizimmerwohnung-mit-ueberdachter-terrasse-im-musikerviertel-in-teltow/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://www.sawall-immobilien.de/expose/38398/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://www.sawall-immobilien.de/expose/33142/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://sawall-immobilien.de/expose/doppeltes-charlottchen-2-sanierte-dg-wohnung-hochwertig-ausgestattet-mit-praktischem-komfort/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://www.sawall-immobilien.de/expose/33140/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://sawall-immobilien.de/expose/doppeltes-charlottchen-1-sanierte-dg-wohnung-hochwertig-ausgestattet-mit-praktischem-komfort/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://www.sawall-immobilien.de/expose/33124/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://sawall-immobilien.de/expose/frisch-renovierte-3-zimmerwohnung-mit-grosser-terrasse-im-musikerviertel-in-teltow/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://sawall-immobilien.de/expose/modernes-wohnen-maisonette-dachgeschosswohnung-ab-maerz-2024-stilvoll-lichtdurchflutet-2/",
+    "https://www.sawall-immobilien.de/immobilienangebote/immobilie-mieten/::https://sawall-immobilien.de/expose/modernes-wohnen-maisonette-dachgeschosswohnung-ab-maerz-2024-stilvoll-lichtdurchflutet/"
+  ],
   "https://www.trad-immobilien.de/wohnung/?type=rent": [
     "https://www.trad-immobilien.de/wohnung/?type=rent::2|55.4|1233|10318",
     "https://www.trad-immobilien.de/wohnung/?type=rent::1|26|749|12051",
@@ -1751,7 +1861,8 @@
     "https://www.trad-immobilien.de/wohnung/?type=rent::2|73|1588|10243",
     "https://www.trad-immobilien.de/wohnung/?type=rent::4|140.6|3009|13088",
     "https://www.trad-immobilien.de/wohnung/?type=rent::|800|8500|10407",
-    "https://www.trad-immobilien.de/wohnung/?type=rent::6|171.7|3290|10247"
+    "https://www.trad-immobilien.de/wohnung/?type=rent::6|171.7|3290|10247",
+    "https://www.trad-immobilien.de/wohnung/?type=rent::https://www.trad-immobilien.de/wohnung/?type=rent"
   ],
   "https://www.georgimmobilien.com/immobilien-verkauf-vermietung-berlin": [],
   "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten": [
@@ -1810,7 +1921,8 @@
     "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::30|1436||",
     "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::3|26||hannover",
     "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::4|107||syke",
-    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::2.5|75||brinkum"
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::2.5|75||brinkum",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten"
   ],
   "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote": [
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|58.0||14197",
@@ -1872,6 +1984,33 @@
     "https://www.von-poll.com/de/wohnung-mieten/berlin::4|106|1990|12587",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::4|147.1|2990|13189",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::1|54|1040|12587",
-    "https://www.von-poll.com/de/wohnung-mieten/berlin::2|80|1600|14542"
-  ]
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::2|80|1600|14542",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/potsdam/liebevoll-modernisierte-maisonettewohnung-mit-moblierung-auf-der-insel-werder-107001311399",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/potsdam/exclusive-2-room-apartment-with-rooftop-terrace-in-babelsberg-107001570437",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/potsdam/exklusive-2-zimmer-wohnung-mit-dachterrasse-in-babelsberg-107001549399",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/potsdam/babelsberg-grosszugige-5-zimmer-maisonette-mit-garten-2-tiefgaragenstellplatzen-107001433029",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-city-west/wohnen-an-einer-der-bedeutendsten-adressen-berlins-158001545413",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-city-west/residenz-am-pariser-platz-153-m2-aussergewohnliche-wohnkultur-am-brandenburger-tor-158001547911",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/charmante-dachgeschosswohnung-mit-ca-80-m2-wohnflache-klimaanlage-terrasse-und-gartennutzung-78001407391",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-pankow/barrierefreie-3-zimmerwohnung-mit-2-balkonen-grossem-aufzug-und-tiefgarage-in-pankow-118001221637",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-prenzlauer-berg/barrierefreies-4-zimmer-penthouse-nahe-des-prenzlauer-berg-mit-balkon-dachterrasse-sudblick-451001200591",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-pankow/city-wohnen-am-see-architektenrefugium-mit-unverbaubarem-seeblick-118001551609",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-prenzlauer-berg/erstbezug-in-franzosisch-buchholz-barrierefreie-2-zimmer-neubauwohnung-mit-ostbalkon-aufzug-451001546145",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/stilvoll-wohnen-charmante-1-zimmer-mietwohnung-mit-balkon-aufzug-78001562561",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/altbaucharme-trifft-moderne-4-zimmer-mietwohnung-mit-2-balkonen-sonniger-terrasse-78001448445",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/ein-zuhause-wie-ein-versprechen-wohnen-am-wasser-zwischen-entspannung-und-lebensqualitat-78001565575"
+  ],
+  "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten": [],
+  "https://www.core-berlin.de/de/component/jea/?format=feed&type=rss": [],
+  "https://vineta98.de/wohnungen/feed/": [],
+  "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/feed/": [],
+  "https://www.kurtzke-immobilien.de/objektstatus/miete/feed/": [],
+  "https://www.werz-werz.de/werzimmobilien/feed/": [],
+  "https://fineandmine.de/immobilien/feed/": []
 }

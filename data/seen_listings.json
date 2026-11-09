@@ -185,7 +185,10 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::5|123|1850|12683",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|51|1836|12163",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|71|550|12557",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::1|49|880|13359"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|49|880|13359",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|56|1100|12527",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|64|1200|12247",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|40|1100|10115"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -370,7 +373,11 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|72|2000|10115",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|55|1250|12209",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|38|850|12157",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|93|1268|10245"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|93|1268|10245",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|43|740|10318",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|126|2100|13127",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|31|630|13403",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|30|900|10997"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -408,7 +415,8 @@
     "https://www.core-berlin.de/vermietung::4|210||10557",
     "https://www.core-berlin.de/vermietung::1|42.4||10407",
     "https://www.core-berlin.de/vermietung::2|53.9|850|10407",
-    "https://www.core-berlin.de/vermietung::2|80||10243"
+    "https://www.core-berlin.de/vermietung::2|80||10243",
+    "https://www.core-berlin.de/vermietung::3|88.9|1875|10247"
   ],
   "https://inberlinwohnen.de/wohnungsfinder/": [
     "https://inberlinwohnen.de/wohnungsfinder/::1|32.8|307.8|12249",
@@ -642,7 +650,17 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|35.8|387.2|10317",
     "https://inberlinwohnen.de/wohnungsfinder/::3|66.9|424.5|10365",
     "https://inberlinwohnen.de/wohnungsfinder/::2|57.1|486.9|13595",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|53.1|464.8|10409"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|53.1|464.8|10409",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|64.5|625.5|12249",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|32.6|304.6|12629",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|45.8|317.6|12629",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|59|438.1|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|55.7|891.5|12629",
+    "https://inberlinwohnen.de/wohnungsfinder/::5|118.5|1895.7|12629",
+    "https://inberlinwohnen.de/wohnungsfinder/::4|89.9|570.8|12629",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|30.4|380|13437",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|95.2|1170.1|10437",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|84.2|677.0|13469"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -691,7 +709,8 @@
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|96.4||10179",
     "https://www.wbm.de/wohnungen-berlin/angebote/::3|69.4||13599",
     "https://www.wbm.de/wohnungen-berlin/angebote/::1|38.4||10249",
-    "https://www.wbm.de/wohnungen-berlin/angebote/::3|72.4||13591"
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|72.4||13591",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179"
   ],
   "https://www.habitare-immobilien.de/angebote": [
     "https://www.habitare-immobilien.de/angebote::https://www.habitare-immobilien.de/angebote/1480060.klingsor-tg-95-20"
@@ -756,9 +775,12 @@
     "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::2|52|1200|10405",
     "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::3.5|127|2200|10707",
     "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::4|114|2550|10243",
-    "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::4|120|2550|10243"
+    "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::4|120|2550|10243",
+    "https://aden-immo.com/immobilien-berlin/wohnung-mieten/::1|35||10777"
   ],
-  "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": [],
+  "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/": [
+    "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/::https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/"
+  ],
   "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete": [
     "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::2||1140|13086",
     "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::||4180|10437",

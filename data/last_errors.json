@@ -8,6 +8,5 @@
   "https://findus-hv.de/": "nach 240s abgebrochen",
   "https://www.optima-hausverwaltung.de/": "HTTPSConnectionPool(host='www.optima-hausverwaltung.de', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.optima-hausverwaltung.de', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
   "https://www.hilfswerk-siedlung.de/": "HTTPSConnectionPool(host='www.hilfswerk-siedlung.de', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.hilfswerk-siedlung.de', port=443): Failed to resolve 'www.hilfswerk-siedlung.de' ([Errno -2] Name or service not known)\"))",
-  "https://www.fantasticfrank.com/en/berlin/for-rent/": "429 Client Error: Too Many Requests for url: https://www.fantasticfrank.com/en/berlin/for-rent/",
-  "https://www.auen-immobilien.de/objekte": "nach 240s abgebrochen"
+  "https://www.fantasticfrank.com/en/berlin/for-rent/": "429 Client Error: Too Many Requests for url: https://www.fantasticfrank.com/en/berlin/for-rent/"
 }

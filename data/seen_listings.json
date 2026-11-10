@@ -1262,16 +1262,19 @@
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::2|82||berlin",
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::8|152.4|4500|berlin",
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::1|45|1200|berlin",
-    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::1|45||",
-    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::2|82||",
-    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::2|54.3||"
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::5|127.4|3500|berlin",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::4|162.6|4000|berlin"
   ],
   "https://www.mj-immobilien.de/mietangebote-in-berlin.html": [],
   "https://www.gottschau-immobilien.de/miete.xhtml": [],
   "https://guthmann.estate/de/immobilien/": [
     "https://guthmann.estate/de/immobilien/::https://guthmann.estate/de/immobilien/projekte/sophie-charlotten-strasse-22a/"
   ],
-  "https://www.hancock-ag.de/wohnungsangebote/": [],
+  "https://www.hancock-ag.de/wohnungsangebote/": [
+    "https://www.hancock-ag.de/wohnungsangebote/::3|62.5|395|",
+    "https://www.hancock-ag.de/wohnungsangebote/::2|62.5|395|",
+    "https://www.hancock-ag.de/wohnungsangebote/::2|45|250|"
+  ],
   "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0": [
     "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0::4|118.3|2949|12051",
     "https://www.petruswerk.de/sites/mietobjekte_allgemein_aktuell.php?ort_auswahl=Berlin&such_bezirk=0&objektart=1&wfl_von=&wfl_bis=&anz_zimmer_von=&anz_zimmer_bis=&kaltmiete2=&count=3&page=0::3|88.8|2299|12051",
@@ -1326,9 +1329,7 @@
     "https://immonexxt.com/de/mietangebote-wohnen::1|37.0|549|",
     "https://immonexxt.com/de/mietangebote-wohnen::4|88.3|1179|",
     "https://immonexxt.com/de/mietangebote-wohnen::3|70.8|1189|",
-    "https://immonexxt.com/de/mietangebote-wohnen::1|50.9|609|",
-    "https://immonexxt.com/de/mietangebote-wohnen::3|75.5|949|",
-    "https://immonexxt.com/de/mietangebote-wohnen::3|75.5|949|hellersdorf"
+    "https://immonexxt.com/de/mietangebote-wohnen::1|50.9|609|"
   ],
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": [
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
@@ -1356,13 +1357,6 @@
     "https://www.immoagenten.de/startseite.xhtml::2|63|882|schöneiche bei berlin",
     "https://www.immoagenten.de/startseite.xhtml::2|63|882|",
     "https://www.immoagenten.de/startseite.xhtml::2|63|913.5|schöneiche bei berlin"
-  ],
-  "http://www.mika-immobilien.de/vermietung-wohnung/": [
-    "http://www.mika-immobilien.de/vermietung-wohnung/::4.5|154|2656.5|westend",
-    "http://www.mika-immobilien.de/vermietung-wohnung/::2|67.4|1854.0|charlottenburg",
-    "http://www.mika-immobilien.de/vermietung-wohnung/::2|65.6|1495|wilmersdorf",
-    "http://www.mika-immobilien.de/vermietung-wohnung/::2|90.4|936|mitte (ortsteil)",
-    "http://www.mika-immobilien.de/vermietung-wohnung/::1|53.5|669|mitte (ortsteil)"
   ],
   "https://www.tela-immobilien.de/angebote-mietimmobilien": [
     "https://www.tela-immobilien.de/angebote-mietimmobilien::||1831.0|",
@@ -1554,23 +1548,13 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|54||10585",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|56||13187",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|56||12527",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|56|1500|13187",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1.5|40.8||13088",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::7|114||12305",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|50||12105",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|67||12165",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|86.1||13599",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|60||10407",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|65||13585",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|74.9||12559",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|33||12527",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|61||13187",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::6|131||14089",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|52||10439",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|59.8||13053",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|72||13187",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|90.5||12621",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|146.2||10179",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2.5|64||12247"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|50|1500|12105",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|60|1533|10407",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|35||10551",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|65|1350|13585",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|61|1525|13187"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -1600,7 +1584,31 @@
     "https://www.flatbee.de/wohnung-mieten-berlin::2|72|654|12165",
     "https://www.flatbee.de/wohnung-mieten-berlin::2|58|520|12161",
     "https://www.flatbee.de/wohnung-mieten-berlin::2|55|350|10711",
-    "https://www.flatbee.de/wohnung-mieten-berlin::2|52|740|12435"
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|52|740|12435",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|67|1050|frankfurt am main - nordend",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|59|720|frankfurt am main - nordend",
+    "https://www.flatbee.de/wohnung-mieten-berlin::1|37|610|hamburg - harvestehude",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|63|950|hamburg - sternschanze",
+    "https://www.flatbee.de/wohnung-mieten-berlin::1|35.1|420|13407",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3|83|820|12049",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|43|710|12527",
+    "https://www.flatbee.de/wohnung-mieten-berlin::1|41|485|hamburg - eppendorf",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|45|670|12049",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3|61|650|10589",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|45|710|frankfurt am main - nordend",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|59|542|hamburg - kleingartenanlage",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|61|722|12159",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3.5|91|1300|münchen - aubing - lochhausen",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|59|550|13086",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|47|1350|10249",
+    "https://www.flatbee.de/wohnung-mieten-berlin::4|97|1306|brandenburg",
+    "https://www.flatbee.de/wohnung-mieten-berlin::1|35|410|frankfurt am main - gallus",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|57|552|hamburg - barmbek - nord",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|57|890|münchen - schwabing - west",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3|73|467|14476",
+    "https://www.flatbee.de/wohnung-mieten-berlin::1|41|450|frankfurt am main - rödelhei",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|110|1060|hamburg - heimfeld",
+    "https://www.flatbee.de/wohnung-mieten-berlin::||750|10437"
   ],
   "https://www.wohnungssuche-berlin.net/provisionsfrei.html": [
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70||12555",
@@ -1608,7 +1616,9 @@
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::1|50|200|spandau",
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::2|48|1250|12101",
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::1|30|600|friedrichshain",
-    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::2|56|1068|10409"
+    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::2|56|1068|10409",
+    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::|48|1250|12101",
+    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|80||12555"
   ],
   "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung": [
     "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung::https://www.deutsche-wohnen.com/mieten/mietangebote?renttype=miete&city=berlin&immotype=wohnung"
@@ -1726,14 +1736,17 @@
     "https://www.berlinhaus.com/mietangebote/::3|67.5|649|32425",
     "https://www.berlinhaus.com/mietangebote/::2|45.1|532.4|1099",
     "https://www.berlinhaus.com/mietangebote/::3|66|649|32425",
-    "https://www.berlinhaus.com/mietangebote/::1|27.7|330|",
-    "https://www.berlinhaus.com/mietangebote/::1|28.6|582.7|",
-    "https://www.berlinhaus.com/mietangebote/::2|56.2|729.6|",
-    "https://www.berlinhaus.com/mietangebote/::2|53.4|599|oberbilk",
-    "https://www.berlinhaus.com/mietangebote/::3|58.8|499|",
-    "https://www.berlinhaus.com/mietangebote/::2|44|449|",
-    "https://www.berlinhaus.com/mietangebote/::1|32|425|",
-    "https://www.berlinhaus.com/mietangebote/::2|53.5|635.9|"
+    "https://www.berlinhaus.com/mietangebote/::2|72.4|796|",
+    "https://www.berlinhaus.com/mietangebote/::2|56.9|499|",
+    "https://www.berlinhaus.com/mietangebote/::2|39.2|525|",
+    "https://www.berlinhaus.com/mietangebote/::2|60.4|549|",
+    "https://www.berlinhaus.com/mietangebote/::3|59.3|549|",
+    "https://www.berlinhaus.com/mietangebote/::3|62.3|625|",
+    "https://www.berlinhaus.com/mietangebote/::2|46.7|525|",
+    "https://www.berlinhaus.com/mietangebote/::3|50.5|649|",
+    "https://www.berlinhaus.com/mietangebote/::4|87.1|799|",
+    "https://www.berlinhaus.com/mietangebote/::3|59.5|525|",
+    "https://www.berlinhaus.com/mietangebote/::3|68|649|"
   ],
   "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml": [
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::4|141|3600|",
@@ -2095,15 +2108,12 @@
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/altbaucharme-trifft-moderne-4-zimmer-mietwohnung-mit-2-balkonen-sonniger-terrasse-78001448445",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/ein-zuhause-wie-ein-versprechen-wohnen-am-wasser-zwischen-entspannung-und-lebensqualitat-78001565575"
   ],
-  "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien": [
-    "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135|1831|10707",
-    "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|133|2112|13465",
-    "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::1|43|950|10717"
-  ],
+  "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien": [],
   "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten": [
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|42||10117",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::4|88||10117",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::4|119||10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|||10243",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|52||10243",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|47||10249",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|46||10249",
@@ -2127,14 +2137,44 @@
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|15|630|10559",
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::2|90|1440|10559",
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|41|565|14193",
-    "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|35||10777",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|35|900|10777",
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|43|950|10717",
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|45|1040|13353",
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::1|39|952|10713"
   ],
-  "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten": [
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::1|43|950|10717",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::1|35||10777",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::1|39|952|10713",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::2|95|2000|10713",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::2|64|1350|10713",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::1|55|2500|10707",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|135||10707",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::5|142|2142|10707",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|135|1831|10707",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::2|59|1600|12163",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|93|2495|12163",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|92|2490|12163",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::2|59|1650|12163",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::2|82|2788|10629",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::3.5|127|2200|10707"
+  ],
   "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten": [],
-  "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten": [],
+  "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten": [
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::5|198|4950|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|149|3576|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::1|15|630|10559",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::2|90|1440|10559",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::2|55|445|",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|153|4590|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::2|64|1781|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|87|2000|10555",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|88|2240|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::4|141|3600|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|61|1820|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::2|42|1405|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::4|88|2500|10117"
+  ],
   "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten": [],
   "https://www.core-berlin.de/de/component/jea/?format=feed&type=rss": [],
   "https://vineta98.de/wohnungen/feed/": [],

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T16:16:55.429187+00:00",
+  "generated_at": "2026-11-10T16:49:32.991224+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -61,7 +61,7 @@
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T14:23:25.068766+00:00",
       "still_listed": false,
-      "gone_since": "2026-11-10T16:16:55.429031+00:00"
+      "gone_since": "2026-11-10T16:49:32.991047+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|97.0|1424.6|10439",
@@ -78,7 +78,7 @@
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T14:23:25.067951+00:00",
       "still_listed": false,
-      "gone_since": "2026-11-10T16:16:55.429031+00:00"
+      "gone_since": "2026-11-10T16:49:32.991047+00:00"
     },
     {
       "key": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|95.2||10437",
@@ -147,7 +147,7 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-09T11:37:07.832762+00:00",
       "still_listed": false,
-      "gone_since": "2026-11-10T16:16:55.429031+00:00"
+      "gone_since": "2026-11-10T16:49:32.991047+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|180||mitte",
@@ -721,6 +721,40 @@
   ],
   "near_misses": [
     {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|87|2000|10555",
+      "title": "Tolle Wohnung in modernem Ensemble direkt an der Spree Erdgeschosswohnung in 10555 Berlin",
+      "rooms": 3,
+      "size_qm": 87,
+      "rent": 2000,
+      "price_per_sqm": 23.0,
+      "district": "Berlin",
+      "plz": "10555",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-10T16:46:42.893362+00:00",
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|135|1831|10707",
+      "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",
+      "rooms": 4,
+      "size_qm": 135,
+      "rent": 1831,
+      "price_per_sqm": 13.6,
+      "district": null,
+      "plz": "10707",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-10T16:45:58.677048+00:00",
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135|1831|10707",
       "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",
       "rooms": 4,
@@ -733,7 +767,7 @@
       "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
       "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
       "source_name": "immobilie1.de",
-      "found_at": "2026-11-10T16:13:43.889436+00:00",
+      "found_at": "2026-11-10T16:45:14.252151+00:00",
       "miss_reason": "lage_unklar",
       "still_listed": true
     },
@@ -750,7 +784,7 @@
       "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
       "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
       "source_name": "immobilie1.de",
-      "found_at": "2026-11-10T16:13:43.889330+00:00",
+      "found_at": "2026-11-10T16:45:14.252051+00:00",
       "miss_reason": "lage_unklar",
       "still_listed": true
     },
@@ -767,80 +801,10 @@
       "url": "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten",
       "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten",
       "source_name": "immobilie1.de",
-      "found_at": "2026-11-10T16:13:23.544819+00:00",
+      "found_at": "2026-11-10T16:44:40.731322+00:00",
       "rent_warm": 2500,
       "rent_kalt_geschaetzt": 2236,
       "miss_reason": "miete",
-      "still_listed": true
-    },
-    {
-      "key": "https://www.berlinhaus.com/mietangebote/::3|97.5|1899.3|10629",
-      "title": "Hochwertige Altbauwohnung im Mommsenkiez!",
-      "rooms": 3,
-      "size_qm": 97.48,
-      "rent": 1899.26,
-      "price_per_sqm": 19.5,
-      "district": "Mommsenkiez",
-      "plz": "10629",
-      "street": null,
-      "url": "https://www.berlinhaus.com/mietangebote/",
-      "site_url": "https://www.berlinhaus.com/mietangebote/",
-      "source_name": "berlinhaus.com",
-      "found_at": "2026-11-10T16:10:29.928745+00:00",
-      "miss_reason": "lage_unklar",
-      "still_listed": true
-    },
-    {
-      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|83||moabit",
-      "title": "Quartier Lehrter Straße – Idyllische Wohnoase in Berliner Toplage!",
-      "rooms": 3,
-      "size_qm": 83,
-      "rent": null,
-      "price_per_sqm": 22.7,
-      "district": "Moabit",
-      "plz": null,
-      "street": null,
-      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
-      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
-      "source_name": "engelvoelkers.com",
-      "found_at": "2026-11-10T16:04:15.540026+00:00",
-      "rent_warm": 2132,
-      "rent_kalt_geschaetzt": 1883,
-      "miss_reason": "lage_unklar",
-      "still_listed": true
-    },
-    {
-      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|124||10719",
-      "title": "Erstbezug nach Modernisierung: Stuckaltbau nahe Ludwigkirch- und Fasanenplatz 2. ...",
-      "rooms": 4,
-      "size_qm": 124,
-      "rent": null,
-      "price_per_sqm": null,
-      "district": null,
-      "plz": "10719",
-      "street": null,
-      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
-      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
-      "source_name": "smartsite2.myonoffice.de",
-      "found_at": "2026-11-10T16:03:53.867255+00:00",
-      "miss_reason": "lage_unklar",
-      "still_listed": true
-    },
-    {
-      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|81||10719",
-      "title": "Erstbezug nach Modernisierung: Stuckaltbau nahe Ludwigkirch- und Fasanenplatz",
-      "rooms": 3,
-      "size_qm": 81,
-      "rent": null,
-      "price_per_sqm": null,
-      "district": null,
-      "plz": "10719",
-      "street": null,
-      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
-      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
-      "source_name": "smartsite2.myonoffice.de",
-      "found_at": "2026-11-10T16:03:52.515784+00:00",
-      "miss_reason": "lage_unklar",
       "still_listed": true
     },
     {
@@ -859,7 +823,7 @@
       "found_at": "2026-11-09T23:49:44.323329+00:00",
       "miss_reason": "lage_unklar",
       "still_listed": false,
-      "gone_since": "2026-11-10T16:16:55.429138+00:00"
+      "gone_since": "2026-11-10T16:49:32.991158+00:00"
     },
     {
       "key": "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108418/",
@@ -947,7 +911,7 @@
       "found_at": "2026-11-09T15:00:02.793571+00:00",
       "miss_reason": "miete",
       "still_listed": false,
-      "gone_since": "2026-11-10T16:16:55.429138+00:00"
+      "gone_since": "2026-11-10T16:49:32.991158+00:00"
     },
     {
       "key": "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/::https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/",
@@ -1035,7 +999,7 @@
       "found_at": "2026-11-06T13:31:35.893591+00:00",
       "miss_reason": "groesse",
       "still_listed": false,
-      "gone_since": "2026-11-10T16:16:55.429138+00:00"
+      "gone_since": "2026-11-10T16:49:32.991158+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2100|10179",
@@ -1112,8 +1076,12 @@
   ],
   "time_online": {
     "habitare-immobilien.de": {
-      "median_hours": 25.9,
+      "median_hours": 26.4,
       "samples": 2
+    },
+    "engelvoelkers.com": {
+      "median_hours": 71.4,
+      "samples": 16
     },
     "caseaberlino.com": {
       "median_hours": 45.3,

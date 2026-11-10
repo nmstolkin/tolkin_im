@@ -558,5 +558,12 @@
   ],
   "Turnerstraße 11, Berlin, Germany": {
     "miss_at": "2026-11-09T15:18:43.068141+00:00"
-  }
+  },
+  "und Fasanenplatz 2, 10719, Berlin, Germany": {
+    "miss_at": "2026-11-10T16:03:53.866220+00:00"
+  },
+  "Olivaer Platz, Berlin, Germany": [
+    52.4994489,
+    13.3146303
+  ]
 }

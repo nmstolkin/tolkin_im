@@ -213,7 +213,9 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::5|160|2980|13627",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|59||12557",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|77|1588|13125",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::1|27|740|14195"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|27|740|14195",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|35|829|14193",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|86|936|13599"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -423,7 +425,16 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|100|2500|10627",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|30|605|13591",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|61|1525|13187",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|72|1824|13187"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|72|1824|13187",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|97|1538|10961",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|25|690|12681",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|28|899|13407",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|65|1490|12169",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|60|1533|10407",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|151|2490|10119",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|95|1995|12557",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|132|3168|12165",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -774,7 +785,14 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|35.2|364.4|10315",
     "https://inberlinwohnen.de/wohnungsfinder/::2|79.2|556.7|12279",
     "https://inberlinwohnen.de/wohnungsfinder/::2|33.0|363.6|13125",
-    "https://inberlinwohnen.de/wohnungsfinder/::3|61.2|404.3|12627"
+    "https://inberlinwohnen.de/wohnungsfinder/::3|61.2|404.3|12627",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|88.1|1057.9|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|54.1|533.5|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|69.2|468.9|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|52|832|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::4|82.3|570.0|13053",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|43|645|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|69.0|480.2|10315"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -890,7 +908,8 @@
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|54.7|643.6|10247",
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::|||10247",
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|78.2|2275|10249",
-    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|78.2|2175|10249"
+    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|78.2|2175|10249",
+    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|60.4|1572|10407"
   ],
   "https://tki.berlin/immobilien-vermarktungsart/miete/": [],
   "https://www.qh-living.com/wohnungen": [],

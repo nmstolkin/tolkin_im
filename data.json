@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T16:58:17.113674+00:00",
+  "generated_at": "2026-11-12T22:50:28.189461+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -786,6 +786,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
+      "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
+      "rooms": 4,
+      "size_qm": 76,
+      "rent": 1892,
+      "price_per_sqm": 24.9,
+      "district": null,
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-11-12T22:49:30.107246+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|75.7|1892|10439",
       "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",

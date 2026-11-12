@@ -767,7 +767,14 @@
     "https://inberlinwohnen.de/wohnungsfinder/::2|55.9|455.6|12689",
     "https://inberlinwohnen.de/wohnungsfinder/::2|69.5|1209.3|10829",
     "https://inberlinwohnen.de/wohnungsfinder/::1|40.2|345.7|10969",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|56.1|869.2|12589"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|56.1|869.2|12589",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|33.7|347.8|12207",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|44.1|441.4|12207",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|57.9|1158.2|10829",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|35.2|364.4|10315",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|79.2|556.7|12279",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|33.0|363.6|13125",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|61.2|404.3|12627"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -1040,7 +1047,12 @@
     "https://www.kfh-hv.de/mieten/wohnen/::2|59.1||",
     "https://www.kfh-hv.de/mieten/wohnen/::3|71.8||",
     "https://www.kfh-hv.de/mieten/wohnen/::3|76.9||",
-    "https://www.kfh-hv.de/mieten/wohnen/::2|60.7||"
+    "https://www.kfh-hv.de/mieten/wohnen/::2|60.7||",
+    "https://www.kfh-hv.de/mieten/wohnen/::3|94.5||bahrenfeld",
+    "https://www.kfh-hv.de/mieten/wohnen/::1|38||bahrenfeld",
+    "https://www.kfh-hv.de/mieten/wohnen/::3|75.6||braunschweig-sielkamp",
+    "https://www.kfh-hv.de/mieten/wohnen/::2|44.6||braunschweig-sielkamp",
+    "https://www.kfh-hv.de/mieten/wohnen/::2|59.1||braunschweig-sielkamp"
   ],
   "https://www.goodlifeimmobilien.de/wohnungsangebote": [],
   "https://www.ivd24immobilien.de/search-photon/?osm_id=62422&osm_key=place&osm_value=city&osm_postcode=&osm_lat=52.5170365&osm_long=13.3888599&nutzungsart_id=&vermarktungsart_id=10000000010&64c7e73484b8c=Berlin&search_term=Berlin&objektart_id=2&anzahl_zimmer=&preis_bis=&groesse_ab=&radius=0": [],
@@ -1504,7 +1516,8 @@
     "https://www.immoagenten.de/startseite.xhtml::2|62|1363.3|",
     "https://www.immoagenten.de/startseite.xhtml::2|63|882|schöneiche bei berlin",
     "https://www.immoagenten.de/startseite.xhtml::2|63|882|",
-    "https://www.immoagenten.de/startseite.xhtml::2|63|913.5|schöneiche bei berlin"
+    "https://www.immoagenten.de/startseite.xhtml::2|63|913.5|schöneiche bei berlin",
+    "https://www.immoagenten.de/startseite.xhtml::2|63|913.5|"
   ],
   "https://www.tela-immobilien.de/angebote-mietimmobilien": [
     "https://www.tela-immobilien.de/angebote-mietimmobilien::||1831.0|",
@@ -1771,7 +1784,18 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|54||10115",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2.5|67.4||14199",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|61||13187",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|86.4||12353"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|86.4||12353",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|35|829|14193",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|34|1000|12357",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|90|1950|12157",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|77.1|1426|12524",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|25|690|12681",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|100|2500|10627",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::4|132|3168|12165",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|75.7|1892|10439",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|64|1766|10627",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2.5|97.0|1538|10961",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|85.0|1555|10318"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -1834,7 +1858,9 @@
     "https://www.flatbee.de/wohnung-mieten-berlin::3|76|2250|10117",
     "https://www.flatbee.de/wohnung-mieten-berlin::2|67|1050|10243",
     "https://www.flatbee.de/wohnung-mieten-berlin::3.5|91|1300|münchen - aubing - lochhausen - langwied",
-    "https://www.flatbee.de/wohnung-mieten-berlin::||552|hamburg - barmbek - nord"
+    "https://www.flatbee.de/wohnung-mieten-berlin::||552|hamburg - barmbek - nord",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3|71|620|13587",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2.5|72|654|12165"
   ],
   "https://www.wohnungssuche-berlin.net/provisionsfrei.html": [
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70||12555",
@@ -2091,7 +2117,8 @@
     "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108400/",
     "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-106548/",
     "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108415/",
-    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108387/"
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108387/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108431/"
   ],
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte": [
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::2|107||mitte",

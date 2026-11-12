@@ -569,5 +569,8 @@
   "Berlin, 10555, Berlin, Germany": [
     52.515029,
     13.3329589
-  ]
+  ],
+  "Bahrenfelder Chaussee 67, Berlin, Germany": {
+    "miss_at": "2026-11-12T16:26:22.368874+00:00"
+  }
 }

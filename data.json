@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T16:09:16.981009+00:00",
+  "generated_at": "2026-11-12T16:58:17.113674+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -83,7 +83,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-10T16:04:41.946818+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135|1831|10707",
@@ -201,7 +202,8 @@
       "site_url": "https://www.core-berlin.de/vermietung",
       "source_name": "core-berlin.de",
       "found_at": "2026-11-09T11:37:07.832762+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|180||mitte",
@@ -217,7 +219,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744140+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|335||mitte",
@@ -233,7 +236,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744055+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|178||mitte",
@@ -249,7 +253,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744015+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|160||mitte",
@@ -265,7 +270,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743977+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|223||mitte",
@@ -281,7 +287,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743943+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|154||mitte",
@@ -297,7 +304,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743894+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|205||mitte",
@@ -313,7 +321,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743847+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
@@ -416,7 +425,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-06T16:33:27.162316+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::5|167||charlottenburg",
@@ -432,7 +442,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-06T16:33:25.911768+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|151|2490|10119",
@@ -448,7 +459,8 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-11-06T16:08:11.487455+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.7||10179",
@@ -685,7 +697,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297703+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -701,7 +714,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297629+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
@@ -767,10 +781,28 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-10-26T22:36:26.521291+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113474+00:00"
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|75.7|1892|10439",
+      "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
+      "rooms": 3.5,
+      "size_qm": 75.66,
+      "rent": 1892,
+      "price_per_sqm": 25.0,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+      "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+      "source_name": "ohne-makler.net",
+      "found_at": "2026-11-12T16:44:24.886607+00:00",
+      "miss_reason": "groesse",
+      "still_listed": true
+    },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|88|2240|10117",
       "title": "Perfekt geschnittene 3 Zimmer Wohnung mit ca. 87m², EBK und Balkon ins Grüne direkt in Mitte!",
@@ -786,7 +818,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-12T07:27:19.712871+00:00",
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135|1831|10707",
@@ -822,7 +855,8 @@
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::3|87||10555",
@@ -841,7 +875,8 @@
       "rent_warm": 2000,
       "rent_kalt_geschaetzt": 1739,
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::12|718||charlottenburg",
@@ -858,7 +893,8 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-11T11:04:23.267253+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::5|133||10553",
@@ -931,7 +967,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:46:42.893362+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|135|1831|10707",
@@ -948,7 +985,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:45:58.677048+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135|1831|10707",
@@ -965,7 +1003,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:45:14.252151+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::3|87|2000|10555",
@@ -982,7 +1021,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:45:14.252051+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::4|88||10117",
@@ -1195,7 +1235,8 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-06T13:31:35.893591+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2100|10179",
@@ -1248,7 +1289,8 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297667+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-12T16:58:17.113609+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2300|10179",
@@ -1275,8 +1317,12 @@
       "samples": 2
     },
     "kip.net": {
-      "median_hours": 22.8,
-      "samples": 4
+      "median_hours": 83.8,
+      "samples": 6
+    },
+    "engelvoelkers.com": {
+      "median_hours": 144.4,
+      "samples": 17
     },
     "habitare-immobilien.de": {
       "median_hours": 26.4,
@@ -1289,10 +1335,6 @@
     "wbm.de": {
       "median_hours": 179.9,
       "samples": 4
-    },
-    "engelvoelkers.com": {
-      "median_hours": 376.0,
-      "samples": 5
     },
     "smartsite2.myonoffice.de": {
       "median_hours": 334.2,

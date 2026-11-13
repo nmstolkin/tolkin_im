@@ -221,7 +221,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|28|899|13407",
     "https://www.kip.net/berlin/mieten/wohnungen/1::4|119|2685|12555",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|65|1490|12169",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::2|56|1050|12527"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|56|1050|12527",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|60|1533|10407"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -441,7 +442,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|95|1995|12557",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|132|3168|12165",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|60|1109|12555"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|60|1109|12555",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|77|1426|12524"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -810,7 +812,8 @@
     "https://inberlinwohnen.de/wohnungsfinder/::2|45.8|384.0|13051",
     "https://inberlinwohnen.de/wohnungsfinder/::2|54.9|422.0|10369",
     "https://inberlinwohnen.de/wohnungsfinder/::1|32.6|305.5|13051",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|126.5|1158.2|12353"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|126.5|1158.2|12353",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|57.8|532.7|12459"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -965,7 +968,31 @@
     "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|109.2|2190|10557",
     "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|112.9|2655|60326",
     "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|58.8|1450|40470",
-    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::1|27.5|785|40470"
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::1|27.5|785|40470",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|112.9|2655|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|82.9|1945|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|125.3|1628|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|114.6|1587|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|87.1|1211|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|121.3|1425|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::5|150.2|2209|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|129.8|1956|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::1|46.0|1330|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|84.1|2275|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|68.9|1825|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|95.2|2415|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|52.0|1445|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|76.3|1980|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|45.8|1270|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|90.1|2165|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|51.8|1390|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|82.8|2065|12051",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::2|65.9|1488|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|64.6|1265|13587",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::5|106.0|1820|13587",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|82.3|1635|13587",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::5|124.4|2210|13587",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|84.9|1295|"
   ],
   "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/": [],
   "https://carat24-immobilien.de/zur-miete/": [],

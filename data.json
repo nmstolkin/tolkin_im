@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T15:58:32.556283+00:00",
+  "generated_at": "2026-11-13T22:46:17.587113+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|125.3|1628|",
+      "title": "Familienfreundliche 4-Zimmer-Wohnung mit großzügigem Außenbereich",
+      "rooms": 4,
+      "size_qm": 125.34,
+      "rent": 1628,
+      "price_per_sqm": 13.0,
+      "district": null,
+      "plz": null,
+      "street": "Wallstraße 16",
+      "url": "https://www.mueller-merkle.de/projekte/europacity-ensembles/",
+      "site_url": "https://www.mueller-merkle.de/projekte/europacity-ensembles/",
+      "source_name": "mueller-merkle.de",
+      "found_at": "2026-11-13T22:46:01.616074+00:00"
+    },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|88||10117",
       "title": "Perfekt geschnittene 3 Zimmer Wohnung mit ca. 87m², EBK und Balkon ins Grüne direkt in Mitte!",

@@ -572,5 +572,25 @@
   ],
   "Bahrenfelder Chaussee 67, Berlin, Germany": {
     "miss_at": "2026-11-12T16:26:22.368874+00:00"
+  },
+  "Wallstraße 16, Berlin, Germany": [
+    52.5111756,
+    13.4064476
+  ],
+  "Juri-Gagarin-Ring 156, Berlin, Germany": {
+    "miss_at": "2026-11-13T22:46:03.497529+00:00"
+  },
+  "Schmollerstraße 65, Berlin, Germany": [
+    52.4885419,
+    13.4458201
+  ],
+  "Anna-Amalie-Straße 7, Berlin, Germany": {
+    "miss_at": "2026-11-13T22:46:06.445255+00:00"
+  },
+  "Anna-Amalie-Straße 8, Berlin, Germany": {
+    "miss_at": "2026-11-13T22:46:07.768541+00:00"
+  },
+  "Happelstraße 41, Berlin, Germany": {
+    "miss_at": "2026-11-13T22:46:08.975601+00:00"
   }
 }

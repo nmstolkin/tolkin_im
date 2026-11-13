@@ -215,7 +215,11 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|77|1588|13125",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|27|740|14195",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|35|829|14193",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::3|86|936|13599"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|86|936|13599",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|95|1995|12557",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|33|710|12527",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|28|899|13407",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::4|119|2685|12555"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -434,7 +438,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|151|2490|10119",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|95|1995|12557",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|132|3168|12165",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|60|1109|12555"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -1071,7 +1076,11 @@
     "https://www.kfh-hv.de/mieten/wohnen/::1|38||bahrenfeld",
     "https://www.kfh-hv.de/mieten/wohnen/::3|75.6||braunschweig-sielkamp",
     "https://www.kfh-hv.de/mieten/wohnen/::2|44.6||braunschweig-sielkamp",
-    "https://www.kfh-hv.de/mieten/wohnen/::2|59.1||braunschweig-sielkamp"
+    "https://www.kfh-hv.de/mieten/wohnen/::2|59.1||braunschweig-sielkamp",
+    "https://www.kfh-hv.de/mieten/wohnen/::1|29.9||gievenbeck",
+    "https://www.kfh-hv.de/mieten/wohnen/::1|38.1||",
+    "https://www.kfh-hv.de/mieten/wohnen/::3|75.6||sielkamp",
+    "https://www.kfh-hv.de/mieten/wohnen/::2|44.6||sielkamp"
   ],
   "https://www.goodlifeimmobilien.de/wohnungsangebote": [],
   "https://www.ivd24immobilien.de/search-photon/?osm_id=62422&osm_key=place&osm_value=city&osm_postcode=&osm_lat=52.5170365&osm_long=13.3888599&nutzungsart_id=&vermarktungsart_id=10000000010&64c7e73484b8c=Berlin&search_term=Berlin&objektart_id=2&anzahl_zimmer=&preis_bis=&groesse_ab=&radius=0": [],
@@ -1508,7 +1517,19 @@
     "https://immonexxt.com/de/mietangebote-wohnen::4|88.3|1179|",
     "https://immonexxt.com/de/mietangebote-wohnen::3|70.8|1189|",
     "https://immonexxt.com/de/mietangebote-wohnen::1|50.9|609|",
-    "https://immonexxt.com/de/mietangebote-wohnen::3|75.5|949|"
+    "https://immonexxt.com/de/mietangebote-wohnen::3|75.5|949|",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|35.6|599|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|35.7|589|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|54.0|709|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|68.1|849|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|58.4|499.0|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|62.9|536.9|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::1.5|49.6|719|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|65.6|769|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|70.5|769|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|45.1|569|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|37.0|549|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|70.8|1189|berlin"
   ],
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": [
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
@@ -1683,7 +1704,8 @@
     "https://www.ivf-immobilien.com/immobilien/mieten/::|||velten",
     "https://www.ivf-immobilien.com/immobilien/mieten/::2|||",
     "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||potsdam-waldstadt",
-    "https://www.ivf-immobilien.com/immobilien/mieten/::2|||hennigsdorf"
+    "https://www.ivf-immobilien.com/immobilien/mieten/::2|||hennigsdorf",
+    "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||waldstadt i"
   ],
   "https://www.evernest.com/de/": [],
   "https://www.borcherthv.de/": [],
@@ -1702,7 +1724,9 @@
     "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::2|||mitte / tiergarten",
     "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::2|||mitte/tiergarten",
     "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::3|68.4||umland süd",
-    "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::2|53.9||umland süd"
+    "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::2|53.9||umland süd",
+    "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::3|68.4||",
+    "https://www.rbb-immo.de/Mietangebote-in-und-um-berlin.html::2|53.9||"
   ],
   "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList": [
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-11447-9.html",
@@ -1890,7 +1914,8 @@
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::2|56|1068|10409",
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::|48|1250|12101",
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|80||12555",
-    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70|700|12555"
+    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70|700|12555",
+    "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|80|700|12555"
   ],
   "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung": [
     "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung::https://www.deutsche-wohnen.com/mieten/mietangebote?renttype=miete&city=berlin&immotype=wohnung"

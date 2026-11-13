@@ -219,7 +219,9 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|95|1995|12557",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|33|710|12527",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|28|899|13407",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::4|119|2685|12555"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::4|119|2685|12555",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|65|1490|12169",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|56|1050|12527"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -1091,7 +1093,8 @@
     "https://www.kfh-hv.de/mieten/wohnen/::1|29.9||gievenbeck",
     "https://www.kfh-hv.de/mieten/wohnen/::1|38.1||",
     "https://www.kfh-hv.de/mieten/wohnen/::3|75.6||sielkamp",
-    "https://www.kfh-hv.de/mieten/wohnen/::2|44.6||sielkamp"
+    "https://www.kfh-hv.de/mieten/wohnen/::2|44.6||sielkamp",
+    "https://www.kfh-hv.de/mieten/wohnen/::3|66.0||"
   ],
   "https://www.goodlifeimmobilien.de/wohnungsangebote": [],
   "https://www.ivd24immobilien.de/search-photon/?osm_id=62422&osm_key=place&osm_value=city&osm_postcode=&osm_lat=52.5170365&osm_long=13.3888599&nutzungsart_id=&vermarktungsart_id=10000000010&64c7e73484b8c=Berlin&search_term=Berlin&objektart_id=2&anzahl_zimmer=&preis_bis=&groesse_ab=&radius=0": [],
@@ -1350,7 +1353,10 @@
     "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::2|||13127",
     "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::1.5|||12439",
     "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::3|||12619",
-    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::4|||12629"
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::4|||12629",
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::3|||13125",
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::1|||12629",
+    "https://www.berlinovo.de/de/wohnungen/suche?w%5B0%5D=wohungen_region%3A6::2|||12629"
   ],
   "https://imw-wus.de/": [
     "https://imw-wus.de/::4|121|2900|10707",
@@ -1439,7 +1445,17 @@
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::4|78.2||13599",
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::1|45.1||12353",
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|50.2||13599",
-    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|68.3||13593"
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|68.3||13593",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::4|83.8||13587",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|56.9||13599",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|70.0||12207",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|45.4||12207",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|54.5||13599",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|53.3||13599",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|57.9||10829",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|68.6||10409",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::4|82.5||13599",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|69.5||10829"
   ],
   "https://www.wegner-immoconsult.de/vermietung": [],
   "https://ar-immobilien.de/immobilienangebote.html": [],
@@ -1914,7 +1930,12 @@
     "https://www.flatbee.de/wohnung-mieten-berlin::3.5|91|1300|münchen - aubing - lochhausen - langwied",
     "https://www.flatbee.de/wohnung-mieten-berlin::||552|hamburg - barmbek - nord",
     "https://www.flatbee.de/wohnung-mieten-berlin::3|71|620|13587",
-    "https://www.flatbee.de/wohnung-mieten-berlin::2.5|72|654|12165"
+    "https://www.flatbee.de/wohnung-mieten-berlin::2.5|72|654|12165",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|55|650|",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|56|720|10405",
+    "https://www.flatbee.de/wohnung-mieten-berlin::4|115|1664|12161",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|51|482|12459",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3||1148|12205"
   ],
   "https://www.wohnungssuche-berlin.net/provisionsfrei.html": [
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70||12555",
@@ -2447,7 +2468,8 @@
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/stilvoll-wohnen-charmante-1-zimmer-mietwohnung-mit-balkon-aufzug-78001562561",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/altbaucharme-trifft-moderne-4-zimmer-mietwohnung-mit-2-balkonen-sonniger-terrasse-78001448445",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/ein-zuhause-wie-ein-versprechen-wohnen-am-wasser-zwischen-entspannung-und-lebensqualitat-78001565575",
-    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-city-west/city-apartment-am-ludwigkirchplatz-158001551795"
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-city-west/city-apartment-am-ludwigkirchplatz-158001551795",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-nikolassee-wannsee/bezugsfertige-3-zimmer-wohnung-zur-miete-in-top-zustand-in-lichterfelde-west-212001531149"
   ],
   "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien": [
     "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135||10707",

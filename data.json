@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T15:34:55.090432+00:00",
+  "generated_at": "2026-11-13T15:58:32.556283+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -390,8 +390,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-06T20:13:39.777424+00:00",
       "also_on": [],
-      "still_listed": false,
-      "gone_since": "2026-11-07T18:59:10.125872+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -968,8 +967,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-10T22:27:46.601084+00:00",
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-11T11:13:59.966801+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|87|2000|10555",
@@ -1338,8 +1336,8 @@
       "samples": 2
     },
     "kip.net": {
-      "median_hours": 83.8,
-      "samples": 6
+      "median_hours": 144.8,
+      "samples": 5
     },
     "engelvoelkers.com": {
       "median_hours": 144.4,

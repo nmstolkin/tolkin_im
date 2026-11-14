@@ -1501,7 +1501,9 @@
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|57.9||10829",
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|68.6||10409",
     "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::4|82.5||13599",
-    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|69.5||10829"
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|69.5||10829",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::2|55.2||13599",
+    "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::1|51.4||13409"
   ],
   "https://www.wegner-immoconsult.de/vermietung": [],
   "https://ar-immobilien.de/immobilienangebote.html": [],
@@ -1944,7 +1946,8 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|87|1500|14052",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|47|1060|13189",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|95|1995|12557",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|67.9|1400|12439"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|67.9|1400|12439",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|63|750|10318"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -2014,7 +2017,9 @@
     "https://www.flatbee.de/wohnung-mieten-berlin::2|56|720|10405",
     "https://www.flatbee.de/wohnung-mieten-berlin::4|115|1664|12161",
     "https://www.flatbee.de/wohnung-mieten-berlin::2|51|482|12459",
-    "https://www.flatbee.de/wohnung-mieten-berlin::3||1148|12205"
+    "https://www.flatbee.de/wohnung-mieten-berlin::3||1148|12205",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|46|710|13359",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|55|650|13359"
   ],
   "https://www.wohnungssuche-berlin.net/provisionsfrei.html": [
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70||12555",

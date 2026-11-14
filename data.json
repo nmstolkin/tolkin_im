@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T22:46:17.587113+00:00",
+  "generated_at": "2026-11-14T13:56:40.927030+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -27,7 +27,8 @@
       "url": "https://www.mueller-merkle.de/projekte/europacity-ensembles/",
       "site_url": "https://www.mueller-merkle.de/projekte/europacity-ensembles/",
       "source_name": "mueller-merkle.de",
-      "found_at": "2026-11-13T22:46:01.616074+00:00"
+      "found_at": "2026-11-13T22:46:01.616074+00:00",
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|88||10117",
@@ -115,8 +116,7 @@
       "site_url": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien",
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T15:53:04.509913+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-13T10:00:27.011241+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|104.9|1995|10178",
@@ -234,8 +234,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744140+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|335||mitte",
@@ -251,8 +250,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744055+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|178||mitte",
@@ -268,8 +266,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744015+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|160||mitte",
@@ -285,8 +282,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743977+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|223||mitte",
@@ -302,8 +298,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743943+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|154||mitte",
@@ -319,8 +314,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743894+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|205||mitte",
@@ -336,8 +330,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743847+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
@@ -405,7 +398,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-06T20:13:39.777424+00:00",
       "also_on": [],
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-14T13:56:40.926837+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
@@ -422,8 +416,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-06T20:13:37.061352+00:00",
       "also_on": [],
-      "still_listed": false,
-      "gone_since": "2026-11-07T18:59:10.125872+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|170||halensee",
@@ -711,8 +704,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297703+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -728,8 +720,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297629+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
@@ -762,8 +753,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:24:59.084624+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-11T11:13:59.966683+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -800,6 +790,97 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::5|142||10707",
+      "title": "Renovierungsbedürftige 5-Zimmer-Wohnung mit Balkon und Aufzug in Berlin-Charlottenburg",
+      "rooms": 5,
+      "size_qm": 142,
+      "rent": null,
+      "price_per_sqm": 12.1,
+      "district": "Berlin-Charlottenburg",
+      "plz": "10707",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-14T13:51:42.373330+00:00",
+      "rent_warm": 2142,
+      "rent_kalt_geschaetzt": 1716,
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135||10707",
+      "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",
+      "rooms": 4,
+      "size_qm": 135,
+      "rent": null,
+      "price_per_sqm": 10.6,
+      "district": null,
+      "plz": "10707",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-14T13:51:42.373198+00:00",
+      "rent_warm": 1831,
+      "rent_kalt_geschaetzt": 1426,
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::3|87||10555",
+      "title": "Tolle Wohnung in modernem Ensemble direkt an der Spree",
+      "rooms": 3,
+      "size_qm": 87,
+      "rent": null,
+      "price_per_sqm": 20.0,
+      "district": null,
+      "plz": "10555",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-14T13:51:42.373081+00:00",
+      "rent_warm": 2000,
+      "rent_kalt_geschaetzt": 1739,
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|124||10719",
+      "title": "Erstbezug nach Modernisierung: Stuckaltbau nahe Ludwigkirch- und Fasanenplatz 2. ...",
+      "rooms": 4,
+      "size_qm": 124,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": null,
+      "plz": "10719",
+      "street": null,
+      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "source_name": "smartsite2.myonoffice.de",
+      "found_at": "2026-11-14T13:48:39.335278+00:00",
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|81||10719",
+      "title": "Erstbezug nach Modernisierung: Stuckaltbau nahe Ludwigkirch- und Fasanenplatz",
+      "rooms": 3,
+      "size_qm": 81,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": null,
+      "plz": "10719",
+      "street": null,
+      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "source_name": "smartsite2.myonoffice.de",
+      "found_at": "2026-11-14T13:48:39.335036+00:00",
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
       "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
@@ -868,8 +949,7 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-12T07:05:39.529165+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-13T10:00:27.011358+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::4|135||10707",
@@ -982,7 +1062,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-10T22:27:46.601084+00:00",
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-14T13:56:40.926963+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|87|2000|10555",
@@ -1016,8 +1097,7 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:45:58.677048+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113609+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135|1831|10707",
@@ -1090,8 +1170,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-09T23:49:44.323329+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-10T16:49:32.991158+00:00"
+      "still_listed": true
     },
     {
       "key": "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108418/",
@@ -1319,8 +1398,7 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297667+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113609+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2300|10179",
@@ -1342,21 +1420,17 @@
     }
   ],
   "time_online": {
-    "immobilie1.de": {
-      "median_hours": 43.2,
-      "samples": 2
-    },
     "ohne-makler.net": {
       "median_hours": 22.8,
       "samples": 2
     },
     "kip.net": {
-      "median_hours": 144.8,
+      "median_hours": 185.7,
       "samples": 5
     },
     "engelvoelkers.com": {
-      "median_hours": 144.4,
-      "samples": 17
+      "median_hours": 297.0,
+      "samples": 8
     },
     "habitare-immobilien.de": {
       "median_hours": 26.4,
@@ -1369,10 +1443,6 @@
     "wbm.de": {
       "median_hours": 179.9,
       "samples": 4
-    },
-    "smartsite2.myonoffice.de": {
-      "median_hours": 334.2,
-      "samples": 2
     }
   }
 }

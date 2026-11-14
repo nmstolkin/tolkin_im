@@ -40,38 +40,38 @@
     "run_type": "voll"
   },
   "schnell": {
-    "generated_at": "2026-11-14T14:23:46.130452+00:00",
+    "generated_at": "2026-11-14T20:00:43.397258+00:00",
     "listings_seen": 162,
     "matches": 0,
     "rejected": {
-      "gewerbe": 3,
       "wbs": 6,
-      "miete": 56,
-      "zimmer": 68,
-      "groesse": 72,
-      "moebliert": 13,
+      "miete": 60,
+      "gewerbe": 2,
+      "zimmer": 69,
+      "groesse": 77,
+      "moebliert": 11,
       "lage": 35,
-      "wg_zimmer": 6,
+      "wg_zimmer": 3,
+      "zeitmiete": 1,
       "lage_unklar": 4
     },
-    "rejected_total": 263,
+    "rejected_total": 268,
     "sites_total": 17,
     "sites_with_errors": 0,
     "ohne_ki": 2,
-    "aus_cache": 11,
-    "vorfilter": 1,
-    "ki_aufrufe": 4,
+    "aus_cache": 9,
+    "vorfilter": 0,
+    "ki_aufrufe": 7,
     "ki_abgeschnitten": 0,
     "quellen_nach_art": {
-      "cache": 11,
-      "ki": 3,
+      "ki": 6,
+      "cache": 9,
       "json-ld": 1,
-      "vorfilter": 1,
       "xhr-json": 1
     },
     "near_misses": 6,
     "quota_exhausted": false,
-    "laufzeit_min": 0.7,
+    "laufzeit_min": 0.9,
     "run_type": "schnell"
   }
 }

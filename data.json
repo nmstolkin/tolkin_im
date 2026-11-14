@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T14:47:42.433741+00:00",
+  "generated_at": "2026-11-14T20:00:43.395643+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -790,6 +790,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|118|1890|10551",
+      "title": "Stuckaltbau im Wiclefkiez, Sonnenbalkon, grün, ruhig, hohe Decken",
+      "rooms": 4,
+      "size_qm": 118,
+      "rent": 1890,
+      "price_per_sqm": 16.0,
+      "district": "Wiclefkiez",
+      "plz": "10551",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-11-14T20:00:24.268208+00:00",
+      "miss_reason": "lage_unklar"
+    },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::5|142||10707",
       "title": "Renovierungsbedürftige 5-Zimmer-Wohnung mit Balkon und Aufzug in Berlin-Charlottenburg",

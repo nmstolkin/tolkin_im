@@ -232,7 +232,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|63|750|10318",
     "https://www.kip.net/berlin/mieten/wohnungen/1::4|132|3168|12165",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|34|720|10707",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::3|85|1555|10318"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|85|1555|10318",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|47|1060|13189"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -461,7 +462,10 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|68|1400|12439",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::6|131|2250|14089",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|35|829|14193",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|74|1921|10439"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|74|1921|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|71|870|10553",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|45||10965",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|750|10318"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -838,7 +842,9 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|30.0|281.0|10369",
     "https://inberlinwohnen.de/wohnungsfinder/::3|59.6|578.2|10369",
     "https://inberlinwohnen.de/wohnungsfinder/::1|30.4|276.2|10369",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|47.5|364.9|10367"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|47.5|364.9|10367",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|48.6|373.8|10369",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|34.6|333.3|10369"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -1236,7 +1242,29 @@
     "https://www.livinginberlin.de/angebote/mieten::2|44.4||",
     "https://www.livinginberlin.de/angebote/mieten::3|73.4||",
     "https://www.livinginberlin.de/angebote/mieten::3|86.6||",
-    "https://www.livinginberlin.de/angebote/mieten::3|79.1||"
+    "https://www.livinginberlin.de/angebote/mieten::3|79.1||",
+    "https://www.livinginberlin.de/angebote/mieten::3|76|1030|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::1||469|königs wusterhausen",
+    "https://www.livinginberlin.de/angebote/mieten::7||2499|königs wusterhausen",
+    "https://www.livinginberlin.de/angebote/mieten::||3499|friedrichshain",
+    "https://www.livinginberlin.de/angebote/mieten::||2990|trebbin",
+    "https://www.livinginberlin.de/angebote/mieten::||169|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::1||179|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::||499|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::||999|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::||2999|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::1||959|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::||1999|zossen",
+    "https://www.livinginberlin.de/angebote/mieten::2|68.5|514|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::2|70|599|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::|182.9|2299|lichtenberg",
+    "https://www.livinginberlin.de/angebote/mieten::|132|1299|strausberg",
+    "https://www.livinginberlin.de/angebote/mieten::||119|tempelhof",
+    "https://www.livinginberlin.de/angebote/mieten::|120|1999|lichtenberg",
+    "https://www.livinginberlin.de/angebote/mieten::|234.8|999|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::2|40.9|399|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::4|122.0|915.3|oranienburg",
+    "https://www.livinginberlin.de/angebote/mieten::9|223.3|1674.6|oranienburg"
   ],
   "https://www.degewo.de/immosuche": [
     "https://www.degewo.de/immosuche::1|45.5||köpenick",
@@ -1374,7 +1402,8 @@
     "https://www.agas-immobilien.de/immobilien/::5|250|5350|",
     "https://www.agas-immobilien.de/immobilien/::2|53|1500|friedrichshain / stralau",
     "https://www.agas-immobilien.de/immobilien/::|75|1380|friedrichshain",
-    "https://www.agas-immobilien.de/immobilien/::3|76|2250|"
+    "https://www.agas-immobilien.de/immobilien/::3|76|2250|",
+    "https://www.agas-immobilien.de/immobilien/::2|53|1500|stralau"
   ],
   "https://immodo-berlin.de/immobilien/": [],
   "https://www.beckerundkries.de/mietende/angebote-wohnen/": [
@@ -1530,7 +1559,10 @@
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::5|127.4|3500|berlin",
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::4|162.6|4000|berlin",
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::5|127.4||berlin",
-    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::4|162.6||berlin"
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::4|162.6||berlin",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::1|45||",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::2|82||",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::2|54.3||"
   ],
   "https://www.mj-immobilien.de/mietangebote-in-berlin.html": [],
   "https://www.gottschau-immobilien.de/miete.xhtml": [],
@@ -1623,7 +1655,8 @@
     "https://immonexxt.com/de/mietangebote-wohnen::1|35.6|599|",
     "https://immonexxt.com/de/mietangebote-wohnen::1|35.7|589|helle mitte",
     "https://immonexxt.com/de/mietangebote-wohnen::2|54.0|709|",
-    "https://immonexxt.com/de/mietangebote-wohnen::3|68.1|849|"
+    "https://immonexxt.com/de/mietangebote-wohnen::3|68.1|849|",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|35.7|589|"
   ],
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": [
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
@@ -1804,7 +1837,10 @@
     "https://www.ivf-immobilien.com/immobilien/mieten/::2|||",
     "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||potsdam-waldstadt",
     "https://www.ivf-immobilien.com/immobilien/mieten/::2|||hennigsdorf",
-    "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||waldstadt i"
+    "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||waldstadt i",
+    "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||potsdam-waldstadt i.",
+    "https://www.ivf-immobilien.com/immobilien/mieten/::1.5|||potsdam babelsberg",
+    "https://www.ivf-immobilien.com/immobilien/mieten/::|||potsdam babelsberg"
   ],
   "https://www.evernest.com/de/": [],
   "https://www.borcherthv.de/": [],
@@ -1877,7 +1913,8 @@
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-20778-33.html",
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-24062-215.html",
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10482-44.html",
-    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10503-117.html"
+    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10503-117.html",
+    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-14001-60.html"
   ],
   "https://portal.immobilienscout24.de/ergebnisliste/58427637": [
     "https://portal.immobilienscout24.de/ergebnisliste/58427637::2|106|1500|hermsdorf"
@@ -1956,7 +1993,15 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|47|1060|13189",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|95|1995|12557",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|67.9|1400|12439",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|63|750|10318"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|63|750|10318",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|59||10961",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|78||10439",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|98||13051",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|34||10707",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|34||14193",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|87||14052",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|47||13189",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|95||12557"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -2028,7 +2073,9 @@
     "https://www.flatbee.de/wohnung-mieten-berlin::2|51|482|12459",
     "https://www.flatbee.de/wohnung-mieten-berlin::3||1148|12205",
     "https://www.flatbee.de/wohnung-mieten-berlin::2|46|710|13359",
-    "https://www.flatbee.de/wohnung-mieten-berlin::2|55|650|13359"
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|55|650|13359",
+    "https://www.flatbee.de/wohnung-mieten-berlin::3|94|810|10713",
+    "https://www.flatbee.de/wohnung-mieten-berlin::2|46|710|10245"
   ],
   "https://www.wohnungssuche-berlin.net/provisionsfrei.html": [
     "https://www.wohnungssuche-berlin.net/provisionsfrei.html::3|70||12555",
@@ -2192,7 +2239,18 @@
     "https://www.berlinhaus.com/mietangebote/::3|57.6|625|minden",
     "https://www.berlinhaus.com/mietangebote/::1|39|525|minden",
     "https://www.berlinhaus.com/mietangebote/::3|61.3|649|minden",
-    "https://www.berlinhaus.com/mietangebote/::3|67|725|minden"
+    "https://www.berlinhaus.com/mietangebote/::3|67|725|minden",
+    "https://www.berlinhaus.com/mietangebote/::2|49.1|799|",
+    "https://www.berlinhaus.com/mietangebote/::3|57.0|599|",
+    "https://www.berlinhaus.com/mietangebote/::4|65.5|699|",
+    "https://www.berlinhaus.com/mietangebote/::3|67.9|649|",
+    "https://www.berlinhaus.com/mietangebote/::3|66|649|",
+    "https://www.berlinhaus.com/mietangebote/::3|67.5|649|",
+    "https://www.berlinhaus.com/mietangebote/::3|67.1|699|",
+    "https://www.berlinhaus.com/mietangebote/::3|57.6|625|",
+    "https://www.berlinhaus.com/mietangebote/::1|39|525|",
+    "https://www.berlinhaus.com/mietangebote/::3|61.3|649|",
+    "https://www.berlinhaus.com/mietangebote/::3|67|725|"
   ],
   "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml": [
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::4|141|3600|",
@@ -2227,7 +2285,9 @@
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|67||",
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::|75|1380|friedrichshain",
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::3|76|2250|",
-    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53|1500|friedrichshain"
+    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53|1500|friedrichshain",
+    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::3|76||",
+    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53||stralau"
   ],
   "https://cap-con.de/immobilien-berlin/": [
     "https://cap-con.de/immobilien-berlin/::4|121|1160|spandau",
@@ -2351,7 +2411,8 @@
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|240||charlottenburg",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::4|108||moabit",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::1|46||schöneberg",
-    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::1|45||schöneberg"
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::1|45||schöneberg",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::6.5|300||tiergarten"
   ],
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg": [
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::6|563||prenzlauer berg",
@@ -2747,6 +2808,8 @@
     "http://www.mika-immobilien.de/vermietung-wohnung/::2|67.4|1854.0|charlottenburg",
     "http://www.mika-immobilien.de/vermietung-wohnung/::2|65.6|1495|wilmersdorf",
     "http://www.mika-immobilien.de/vermietung-wohnung/::2|90.4|936|mitte",
-    "http://www.mika-immobilien.de/vermietung-wohnung/::1|53.5|669|mitte"
+    "http://www.mika-immobilien.de/vermietung-wohnung/::1|53.5|669|mitte",
+    "http://www.mika-immobilien.de/vermietung-wohnung/::2|90.4|936|mitte (ortsteil)",
+    "http://www.mika-immobilien.de/vermietung-wohnung/::1|53.5|669|mitte (ortsteil)"
   ]
 }

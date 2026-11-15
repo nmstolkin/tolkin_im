@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T20:00:43.395643+00:00",
+  "generated_at": "2026-11-15T21:39:21.963443+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,24 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135||10707",
+      "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",
+      "rooms": 4,
+      "size_qm": 135,
+      "rent": null,
+      "price_per_sqm": 10.6,
+      "district": null,
+      "plz": "10707",
+      "street": "Olivaer Platz",
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-15T21:38:41.009628+00:00",
+      "rent_warm": 1831,
+      "rent_kalt_geschaetzt": 1426,
+      "still_listed": true
+    },
     {
       "key": "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|125.3|1628|",
       "title": "Familienfreundliche 4-Zimmer-Wohnung mit großzügigem Außenbereich",
@@ -99,8 +117,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-10T16:04:41.946818+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135|1831|10707",
@@ -432,8 +449,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-06T16:33:27.162316+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::5|167||charlottenburg",
@@ -449,8 +465,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-06T16:33:25.911768+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113474+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|151|2490|10119",
@@ -753,7 +768,8 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:24:59.084624+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-15T21:39:21.963248+00:00"
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -791,6 +807,62 @@
   ],
   "near_misses": [
     {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|83||moabit",
+      "title": "Quartier Lehrter Straße – Idyllische Wohnoase in Berliner Toplage!",
+      "rooms": 3,
+      "size_qm": 83,
+      "rent": null,
+      "price_per_sqm": 22.7,
+      "district": "Moabit",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-15T21:32:18.993321+00:00",
+      "rent_warm": 2132,
+      "rent_kalt_geschaetzt": 1883,
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|78||10439",
+      "title": "Erstbezug 2026 | First occupancy: 3 rooms, balcony, fitted kitchen, walk-in closet",
+      "rooms": 3,
+      "size_qm": 78,
+      "rent": null,
+      "price_per_sqm": 23.3,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+      "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+      "source_name": "ohne-makler.net",
+      "found_at": "2026-11-15T21:31:48.190431+00:00",
+      "rent_warm": 2050,
+      "rent_kalt_geschaetzt": 1816,
+      "frei_ab": "2026",
+      "miss_reason": "groesse",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|101|2190|10179",
+      "title": "Exklusive 3-Zimmer zentral in Mitte mit Loggia",
+      "rooms": 3,
+      "size_qm": 101,
+      "rent": 2190,
+      "price_per_sqm": 21.7,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-11-15T21:25:35.477271+00:00",
+      "miss_reason": "miete",
+      "still_listed": true
+    },
+    {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|118|1890|10551",
       "title": "Stuckaltbau im Wiclefkiez, Sonnenbalkon, grün, ruhig, hohe Decken",
       "rooms": 4,
@@ -804,7 +876,9 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-11-14T20:00:24.268208+00:00",
-      "miss_reason": "lage_unklar"
+      "miss_reason": "lage_unklar",
+      "still_listed": false,
+      "gone_since": "2026-11-15T21:39:21.963371+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::5|142||10707",
@@ -878,7 +952,8 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-14T13:48:39.335278+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-15T21:39:21.963371+00:00"
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|81||10719",
@@ -895,7 +970,8 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-14T13:48:39.335036+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-15T21:39:21.963371+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
@@ -984,8 +1060,7 @@
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113609+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::3|87||10555",
@@ -1004,8 +1079,7 @@
       "rent_warm": 2000,
       "rent_kalt_geschaetzt": 1739,
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113609+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::12|718||charlottenburg",
@@ -1022,8 +1096,7 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-11T11:04:23.267253+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-12T16:58:17.113609+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::5|133||10553",
@@ -1168,8 +1241,7 @@
       "rent_warm": 2500,
       "rent_kalt_geschaetzt": 2236,
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-12T07:27:49.849159+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|118|1890|10551",
@@ -1186,7 +1258,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-09T23:49:44.323329+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-15T21:39:21.963371+00:00"
     },
     {
       "key": "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108418/",
@@ -1444,10 +1517,6 @@
       "median_hours": 185.7,
       "samples": 5
     },
-    "engelvoelkers.com": {
-      "median_hours": 297.0,
-      "samples": 8
-    },
     "habitare-immobilien.de": {
       "median_hours": 26.4,
       "samples": 2
@@ -1459,6 +1528,14 @@
     "wbm.de": {
       "median_hours": 179.9,
       "samples": 4
+    },
+    "engelvoelkers.com": {
+      "median_hours": 376.0,
+      "samples": 5
+    },
+    "smartsite2.myonoffice.de": {
+      "median_hours": 387.4,
+      "samples": 2
     }
   }
 }

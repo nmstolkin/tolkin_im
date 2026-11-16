@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T17:24:54.855777+00:00",
+  "generated_at": "2026-11-16T17:27:51.399417+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -812,6 +812,42 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.7||10179",
+      "title": "Familien-Maisonette-4-Zimmer-Wohnung mit 2 Bädern und Terrasse",
+      "rooms": 4,
+      "size_qm": 120.7,
+      "rent": null,
+      "price_per_sqm": 18.4,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 115",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-11-16T17:26:08.503564+00:00",
+      "rent_warm": 2576.95,
+      "rent_kalt_geschaetzt": 2215,
+      "miss_reason": "miete"
+    },
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|106.1||10179",
+      "title": "Wohnen in Mitte mit eigener Terrasse: Erstbezug 4-Zimmer-Wohnung",
+      "rooms": 4,
+      "size_qm": 106.1,
+      "rent": null,
+      "price_per_sqm": 20.2,
+      "district": "Mitte",
+      "plz": "10179",
+      "street": "Köpenicker Straße 105A",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-11-16T17:26:08.503524+00:00",
+      "rent_warm": 2461.52,
+      "rent_kalt_geschaetzt": 2143,
+      "miss_reason": "miete"
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|83||moabit",
       "title": "Quartier Lehrter Straße – Idyllische Wohnoase in Berliner Toplage!",

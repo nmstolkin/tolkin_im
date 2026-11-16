@@ -897,7 +897,10 @@
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.1||10179",
     "https://www.wbm.de/wohnungen-berlin/angebote/::1|30.8||10969",
     "https://www.wbm.de/wohnungen-berlin/angebote/::1|43.9||10115",
-    "https://www.wbm.de/wohnungen-berlin/angebote/::3|71.7||13591"
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|71.7||13591",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|72.0||10179",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::2|62.6||10243",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::2|54.8||10997"
   ],
   "https://www.habitare-immobilien.de/angebote": [
     "https://www.habitare-immobilien.de/angebote::https://www.habitare-immobilien.de/angebote/1480060.klingsor-tg-95-20",
@@ -1057,7 +1060,9 @@
     "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::||100|10117",
     "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::||3467.2|13088",
     "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::||3141.2|10117",
-    "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::7||3467.2|13088"
+    "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::7||3467.2|13088",
+    "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::||990|13469",
+    "https://lanzundmelzer.de/immobilienangebote#filter=.objektkategorie-vermarktungsart-miete::2||1120|13086"
   ],
   "https://www.woelki-pm.de/#nean": [
     "https://www.woelki-pm.de/#nean::|67||kreuzberg",

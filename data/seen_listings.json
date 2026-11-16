@@ -1384,7 +1384,8 @@
     "https://deinhart-immobilien.de/immobilien-fenster/::||60|14542",
     "https://deinhart-immobilien.de/immobilien-fenster/::2|51|985|14469",
     "https://deinhart-immobilien.de/immobilien-fenster/::2|65|703.0|14547",
-    "https://deinhart-immobilien.de/immobilien-fenster/::1.5|61|644.9|14476"
+    "https://deinhart-immobilien.de/immobilien-fenster/::1.5|61|644.9|14476",
+    "https://deinhart-immobilien.de/immobilien-fenster/::|||14542"
   ],
   "https://www.kwco.de/de": [],
   "https://www.dydo.de/": [
@@ -1615,7 +1616,8 @@
     "https://www.gesobau.de/mieten/wohnungssuche/::2|50.8||13187",
     "https://www.gesobau.de/mieten/wohnungssuche/::1|24.6||13437",
     "https://www.gesobau.de/mieten/wohnungssuche/::1|22.0||13437",
-    "https://www.gesobau.de/mieten/wohnungssuche/::1|21.4||13437"
+    "https://www.gesobau.de/mieten/wohnungssuche/::1|21.4||13437",
+    "https://www.gesobau.de/mieten/wohnungssuche/::3|86.5||13156"
   ],
   "https://immonexxt.com/de/mietangebote-wohnen": [
     "https://immonexxt.com/de/mietangebote-wohnen::3|75.5|949|berlin",
@@ -2008,7 +2010,21 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|34||14193",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|87||14052",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|47||13189",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|95||12557"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|95||12557",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|66||12527",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|47||12527",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|81||13156",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|60||12109",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|45||10623",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|67.9||12439",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|35||14193",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|34||12357",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|90||12157",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|77.1||12524",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|25||12681",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|100||10627",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::4|132||12165",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|75.7||10439"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -2548,7 +2564,15 @@
     "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::3|26||hannover",
     "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::4|107||syke",
     "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::2.5|75||brinkum",
-    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten"
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::|676|17000|friedrichshein",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::4.5|130|2650|",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::3.5|94|1500|groß borstel",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::2.5|68|1300|groß borstel",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::3|116|1250|",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::4||1000|",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::3||1836.8|",
+    "https://kensington-international.com/de/de/kaufen-mieten/immobilie-mieten::3||1400|woltmershausen"
   ],
   "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote": [
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|58.0||14197",
@@ -2578,7 +2602,12 @@
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1.5|52||13403",
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::|65||13405",
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|73||14057",
-    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1|50||12169"
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1|50||12169",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2.5|71.6||13587",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|63.6||14059",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1|47.9||14059",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|57.6||12169",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2.5|69.4||13403"
   ],
   "https://abg-paradies.de/wohnungsangebote/": [],
   "https://www.bwv-zk.de/wohnen-bauen/vermietungsangebote.html": [],
@@ -2678,7 +2707,8 @@
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::3|153|4590|10117",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|64|1781|10117",
     "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::5|198|4950|10117",
-    "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::3|149|3576|10117"
+    "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::3|149|3576|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::2|78||10117"
   ],
   "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten": [
     "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::6|203|3427|10589",
@@ -2791,7 +2821,19 @@
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|64|1781|10117",
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::5|198|4950|10117",
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|149|3576|10117",
-    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|50|750|13357"
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|50|750|13357",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|63||10439",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::4|147||13189",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|47||10249",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|46||10249",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|52||10243",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::4|114||10243",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|153||10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|64||10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::5|198||10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|149||10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|50||13357",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|66||10243"
   ],
   "https://www.core-berlin.de/de/component/jea/?format=feed&type=rss": [],
   "https://vineta98.de/wohnungen/feed/": [],

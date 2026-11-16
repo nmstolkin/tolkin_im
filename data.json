@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T17:27:51.399417+00:00",
+  "generated_at": "2026-11-16T17:53:26.368574+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -536,8 +536,7 @@
       "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
       "source_name": "ohne-makler.net",
       "found_at": "2026-11-03T16:52:21.443311+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-04T18:08:49.932864+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|96.4||10179",
@@ -723,8 +722,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297703+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-16T17:24:54.855624+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -740,8 +738,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297629+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-16T17:24:54.855624+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
@@ -813,6 +810,23 @@
   ],
   "near_misses": [
     {
+      "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|75.7||10439",
+      "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
+      "rooms": 3.5,
+      "size_qm": 75.66,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg",
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+      "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
+      "source_name": "ohne-makler.net",
+      "found_at": "2026-11-16T17:45:42.551376+00:00",
+      "miss_reason": "groesse",
+      "still_listed": true
+    },
+    {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.7||10179",
       "title": "Familien-Maisonette-4-Zimmer-Wohnung mit 2 Bädern und Terrasse",
       "rooms": 4,
@@ -828,7 +842,9 @@
       "found_at": "2026-11-16T17:26:08.503564+00:00",
       "rent_warm": 2576.95,
       "rent_kalt_geschaetzt": 2215,
-      "miss_reason": "miete"
+      "miss_reason": "miete",
+      "still_listed": false,
+      "gone_since": "2026-11-16T17:53:26.368515+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|106.1||10179",
@@ -846,7 +862,9 @@
       "found_at": "2026-11-16T17:26:08.503524+00:00",
       "rent_warm": 2461.52,
       "rent_kalt_geschaetzt": 2143,
-      "miss_reason": "miete"
+      "miss_reason": "miete",
+      "still_listed": false,
+      "gone_since": "2026-11-16T17:53:26.368515+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|83||moabit",
@@ -885,8 +903,7 @@
       "rent_kalt_geschaetzt": 1816,
       "frei_ab": "2026",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-16T17:24:54.855724+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|101|2190|10179",
@@ -1285,8 +1302,7 @@
       "rent_warm": 2500,
       "rent_kalt_geschaetzt": 2236,
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-16T17:24:54.855724+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|118|1890|10551",
@@ -1534,8 +1550,7 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297667+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-16T17:24:54.855724+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|85.4|2300|10179",
@@ -1557,10 +1572,6 @@
     }
   ],
   "time_online": {
-    "ohne-makler.net": {
-      "median_hours": 22.8,
-      "samples": 2
-    },
     "kip.net": {
       "median_hours": 211.5,
       "samples": 6
@@ -1579,7 +1590,7 @@
     },
     "engelvoelkers.com": {
       "median_hours": 376.0,
-      "samples": 7
+      "samples": 5
     },
     "smartsite2.myonoffice.de": {
       "median_hours": 387.4,

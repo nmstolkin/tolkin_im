@@ -961,7 +961,9 @@
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::|||10247",
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|78.2|2275|10249",
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|78.2|2175|10249",
-    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|60.4|1572|10407"
+    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|60.4|1572|10407",
+    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|60.4|1498|10407",
+    "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|52.6|1350|10407"
   ],
   "https://tki.berlin/immobilien-vermarktungsart/miete/": [],
   "https://www.qh-living.com/wohnungen": [],
@@ -2349,7 +2351,8 @@
     "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-106548/",
     "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108415/",
     "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108387/",
-    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108431/"
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108431/",
+    "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108412/"
   ],
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte": [
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::2|107||mitte",
@@ -2564,7 +2567,13 @@
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1.5|52.5||13629",
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|61.8||13627",
     "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|70.0||12169",
-    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1.5|51.8||13403"
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1.5|51.8||13403",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::|64||13587",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::|49||13587",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1.5|52||13403",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::|65||13405",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::2|73||14057",
+    "https://charlotte1907.de/wohnungsangebote/woechentliche-angebote::1|50||12169"
   ],
   "https://abg-paradies.de/wohnungsangebote/": [],
   "https://www.bwv-zk.de/wohnen-bauen/vermietungsangebote.html": [],
@@ -2576,7 +2585,8 @@
     "https://www.neues-berlin.de/wohnen/wohnungsangebote::1|41.7||13051",
     "https://www.neues-berlin.de/wohnen/wohnungsangebote::1|||13086",
     "https://www.neues-berlin.de/wohnen/wohnungsangebote::1|||13053",
-    "https://www.neues-berlin.de/wohnen/wohnungsangebote::2|||13053"
+    "https://www.neues-berlin.de/wohnen/wohnungsangebote::2|||13053",
+    "https://www.neues-berlin.de/wohnen/wohnungsangebote::1|32.6||13053"
   ],
   "https://wg-solidaritaet.de/wohnen/mietangebote/": [],
   "https://www.wbv-neukoelln.de/aktuelles/wohnungsangebote.html": [],
@@ -2801,7 +2811,8 @@
     "https://fineandmine.de/immobilien/feed/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108400/",
     "https://fineandmine.de/immobilien/feed/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-106548/",
     "https://fineandmine.de/immobilien/feed/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108415/",
-    "https://fineandmine.de/immobilien/feed/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108387/"
+    "https://fineandmine.de/immobilien/feed/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108387/",
+    "https://fineandmine.de/immobilien/feed/::https://fineandmine.de/immobilien/wohnung-etagenwohnung-in-berlin-mieten-fam-108412/"
   ],
   "http://www.mika-immobilien.de/vermietung-wohnung/": [
     "http://www.mika-immobilien.de/vermietung-wohnung/::4.5|154|2656.5|westend",

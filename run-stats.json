@@ -40,38 +40,38 @@
     "run_type": "voll"
   },
   "schnell": {
-    "generated_at": "2026-11-16T17:27:51.400612+00:00",
-    "listings_seen": 99,
-    "matches": 0,
+    "generated_at": "2026-11-17T00:57:47.386235+00:00",
+    "listings_seen": 191,
+    "matches": 1,
     "rejected": {
-      "wbs": 4,
-      "miete": 34,
-      "zimmer": 46,
-      "groesse": 47,
-      "keine_daten": 1,
-      "gewerbe": 2,
-      "lage": 24,
-      "lage_unklar": 2
+      "lage": 51,
+      "gewerbe": 8,
+      "zimmer": 82,
+      "groesse": 86,
+      "miete": 71,
+      "wg_zimmer": 3,
+      "lage_unklar": 3,
+      "keine_daten": 2,
+      "wbs": 7,
+      "moebliert": 3
     },
-    "rejected_total": 160,
+    "rejected_total": 316,
     "sites_total": 17,
     "sites_with_errors": 0,
     "ohne_ki": 2,
-    "aus_cache": 2,
-    "vorfilter": 2,
-    "ki_aufrufe": 21,
-    "ki_abgeschnitten": 0,
+    "aus_cache": 7,
+    "vorfilter": 0,
+    "ki_aufrufe": 16,
+    "ki_abgeschnitten": 1,
     "quellen_nach_art": {
-      "vorfilter": 2,
-      "ki": 11,
-      "browser_uebersprungen": 4,
+      "ki": 8,
+      "cache": 7,
       "json-ld": 1,
-      "xhr-json": 1,
-      "cache": 2
+      "xhr-json": 1
     },
-    "near_misses": 7,
+    "near_misses": 9,
     "quota_exhausted": false,
-    "laufzeit_min": 2.0,
+    "laufzeit_min": 2.2,
     "run_type": "schnell"
   }
 }

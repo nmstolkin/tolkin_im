@@ -465,7 +465,10 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|74|1921|10439",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|71|870|10553",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|45||10965",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|750|10318"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|750|10318",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|26||10625",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|47|1060|13189",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|64|1500|10555"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -844,7 +847,16 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|30.4|276.2|10369",
     "https://inberlinwohnen.de/wohnungsfinder/::2|47.5|364.9|10367",
     "https://inberlinwohnen.de/wohnungsfinder/::2|48.6|373.8|10369",
-    "https://inberlinwohnen.de/wohnungsfinder/::1|34.6|333.3|10369"
+    "https://inberlinwohnen.de/wohnungsfinder/::1|34.6|333.3|10369",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|28.3|331.3|12555",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|56.2|562.2|10247",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|51.7|421.7|13059",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|30.4|535.3|13405",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|46.3|449.2|12557",
+    "https://inberlinwohnen.de/wohnungsfinder/::4|101.8|1885.7|13405",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|46.5|451.3|12557",
+    "https://inberlinwohnen.de/wohnungsfinder/::4|86.6|996.2|13599",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|72.3|550.6|12279"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -900,7 +912,8 @@
     "https://www.wbm.de/wohnungen-berlin/angebote/::3|71.7||13591",
     "https://www.wbm.de/wohnungen-berlin/angebote/::3|72.0||10179",
     "https://www.wbm.de/wohnungen-berlin/angebote/::2|62.6||10243",
-    "https://www.wbm.de/wohnungen-berlin/angebote/::2|54.8||10997"
+    "https://www.wbm.de/wohnungen-berlin/angebote/::2|54.8||10997",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::3|56.2||10247"
   ],
   "https://www.habitare-immobilien.de/angebote": [
     "https://www.habitare-immobilien.de/angebote::https://www.habitare-immobilien.de/angebote/1480060.klingsor-tg-95-20",
@@ -949,7 +962,10 @@
     "https://www.habitare-immobilien.de/angebote::|||10715",
     "https://www.habitare-immobilien.de/angebote::|||12167",
     "https://www.habitare-immobilien.de/angebote::|||12489",
-    "https://www.habitare-immobilien.de/angebote::2|44.8|1049|10553"
+    "https://www.habitare-immobilien.de/angebote::2|44.8|1049|10553",
+    "https://www.habitare-immobilien.de/angebote::3|88.5|1699|10178",
+    "https://www.habitare-immobilien.de/angebote::4|110.8|1781.0|",
+    "https://www.habitare-immobilien.de/angebote::4|109.3|1549|"
   ],
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": [
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|52.6|1400|10407",
@@ -1028,7 +1044,8 @@
     "https://www.mueller-merkle.de/projekte/europacity-ensembles/::5|106.0|1820|13587",
     "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|82.3|1635|13587",
     "https://www.mueller-merkle.de/projekte/europacity-ensembles/::5|124.4|2210|13587",
-    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|84.9|1295|"
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|84.9|1295|",
+    "https://www.mueller-merkle.de/projekte/europacity-ensembles/::3|80.5|1915|"
   ],
   "https://www.mueller-merkle.de/projekte/wasserstadt-berlin-mitte/": [],
   "https://carat24-immobilien.de/zur-miete/": [],
@@ -1104,7 +1121,10 @@
     "https://www.grandcityproperty.de/wohnung-berlin::4|122|2001|berlin",
     "https://www.grandcityproperty.de/wohnung-berlin::1|43|406|berlin",
     "https://www.grandcityproperty.de/wohnung-berlin::4|122|2001|",
-    "https://www.grandcityproperty.de/wohnung-berlin::2|46|532|"
+    "https://www.grandcityproperty.de/wohnung-berlin::2|46|532|",
+    "https://www.grandcityproperty.de/wohnung-berlin::2|74|2590|10707",
+    "https://www.grandcityproperty.de/wohnung-berlin::4|122|2001|13357",
+    "https://www.grandcityproperty.de/wohnung-berlin::4|90|829|13629"
   ],
   "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php": [
     "https://www.hausverwaltung-bauriedel.de/de/wohungen-mieten.php::1.5|||mahlsdorf",

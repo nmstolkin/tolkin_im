@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T17:53:26.368574+00:00",
+  "generated_at": "2026-11-17T00:57:47.385076+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,21 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.habitare-immobilien.de/angebote::3|88.5|1699|10178",
+      "title": "Traumhaft schöne Komfortwohnung mit großem Balkon: tolle Lage dicht Alexanderplatz, Berolinastraße!",
+      "rooms": 3,
+      "size_qm": 88.48,
+      "rent": 1699,
+      "price_per_sqm": 19.2,
+      "district": "Mitte",
+      "plz": "10178",
+      "street": "Berolinastraße",
+      "url": "https://www.habitare-immobilien.de/angebote",
+      "site_url": "https://www.habitare-immobilien.de/angebote",
+      "source_name": "habitare-immobilien.de",
+      "found_at": "2026-11-17T00:56:00.976041+00:00"
+    },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135||10707",
       "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",

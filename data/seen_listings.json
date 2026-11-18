@@ -246,7 +246,10 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|106|1850|12587",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|78|2050|10439",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|47|627|12527",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::4|76|1892|10439"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::4|76|1892|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|35|750|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|40|875|10407",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|43|740|10318"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -481,7 +484,9 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|750|10318",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|26||10625",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|47|1060|13189",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|64|1500|10555"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|64|1500|10555",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|35|750|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|85|1555|10318"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -524,7 +529,13 @@
     "https://www.core-berlin.de/vermietung::1|50.6|557.8|10709",
     "https://www.core-berlin.de/vermietung::1|41.8|617.5|10405",
     "https://www.core-berlin.de/vermietung::6|219.7|4519.7|10623",
-    "https://www.core-berlin.de/vermietung::2|126|2626|10719"
+    "https://www.core-berlin.de/vermietung::2|126|2626|10719",
+    "https://www.core-berlin.de/vermietung::2|126||10719",
+    "https://www.core-berlin.de/vermietung::6|219.7||10623",
+    "https://www.core-berlin.de/vermietung::1|50.6||10709",
+    "https://www.core-berlin.de/vermietung::1|41.8||10405",
+    "https://www.core-berlin.de/vermietung::2|54.2||10405",
+    "https://www.core-berlin.de/vermietung::2|59.1||10709"
   ],
   "https://inberlinwohnen.de/wohnungsfinder/": [
     "https://inberlinwohnen.de/wohnungsfinder/::1|32.8|307.8|12249",
@@ -880,7 +891,10 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|30.2|220.8|12169",
     "https://inberlinwohnen.de/wohnungsfinder/::1|40.0|379.0|13355",
     "https://inberlinwohnen.de/wohnungsfinder/::2|56.0|548.0|13627",
-    "https://inberlinwohnen.de/wohnungsfinder/::4|92|1211|12524"
+    "https://inberlinwohnen.de/wohnungsfinder/::4|92|1211|12524",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|29.4|283.3|10409",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|61.5|406.7|10409",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|58.7|541.5|12459"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -990,7 +1004,17 @@
     "https://www.habitare-immobilien.de/angebote::2|44.8|1049|10553",
     "https://www.habitare-immobilien.de/angebote::3|88.5|1699|10178",
     "https://www.habitare-immobilien.de/angebote::4|110.8|1781.0|",
-    "https://www.habitare-immobilien.de/angebote::4|109.3|1549|"
+    "https://www.habitare-immobilien.de/angebote::4|109.3|1549|",
+    "https://www.habitare-immobilien.de/angebote::3|117.3|1995|13349",
+    "https://www.habitare-immobilien.de/angebote::1|36.4|706.1|10247",
+    "https://www.habitare-immobilien.de/angebote::4|110.8|1781.0|königs wusterhausen",
+    "https://www.habitare-immobilien.de/angebote::4|109.3|1549|königs wusterhausen",
+    "https://www.habitare-immobilien.de/angebote::5|122.6|1808.9|königs wusterhausen",
+    "https://www.habitare-immobilien.de/angebote::3|85|1239|königs wusterhausen",
+    "https://www.habitare-immobilien.de/angebote::3|90|1379|königs wusterhausen",
+    "https://www.habitare-immobilien.de/angebote::|22.9|150|10559",
+    "https://www.habitare-immobilien.de/angebote::|22.1|299|13347",
+    "https://www.habitare-immobilien.de/angebote::|137.5|2552.6|10827"
   ],
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": [
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|52.6|1400|10407",

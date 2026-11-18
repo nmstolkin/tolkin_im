@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T14:33:21.135679+00:00",
+  "generated_at": "2026-11-18T16:39:31.265906+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -1705,10 +1705,6 @@
       "median_hours": 64.3,
       "samples": 3
     },
-    "kip.net": {
-      "median_hours": 211.5,
-      "samples": 6
-    },
     "engelvoelkers.com": {
       "median_hours": 238.7,
       "samples": 10
@@ -1716,6 +1712,10 @@
     "caseaberlino.com": {
       "median_hours": 45.3,
       "samples": 2
+    },
+    "kip.net": {
+      "median_hours": 237.2,
+      "samples": 5
     },
     "wbm.de": {
       "median_hours": 179.9,

@@ -598,5 +598,16 @@
   },
   "Robert-Stolz-Str. 11, Berlin, Germany": {
     "miss_at": "2026-11-17T00:57:35.328472+00:00"
+  },
+  "Mommsen, Berlin, Germany": [
+    52.5178141,
+    13.3932623
+  ],
+  "Münchener Str., Berlin, Germany": [
+    52.6351738,
+    13.2773853
+  ],
+  "Nahe Olivaer Platz, Berlin, Germany": {
+    "miss_at": "2026-11-18T13:58:25.341157+00:00"
   }
 }

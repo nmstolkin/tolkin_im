@@ -252,7 +252,11 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|43|740|10318",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|78|1326|10318",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|74|1878|13187",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::1|34||10315"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|34||10315",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|34|772|12357",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3.5|91|2100|12621",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::7|188|2950|12305",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|61|1525|13187"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -958,7 +962,8 @@
     "https://www.wbm.de/wohnungen-berlin/angebote/::2|58.4||13591",
     "https://www.wbm.de/wohnungen-berlin/angebote/::2|63.8||10249",
     "https://www.wbm.de/wohnungen-berlin/angebote/::2|59.8||10249",
-    "https://www.wbm.de/wohnungen-berlin/angebote/::2|68.9||13589"
+    "https://www.wbm.de/wohnungen-berlin/angebote/::2|68.9||13589",
+    "https://www.wbm.de/wohnungen-berlin/angebote/::2|79.2||10178"
   ],
   "https://www.habitare-immobilien.de/angebote": [
     "https://www.habitare-immobilien.de/angebote::https://www.habitare-immobilien.de/angebote/1480060.klingsor-tg-95-20",
@@ -1020,7 +1025,9 @@
     "https://www.habitare-immobilien.de/angebote::3|90|1379|königs wusterhausen",
     "https://www.habitare-immobilien.de/angebote::|22.9|150|10559",
     "https://www.habitare-immobilien.de/angebote::|22.1|299|13347",
-    "https://www.habitare-immobilien.de/angebote::|137.5|2552.6|10827"
+    "https://www.habitare-immobilien.de/angebote::|137.5|2552.6|10827",
+    "https://www.habitare-immobilien.de/angebote::2|66.4|900.0|12459",
+    "https://www.habitare-immobilien.de/angebote::2|58.0|546.5|12437"
   ],
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": [
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|52.6|1400|10407",

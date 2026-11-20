@@ -901,7 +901,17 @@
     "https://inberlinwohnen.de/wohnungsfinder/::4|92|1211|12524",
     "https://inberlinwohnen.de/wohnungsfinder/::1|29.4|283.3|10409",
     "https://inberlinwohnen.de/wohnungsfinder/::3|61.5|406.7|10409",
-    "https://inberlinwohnen.de/wohnungsfinder/::3|58.7|541.5|12459"
+    "https://inberlinwohnen.de/wohnungsfinder/::3|58.7|541.5|12459",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|67.9|484.2|12681",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|63.3|846.9|12681",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|70.5|1252.1|12687",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|65.6|1041.6|12489",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|63.8|957|13057",
+    "https://inberlinwohnen.de/wohnungsfinder/::4|86.5|1267.2|12619",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|112.3|1941.3|12555",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|61.6|486.4|13627",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|25.0|463.7|10551",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|50.1|340.6|12349"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -1798,7 +1808,16 @@
     "https://immonexxt.com/de/mietangebote-wohnen::2.5|78.4|949|berlin",
     "https://immonexxt.com/de/mietangebote-wohnen::2|47.5|709|berlin",
     "https://immonexxt.com/de/mietangebote-wohnen::4|85.8|1219|potsdam",
-    "https://immonexxt.com/de/mietangebote-wohnen::1.5|48.5|929|berlin"
+    "https://immonexxt.com/de/mietangebote-wohnen::1.5|48.5|929|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|78.4|969|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|76.0|1089|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|75.3|1099|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|75.4|1099|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::1.5|41.5|679|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::4|86.2|1299|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|53.0|789|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|70.0|749|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|68.4|789|berlin"
   ],
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": [
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
@@ -1837,7 +1856,9 @@
     "https://www.tela-immobilien.de/angebote-mietimmobilien::4|133|2112|frohnau",
     "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|",
     "https://www.tela-immobilien.de/angebote-mietimmobilien::1|43|949.8|",
-    "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|nahe olivaer platz"
+    "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|nahe olivaer platz",
+    "https://www.tela-immobilien.de/angebote-mietimmobilien::3|100|1164.7|",
+    "https://www.tela-immobilien.de/angebote-mietimmobilien::2|91|2253.7|"
   ],
   "https://www.foelske.de/hausverwaltung-berlin/angebote.html": [],
   "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/": [
@@ -2475,7 +2496,8 @@
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::3|76|2250|",
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53|1500|friedrichshain",
     "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::3|76||",
-    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53||stralau"
+    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53||stralau",
+    "https://smartsite2.myonoffice.de/kunden/agasimmobilien/17/immobilien-makler-berlin-agas.xhtml::2|53|1500|stralau"
   ],
   "https://cap-con.de/immobilien-berlin/": [
     "https://cap-con.de/immobilien-berlin/::4|121|1160|spandau",

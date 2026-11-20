@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T16:20:43.933100+00:00",
+  "generated_at": "2026-11-20T16:50:34.580534+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,23 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|",
+      "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",
+      "rooms": 4,
+      "size_qm": 135,
+      "rent": 1830.97,
+      "price_per_sqm": 13.6,
+      "district": null,
+      "plz": null,
+      "street": "Olivaer Platz",
+      "url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+      "site_url": "https://www.tela-immobilien.de/angebote-mietimmobilien",
+      "source_name": "tela-immobilien.de",
+      "found_at": "2026-11-20T16:49:31.602906+00:00",
+      "frei_ab": "sofort",
+      "still_listed": true
+    },
     {
       "key": "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100|2000|berlin",
       "title": "Etagenwohnung Mommsen",
@@ -64,7 +81,8 @@
       "found_at": "2026-11-15T21:38:41.009628+00:00",
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580364+00:00"
     },
     {
       "key": "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|125.3|1628|",
@@ -80,8 +98,7 @@
       "site_url": "https://www.mueller-merkle.de/projekte/europacity-ensembles/",
       "source_name": "mueller-merkle.de",
       "found_at": "2026-11-13T22:46:01.616074+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-18T13:59:00.093868+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|88||10117",
@@ -135,7 +152,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-10T22:27:46.601453+00:00",
       "frei_ab": "Erstbezug",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580364+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::12|718||charlottenburg",
@@ -255,7 +273,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-11-09T11:37:07.917377+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580364+00:00"
     },
     {
       "key": "https://www.core-berlin.de/vermietung::3|86.5|1800|10115",
@@ -545,7 +564,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-11-05T13:49:22.601801+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580364+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -612,7 +632,8 @@
       "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
       "source_name": "wbm.de",
       "found_at": "2026-10-29T18:17:25.045543+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580364+00:00"
     },
     {
       "key": "https://inberlinwohnen.de/wohnungsfinder/::4|114.8|1205.6|10405",
@@ -904,7 +925,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-18T14:03:09.146540+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|78|2050|10439",
@@ -978,7 +1000,8 @@
       "rent_warm": 2576.95,
       "rent_kalt_geschaetzt": 2215,
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|106.1||10179",
@@ -997,7 +1020,8 @@
       "rent_warm": 2461.52,
       "rent_kalt_geschaetzt": 2143,
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|83||moabit",
@@ -1113,7 +1137,8 @@
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::3|87||10555",
@@ -1336,7 +1361,8 @@
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|101|2190|10179",
@@ -1371,7 +1397,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:46:42.893362+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::4|135|1831|10707",
@@ -1406,7 +1433,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:45:14.252151+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::3|87|2000|10555",
@@ -1423,7 +1451,8 @@
       "source_name": "immobilie1.de",
       "found_at": "2026-11-10T16:45:14.252051+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-mitte/wohnung/mieten::4|88||10117",
@@ -1531,7 +1560,8 @@
       "rent_warm": 2498.07,
       "rent_kalt_geschaetzt": 2201,
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::4|121.6|2225.9|10407",
@@ -1600,7 +1630,8 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-07T18:23:39.597176+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -1671,7 +1702,8 @@
       "source_name": "kip.net",
       "found_at": "2026-10-28T15:52:32.407074+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-20T16:50:34.580460+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|86||prenzlauer berg",
@@ -1716,27 +1748,27 @@
       "samples": 3
     },
     "immobilie1.de": {
-      "median_hours": 95.0,
-      "samples": 2
+      "median_hours": 115.2,
+      "samples": 3
     },
     "ohne-makler.net": {
       "median_hours": 190.3,
       "samples": 2
     },
+    "kip.net": {
+      "median_hours": 239.2,
+      "samples": 6
+    },
     "engelvoelkers.com": {
       "median_hours": 238.7,
       "samples": 17
     },
-    "caseaberlino.com": {
-      "median_hours": 45.3,
-      "samples": 2
-    },
-    "kip.net": {
-      "median_hours": 241.1,
+    "wbm.de": {
+      "median_hours": 269.2,
       "samples": 5
     },
-    "wbm.de": {
-      "median_hours": 179.9,
+    "caseaberlino.com": {
+      "median_hours": 45.3,
       "samples": 2
     },
     "smartsite2.myonoffice.de": {

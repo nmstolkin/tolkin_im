@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T16:50:34.580534+00:00",
+  "generated_at": "2026-11-20T23:15:17.145273+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,24 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
+      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
+      "rooms": 4,
+      "size_qm": 114,
+      "rent": 2069,
+      "price_per_sqm": 18.1,
+      "district": "Prenzlauer Berg",
+      "plz": "10405",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-11-20T23:14:45.645932+00:00",
+      "alias_keys": [
+        "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405"
+      ]
+    },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|",
       "title": "Besonderer Altbau - Erstbezug in san. AB -Whg. m. Flügeltüren und Parkett! Nahe Olivaer Platz!",
@@ -482,24 +500,6 @@
       "gone_since": "2026-11-14T13:56:40.926837+00:00"
     },
     {
-      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405",
-      "title": "Wunderschöne große 4 Zimmer Altbauwohnung Prenzlauer Berg",
-      "rooms": 4,
-      "size_qm": 114.0,
-      "rent": 2069.0,
-      "price_per_sqm": 18.1,
-      "district": "Prenzlauer Berg",
-      "plz": "10405",
-      "street": null,
-      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
-      "source_name": "kip.net",
-      "found_at": "2026-11-06T20:13:37.061352+00:00",
-      "also_on": [],
-      "still_listed": false,
-      "gone_since": "2026-11-16T17:24:54.855624+00:00"
-    },
-    {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::3|170||halensee",
       "title": "Stilvolles Wohnen im sanierten Altbau am Kurfürstendamm",
       "rooms": 3,
@@ -874,6 +874,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|2050|10439",
+      "title": "Erstbezug 2026 | First occupancy: 3 rooms, balcony, fitted kitchen, walk-in closet",
+      "rooms": 3,
+      "size_qm": 78,
+      "rent": 2050,
+      "price_per_sqm": 26.3,
+      "district": null,
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen",
+      "source_name": "kip.net",
+      "found_at": "2026-11-20T23:14:45.646302+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::4|133|2112|frohnau",
       "title": "Wohlfühl-MN f. Zwei od. Kleinfamilie in Grünlage Frohnaus! Terrasse zum Garten!",
@@ -1756,8 +1772,8 @@
       "samples": 2
     },
     "kip.net": {
-      "median_hours": 239.2,
-      "samples": 6
+      "median_hours": 241.1,
+      "samples": 5
     },
     "engelvoelkers.com": {
       "median_hours": 238.7,

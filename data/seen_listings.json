@@ -256,7 +256,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|34|772|12357",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3.5|91|2100|12621",
     "https://www.kip.net/berlin/mieten/wohnungen/1::7|188|2950|12305",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::2|61|1525|13187"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|61|1525|13187",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|66|1300|12527"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -493,7 +494,9 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|47|1060|13189",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|64|1500|10555",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|35|750|10439",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|85|1555|10318"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|85|1555|10318",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|2050|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|1326|10318"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -911,7 +914,8 @@
     "https://inberlinwohnen.de/wohnungsfinder/::3|112.3|1941.3|12555",
     "https://inberlinwohnen.de/wohnungsfinder/::2|61.6|486.4|13627",
     "https://inberlinwohnen.de/wohnungsfinder/::1|25.0|463.7|10551",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|50.1|340.6|12349"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|50.1|340.6|12349",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|27.8|380|13437"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -1037,7 +1041,9 @@
     "https://www.habitare-immobilien.de/angebote::|22.1|299|13347",
     "https://www.habitare-immobilien.de/angebote::|137.5|2552.6|10827",
     "https://www.habitare-immobilien.de/angebote::2|66.4|900.0|12459",
-    "https://www.habitare-immobilien.de/angebote::2|58.0|546.5|12437"
+    "https://www.habitare-immobilien.de/angebote::2|58.0|546.5|12437",
+    "https://www.habitare-immobilien.de/angebote::2|50|879|königs wusterhausen",
+    "https://www.habitare-immobilien.de/angebote::|388.5|6993|10719"
   ],
   "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00": [
     "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::2|52.6|1400|10407",

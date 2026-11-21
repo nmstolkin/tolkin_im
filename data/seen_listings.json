@@ -260,7 +260,10 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|66|1300|12527",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|74|1777|13187",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|47|648|12167",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::5|200||10623"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::5|200||10623",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|75|1650|12489",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|87|1500|14052",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|48|816|10318"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -506,7 +509,12 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|65|1250|13585",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|64|1766|10627",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|106|1850|12587",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|34|750|13585"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|34|750|13585",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|34||10315",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|98|1300|13051",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|48|816|10318",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|18||12459",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|51|1400|10439"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",

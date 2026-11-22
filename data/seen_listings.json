@@ -263,7 +263,12 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::5|200||10623",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|75|1650|12489",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|87|1500|14052",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::1|48|816|10318"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|48|816|10318",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|89|1330|13156",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|34|750|13585",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|59|956|10961",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|65|1390|12169",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|61||13589"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -514,7 +519,11 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|98|1300|13051",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|48|816|10318",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|18||12459",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|51|1400|10439"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|51|1400|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|55|950|10779",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|74|1878|13187",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|1972|10439",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::5|160|2980|13627"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -934,7 +943,8 @@
     "https://inberlinwohnen.de/wohnungsfinder/::2|61.6|486.4|13627",
     "https://inberlinwohnen.de/wohnungsfinder/::1|25.0|463.7|10551",
     "https://inberlinwohnen.de/wohnungsfinder/::2|50.1|340.6|12349",
-    "https://inberlinwohnen.de/wohnungsfinder/::1|27.8|380|13437"
+    "https://inberlinwohnen.de/wohnungsfinder/::1|27.8|380|13437",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|88.3|641.4|13435"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -2274,7 +2284,20 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|46.5|850|12487",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|54|1350|13581",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|58.5|192|13587",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|60|1109|12555"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|60|1109|12555",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|66||12351",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|58||13507",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|89||13156",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|59.8||13053",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::5|121.9||10318",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|55||10779",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|33.9||13585",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|46.5||12487",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|54||13581",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|51||10439",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|44||",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|75||12489",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|89||12683"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -2685,7 +2708,15 @@
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|106||moabit",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|108||moabit",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::2|106||mitte",
-    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::6.5|300||tiergarten"
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::6.5|300||tiergarten",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::5|206||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|153||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::1|61||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::1|68||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::1|54||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::1|46||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::1|31||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::2|54||moabit"
   ],
   "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg": [
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg::6|212||wilmersdorf",
@@ -2755,7 +2786,12 @@
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|31||mitte",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|46||mitte",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|68||mitte",
-    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|61||mitte"
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|61||mitte",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|170||prenzlauer berg",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|133||prenzlauer berg",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|67||friedrichshain",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::1|75||friedrichshain",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|153||mitte"
   ],
   "https://www.wohnwitz.de/de/wohnung/finden": [],
   "https://hpm2.immosolve.eu/immosolve_presentation/pub/modern/2145111/HP/immo.jsp": [

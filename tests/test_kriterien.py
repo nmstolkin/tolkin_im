@@ -99,3 +99,68 @@ def test_zehlendorf_mitte_ist_nicht_mitte():
 
 def test_falsche_plz():
     assert k.matches_criteria(basis(plz="12049"))[1] == ["lage"]
+
+
+# ---------------------------------------------------------------------------
+# Inserate ohne Mietangabe
+# ---------------------------------------------------------------------------
+
+def test_ohne_miete_kein_treffer():
+    """Frueher lief die Mietpruefung ins Leere und solche Inserate wurden
+    zu Treffern - obwohl der Preis voellig unbekannt ist."""
+    ok, g = k.matches_criteria(basis(rent=None))
+    assert not ok
+    assert g == ["miete_unklar"]
+
+
+def test_ohne_miete_ist_knapp_verfehlt():
+    """Nicht stillschweigend verschwinden, sondern in der zweiten Liste."""
+    l = basis(rent=None)
+    _, g = k.matches_criteria(l)
+    assert k.is_near_miss(l, g)
+
+
+def test_ohne_miete_aber_warmmiete_wird_geschaetzt():
+    """Warmmiete genuegt weiterhin - geschaetzte Kaltmiete zaehlt."""
+    ok, g = k.matches_criteria(basis(rent=None, rent_warm=2000))
+    assert ok and g == []
+
+
+def test_ohne_miete_ausserhalb_bleibt_verworfen():
+    ok, g = k.matches_criteria(basis(rent=None, plz="12043", title="Wohnung Neukölln"))
+    assert not ok
+    assert "miete_unklar" in g and "lage" in g
+
+
+# ---------------------------------------------------------------------------
+# PLZ-Rueckfall statt Umkreispruefung
+# ---------------------------------------------------------------------------
+
+def test_umkreisgebiet_ohne_adresse_ist_lage_unklar(monkeypatch):
+    """Vorgabe: ohne geocodierbare Adresse bleibt die Lage unklar."""
+    monkeypatch.setitem(k.CRITERIA, "plz_statt_umkreis", False)
+    ok, g = k.matches_criteria(basis(plz="10707", title="Altbau nahe Olivaer Platz"))
+    assert not ok and g == ["lage_unklar"]
+
+
+def test_plz_statt_umkreis_macht_treffer(monkeypatch):
+    """Mit dem Schalter zaehlt die PLZ als Lagenachweis."""
+    monkeypatch.setitem(k.CRITERIA, "plz_statt_umkreis", True)
+    ok, g = k.matches_criteria(basis(plz="10707", title="Altbau nahe Olivaer Platz"))
+    assert ok and g == []
+
+
+def test_plz_statt_umkreis_nur_bei_aktivem_gebiet(monkeypatch):
+    """Abgeschaltetes Gebiet oeffnet der Schalter nicht."""
+    monkeypatch.setitem(k.CRITERIA, "plz_statt_umkreis", True)
+    monkeypatch.setitem(k.CRITERIA["areas"], "charlottenburg", False)
+    ok, g = k.matches_criteria(basis(plz="10707", title="Altbau nahe Olivaer Platz"))
+    assert not ok and "lage" in g
+
+
+def test_plz_statt_umkreis_uebergeht_geocodierung_nicht(monkeypatch):
+    """Laesst sich die Adresse aufloesen, entscheidet weiter der Radius."""
+    monkeypatch.setitem(k.CRITERIA, "plz_statt_umkreis", True)
+    l = basis(plz="14057", street="Kaiserdamm 100", title="Wohnung Charlottenburg")
+    ok, g = k.matches_criteria(l)
+    assert not ok and g == ["lage"]

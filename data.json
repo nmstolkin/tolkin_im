@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T21:00:48.989722+00:00",
+  "generated_at": "2026-11-22T18:37:01.198311+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -65,7 +65,8 @@
       "site_url": "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html",
       "source_name": "plaza-immobilien.de",
       "found_at": "2026-11-18T13:36:39.322375+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-22T18:37:01.198138+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|88.5|1699|10178",
@@ -81,7 +82,8 @@
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-17T00:56:00.976041+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-22T18:37:01.198138+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135||10707",
@@ -219,7 +221,8 @@
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T14:23:25.068766+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-22T18:37:01.198138+00:00"
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|97.0|1424.6|10439",
@@ -235,7 +238,8 @@
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T14:23:25.067951+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-22T18:37:01.198138+00:00"
     },
     {
       "key": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|95.2||10437",
@@ -828,8 +832,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:24:59.084624+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-15T21:39:21.963248+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -866,6 +869,42 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::5|142||10707",
+      "title": "Renovierungsbedürftige 5-Zimmer-Wohnung mit Balkon und Aufzug in Berlin-Charlottenburg",
+      "rooms": 5,
+      "size_qm": 142,
+      "rent": null,
+      "price_per_sqm": 12.1,
+      "district": "Charlottenburg",
+      "plz": "10707",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-22T18:36:22.598923+00:00",
+      "rent_warm": 2142,
+      "rent_kalt_geschaetzt": 1716,
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|147||10435",
+      "title": "Penthouse mit besten Aussichten! Schnittstelle Prenzlauer Berg-Mitte: 2 Terrasse ...",
+      "rooms": 4,
+      "size_qm": 147,
+      "rent": null,
+      "price_per_sqm": null,
+      "district": "Prenzlauer Berg-Mitte",
+      "plz": "10435",
+      "street": null,
+      "url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
+      "source_name": "smartsite2.myonoffice.de",
+      "found_at": "2026-11-22T18:29:41.377440+00:00",
+      "miss_reason": "miete_unklar",
+      "still_listed": true
+    },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|2050|10439",
       "title": "Erstbezug 2026 | First occupancy: 3 rooms, balcony, fitted kitchen, walk-in closet",
@@ -1181,8 +1220,7 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-14T13:48:39.335278+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-15T21:39:21.963371+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|81||10719",
@@ -1199,8 +1237,7 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-14T13:48:39.335036+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-15T21:39:21.963371+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
@@ -1291,8 +1328,7 @@
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-18T14:33:21.135620+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::3|87||10555",
@@ -1476,8 +1512,7 @@
       "rent_warm": 2500,
       "rent_kalt_geschaetzt": 2236,
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-18T14:33:21.135620+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|118|1890|10551",
@@ -1494,7 +1529,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-09T23:49:44.323329+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-22T18:37:01.198247+00:00"
     },
     {
       "key": "https://fineandmine.de/immobilien/::https://fineandmine.de/immobilien/wohnung-eigentumswohnung-etagenwohnung-in-berlin-kaufen-fam-108418/",
@@ -1581,7 +1617,8 @@
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T15:00:02.793571+00:00",
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-22T18:37:01.198247+00:00"
     },
     {
       "key": "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/::https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/",
@@ -1632,8 +1669,7 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-07T18:23:39.597176+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-20T16:50:34.580460+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -1749,6 +1785,10 @@
       "median_hours": 237.8,
       "samples": 6
     },
+    "habitare-immobilien.de": {
+      "median_hours": 316.2,
+      "samples": 3
+    },
     "immobilie1.de": {
       "median_hours": 95.0,
       "samples": 2
@@ -1767,10 +1807,6 @@
     },
     "wbm.de": {
       "median_hours": 179.9,
-      "samples": 2
-    },
-    "smartsite2.myonoffice.de": {
-      "median_hours": 387.4,
       "samples": 2
     }
   }

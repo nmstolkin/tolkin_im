@@ -72,6 +72,12 @@ CRITERIA = {
     "allow_furnished": False,
     "allow_temporary": False,
     "allow_shared": False,
+    # Umkreisgebiete (Charlottenburg, Spree, Viktoria-Luise) brauchen eine
+    # Adresse. Fehlt sie, gilt das Inserat als "lage_unklar". Mit true zaehlt
+    # stattdessen die PLZ als Nachweis: mehr Treffer, aber groeber - eine PLZ
+    # ist deutlich groesser als 1,2 km um den Savignyplatz oder 250 m zur
+    # Spree. Siehe *_CANDIDATE_PLZ unten.
+    "plz_statt_umkreis": False,
 }
 
 PLZ_MITTE = {"10115", "10117", "10119", "10178", "10179"}
@@ -143,7 +149,8 @@ def wende_config_an(cfg_criteria):
     for area_key in CRITERIA["areas"]:
         if area_key in cfg_criteria.get("areas", {}):
             CRITERIA["areas"][area_key] = bool(cfg_criteria["areas"][area_key])
-    for flag in ("allow_wbs", "allow_furnished", "allow_temporary", "allow_shared"):
+    for flag in ("allow_wbs", "allow_furnished", "allow_temporary",
+                 "allow_shared", "plz_statt_umkreis"):
         if flag in cfg_criteria:
             CRITERIA[flag] = bool(cfg_criteria[flag])
     if "custom_area" in cfg_criteria:
@@ -475,6 +482,18 @@ def has_enough_data(listing):
 # Lage
 # ---------------------------------------------------------------------------
 
+def _plz_in_aktivem_umkreisgebiet(plz, areas):
+    """Liegt die PLZ in einem aktiven Umkreisgebiet? Nur fuer den
+    Rueckfall 'plz_statt_umkreis', wenn keine Adresse geocodiert werden
+    konnte. Die PLZ ersetzt den Radius dann nur grob."""
+    paare = (
+        ("charlottenburg", CHARLOTTENBURG_CANDIDATE_PLZ),
+        ("tiergarten_moabit_spree", TIERGARTEN_MOABIT_CANDIDATE_PLZ),
+        ("viktoria_luise", VIKTORIA_LUISE_CANDIDATE_PLZ),
+    )
+    return any(areas.get(key, True) and plz in plzs for key, plzs in paare)
+
+
 def pruefe_lage(listing):
     """'ok', 'lage' (sicher ausserhalb) oder 'lage_unklar' (moeglicherweise
     im Gebiet, aber ohne Adresse nicht pruefbar). 'lage_unklar' wandert in
@@ -516,6 +535,9 @@ def pruefe_lage(listing):
         if coords:
             return "ok" if _koordinate_im_gebiet(coords, areas) else "lage"
         if radius_kandidat:
+            if plz and CRITERIA.get("plz_statt_umkreis", False) \
+                    and _plz_in_aktivem_umkreisgebiet(plz, areas):
+                return "ok"
             return "lage_unklar"
 
     if not plz and not STRICT_LOCATION_FILTER:
@@ -553,7 +575,12 @@ def matches_criteria(listing):
         gruende.append("zimmer")
     if size is not None and size < CRITERIA["min_size_qm"]:
         gruende.append("groesse")
-    if rent is not None and not (CRITERIA["min_rent"] <= rent <= CRITERIA["max_rent"]):
+    if rent is None:
+        # Ohne Miete lief die Mietpruefung frueher komplett ins Leere: Inserate
+        # ganz ohne Preisangabe wurden zu Treffern. Jetzt landen sie in der
+        # Knapp-verfehlt-Liste - sichtbar, aber nicht als geprueftes Ergebnis.
+        gruende.append("miete_unklar")
+    elif not (CRITERIA["min_rent"] <= rent <= CRITERIA["max_rent"]):
         gruende.append("miete")
 
     # Lage nur pruefen (Geocoding kostet ~1 s), wenn sonst alles passt oder
@@ -579,7 +606,7 @@ def _ist_knapp(listing, grund):
     if grund == "zimmer":
         rooms = _num(listing.get("rooms"))
         return rooms is not None and rooms >= CRITERIA["min_rooms"] - NEAR_MISS_ROOMS_TOLERANCE
-    if grund == "lage_unklar":
+    if grund in ("lage_unklar", "miete_unklar"):
         return True
     return False
 

@@ -501,6 +501,13 @@ def kaskade(r):
         pw_ergebnis = pw_fehl + 1
     elif not r["gerendert"]:
         S["zaehler"]["browser_uebersprungen"] += 1
+        # Zaehler auch beim Ueberspringen weiterzaehlen. Sonst bleibt er genau
+        # auf PLAYWRIGHT_GIVE_UP_AFTER stehen: "pw_fehl < GIVE_UP_AFTER" ist
+        # dann dauerhaft falsch und "pw_fehl % RETRY_EVERY == 0" wird nie wahr,
+        # weil der Wert nie bis zum naechsten Vielfachen waechst. Die Quelle
+        # wuerde nie wieder per Browser geprueft - der gewollte Wiederholungs-
+        # versuch jeden RETRY_EVERY-ten Lauf fand faktisch nie statt.
+        pw_ergebnis = pw_fehl + 1
 
     leer_ref = dict(leer_ref, listings=[], strategie="direkt", ziel_url=None, seiten=seiten)
     return leer_ref, pw_ergebnis

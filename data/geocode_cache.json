@@ -605,5 +605,9 @@
   ],
   "Nahe Olivaer Platz, Berlin, Germany": {
     "miss_at": "2026-11-18T14:32:44.691070+00:00"
-  }
+  },
+  "Buchholz, Berlin, Germany": [
+    52.6105131,
+    13.4281104
+  ]
 }

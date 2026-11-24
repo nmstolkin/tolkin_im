@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T19:59:28.701134+00:00",
+  "generated_at": "2026-11-24T04:23:17.885597+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,24 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.core-berlin.de/vermietung::3|94.5||10439",
+      "title": "san. Altbau mit Balkon und EBK im Skandinavischen Viertel",
+      "rooms": 3,
+      "size_qm": 94.48,
+      "rent": null,
+      "price_per_sqm": 14.6,
+      "district": null,
+      "plz": "10439",
+      "street": "Isländische Straße 13",
+      "url": "https://www.core-berlin.de/vermietung",
+      "site_url": "https://www.core-berlin.de/vermietung",
+      "source_name": "core-berlin.de",
+      "found_at": "2026-11-24T04:22:05.409792+00:00",
+      "rent_warm": 1663.28,
+      "rent_kalt_geschaetzt": 1380,
+      "frei_ab": "1. Januar 2027"
+    },
     {
       "key": "https://www.livinginberlin.de/angebote/mieten::3|92.5|1527|mitte",
       "title": "Sofort bezugsfreie 3-Zimmer-Wohnung in Berlin- Mitte!",

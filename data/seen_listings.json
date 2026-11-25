@@ -1871,7 +1871,10 @@
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100||",
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::1|24|615|berlin",
     "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100|2000|berlin",
-    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::1|24|615|"
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::1|24|615|",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100||berlin",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::8|152.4||berlin",
+    "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::|143.9||berlin"
   ],
   "https://www.mj-immobilien.de/mietangebote-in-berlin.html": [],
   "https://www.gottschau-immobilien.de/miete.xhtml": [],
@@ -3230,7 +3233,8 @@
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/ein-zuhause-wie-ein-versprechen-wohnen-am-wasser-zwischen-entspannung-und-lebensqualitat-78001565575",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-city-west/city-apartment-am-ludwigkirchplatz-158001551795",
     "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-nikolassee-wannsee/bezugsfertige-3-zimmer-wohnung-zur-miete-in-top-zustand-in-lichterfelde-west-212001531149",
-    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/potsdam/moderne-2-zimmer-wohnung-mit-balkon-in-werder-havel-107001572119"
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/potsdam/moderne-2-zimmer-wohnung-mit-balkon-in-werder-havel-107001572119",
+    "https://www.von-poll.com/de/wohnung-mieten/berlin::https://www.von-poll.com/de/expose/berlin-treptow-koepenick/moderne-3-zimmer-etagenwohnung-mit-hochwertiger-ausstattung-und-balkon-78001561057"
   ],
   "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien": [
     "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135||10707",
@@ -3394,7 +3398,10 @@
     "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::2|55|445|",
     "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::1|40|1040|10719",
     "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::2|55|445|zweibrücken",
-    "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::2|50|750|13357"
+    "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::2|50|750|13357",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::3|87|1830|10555",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::3|149|2980|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::1|35|950|10777"
   ],
   "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten": [
     "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::5|198|4950|10117",
@@ -3457,7 +3464,8 @@
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|60||10585",
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|63|1298|10439",
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|60|1200|10585",
-    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|60|1150|10585"
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|60|1150|10585",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|149|2980|10117"
   ],
   "https://www.core-berlin.de/de/component/jea/?format=feed&type=rss": [],
   "https://vineta98.de/wohnungen/feed/": [],

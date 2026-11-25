@@ -598,16 +598,6 @@
     "https://www.core-berlin.de/vermietung::2|50.0||10781"
   ],
   "https://inberlinwohnen.de/wohnungsfinder/": [
-    "https://inberlinwohnen.de/wohnungsfinder/::3|74.7|1383.4|12587",
-    "https://inberlinwohnen.de/wohnungsfinder/::4|83.6|530.9|12439",
-    "https://inberlinwohnen.de/wohnungsfinder/::3|82.6|758.1|12355",
-    "https://inberlinwohnen.de/wohnungsfinder/::1|45.6|638.1|12683",
-    "https://inberlinwohnen.de/wohnungsfinder/::1|24|370|12489",
-    "https://inberlinwohnen.de/wohnungsfinder/::1|45.5|795.5|12557",
-    "https://inberlinwohnen.de/wohnungsfinder/::4|104.0|1611.5|12589",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|51|372|12524",
-    "https://inberlinwohnen.de/wohnungsfinder/::4|89.5|1420.6|13599",
-    "https://inberlinwohnen.de/wohnungsfinder/::1|41.7|476.4|10317",
     "https://inberlinwohnen.de/wohnungsfinder/::2|55.9|642.4|12353",
     "https://inberlinwohnen.de/wohnungsfinder/::2|53.4|508.3|13589",
     "https://inberlinwohnen.de/wohnungsfinder/::2|47.3|390.7|12489",
@@ -997,7 +987,17 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|45.5|932.9|12435",
     "https://inberlinwohnen.de/wohnungsfinder/::1|35.8|392.4|13591",
     "https://inberlinwohnen.de/wohnungsfinder/::2|69.4|558.0|13591",
-    "https://inberlinwohnen.de/wohnungsfinder/::2|54.0|516.7|12683"
+    "https://inberlinwohnen.de/wohnungsfinder/::2|54.0|516.7|12683",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|31.9|280|12619",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|53.9|835.8|12526",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|60.7|958.4|12559",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|54.0|472.2|10249",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|42.7|276.6|12683",
+    "https://inberlinwohnen.de/wohnungsfinder/::4|97.8|1810.9|12487",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|67.6|437.7|12679",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|70.7|485.6|13051",
+    "https://inberlinwohnen.de/wohnungsfinder/::1|30.3|259.0|12685",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|67.3|444.8|10365"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T19:21:21.409580+00:00",
+  "generated_at": "2026-11-25T03:08:50.945963+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -948,6 +948,22 @@
     }
   ],
   "near_misses": [
+    {
+      "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|78|1972|10439",
+      "title": "2026: 3 Zimmer, begehbare Ankleide, Küche & Balkon | Walk-in wardrobe",
+      "rooms": 3,
+      "size_qm": 78,
+      "rent": 1972,
+      "price_per_sqm": 25.3,
+      "district": null,
+      "plz": "10439",
+      "street": null,
+      "url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
+      "source_name": "kip.net",
+      "found_at": "2026-11-25T03:07:36.834235+00:00",
+      "miss_reason": "groesse"
+    },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|550||friedrichshain",
       "title": "Auf höchstem LIVING LEVEL: Atemberaubendes Penthouse am Spreeufer",

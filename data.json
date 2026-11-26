@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T02:22:02.069358+00:00",
+  "generated_at": "2026-11-26T09:59:04.911310+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -50,7 +50,8 @@
       "rent_warm": 1663.28,
       "rent_kalt_geschaetzt": 1380,
       "frei_ab": "1. Januar 2027",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T09:59:04.911108+00:00"
     },
     {
       "key": "https://www.livinginberlin.de/angebote/mieten::3|92.5|1527|mitte",
@@ -159,8 +160,7 @@
       "source_name": "tela-immobilien.de",
       "found_at": "2026-11-20T16:49:31.602906+00:00",
       "frei_ab": "sofort",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003370+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100|2000|berlin",
@@ -192,8 +192,7 @@
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-17T00:56:00.976041+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003370+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::4|135||10707",
@@ -282,7 +281,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-10T16:04:41.946818+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T09:59:04.911108+00:00"
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135|1831|10707",
@@ -315,8 +315,7 @@
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T14:23:25.068766+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003370+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.habitare-immobilien.de/angebote::3|97.0|1424.6|10439",
@@ -332,8 +331,7 @@
       "site_url": "https://www.habitare-immobilien.de/angebote",
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T14:23:25.067951+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003370+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.gewobag.de/fuer-mietinteressentinnen/mietangebote/?objekttyp%5B%5D=wohnung::3|95.2||10437",
@@ -436,8 +434,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744055+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-24T14:52:17.715675+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::4|178||mitte",
@@ -453,8 +450,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.744015+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-24T14:52:17.715675+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|160||mitte",
@@ -487,8 +483,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743943+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-24T14:52:17.715675+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|154||mitte",
@@ -504,8 +499,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743894+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-24T14:52:17.715675+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|205||mitte",
@@ -521,8 +515,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-07T18:52:40.743847+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-24T14:52:17.715675+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/::3|125||mitte",
@@ -624,7 +617,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-06T16:33:25.911768+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T09:59:04.911108+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::5|151|2490|10119",
@@ -924,8 +918,7 @@
       "site_url": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml",
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-10-27T15:24:59.084624+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-23T19:59:28.700967+00:00"
+      "still_listed": true
     },
     {
       "key": "https://pandion-service.de/immobilien/?post_type=immomakler_object&vermarktungsart=miete&nutzungsart&typ&ort=berlin&collapse=out&von-qm=0.00&bis-qm=115.00&von-zimmer=0.00&bis-zimmer=4.00&von-kaltmiete=0.00&bis-kaltmiete=6000.00&von-kaufpreis=0.00&bis-kaufpreis=1000000.00::3|94.3|2260|10407",
@@ -963,6 +956,59 @@
   ],
   "near_misses": [
     {
+      "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|87|1830|10555",
+      "title": "Moderne Wohnung mit eigenem Garten - im beliebten Hansaviertel zwischen Spree und Tiergarten",
+      "rooms": 3,
+      "size_qm": 87,
+      "rent": 1830,
+      "price_per_sqm": 21.0,
+      "district": "Hansaviertel",
+      "plz": "10555",
+      "street": null,
+      "url": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten",
+      "site_url": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten",
+      "source_name": "immobilie1.de",
+      "found_at": "2026-11-26T09:58:30.833309+00:00",
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte::3|83||moabit",
+      "title": "Quartier Lehrter Straße – Idyllische Wohnoase in Berliner Toplage!",
+      "rooms": 3,
+      "size_qm": 83,
+      "rent": null,
+      "price_per_sqm": 22.7,
+      "district": "Moabit",
+      "plz": null,
+      "street": null,
+      "url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/bezirk-mitte",
+      "source_name": "engelvoelkers.com",
+      "found_at": "2026-11-26T09:52:39.683675+00:00",
+      "rent_warm": 2132,
+      "rent_kalt_geschaetzt": 1883,
+      "miss_reason": "lage_unklar",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.flatbee.de/wohnung-mieten-berlin::3|83|2150|10117",
+      "title": "Sonnige 2 Zimmer Wohnung...",
+      "rooms": 3,
+      "size_qm": 83,
+      "rent": 2150,
+      "price_per_sqm": 25.9,
+      "district": null,
+      "plz": "10117",
+      "street": null,
+      "url": "https://www.flatbee.de/wohnung-mieten-berlin",
+      "site_url": "https://www.flatbee.de/wohnung-mieten-berlin",
+      "source_name": "flatbee.de",
+      "found_at": "2026-11-26T09:51:33.768828+00:00",
+      "miss_reason": "miete",
+      "still_listed": true
+    },
+    {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-moabit/wohnung/mieten::3|87|1830|10555",
       "title": "Moderne Wohnung mit eigenem Garten - im beliebten Hansaviertel zwischen Spree und Tiergarten",
       "rooms": 3,
@@ -994,8 +1040,7 @@
       "source_name": "flatbee.de",
       "found_at": "2026-11-25T11:05:42.577433+00:00",
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003485+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::3|78|1972|10439",
@@ -1049,8 +1094,7 @@
       "rent_warm": 2427.77,
       "rent_kalt_geschaetzt": 2139,
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003485+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|1972|10439",
@@ -1068,8 +1112,7 @@
       "found_at": "2026-11-22T18:43:50.127785+00:00",
       "frei_ab": "2026",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-23T11:29:58.365629+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::5|142||10707",
@@ -1106,8 +1149,7 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-22T18:29:41.377440+00:00",
       "miss_reason": "miete_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-23T19:59:28.701067+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|78|2050|10439",
@@ -1143,8 +1185,7 @@
       "found_at": "2026-11-18T14:32:43.165434+00:00",
       "frei_ab": "ab sofort",
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003485+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.berlinhaus.com/mietangebote/::3|97.5|1899.3|10629",
@@ -1332,8 +1373,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-15T21:25:35.477271+00:00",
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003485+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|118|1890|10551",
@@ -1428,8 +1468,7 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-14T13:48:39.335278+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-23T19:59:28.701067+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|81||10719",
@@ -1446,8 +1485,7 @@
       "source_name": "smartsite2.myonoffice.de",
       "found_at": "2026-11-14T13:48:39.335036+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-23T19:59:28.701067+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|76|1892|10439",
@@ -1575,25 +1613,8 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-11T11:04:23.267253+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": true
-    },
-    {
-      "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::5|133||10553",
-      "title": "Sonnendurchflutete, großzügige Maisonette-Wohnung über den Dächern Berlins - von privat!",
-      "rooms": 5,
-      "size_qm": 133,
-      "rent": null,
-      "price_per_sqm": null,
-      "district": "Moabit",
-      "plz": "10553",
-      "street": null,
-      "url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
-      "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
-      "source_name": "ohne-makler.net",
-      "found_at": "2026-11-11T11:03:16.079463+00:00",
-      "miss_reason": "lage_unklar",
       "still_listed": false,
-      "gone_since": "2026-11-12T07:27:49.849159+00:00"
+      "gone_since": "2026-11-26T09:59:04.911231+00:00"
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135||10707",
@@ -1828,8 +1849,7 @@
       "source_name": "habitare-immobilien.de",
       "found_at": "2026-11-09T15:00:02.793571+00:00",
       "miss_reason": "miete",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003485+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/::https://www.klingerimmobilien.de/immobilienangebote/mietobjekte/",
@@ -1880,7 +1900,8 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-07T18:23:39.597176+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T09:59:04.911231+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -1955,6 +1976,10 @@
     }
   ],
   "time_online": {
+    "core-berlin.de": {
+      "median_hours": 137.5,
+      "samples": 2
+    },
     "livinginberlin.de": {
       "median_hours": 8.8,
       "samples": 3
@@ -1962,10 +1987,6 @@
     "kip.net": {
       "median_hours": 249.5,
       "samples": 6
-    },
-    "habitare-immobilien.de": {
-      "median_hours": 388.1,
-      "samples": 3
     },
     "immobilie1.de": {
       "median_hours": 169.7,
@@ -1975,20 +1996,16 @@
       "median_hours": 190.3,
       "samples": 2
     },
+    "engelvoelkers.com": {
+      "median_hours": 377.9,
+      "samples": 7
+    },
     "wbm.de": {
       "median_hours": 335.9,
       "samples": 5
     },
-    "engelvoelkers.com": {
-      "median_hours": 404.0,
-      "samples": 10
-    },
     "caseaberlino.com": {
       "median_hours": 45.3,
-      "samples": 2
-    },
-    "smartsite2.myonoffice.de": {
-      "median_hours": 482.5,
       "samples": 2
     }
   }

@@ -620,5 +620,160 @@
   ],
   "Von-Sauer-Straße 16, Berlin, Germany": {
     "miss_at": "2026-11-26T17:57:31.730848+00:00"
-  }
+  },
+  "Lanzendorfer Weg 21, 14089, Berlin, Germany": [
+    52.4490403,
+    13.1178868
+  ],
+  "Lanzendorfer Weg 23, 14089, Berlin, Germany": [
+    52.4490098,
+    13.1182503
+  ],
+  "Lanzendorfer Weg 29, 14089, Berlin, Germany": [
+    52.4484175,
+    13.1165343
+  ],
+  "Lanzendorfer Weg 33, 14089, Berlin, Germany": [
+    52.4489412,
+    13.1166809
+  ],
+  "Hanowsteig 27C, 12309, Berlin, Germany": [
+    52.3899258,
+    13.4168769
+  ],
+  "Brandenburgische Straße 2A, 12167, Berlin, Germany": [
+    52.4459241,
+    13.3453651
+  ],
+  "Freibergstraße 26, 12107, Berlin, Germany": [
+    52.4354001,
+    13.386912
+  ],
+  "Prinzenallee 21, 13357, Berlin, Germany": [
+    52.5554978,
+    13.3842423
+  ],
+  "Pohleseestr. 6, 13599, Berlin, Germany": [
+    52.5555297,
+    13.2249495
+  ],
+  "Moderlieschenstr. 32, 13599, Berlin, Germany": [
+    52.5491398,
+    13.2473416
+  ],
+  "An den Rohrbruchwiesen 25, 13599, Berlin, Germany": [
+    52.5584855,
+    13.2292317
+  ],
+  "Kiefholzstr. 403, 12435, Berlin, Germany": [
+    52.487434,
+    13.4564275
+  ],
+  "Neptunstr. 22, 13409, Berlin, Germany": [
+    52.5624601,
+    13.375941
+  ],
+  "Daumstr. 54B, 13599, Berlin, Germany": [
+    52.5512984,
+    13.2278143
+  ],
+  "Mollnerweg 26, 12353, Berlin, Germany": [
+    52.4182471,
+    13.4417544
+  ],
+  "Moderlieschenstr. 70, 13599, Berlin, Germany": [
+    52.5507669,
+    13.242407
+  ],
+  "Sodener Straße 13, 14197, Berlin, Germany": [
+    52.4722856,
+    13.303982
+  ],
+  "Sodener Straße 5, 14197, Berlin, Germany": [
+    52.4715414,
+    13.3038774
+  ],
+  "Dillenburger Straße 64, 14197, Berlin, Germany": [
+    52.4719899,
+    13.3028702
+  ],
+  "Eschersheimer Straße 11, 12051, Berlin, Germany": [
+    52.4645832,
+    13.4218847
+  ],
+  "Eschersheimer Straße 41, 12051, Berlin, Germany": [
+    52.4643982,
+    13.421899
+  ],
+  "Pepitapromenade 14, 13587, Berlin, Germany": [
+    52.5641816,
+    13.2128572
+  ],
+  "Mertensstraße 36, 13587, Berlin, Germany": [
+    52.5645034,
+    13.2152861
+  ],
+  "Goltzstraße 49, 13587, Berlin, Germany": [
+    52.4905751,
+    13.3529516
+  ],
+  "Heidelberger Straße 80, 12435, Berlin, Germany": [
+    52.4865206,
+    13.4522897
+  ],
+  "Münchener Str., 13465, Berlin, Germany": [
+    52.6351738,
+    13.2773853
+  ],
+  "Kadiner Straße, 10243, Berlin, Germany": [
+    52.5144304,
+    13.4505822
+  ],
+  "Sonnenallee, 12045, Berlin, Germany": [
+    52.4859763,
+    13.4305924
+  ],
+  "Sonnenallee, 12059, Berlin, Germany": [
+    52.4783439,
+    13.4467457
+  ],
+  "Heiligenstadter Straße 5, 13055, Berlin, Germany": [
+    52.5369085,
+    13.4992543
+  ],
+  "Rotkamp 4, 13053, Berlin, Germany": [
+    52.5610525,
+    13.5087714
+  ],
+  "Wittenberger Straße 40, 12689, Berlin, Germany": [
+    52.5633712,
+    13.5665342
+  ],
+  "Matenzeile 22, 13053, Berlin, Germany": [
+    52.560885,
+    13.5098203
+  ],
+  "Neustrelitzer Straße 65D, 13055, Berlin, Germany": [
+    52.5379104,
+    13.497073
+  ],
+  "Jaczostr. 69/71, 13595, Berlin, Germany": [
+    52.5103445,
+    13.1837508
+  ],
+  "nahe Friedrich-Wilhelm-Platz 1, 12161, Berlin, Germany": {
+    "miss_at": "2026-11-26T22:42:58.789291+00:00"
+  },
+  "Feuerbachstraße 3 , 12157, Berlin, Germany": [
+    52.4639568,
+    13.3348197
+  ],
+  "Röbellweg 4/6, 13125, Berlin, Germany": [
+    52.6448577,
+    13.5018442
+  ],
+  "Röbellweg 8a/10a, 13125, Berlin, Germany": [
+    52.6448577,
+    13.5018442
+  ]
 }

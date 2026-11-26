@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T18:23:59.031909+00:00",
+  "generated_at": "2026-11-26T22:48:24.488574+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,24 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.wbm.de/wohnungen-berlin/angebote/::3|81.6||13587",
+      "title": "Ihr neues Zuhause: Attraktive 3-Zimmer-Wohnung in Spandau",
+      "rooms": 3,
+      "size_qm": 81.6,
+      "rent": null,
+      "price_per_sqm": 16.1,
+      "district": "Spandau",
+      "plz": "13587",
+      "street": "Goltzstraße 49",
+      "url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "site_url": "https://www.wbm.de/wohnungen-berlin/angebote/",
+      "source_name": "wbm.de",
+      "found_at": "2026-11-26T22:37:53.035201+00:00",
+      "rent_warm": 1556.6,
+      "rent_kalt_geschaetzt": 1312,
+      "still_listed": true
+    },
     {
       "key": "https://www.livinginberlin.de/angebote/mieten::3|92.5|1527|berlin - mitte",
       "title": "Sofort bezugsfreie 3-Zimmer-Wohnung in Berlin- Mitte!",
@@ -79,8 +97,7 @@
       "found_at": "2026-11-25T10:57:38.407976+00:00",
       "rent_warm": 2000,
       "rent_kalt_geschaetzt": 1700,
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003370+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.core-berlin.de/vermietung::3|94.5||10439",
@@ -207,7 +224,8 @@
       "source_name": "tela-immobilien.de",
       "found_at": "2026-11-20T16:49:31.602906+00:00",
       "frei_ab": "sofort",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T22:48:24.488386+00:00"
     },
     {
       "key": "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100|2000|berlin",
@@ -1237,7 +1255,8 @@
       "found_at": "2026-11-18T14:32:43.165434+00:00",
       "frei_ab": "ab sofort",
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T22:48:24.488498+00:00"
     },
     {
       "key": "https://www.berlinhaus.com/mietangebote/::3|97.5|1899.3|10629",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T17:52:32.442299+00:00",
+  "generated_at": "2026-11-26T18:23:59.031909+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,55 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.livinginberlin.de/angebote/mieten::3|92.5|1527|berlin - mitte",
+      "title": "Sofort bezugsfreie 3-Zimmer-Wohnung in Berlin- Mitte!",
+      "rooms": 3,
+      "size_qm": 92.54,
+      "rent": 1527,
+      "price_per_sqm": 16.5,
+      "district": "Berlin - Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.livinginberlin.de/angebote/mieten",
+      "site_url": "https://www.livinginberlin.de/angebote/mieten",
+      "source_name": "livinginberlin.de",
+      "found_at": "2026-11-26T17:58:41.935274+00:00",
+      "frei_ab": "sofort",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.livinginberlin.de/angebote/mieten::3|103.4|1810|berlin - mitte",
+      "title": "3-Zimmer-Wohnung mit zwei Balkonen!!",
+      "rooms": 3,
+      "size_qm": 103.4,
+      "rent": 1810,
+      "price_per_sqm": 17.5,
+      "district": "Berlin - Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.livinginberlin.de/angebote/mieten",
+      "site_url": "https://www.livinginberlin.de/angebote/mieten",
+      "source_name": "livinginberlin.de",
+      "found_at": "2026-11-26T17:58:41.935064+00:00",
+      "still_listed": true
+    },
+    {
+      "key": "https://www.livinginberlin.de/angebote/mieten::3|100.5|1513|berlin - mitte",
+      "title": "3-Zimmer-Wohnung mit zwei Balkonen!!",
+      "rooms": 3,
+      "size_qm": 100.47,
+      "rent": 1513,
+      "price_per_sqm": 15.1,
+      "district": "Berlin - Mitte",
+      "plz": null,
+      "street": null,
+      "url": "https://www.livinginberlin.de/angebote/mieten",
+      "site_url": "https://www.livinginberlin.de/angebote/mieten",
+      "source_name": "livinginberlin.de",
+      "found_at": "2026-11-26T17:58:41.934982+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.plaza-immobilien.de/Mietwohnungen-Berlin.html::3|100||",
       "title": "Etagenwohnung Berlin",
@@ -50,8 +99,7 @@
       "rent_warm": 1663.28,
       "rent_kalt_geschaetzt": 1380,
       "frei_ab": "1. Januar 2027",
-      "still_listed": false,
-      "gone_since": "2026-11-26T09:59:04.911108+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.livinginberlin.de/angebote/mieten::3|92.5|1527|mitte",
@@ -142,8 +190,7 @@
       "alias_keys": [
         "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405"
       ],
-      "still_listed": false,
-      "gone_since": "2026-11-21T16:03:02.197272+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|",
@@ -210,8 +257,7 @@
       "found_at": "2026-11-15T21:38:41.009628+00:00",
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003370+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.mueller-merkle.de/projekte/europacity-ensembles/::4|125.3|1628|",
@@ -281,8 +327,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/charlottenburg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-10T16:04:41.946818+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-26T09:59:04.911108+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135|1831|10707",
@@ -804,7 +849,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.298159+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031629+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|178||mitte",
@@ -820,7 +866,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.298127+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031629+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|160||mitte",
@@ -853,7 +900,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297769+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031629+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::6|563||prenzlauer berg",
@@ -869,7 +917,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297703+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031629+00:00"
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -885,7 +934,8 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297629+00:00",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031629+00:00"
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::3|101||10435",
@@ -1075,7 +1125,8 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-23T19:51:38.991470+00:00",
       "miss_reason": "miete_unklar",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031811+00:00"
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|96.3||10179",
@@ -1112,7 +1163,8 @@
       "found_at": "2026-11-22T18:43:50.127785+00:00",
       "frei_ab": "2026",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031811+00:00"
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::5|142||10707",
@@ -1373,7 +1425,8 @@
       "source_name": "kip.net",
       "found_at": "2026-11-15T21:25:35.477271+00:00",
       "miss_reason": "miete",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031811+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen/1::4|118|1890|10551",
@@ -1430,8 +1483,7 @@
       "rent_warm": 1831,
       "rent_kalt_geschaetzt": 1426,
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-25T18:28:52.003485+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-charlottenburg/wohnung/mieten::3|87||10555",
@@ -1450,8 +1502,7 @@
       "rent_warm": 2000,
       "rent_kalt_geschaetzt": 1739,
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-18T17:04:53.395119+00:00"
+      "still_listed": true
     },
     {
       "key": "https://smartsite2.myonoffice.de/kunden/meine-maklerde/2/objektdarstellung.xhtml::4|124||10719",
@@ -1613,8 +1664,7 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-11T11:04:23.267253+00:00",
       "miss_reason": "lage_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-26T09:59:04.911231+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/anbieter/tela-immobilienservice-gmbh/immobilien::4|135||10707",
@@ -1900,8 +1950,7 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-07T18:23:39.597176+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-26T09:59:04.911231+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -1972,37 +2021,34 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297667+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-26T18:23:59.031811+00:00"
     }
   ],
   "time_online": {
-    "core-berlin.de": {
-      "median_hours": 137.5,
-      "samples": 2
-    },
     "livinginberlin.de": {
       "median_hours": 8.8,
       "samples": 3
     },
     "kip.net": {
-      "median_hours": 249.5,
-      "samples": 6
+      "median_hours": 313.4,
+      "samples": 5
     },
     "immobilie1.de": {
-      "median_hours": 169.7,
-      "samples": 3
+      "median_hours": 95.0,
+      "samples": 2
     },
     "ohne-makler.net": {
       "median_hours": 190.3,
       "samples": 2
     },
-    "engelvoelkers.com": {
-      "median_hours": 377.9,
-      "samples": 7
-    },
     "wbm.de": {
       "median_hours": 335.9,
       "samples": 5
+    },
+    "engelvoelkers.com": {
+      "median_hours": 554.0,
+      "samples": 11
     },
     "caseaberlino.com": {
       "median_hours": 45.3,

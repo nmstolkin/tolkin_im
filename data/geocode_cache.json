@@ -617,5 +617,8 @@
   "Mommsen, Berlin, Germany": [
     52.5178141,
     13.3932623
-  ]
+  ],
+  "Von-Sauer-Straße 16, Berlin, Germany": {
+    "miss_at": "2026-11-26T17:57:31.730848+00:00"
+  }
 }

@@ -293,7 +293,11 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|42|1245|10437",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|58|995|12689",
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|51|1400|10439",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::3|100|1950|12355"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|100|1950|12355",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|60|900|12623",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|48|850|13156",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::1|32|700|14059",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::3|90|1690|12555"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -583,7 +587,9 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|31|750|10779",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|173|2800|10365",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|58|995|12689",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|80|1150|13156"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|80|1150|13156",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|105|699|10589",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|42|1245|10437"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -639,7 +645,6 @@
     "https://www.core-berlin.de/vermietung::2|78.5||10115"
   ],
   "https://inberlinwohnen.de/wohnungsfinder/": [
-    "https://inberlinwohnen.de/wohnungsfinder/::3|62.6|421.4|13059",
     "https://inberlinwohnen.de/wohnungsfinder/::4|84.3|810.3|12305",
     "https://inberlinwohnen.de/wohnungsfinder/::2|60.4|453.9|10969",
     "https://inberlinwohnen.de/wohnungsfinder/::3|76.4|502.8|10315",
@@ -1038,7 +1043,8 @@
     "https://inberlinwohnen.de/wohnungsfinder/::2|48|340.8|13055",
     "https://inberlinwohnen.de/wohnungsfinder/::1|40|600|13055",
     "https://inberlinwohnen.de/wohnungsfinder/::4|92|1288|13055",
-    "https://inberlinwohnen.de/wohnungsfinder/::4|78.4|534.0|13055"
+    "https://inberlinwohnen.de/wohnungsfinder/::4|78.4|534.0|13055",
+    "https://inberlinwohnen.de/wohnungsfinder/::3|68.7|584.2|10315"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",
@@ -2182,7 +2188,16 @@
     "https://immonexxt.com/de/mietangebote-wohnen::2|68.4|789|hellersdorf",
     "https://immonexxt.com/de/mietangebote-wohnen::3|74.9|710.2|berlin",
     "https://immonexxt.com/de/mietangebote-wohnen::4|69.9|929|berlin",
-    "https://immonexxt.com/de/mietangebote-wohnen::4|85.0|675.1|berlin"
+    "https://immonexxt.com/de/mietangebote-wohnen::4|85.0|675.1|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2.5|73.4|999|südpark",
+    "https://immonexxt.com/de/mietangebote-wohnen::1.5|55.3|749|",
+    "https://immonexxt.com/de/mietangebote-wohnen::3|74.9|710.2|",
+    "https://immonexxt.com/de/mietangebote-wohnen::4|69.9|929|",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|45.3|569|",
+    "https://immonexxt.com/de/mietangebote-wohnen::1|36.9|589|",
+    "https://immonexxt.com/de/mietangebote-wohnen::4|78.4|1129|",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|60.0|819|",
+    "https://immonexxt.com/de/mietangebote-wohnen::2.5|73.4|999|"
   ],
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": [
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
@@ -2230,7 +2245,8 @@
     "https://www.tela-immobilien.de/angebote-mietimmobilien::hindenburgdamm, großzügige sanierte altbauwhg. mit balkon! ideal für zwei oder die kleine familie!",
     "https://www.tela-immobilien.de/angebote-mietimmobilien::jenaer! beliebte lage zw. bayr. + prager pl. , nb-dg v. 2021, sehr gute aus., lift bis 4.og!",
     "https://www.tela-immobilien.de/angebote-mietimmobilien::besonderer altbau - erstbezug in san. ab -whg. m. flügeltüren und parkett! nahe olivaer platz!",
-    "https://www.tela-immobilien.de/angebote-mietimmobilien::singlewhg. - zw. prager + bay. pl.! - loftähnl. gestaltetes dg, hochwert. aus! sportlich? kein lift!"
+    "https://www.tela-immobilien.de/angebote-mietimmobilien::singlewhg. - zw. prager + bay. pl.! - loftähnl. gestaltetes dg, hochwert. aus! sportlich? kein lift!",
+    "https://www.tela-immobilien.de/angebote-mietimmobilien::3|121|1478.6|"
   ],
   "https://www.foelske.de/hausverwaltung-berlin/angebote.html": [],
   "https://www.caseaberlino.com/immobilien-vermarktungsart/miete/": [
@@ -2502,7 +2518,8 @@
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-20778-1.html",
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-20600-149.html",
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-20600-58.html",
-    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-26276-32.html"
+    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-26276-32.html",
+    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10564-47.html"
   ],
   "https://portal.immobilienscout24.de/ergebnisliste/58427637": [
     "https://portal.immobilienscout24.de/ergebnisliste/58427637::2|106|1500|hermsdorf"

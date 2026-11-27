@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T02:20:24.599342+00:00",
+  "generated_at": "2026-11-27T17:03:18.447343+00:00",
   "criteria": {
     "min_rooms": 3,
     "min_size_qm": 80,
@@ -14,6 +14,22 @@
     ]
   },
   "matches": [
+    {
+      "key": "https://www.adler-group.com/suche/wohnung::3|92.5|1276|10559",
+      "title": "Charmante 3-Zimmer-Wohnung in Top-Lage – Ihr neues Zuhause wartet!",
+      "rooms": 3,
+      "size_qm": 92.47,
+      "rent": 1276,
+      "price_per_sqm": 13.8,
+      "district": null,
+      "plz": "10559",
+      "street": "Lübecker Str. 47",
+      "url": "https://www.adler-group.com/suche/wohnung",
+      "site_url": "https://www.adler-group.com/suche/wohnung",
+      "source_name": "adler-group.com",
+      "found_at": "2026-11-27T16:57:57.432913+00:00",
+      "still_listed": true
+    },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::3|81.6||13587",
       "title": "Ihr neues Zuhause: Attraktive 3-Zimmer-Wohnung in Spandau",
@@ -187,8 +203,7 @@
       "alias_keys": [
         "https://www.kip.net/berlin/mieten/wohnungen/1::3|82|1990|10707"
       ],
-      "still_listed": false,
-      "gone_since": "2026-11-23T11:29:58.365505+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|114|2069|10405",
@@ -207,7 +222,8 @@
       "alias_keys": [
         "https://www.kip.net/berlin/mieten/wohnungen/1::4|114|2069|10405"
       ],
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-27T17:03:18.447175+00:00"
     },
     {
       "key": "https://www.tela-immobilien.de/angebote-mietimmobilien::4|135|1831.0|",
@@ -697,8 +713,7 @@
       "site_url": "https://www.kip.net/berlin/mieten/wohnungen/1",
       "source_name": "kip.net",
       "found_at": "2026-11-06T16:08:11.487455+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-19T17:29:34.529354+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|120.7||10179",
@@ -884,8 +899,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.298127+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-26T18:23:59.031629+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|160||mitte",
@@ -918,8 +932,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297769+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-26T18:23:59.031629+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::6|563||prenzlauer berg",
@@ -935,8 +948,7 @@
       "site_url": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg",
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297703+00:00",
-      "still_listed": false,
-      "gone_since": "2026-11-26T18:23:59.031629+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5.5|268||prenzlauer berg",
@@ -1125,8 +1137,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-25T03:07:36.834235+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-25T11:14:34.376542+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|550||friedrichshain",
@@ -1143,8 +1154,7 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-11-23T19:51:38.991470+00:00",
       "miss_reason": "miete_unklar",
-      "still_listed": false,
-      "gone_since": "2026-11-26T18:23:59.031811+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.wbm.de/wohnungen-berlin/angebote/::4|96.3||10179",
@@ -1181,8 +1191,7 @@
       "found_at": "2026-11-22T18:43:50.127785+00:00",
       "frei_ab": "2026",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-26T18:23:59.031811+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-schoeneberg/wohnung/mieten::5|142||10707",
@@ -1576,24 +1585,6 @@
       "gone_since": "2026-11-25T18:28:52.003485+00:00"
     },
     {
-      "key": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3.5|75.7|1892|10439",
-      "title": "Barrierefreies Zuhause mit 3,5 Zimmern in Berlin zentral gelegen",
-      "rooms": 3.5,
-      "size_qm": 75.66,
-      "rent": 1892,
-      "price_per_sqm": 25.0,
-      "district": "Prenzlauer Berg",
-      "plz": "10439",
-      "street": null,
-      "url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
-      "site_url": "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/",
-      "source_name": "ohne-makler.net",
-      "found_at": "2026-11-12T16:44:24.886607+00:00",
-      "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-13T10:00:27.011358+00:00"
-    },
-    {
       "key": "https://www.immobilie1.de/immobilien/berlin/berlin-tiergarten/wohnung/mieten::3|88|2240|10117",
       "title": "Perfekt geschnittene 3 Zimmer Wohnung mit ca. 87m², EBK und Balkon ins Grüne direkt in Mitte!",
       "rooms": 3,
@@ -1969,7 +1960,8 @@
       "source_name": "core-berlin.de",
       "found_at": "2026-11-07T18:23:39.597176+00:00",
       "miss_reason": "groesse",
-      "still_listed": true
+      "still_listed": false,
+      "gone_since": "2026-11-27T17:03:18.447280+00:00"
     },
     {
       "key": "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|82|1990|10707",
@@ -1986,8 +1978,7 @@
       "source_name": "kip.net",
       "found_at": "2026-11-06T20:14:06.526778+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-23T11:29:58.365629+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.core-berlin.de/vermietung::3|86.5|1800|10115",
@@ -2022,8 +2013,7 @@
       "source_name": "kip.net",
       "found_at": "2026-10-28T15:52:32.407074+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-23T11:29:58.365629+00:00"
+      "still_listed": true
     },
     {
       "key": "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|86||prenzlauer berg",
@@ -2040,8 +2030,7 @@
       "source_name": "engelvoelkers.com",
       "found_at": "2026-10-27T15:28:06.297667+00:00",
       "miss_reason": "groesse",
-      "still_listed": false,
-      "gone_since": "2026-11-26T18:23:59.031811+00:00"
+      "still_listed": true
     }
   ],
   "time_online": {
@@ -2050,8 +2039,8 @@
       "samples": 3
     },
     "kip.net": {
-      "median_hours": 313.4,
-      "samples": 5
+      "median_hours": 294.0,
+      "samples": 4
     },
     "immobilie1.de": {
       "median_hours": 95.0,
@@ -2066,8 +2055,8 @@
       "samples": 5
     },
     "engelvoelkers.com": {
-      "median_hours": 554.0,
-      "samples": 11
+      "median_hours": 438.7,
+      "samples": 8
     },
     "caseaberlino.com": {
       "median_hours": 45.3,

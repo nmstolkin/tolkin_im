@@ -1615,7 +1615,9 @@
     "https://www.livinginberlin.de/angebote/mieten::3|92.3|1250|berlin - wedding",
     "https://www.livinginberlin.de/angebote/mieten::2|58.1|899|berlin - wedding",
     "https://www.livinginberlin.de/angebote/mieten::3|73.4|1499|berlin - alt-hohenschönhausen",
-    "https://www.livinginberlin.de/angebote/mieten::2|126|2142|berlin - niederschöneweide"
+    "https://www.livinginberlin.de/angebote/mieten::2|126|2142|berlin - niederschöneweide",
+    "https://www.livinginberlin.de/angebote/mieten::3|87.8|866|zehlendorf",
+    "https://www.livinginberlin.de/angebote/mieten::4|90.9|728.0|spandau"
   ],
   "https://www.degewo.de/immosuche": [
     "https://www.degewo.de/immosuche::1|45.5||köpenick",
@@ -2685,7 +2687,22 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|50||10707",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|48||13156",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|61.4||13507",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|58||12689"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|58||12689",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|46||10585",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|64.2||12203",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|83.6||10245",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|52.7||10245",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::4|91.3||10245",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::4|123.2||10245",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::4|119.4||10245",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::4|119.5||10711",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|62||10717",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|130||10629",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|73||12051",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|49||10318",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|49||10961",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|36||12157",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|37||12163"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -3762,7 +3779,8 @@
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|63|1298|10439",
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|60|1200|10585",
     "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::2|60|1150|10585",
-    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|149|2980|10117"
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|149|2980|10117",
+    "https://www.immobilie1.de/immobilien/berlin/berlin-prenzlauer-berg/wohnung/mieten::3|89|1933|13189"
   ],
   "https://www.core-berlin.de/de/component/jea/?format=feed&type=rss": [],
   "https://vineta98.de/wohnungen/feed/": [],

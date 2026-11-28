@@ -593,7 +593,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|42|1245|10437",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|32|700|14059",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|34|772|12357",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|1406|12103"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|1406|12103",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|106|1770|12587"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -649,7 +650,6 @@
     "https://www.core-berlin.de/vermietung::2|78.5||10115"
   ],
   "https://inberlinwohnen.de/wohnungsfinder/": [
-    "https://inberlinwohnen.de/wohnungsfinder/::4|84.3|810.3|12305",
     "https://inberlinwohnen.de/wohnungsfinder/::2|60.4|453.9|10969",
     "https://inberlinwohnen.de/wohnungsfinder/::3|76.4|502.8|10315",
     "https://inberlinwohnen.de/wohnungsfinder/::2|69.2|519.8|13593",
@@ -1048,7 +1048,8 @@
     "https://inberlinwohnen.de/wohnungsfinder/::1|40|600|13055",
     "https://inberlinwohnen.de/wohnungsfinder/::4|92|1288|13055",
     "https://inberlinwohnen.de/wohnungsfinder/::4|78.4|534.0|13055",
-    "https://inberlinwohnen.de/wohnungsfinder/::3|68.7|584.2|10315"
+    "https://inberlinwohnen.de/wohnungsfinder/::3|68.7|584.2|10315",
+    "https://inberlinwohnen.de/wohnungsfinder/::2|52|884|13055"
   ],
   "https://www.wbm.de/wohnungen-berlin/angebote/": [
     "https://www.wbm.de/wohnungen-berlin/angebote/::4|99.0||10179",

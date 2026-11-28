@@ -298,7 +298,8 @@
     "https://www.kip.net/berlin/mieten/wohnungen/1::2|48|850|13156",
     "https://www.kip.net/berlin/mieten/wohnungen/1::1|32|700|14059",
     "https://www.kip.net/berlin/mieten/wohnungen/1::3|90|1690|12555",
-    "https://www.kip.net/berlin/mieten/wohnungen/1::2|77||12247"
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|77||12247",
+    "https://www.kip.net/berlin/mieten/wohnungen/1::2|60|900|13053"
   ],
   "https://www.kip.net/berlin/mieten/wohnungen#wohnungen": [
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::4|66|500|12163",
@@ -594,7 +595,9 @@
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|32|700|14059",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|34|772|12357",
     "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::2|63|1406|12103",
-    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|106|1770|12587"
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|106|1770|12587",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::3|75|1650|12489",
+    "https://www.kip.net/berlin/mieten/wohnungen#wohnungen::1|25|750|10315"
   ],
   "https://www.core-berlin.de/vermietung": [
     "https://www.core-berlin.de/vermietung::4|93.9||10709",
@@ -2204,7 +2207,10 @@
     "https://immonexxt.com/de/mietangebote-wohnen::1|36.9|589|",
     "https://immonexxt.com/de/mietangebote-wohnen::4|78.4|1129|",
     "https://immonexxt.com/de/mietangebote-wohnen::2|60.0|819|",
-    "https://immonexxt.com/de/mietangebote-wohnen::2.5|73.4|999|"
+    "https://immonexxt.com/de/mietangebote-wohnen::2.5|73.4|999|",
+    "https://immonexxt.com/de/mietangebote-wohnen::2.5|73.4|999|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::1.5|55.3|749|berlin",
+    "https://immonexxt.com/de/mietangebote-wohnen::2|62.9|581.2|berlin karow"
   ],
   "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1": [
     "http://www.esta-haus.de/index.php?option=com_estateagent&act=cat&task=showCE&id=1::3||405|letter",
@@ -2526,7 +2532,8 @@
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-20600-149.html",
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-20600-58.html",
     "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1770-26276-32.html",
-    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10564-47.html"
+    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10564-47.html",
+    "https://www.howoge.de/?type=999&tx_howsite_json_list[action]=immoList::/immobiliensuche/wohnungssuche/detail/1771-10482-39.html"
   ],
   "https://portal.immobilienscout24.de/ergebnisliste/58427637": [
     "https://portal.immobilienscout24.de/ergebnisliste/58427637::2|106|1500|hermsdorf"
@@ -2703,7 +2710,14 @@
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|49||10318",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|49||10961",
     "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|36||12157",
-    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|37||12163"
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|37||12163",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|88|1100|10249",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::3|130|742|10629",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|61.4|740|13507",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::1|27|389|14195",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|73|1060|12051",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|47|995|13189",
+    "https://www.ohne-makler.net/immobilien/wohnung-immobilien/berlin/berlin/::2|49|1500|10318"
   ],
   "https://www.flatbee.de/wohnung-mieten-berlin": [
     "https://www.flatbee.de/wohnung-mieten-berlin::2||552|10967",
@@ -2959,7 +2973,10 @@
     "https://www.adler-group.com/suche/wohnung::1|45|612|12555",
     "https://www.adler-group.com/suche/wohnung::4|97.7|1117|12309",
     "https://www.adler-group.com/suche/wohnung::3|87.5|1091|12309",
-    "https://www.adler-group.com/suche/wohnung::3|81.6|1075|12309"
+    "https://www.adler-group.com/suche/wohnung::3|81.6|1075|12309",
+    "https://www.adler-group.com/suche/wohnung::4|97.7||12309",
+    "https://www.adler-group.com/suche/wohnung::3|87.5||12309",
+    "https://www.adler-group.com/suche/wohnung::3|81.6||12309"
   ],
   "https://www.berlinhaus.com/mietangebote/": [
     "https://www.berlinhaus.com/mietangebote/::2|56.2|729.6|40227",
@@ -3319,7 +3336,8 @@
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::2|65||",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::2|60||",
     "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::4|178||",
-    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||"
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::5|335||",
+    "https://www.engelvoelkers.com/de/de/immobilien/res/mieten/wohnung/berlin/berlin/prenzlauer-berg::3|128||friedrichshain"
   ],
   "https://www.wohnwitz.de/de/wohnung/finden": [],
   "https://hpm2.immosolve.eu/immosolve_presentation/pub/modern/2145111/HP/immo.jsp": [
